@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/848.7efe314d.chunk.js","mappings":"mIAMA,UAJe,WACb,OAAO,gDACR,C","sources":["pages/SignIn.jsx"],"sourcesContent":["import React from 'react'\n\nconst SignIn = () => {\n  return <div>This is signin page</div>;\n}\n\nexport default SignIn\n"],"names":[],"sourceRoot":""}
