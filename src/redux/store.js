@@ -34,7 +34,10 @@ const middleware = [
 
 export const store = configureStore({
     reducer: {
-        auth: persistReducer(authPersistConfig, authReduser),
+        auth: persistReducer(authPersistConfig,
+            // authReduser
+        ),
+        
     },
     middleware,
 });
