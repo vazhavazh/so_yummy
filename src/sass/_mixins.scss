@@ -1,0 +1,71 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+@mixin font-size($fontSize, $lineHeight) {
+  font-size: calc($fontSize / 16) + rem;
+  line-height: calc($lineHeight / $fontSize);
+}
+
+@mixin reset-list {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-list-item {
+  margin-bottom: 0;
+}
+
+@mixin calc($count, $gap) {
+  width: calc((100% - ($count - 1) * $gap) / $count);
+}
+
+//Шаблонні
+
+@mixin mobile {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin retina {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// З налаштуванням
+
+@mixin media($size) {
+  @media screen and (min-width: ($size + px)) {
+    @content;
+  }
+}
+
+
+
+// $breakpoint-mobile-xs: 320px;
+// $breakpoint-mobile: 375px;
+// $breakpoint-mobile-horizontal: 580px;
+// $breakpoint-tablet: 768px;
+// $breakpoint-tablet-horizontal: 1024px;
+// $breakpoint-desktop: 1280px;
+// $breakpoint-desktop-small: 1400px;
+// $breakpoint-desktop-wide: 1600px;
+// $breakpoint-desktop-wide-xl: 1920px;
+
+// $contentMaxWidth: 1280px;
