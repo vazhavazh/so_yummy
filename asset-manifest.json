@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/so_yummy/static/css/main.bdea4552.css",
-    "main.js": "/so_yummy/static/js/main.a4a0f92f.js",
+    "main.js": "/so_yummy/static/js/main.69104588.js",
     "static/js/271.cbdc342b.chunk.js": "/so_yummy/static/js/271.cbdc342b.chunk.js",
     "static/js/211.6bb04f7c.chunk.js": "/so_yummy/static/js/211.6bb04f7c.chunk.js",
     "static/js/643.f43d5b33.chunk.js": "/so_yummy/static/js/643.f43d5b33.chunk.js",
-    "static/js/865.38c5fee2.chunk.js": "/so_yummy/static/js/865.38c5fee2.chunk.js",
+    "static/js/865.ae3da025.chunk.js": "/so_yummy/static/js/865.ae3da025.chunk.js",
     "static/js/192.d2c1d129.chunk.js": "/so_yummy/static/js/192.d2c1d129.chunk.js",
     "static/js/607.8e75e2a4.chunk.js": "/so_yummy/static/js/607.8e75e2a4.chunk.js",
     "static/js/432.e96efd67.chunk.js": "/so_yummy/static/js/432.e96efd67.chunk.js",
@@ -15,11 +15,11 @@
     "static/js/267.3607ee34.chunk.js": "/so_yummy/static/js/267.3607ee34.chunk.js",
     "index.html": "/so_yummy/index.html",
     "main.bdea4552.css.map": "/so_yummy/static/css/main.bdea4552.css.map",
-    "main.a4a0f92f.js.map": "/so_yummy/static/js/main.a4a0f92f.js.map",
+    "main.69104588.js.map": "/so_yummy/static/js/main.69104588.js.map",
     "271.cbdc342b.chunk.js.map": "/so_yummy/static/js/271.cbdc342b.chunk.js.map",
     "211.6bb04f7c.chunk.js.map": "/so_yummy/static/js/211.6bb04f7c.chunk.js.map",
     "643.f43d5b33.chunk.js.map": "/so_yummy/static/js/643.f43d5b33.chunk.js.map",
-    "865.38c5fee2.chunk.js.map": "/so_yummy/static/js/865.38c5fee2.chunk.js.map",
+    "865.ae3da025.chunk.js.map": "/so_yummy/static/js/865.ae3da025.chunk.js.map",
     "192.d2c1d129.chunk.js.map": "/so_yummy/static/js/192.d2c1d129.chunk.js.map",
     "607.8e75e2a4.chunk.js.map": "/so_yummy/static/js/607.8e75e2a4.chunk.js.map",
     "432.e96efd67.chunk.js.map": "/so_yummy/static/js/432.e96efd67.chunk.js.map",
@@ -30,6 +30,6 @@
   },
   "entrypoints": [
     "static/css/main.bdea4552.css",
-    "static/js/main.a4a0f92f.js"
+    "static/js/main.69104588.js"
   ]
 }
