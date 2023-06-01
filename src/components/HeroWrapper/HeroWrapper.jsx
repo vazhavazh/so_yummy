@@ -3,12 +3,10 @@ import React from 'react';
 import { СhooseYourBreakfast } from 'components/СhooseYourBreakfast/СhooseYourBreakfast'; 
 import { Search } from 'components/Search/Search'; 
 
-export const HeroWrapper = () => {
+export const HeroWrapper = ({children}) => {
   return (
-    <>
-      HeroWrapper
-      <СhooseYourBreakfast />
-      <Search />
-    </>
+    <div>
+{children}
+    </div>
   );
 };

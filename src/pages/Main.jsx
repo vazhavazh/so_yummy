@@ -13,11 +13,9 @@ const Main = () => {
   return (
     <>
       
-      <Hero>
-      {/* <СhooseYourBreakfast />
-      <Search /> */}
+      {/* <Hero>
       </Hero>
-      <PreviewCategories/>
+      <PreviewCategories/> */}
 
     </>
   )
