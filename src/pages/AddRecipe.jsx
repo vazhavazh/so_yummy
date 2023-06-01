@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Formik, Form, Field } from 'formik';
+import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 
 const AddRecipe = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <AddRecipeForm />;
+};
 
-export default AddRecipe
+export default AddRecipe;
