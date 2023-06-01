@@ -1,0 +1,31 @@
+@import '../../../main.scss';
+.categories_item {
+  background-color: rgb(252, 191, 99);
+  width: 343px;
+  height: 323px;
+  padding: 245px 18px 26px;
+  border-radius: 8px;
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 300px;
+    padding: 247px 16px 24px;
+  }
+
+  &-text_container {
+    &-text {
+      padding: 16px;
+      background-color: #fff;
+      border-radius: 8px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+
+      letter-spacing: -0.24px;
+
+      color: #3e4462;
+    }
+  }
+}
