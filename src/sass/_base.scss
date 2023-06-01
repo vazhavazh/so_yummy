@@ -1,3 +1,5 @@
+@import './mixins';
+
 html {
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
@@ -22,7 +24,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-
+  align-items: center;
   font-weight: 400;
 }
 
@@ -33,12 +35,12 @@ body {
   a,
   a:hover,
   a:focus {
-    color: var(--color-headline);
+    // color: var(--color-headline);
     text-decoration: none;
   }
 
   > em {
-    color: var(--color-accent);
+    // color: var(--color-accent);
     font-style: normal;
   }
 }

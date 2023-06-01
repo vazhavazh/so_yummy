@@ -1,11 +1,12 @@
-import React from 'react'
+import { FavoriteReceipts } from 'components/FavoriteReceipts/FavoriteReceipts';
+import React from 'react';
 
 const Favorite = () => {
   return (
-    <div>
-      Favv
-    </div>
-  )
-}
+    <>
+      <FavoriteReceipts />
+    </>
+  );
+};
 
-export default Favorite
+export default Favorite;

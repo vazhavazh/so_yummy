@@ -1,0 +1,131 @@
+.favorites-container {
+  max-width: 375px;
+  min-width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #fafafa;
+  display: flex;
+  border: 1px solid red;
+  justify-content: center;
+}
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.favorite-item {
+    min-height: 152px;
+    max-height: 152px;
+   
+  position: relative;
+  
+  padding: 14px 43px 14px 9px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 14px;
+
+  background: #FFFFFF;
+border-radius: 8px;
+}
+
+.favorite-img-wrapper {
+  max-width: 124px;
+  max-height: 124px;
+
+  height: 100%;
+  width: 100%;
+}
+.favorite-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.favorite-title {
+  margin-bottom: 14px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  letter-spacing: -0.24px;
+
+  /* Color - Text Primary */
+
+  color: #3e4462;
+}
+.favorite-delete-btn {
+  position: absolute;
+  left: 310px;
+  top: 14px;
+  display: flex;
+  align-items: center;
+
+  background-color: #ebf3d4;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+.favorite-description {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  /* or 125% */
+
+  letter-spacing: -0.02em;
+
+  color: #23262a;
+}
+.favorite-time {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  /* identical to box height, or 140% */
+
+  letter-spacing: -0.24px;
+
+  /* Color - Text Primary */
+
+  color: #3e4462;
+}
+
+.favorite-link {
+  position: absolute;
+  left: 247px;
+  top: 111px;
+
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  background: #22252a;
+  & span {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+
+    color: #fafafa;
+  }
+}
