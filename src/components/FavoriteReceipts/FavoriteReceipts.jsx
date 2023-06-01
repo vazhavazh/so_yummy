@@ -21,14 +21,16 @@ export const FavoriteReceipts = () => {
               type="button"
               // onClick={() => handleDelete(favorite._id.$oid)}
             >
-              <TrashIcon />
+              <TrashIcon className="favorite-delete-btn--icon" />
             </button>
-            <div className="text-wrapper">
-              <h2 className="favorite-title">{favorite.title}</h2>
-              <p className="favorite-description">{favorite.description}</p>
-              <span className="favorite-time">{favorite.time}</span>
-            </div>
 
+            <div className="favorite-description-wrapper">
+              <div>
+                <h2 className="favorite-title">{favorite.title}</h2>
+                <p className="favorite-description">{favorite.description}</p>
+              </div>
+              <span className="favorite-time">{favorite.time} min</span>
+            </div>
             <Link className="favorite-link" to={`/recipe/${favorite._id.$oid}`}>
               <span>See recipe</span>
             </Link>

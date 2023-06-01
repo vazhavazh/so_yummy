@@ -1,73 +1,127 @@
+@import '../../main.scss';
+
 .favorites-container {
   max-width: 375px;
   min-width: 375px;
+
   padding-left: 16px;
   padding-right: 16px;
-  background-color: #fafafa;
+
   display: flex;
-  border: 1px solid red;
   justify-content: center;
+
+  background-color: #fafafa;
+
+
+
+  @include tablet {
+    max-width: 768px;
+    min-width: 768px;
+
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include desktop {
+    max-width: 1440px;
+    min-width: 1440px;
+
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
 .favorites-list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 18px;
+
+  @include tablet {
+    gap: 40px;
+  }
+  @include desktop {
+    gap: 50px;
+  }
 }
 .favorite-item {
-    min-height: 152px;
-    max-height: 152px;
-   
-  position: relative;
-  
-  padding: 14px 43px 14px 9px;
-  display: flex;
-  /* flex-wrap: wrap; */
-  gap: 14px;
+  min-height: 152px;
+  max-height: 152px;
 
-  background: #FFFFFF;
-border-radius: 8px;
+  position: relative;
+
+  padding: 14px 43px 14px 9px;
+  gap: 14px;
+  display: flex;
+
+
+  background: #ffffff;
+  border-radius: 8px;
+
+  @include tablet {
+    min-height: 288px;
+    max-height: 288px;
+    padding: 28px 130px 28px 24px;
+    gap: 24px;
+  }
+  @include desktop {
+    min-height: 404px;
+    max-height: 404px;
+    padding: 40px 163px 40px 40px;
+    gap: 50px;
+  }
 }
 
 .favorite-img-wrapper {
   max-width: 124px;
   max-height: 124px;
 
-  height: 100%;
-  width: 100%;
+  min-width: 124px;
+  min-height: 124px;
+
+  @include tablet {
+    max-width: 228px;
+    min-width: 228px;
+    max-height: 232px;
+    min-height: 232px;
+  }
+  @include desktop {
+    max-width: 318px;
+    min-width: 318px;
+    max-height: 324px;
+    min-height: 324px;
+  }
 }
 .favorite-img {
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
-.text-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
+
 .favorite-title {
   margin-bottom: 14px;
+
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
-  /* identical to box height, or 100% */
-
   letter-spacing: -0.24px;
-
-  /* Color - Text Primary */
-
   color: #3e4462;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 28px;
+  }
+  @include desktop {
+    margin-bottom: 50px;
+  }
 }
 .favorite-delete-btn {
   position: absolute;
   left: 310px;
   top: 14px;
   display: flex;
+  justify-content: center;
   align-items: center;
 
   background-color: #ebf3d4;
@@ -75,6 +129,36 @@ border-radius: 8px;
   width: 24px;
   height: 24px;
   border-radius: 4px;
+
+  @include tablet {
+    left: 642px;
+    top: 28px;
+    width: 38px;
+    height: 38px;
+  }
+  @include desktop {
+    width: 44px;
+    height: 44px;
+    left: 1156px;
+    top: 40px;
+  }
+  &--icon {
+    @include tablet {
+      width: 22px;
+      height: 22px;
+    }
+    @include desktop {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.favorite-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .favorite-description {
   font-family: 'Poppins';
@@ -87,7 +171,17 @@ border-radius: 8px;
   letter-spacing: -0.02em;
 
   color: #23262a;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @include desktop {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
+
 .favorite-time {
   font-family: 'Poppins';
   font-style: normal;
@@ -98,9 +192,12 @@ border-radius: 8px;
 
   letter-spacing: -0.24px;
 
-  /* Color - Text Primary */
-
   color: #3e4462;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 .favorite-link {
@@ -115,8 +212,8 @@ border-radius: 8px;
   height: 100%;
   display: flex;
   align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
 
   background: #22252a;
   & span {
@@ -127,5 +224,24 @@ border-radius: 8px;
     line-height: 15px;
 
     color: #fafafa;
+
+    @include tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  @include tablet {
+    max-width: 138px;
+    max-height: 45px;
+    left: 542px;
+    top: 215px;
+  }
+
+  @include desktop {
+    max-width: 160px;
+    max-height: 54px;
+    left: 1040px;
+    top: 310px;
   }
 }
