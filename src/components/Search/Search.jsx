@@ -1,11 +1,15 @@
+
 import React from 'react';
+
+import style from '../Search/Search.module.scss';
+
 
 export const Search = () => {
   return (
-    <div>
-      Search
-      <input type="text" />
-      <button></button>
-    </div>
+   <>
+      <input className={style.searchInput} />
+      {/* <button></button>  */}
+      </>
+   
   )
 }

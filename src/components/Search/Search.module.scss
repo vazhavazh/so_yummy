@@ -1,0 +1,32 @@
+@import '../../sass/mixins';
+
+.searchInput {
+  min-width: 295px;
+  padding: 17px 0 17px 32px;
+  background-color: transparent;
+  color: #f0f0f0;
+  border-radius: 24px 44px;
+  background: #ffffff;
+
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: #bdbdbd;
+
+  @include tablet {
+    min-width: 360px;
+    padding: 18px 38px;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+   @include desktop {
+       min-width: 510px;
+       padding: 23px 48px;
+   }
+}
