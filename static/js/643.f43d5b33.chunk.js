@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkso_yummy=self.webpackChunkso_yummy||[]).push([[643],{643:function(u,e,n){n.r(e);n(791);var s=n(184);e.default=function(){return(0,s.jsx)("div",{children:"Favv"})}}}]);
-//# sourceMappingURL=643.f43d5b33.chunk.js.map
