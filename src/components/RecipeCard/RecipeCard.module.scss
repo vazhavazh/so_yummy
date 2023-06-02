@@ -1,0 +1,47 @@
+@import '../../main.scss';
+
+.recipeEll {
+  position: relative;
+  //   width: calc(100% - 32px);
+
+  @include tablet {
+    width: calc((100% - 64px) / 2);
+  }
+
+  @include desktop {
+    width: calc((100% - 96px) / 4);
+  }
+}
+
+.recipeImg {
+  border-radius: 8px;
+  height: 343px;
+
+  // @include tablet {
+  //         width: calc(100% - 32px);
+  //     }
+}
+
+.recipeTitle {
+  position: absolute;
+  bottom: 26px;
+
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+  width: 307px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  letter-spacing: -0.24px;
+
+  color: #3e4462;
+  background: #ffffff;
+  border-radius: 8px;
+
+  @include tablet {
+    width: 300px;
+  }
+}

@@ -1,14 +1,18 @@
-import React from 'react';
+// import React from 'react';
 
-import style from '../RecipeCard/RecipeCard.module.scss';
+// import recipes from '../../api/fakeApi/fakeFavoriteDB.json';
 
-export const RecipeCard = () => {
-  return (
-    <li>
-      <a href="#">
-        <img src="#" alt="gggggg" />
-        <p>ggggggg</p>
-      </a>
-    </li>
-  );
-};
+// import style from '../RecipeCard/RecipeCard.module.scss';
+
+// export const RecipeCard = () => {
+//   return (recipes.map(({ title, preview }) => (
+//         <li className={style.recipeEll}>
+//           <a href="#">
+//             <img  className={style.recipeImg} src={preview} alt="recipe prewiew" />
+//             <p className={style.recipeTitle}>{title}</p>
+//           </a>
+//         </li>
+//       ))
+
+//   );
+// };
