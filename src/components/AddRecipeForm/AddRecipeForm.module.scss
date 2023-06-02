@@ -11,7 +11,21 @@
     flex-direction: column;
     background-color: white;
     padding: 16px;
-    min-width: 350px;
+}
+
+.addRecipeInput {
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    outline: none;
+    height: 52px;
+
+}
+
+.addRecipeInput::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .categorySelect{
@@ -22,29 +36,8 @@
 
 }
 
-.categoryLabel{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    opacity: 0.6;
-}
 
-.addRecipeInput{
-    border: none;
-    border-bottom: 1px solid #E0E0E0;
-    outline: none;
-    height: 52px;
-   
-}
 
-.addRecipeInput::placeholder {
-    font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
- }
 
- .select {
-    border: none;
- }
+
+
