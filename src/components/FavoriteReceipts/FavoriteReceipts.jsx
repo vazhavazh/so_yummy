@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from '../../api/fakeApi/fakeFavoriteDB.json';
+import data from 'api/fakeApi/fakeFavoriteDB.json';
 import './FavoriteReceipts.scss';
-import { ReactComponent as TrashIcon } from './trash.svg';
+import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 
 export const FavoriteReceipts = () => {
   const favorites = data;

@@ -1,11 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import { IngredientsShoppingList } from 'components/IngredientsShoppingList/IngredientsShoppingList';
 const ShoppingList = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <div className="shoppingPage-container">
+       
+        <IngredientsShoppingList />
+      </div>
+    </>
+  );
+};
 
-export default ShoppingList
+export default ShoppingList;
