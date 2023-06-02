@@ -1,0 +1,93 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+.wrapper {
+  padding: 0 20px 150px 20px;
+  height: 100vh;
+  width: 100vw;
+  align-items: flex-end;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding: 0 20px 60px 20px;
+  }
+}
+
+.bgr_img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  object-fit: cover;
+  height: 50vh;
+  width: 100%;
+  background-image: url(../../assets/authPage/auth_back_mob.png);
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: 470px;
+    background-image: url(../../assets/authPage/auth_back_tablet.png);
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    height: 280px;
+    background-image: url(../../assets/authPage/auth_back_desktop.png);
+  }
+}
+
+.bgr_img_big {
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  width: 285px;
+  height: 250px;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  background-image: url(../../assets/authPage/auth_mob@1x.png);
+  @mixin retina {
+    background-image: url(../../assets/authPage/auth_mob@2x.png);
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    z-index: 10;
+    width: 409px;
+    height: 359px;
+    background-image: url(../../assets/authPage/auth_tablet@1x.png);
+    @mixin retina {
+      background-image: url(../../assets/authPage/auth_tablet@2x.png);
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 532px;
+    height: 468px;
+    left: 28%;
+    top: 52%;
+    z-index: 10;
+    background-image: url(../../assets/authPage/auth_desktop@1x.png);
+    @mixin retina {
+      background-image: url(../../assets/authPage/auth_desktop@2x.png);
+    }
+  }
+}
+
+.form_wrapper {
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 18px;
+  color: #fafafa;
+  padding: 28px 32px;
+  width: 335px;
+  max-height: 350px;
+  background-color: #2a2c36;
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 500px;
+    max-height: 481px;
+    padding: 44px 50px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-left: 420px;
+  }
+}

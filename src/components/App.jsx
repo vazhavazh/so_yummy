@@ -17,7 +17,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
-const Welcome = lazy(() => import('../pages/Welcome'));
+const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -29,37 +29,37 @@ export const App = () => {
   return (
     <div>
       <Routes>
+        <Route index element={<Main />} />
+        <Route
+          path="/welcome"
+          element={
+            // <PublicRoute>
+            <WelcomePage />
+            // </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            // <PublicRoute>
+            <RegisterPage />
+            // </PublicRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            // <PublicRoute>
+            <SignIn />
+            // </PublicRoute>
+          }
+        />
         <Route path="/" element={<Layout />}>
-          <Route index element={<Main />} />
-          <Route
-            path="/welcome"
-            element={
-              // <PublicRoute>
-                <Welcome />
-              // </PublicRoute>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              // <PublicRoute>
-                <RegisterPage />
-              // </PublicRoute>
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              // <PublicRoute>
-                <SignIn />
-              // </PublicRoute>
-            }
-          />
           <Route
             path="/categories"
             element={
               // <PrivateRoute>
-                <Categories />
+              <Categories />
               // </PrivateRoute>
             }
           />
@@ -67,7 +67,7 @@ export const App = () => {
             path="/add"
             element={
               // <PrivateRoute>
-                <AddRecipe />
+              <AddRecipe />
               // </PrivateRoute>
             }
           />
@@ -75,7 +75,7 @@ export const App = () => {
             path="/favorite"
             element={
               // <PrivateRoute>
-                <Favorite />
+              <Favorite />
               // </PrivateRoute>
             }
           />
@@ -83,7 +83,7 @@ export const App = () => {
             path="/my"
             element={
               // <PrivateRoute>
-                <MyRecipes />
+              <MyRecipes />
               // </PrivateRoute>
             }
           />
@@ -91,7 +91,7 @@ export const App = () => {
             path="/recipe/:recipeId"
             element={
               // <PrivateRoute>
-                <Recipe />
+              <Recipe />
               // </PrivateRoute>
             }
           />
@@ -99,7 +99,7 @@ export const App = () => {
             path="/search"
             element={
               // <PrivateRoute>
-                <Search />
+              <Search />
               // </PrivateRoute>
             }
           />
@@ -107,7 +107,7 @@ export const App = () => {
             path="/shopping-list"
             element={
               // <PrivateRoute>
-                <ShoppingList />
+              <ShoppingList />
               // </PrivateRoute>
             }
           />
