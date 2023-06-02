@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from '../../api/fakeApi/fakeFavoriteDB.json';
+import data from 'api/fakeApi/fakeFavoriteDB.json';
 import './FavoriteReceipts.scss';
-import { ReactComponent as TrashIcon } from './trash.svg';
+import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 
 export const FavoriteReceipts = () => {
   const favorites = data;
@@ -17,11 +17,11 @@ export const FavoriteReceipts = () => {
             </div>
 
             <button
-              className="favorite-delete-btn"
+              className="favorite-delete-btn trashBtn"
               type="button"
               // onClick={() => handleDelete(favorite._id.$oid)}
             >
-              <TrashIcon className="favorite-delete-btn--icon" />
+              <TrashIcon className="trashBtn--icon" />
             </button>
 
             <div className="favorite-description-wrapper">
@@ -31,7 +31,10 @@ export const FavoriteReceipts = () => {
               </div>
               <span className="favorite-time">{favorite.time} min</span>
             </div>
-            <Link className="favorite-link" to={`/recipe/${favorite._id.$oid}`}>
+            <Link
+              className="base-link-leaf favorite-link"
+              to={`/recipe/${favorite._id.$oid}`}
+            >
               <span>See recipe</span>
             </Link>
           </li>
