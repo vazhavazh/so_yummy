@@ -22,8 +22,8 @@ export const IngredientsShoppingList = () => {
               {' '}
               <span className="ingredient-quantity"></span>
             </div>
-            <button className="remove-btn" type="button">
-              <RemoveIcon className="remove-btn--icon" />
+            <button className="remove-btnX" type="button">
+              <RemoveIcon className="remove-btnX--icon" />
             </button>
           </li>
         ))}
