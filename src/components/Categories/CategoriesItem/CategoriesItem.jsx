@@ -1,11 +1,11 @@
 import './CategoriesItem.scss';
 
-export const CategoriesItem = () => {
+export const CategoriesItem = ({ data }) => {
   return (
     <div className="categories_item">
-      <img src="" alt="" className="categories_item-image" />
+      <img src={data.preview} alt="" className="categories_item-img" />
       <div className="categories_item-text_container">
-        <p className="categories_item-text_container-text">sfsdfsdf</p>
+        <p className="categories_item-text_container-text">{data.title}</p>
       </div>
     </div>
   );

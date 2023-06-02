@@ -1,19 +1,35 @@
 @import '../../../main.scss';
 .categories_item {
-  background-color: rgb(252, 191, 99);
-  width: 343px;
-  height: 323px;
-  padding: 245px 18px 26px;
-  border-radius: 8px;
-  @include tablet {
-    width: 336px;
-  }
-  @include desktop {
-    width: 300px;
-    padding: 247px 16px 24px;
+  position: relative;
+  &-img {
+    border-radius: 8px;
+    width: 343px;
+    height: 323px;
+
+    @include tablet {
+      width: 336px;
+    }
+    @include desktop {
+      width: 300px;
+    }
   }
 
   &-text_container {
+    position: absolute;
+    width: 307px;
+    bottom: 26px;
+    left: 18px;
+
+    @include tablet {
+      width: 300px;
+      bottom: 26px;
+      left: 18px;
+    }
+    @include desktop {
+      width: 268px;
+      bottom: 24px;
+      left: 16px;
+    }
     &-text {
       padding: 16px;
       background-color: #fff;

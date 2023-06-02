@@ -33,53 +33,6 @@ body {
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-}
-h1 a,
-h1 a:hover,
-h1 a:focus, h2 a,
-h2 a:hover,
-h2 a:focus, h3 a,
-h3 a:hover,
-h3 a:focus, h4 a,
-h4 a:hover,
-h4 a:focus, h5 a,
-h5 a:hover,
-h5 a:focus, h6 a,
-h6 a:hover,
-h6 a:focus, .h1 a,
-.h1 a:hover,
-.h1 a:focus, .h2 a,
-.h2 a:hover,
-.h2 a:focus, .h3 a,
-.h3 a:hover,
-.h3 a:focus, .h4 a,
-.h4 a:hover,
-.h4 a:focus, .h5 a,
-.h5 a:hover,
-.h5 a:focus, .h6 a,
-.h6 a:hover,
-.h6 a:focus {
-  text-decoration: none;
-}
-h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em, .h1 > em, .h2 > em, .h3 > em, .h4 > em, .h5 > em, .h6 > em {
-  font-style: normal;
-}
-
-#modal-root {
-  z-index: 10;
-}
-
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
 h1,
 h2,
 h3,
@@ -101,6 +54,123 @@ img {
 
 a {
   text-decoration: none;
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: #333333;
+  transition: stroke 0.2s ease;
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: #8BAA36;
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #22252A;
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8BAA36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebf3d4;
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8BAA36;
+}
+
+.trashBtn--icon {
+  fill: #22252A;
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
 }
 
 .categories {
@@ -163,7 +233,6 @@ a {
   }
 }
 .categories-cards {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
