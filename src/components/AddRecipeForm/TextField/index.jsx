@@ -2,8 +2,17 @@ import React from 'react';
 import { TextField, styled } from '@mui/material';
 import { useField } from 'formik';
 
-const CustomTextField = styled(TextField)(({ theme, error }) => ({
+const AddRecipeTextField = styled(TextField)(({ theme, error }) => ({
   borderBottom: `1px solid ${error ? 'red' : 'black'}`,
+  paddingLeft: '0px',
+  '& .MuiOutlinedInput-root': {
+    '& input': {
+      paddingLeft: 0,
+    },
+    '& fieldset': {
+      paddingLeft: 0,
+    },
+  },
   '& .MuiOutlinedInput-notchedOutline': {
     outline: 'none',
     border: 'none',
@@ -29,7 +38,7 @@ const TextfieldWrapper = ({ name, ...otherProps }) => {
     configTextField.helperText = meta.error;
   }
 
-  return <CustomTextField {...configTextField} />;
+  return <AddRecipeTextField {...configTextField} />;
 };
 
 export default TextfieldWrapper;

@@ -17,8 +17,8 @@ const initialValues = {
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-  title: Yup.string().required('Required'),
-  about: Yup.string().required('Required'),
+  title: Yup.string().required('Title is required'),
+  about: Yup.string(),
   category: Yup.string().required('Required'),
   cookingTime: Yup.string().required('Required'),
   message: Yup.string(),
