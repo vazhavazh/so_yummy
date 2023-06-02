@@ -1,6 +1,7 @@
 @import '../../sass/mixins';
 
 .searchInput {
+    align-self: flex-start;
   min-width: 295px;
   padding: 17px 0 17px 32px;
   background-color: transparent;
@@ -18,7 +19,7 @@
   color: #bdbdbd;
 
   @include tablet {
-    min-width: 360px;
+    min-width: 369px;
     padding: 18px 38px;
 
     font-size: 16px;

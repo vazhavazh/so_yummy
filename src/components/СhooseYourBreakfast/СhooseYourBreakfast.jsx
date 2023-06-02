@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ReactComponent as IconArrow } from '../../assets/svg/mainPage/icon-arrow-rigth.svg';
+import dottedArrowImg from '../../assets/image/mainPage/dotted-arrow.png';
+
 
 import style from '../СhooseYourBreakfast/СhooseYourBreakfast.module.scss';
 
@@ -20,8 +22,9 @@ export const СhooseYourBreakfast = () => {
           See recipes
           <IconArrow />
         </button>
+              <img className={style.chooseImg} src={dottedArrowImg} alt="dotted arrow"/>
+
       </div>
-      <img className={style.chooseImg} src="../../assets/image/mainPage/dotted-arrow.png" alt="#" />
     </>
   );
 };

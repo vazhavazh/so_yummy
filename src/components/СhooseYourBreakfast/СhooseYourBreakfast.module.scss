@@ -1,25 +1,31 @@
 @import '../../sass/mixins';
 
 .chooseBox {
+  right: -7px;
+  position: relative;
   align-self: flex-end;
   display: flex;
   gap: 4px;
   flex-direction: column;
-  width: 225px;
+  max-width: 229px;
+  height: 92px;
   padding: 8px;
 
   background-color: #fafafa;
   border-radius: 8px;
 
   @include tablet {
-    width: 260px;
+    right: 0px;
+    max-width: 261px;
+    height: 100px;
     padding: 12px;
   }
 
-     @include desktop {
-       width: 298px;
-       padding: 16px;
-     }
+  @include desktop {
+    max-width: 298px;
+    height: 114px;
+    padding: 16px;
+  }
 }
 
 .chooseDiscrirtion {
@@ -35,10 +41,10 @@
     line-height: 20px;
   }
 
-    //  @include desktop {
-    //    font-size: 14px;
-    //    line-height: 20px;
-    //  }
+  //  @include desktop {
+  //    font-size: 14px;
+  //    line-height: 20px;
+  //  }
 }
 
 .chooseDiscrirtionGreen {
@@ -62,4 +68,24 @@
   color: #3e4462;
   background-color: transparent;
   border: none;
+}
+
+.chooseImg {
+  display: none;
+
+  @include tablet {
+  height: 72px;
+    width: 136px;
+    display: block;
+    position: absolute;
+    left: 50%;
+      transform: translateX(-50%);
+      bottom: -60%;
+  }
+
+     @include desktop {
+       height: 89px;
+       width: 167px;
+     
+     }
 }
