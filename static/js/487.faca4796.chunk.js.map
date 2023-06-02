@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/487.faca4796.chunk.js","mappings":"mIAUA,UARqB,WACnB,OACE,kBAIH,C","sources":["pages/ShoppingList.jsx"],"sourcesContent":["import React from 'react'\n\nconst ShoppingList = () => {\n  return (\n    <div>\n      \n    </div>\n  )\n}\n\nexport default ShoppingList\n"],"names":[],"sourceRoot":""}
