@@ -1,31 +1,10 @@
-$colorBorder: #dcdcdf;
-$breakpoint-mobile-xs: 320px;
-$breakpoint-mobile: 375px;
-$breakpoint-mobile-horizontal: 580px;
-$breakpoint-tablet: 768px;
-$breakpoint-tablet-horizontal: 1024px;
-$breakpoint-desktop: 1280px;
-$breakpoint-desktop-small: 1400px;
-$breakpoint-desktop-wide: 1600px;
-$breakpoint-desktop-wide-xl: 1920px;
 
-$contentMaxWidth: 1280px;
+$mainBgColorWhite: #fafafa;
+$secondaryBgColorWhite: #ffffff;
+$mainTextColor: #3E4462;
+$mainAccentColor: #8BAA36;
+$secondaryAccentColor: #22252A;
+$hoverAnimation: 0.2s ease;
 
-// $mainColor: ;
-// $colorBlue: ;
-// $colorBG: ;
-// $colorGrey: ;
-// $colorBorder: ;
-// $colorPink: ;
-// $white: ;
-// $color-text: ;
 
-$button-border-radius-sm: 18px;
-$button-border-radius-l: 20px;
-$button-border-radius-xl: 30px;
 
-$heading-selectors: 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6';
-$input-selectors: '[type="tel"], [type="url"], [type="text"], [type="date"], [type="email"], [type="search"], [type="number"], [type="password"], textarea, select';
-
-$font-default: 'Circe', sans-serif;
-$font-accent: 'Poppins', sans-serif;
