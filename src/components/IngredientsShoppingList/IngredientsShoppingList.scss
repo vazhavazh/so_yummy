@@ -1,0 +1,21 @@
+
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+
+}
+
+.remove-btn--icon {
+  width: 14px;
+  height: 14px;
+  stroke: #333333;
+  transition: stroke 0.2s ease;
+}
+
+.remove-btn:hover .remove-btn--icon {
+  stroke: #8BAA36; 
+}
+
+
