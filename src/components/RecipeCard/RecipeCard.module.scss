@@ -1,0 +1,45 @@
+@import '../../main.scss';
+
+.recipeEll {
+  position: relative;
+
+  @include tablet {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @include desktop {
+    width: calc((100% - 42px) / 4);
+  }
+}
+
+.recipeImg {
+  border-radius: 8px;
+  width: 343px;
+  height: 323px;
+}
+
+.recipeTitle {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+  width: 307px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+
+  color: #3e4462;
+  background: #ffffff;
+  border-radius: 8px;
+
+  @include tablet {
+    width: 307px;
+  }
+
+  @include desktop {
+    width: 268px;
+  }
+}
