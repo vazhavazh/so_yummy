@@ -1,11 +1,11 @@
 import React from 'react';
 
-// import { СhooseYourBreakfast } from 'components/СhooseYourBreakfast/СhooseYourBreakfast'; 
-// import { Search } from 'components/Search/Search'; 
+import style from '../HeroWrapper/HeroWrapper.module.scss';
 
-export const HeroWrapper = ({children}) => {
+
+export const HeroWrapper = ({ children }) => {
   return (
-    <div>
+    <div className={style.heroWrapper}>
 {children}
     </div>
   );
