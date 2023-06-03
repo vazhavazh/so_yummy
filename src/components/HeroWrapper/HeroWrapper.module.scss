@@ -1,0 +1,27 @@
+@import '../../sass/mixins';
+
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 115px;
+  position: absolute;
+  bottom: 83px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include tablet {
+    flex-direction: row-reverse;
+
+    width: 100%;
+    padding: 0 32px;
+    bottom: 168px;
+  }
+
+  @include desktop {
+    align-items: flex-start;
+    padding: 0 100px;
+    bottom: 224px;
+  }
+}

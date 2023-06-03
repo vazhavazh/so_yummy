@@ -1,24 +1,15 @@
 import React from 'react';
 
-// import { Hero } from '../components/Hero/Hero';
-// import { СhooseYourBreakfast } from '../components/СhooseYourBreakfast/СhooseYourBreakfast'; 
-// import { Search } from '../components/Search/Search'; 
-// import { PreviewCategories } from '../components/PreviewCategories/PreviewCategories'; 
-// import { MainWrapper } from '../components/MainWrapper/MainWrapper'; 
-
-
-
+import { Hero } from '../components/Hero/Hero';
+import { PreviewCategories } from '../components/PreviewCategories/PreviewCategories';
 
 const Main = () => {
   return (
     <>
-      
-      {/* <Hero>
-      </Hero>
-      <PreviewCategories/> */}
-
+      <Hero></Hero>
+      <PreviewCategories />
     </>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
