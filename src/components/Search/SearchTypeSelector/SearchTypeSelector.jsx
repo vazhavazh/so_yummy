@@ -5,12 +5,6 @@ import styles from './SearchTypeSelector.module.scss';
 const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
 
 const customStyles = {
-  dropdownIndicator: (provided) => ({
-    ...provided,
-    color: '#8BAA36',
-    border: 'none',
-    boxShadow: 'none',
-  }),
   menu: (provided) => ({
     ...provided,
     backgroundColor: 'transparent',
@@ -26,9 +20,9 @@ const customStyles = {
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
-    color: state.isFocused ? '#8BAA36' : '#000000', // Зміна коліру стрілки при наведенні
     border: 'none',
     boxShadow: 'none',
+    color: state.isFocused ? '#8BAA36' : '#000000', // Зміна коліру стрілки при наведенні
   }),
   control: (provided, state) => ({
     ...provided,
