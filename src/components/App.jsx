@@ -30,12 +30,12 @@ export const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Main />} />
+          <Route index element={<Main />} path="/main" />
           <Route
             path="/welcome"
             element={
               // <PublicRoute>
-                <Welcome />
+              <Welcome />
               // </PublicRoute>
             }
           />
@@ -43,7 +43,7 @@ export const App = () => {
             path="/register"
             element={
               // <PublicRoute>
-                <RegisterPage />
+              <RegisterPage />
               // </PublicRoute>
             }
           />
@@ -51,7 +51,7 @@ export const App = () => {
             path="/signin"
             element={
               // <PublicRoute>
-                <SignIn />
+              <SignIn />
               // </PublicRoute>
             }
           />
@@ -59,7 +59,7 @@ export const App = () => {
             path="/categories"
             element={
               // <PrivateRoute>
-                <Categories />
+              <Categories />
               // </PrivateRoute>
             }
           />
@@ -67,7 +67,7 @@ export const App = () => {
             path="/add"
             element={
               // <PrivateRoute>
-                <AddRecipe />
+              <AddRecipe />
               // </PrivateRoute>
             }
           />
@@ -75,7 +75,7 @@ export const App = () => {
             path="/favorite"
             element={
               // <PrivateRoute>
-                <Favorite />
+              <Favorite />
               // </PrivateRoute>
             }
           />
@@ -83,7 +83,7 @@ export const App = () => {
             path="/my"
             element={
               // <PrivateRoute>
-                <MyRecipes />
+              <MyRecipes />
               // </PrivateRoute>
             }
           />
@@ -91,7 +91,7 @@ export const App = () => {
             path="/recipe/:recipeId"
             element={
               // <PrivateRoute>
-                <Recipe />
+              <Recipe />
               // </PrivateRoute>
             }
           />
@@ -99,7 +99,7 @@ export const App = () => {
             path="/search"
             element={
               // <PrivateRoute>
-                <Search />
+              <Search />
               // </PrivateRoute>
             }
           />
@@ -107,7 +107,7 @@ export const App = () => {
             path="/shopping-list"
             element={
               // <PrivateRoute>
-                <ShoppingList />
+              <ShoppingList />
               // </PrivateRoute>
             }
           />

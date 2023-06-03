@@ -1,18 +1,18 @@
-// import React from 'react';
+import React from 'react';
 
-// import recipes from '../../api/fakeApi/fakeFavoriteDB.json';
+import style from '../RecipeCard/RecipeCard.module.scss';
 
-// import style from '../RecipeCard/RecipeCard.module.scss';
-
-// export const RecipeCard = () => {
-//   return (recipes.map(({ title, preview }) => (
-//         <li className={style.recipeEll}>
-//           <a href="#">
-//             <img  className={style.recipeImg} src={preview} alt="recipe prewiew" />
-//             <p className={style.recipeTitle}>{title}</p>
-//           </a>
-//         </li>
-//       ))
-
-//   );
-// };
+export const RecipeCard = ({ recipe }) => {
+  return (
+    <li className={style.recipeEll}>
+      <a href="https://www.youtube.com/">
+        <img
+          className={style.recipeImg}
+          src={recipe.preview}
+          alt="recipe prewiew"
+        />
+        <p className={style.recipeTitle}>{recipe.title}</p>
+      </a>
+    </li>
+  );
+};
