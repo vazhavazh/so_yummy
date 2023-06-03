@@ -1,13 +1,13 @@
 import React from 'react';
 import { AuthForm } from 'components/AuthForm/AuthForm';
-import { LoginSchema } from 'helpers/validation';
+import { LoginSchema } from '../helpers/yup';
 const SignInPage = () => {
   return (
     <div>
       <AuthForm
         schema={LoginSchema}
         title="Sign In"
-        redirect="Sign in"
+        redirect="Registration"
         page="signin"
       />
     </div>

@@ -66,7 +66,7 @@
 }
 
 .title {
-  color: #fafafa;
+  color: $mainBgColorWhite;
   margin-top: 28px;
   margin-bottom: 14px;
   font-weight: 600;
@@ -81,7 +81,7 @@
 }
 
 .text {
-  color: #fafafa;
+  color: $mainBgColorWhite;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -116,8 +116,8 @@
   padding: 12px 24px;
   border-radius: 24px 44px;
   border: none;
-  background-color: #8baa36;
-  color: #fafafa;
+  background-color: $mainAccentColor;
+  color: $mainBgColorWhite;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -136,13 +136,13 @@
   background-color: transparent;
   padding: 12px 24px;
   border-radius: 24px 44px;
-  border: 2px solid #fafafa;
-  color: #fafafa;
+  border: 2px solid $mainBgColorWhite;
+  color: $mainBgColorWhite;
   cursor: pointer;
   &:hover,
   &:focus {
-    background-color: #22252a;
-    border: 2px solid #22252a;
+    background-color: $secondaryAccentColor;
+    border: 2px solid $secondaryAccentColor;
   }
   @media screen and (min-width: $breakpoint-tablet) {
     font-size: 16px;
