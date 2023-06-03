@@ -36,7 +36,7 @@ export const Categories = () => {
         <div className="categories-switcher">
           <TabList
             variant="scrollable"
-            scrollButtons="false"
+            scrollButtons="auto"
             onChange={handleChange}
             sx={{
               '& .MuiTabs-scroller': {
