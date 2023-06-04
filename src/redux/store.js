@@ -1,9 +1,5 @@
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
-import { authReducer } from './auth/authSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+
 import {
   persistStore,
   persistReducer,
@@ -15,6 +11,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
+import authReducer from './auth/authSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,11 +27,11 @@ const middleware = [
     },
   }),
 ];
-const rootReducer = combineReducers({
-  auth: persistReducer(authPersistConfig, authReducer),
-});
+
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
   middleware,
 });
 
