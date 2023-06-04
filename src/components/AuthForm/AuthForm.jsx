@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authThunks';
 import styles from './AuthForm.module.scss';
@@ -28,7 +29,8 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
 
   const handleRegister = async userData => {
     await dispatch(registerUser(userData));
-    console.log(userData);
+    // return <Navigate to="/main" />;
+    // console.log(userData);
   };
 
   const initialValues =
