@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllShoppingIngredients } from './shopThunks';
-import { fetchAddShoppingIngredients } from './shopThunks';
-import { fetchDeleteShoppingIngredients } from './shopThunks';
-import { fetchAllCategories } from './shopThunks';
-import { fetchUpdateShoppingIngredients } from './shopThunks';
+import {
+  fetchUpdateShoppingIngredients,
+  fetchAllShoppingIngredients,
+  fetchAddShoppingIngredients,
+  fetchDeleteShoppingIngredients,
+} from './shopThunks';
 
 const initialState = {
   shoppingIngredients: [],
@@ -35,10 +36,6 @@ export const shoppingIngredientsSlice = createSlice({
           transaction => transaction.id === action.payload
         );
         state.shoppingIngredients.splice(index, 1);
-      })
-
-      .addCase(fetchAllCategories.fulfilled, (state, action) => {
-        state.categories = action.payload;
       })
 
       .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
@@ -75,6 +72,6 @@ export const shoppingIngredientsSlice = createSlice({
   },
 });
 
-export const { clearShoppingIngredientsState, updateMonth, updateYear } =
+export const { clearShoppingIngredientsState } =
   shoppingIngredientsSlice.actions;
 export const ShoppingIngredientsReducer = shoppingIngredientsSlice.reducer;
