@@ -17,7 +17,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
-const WelcomePage = lazy(() => import('../pages/WelcomePage'));
+const Welcome = lazy(() => import('../pages/WelcomePage'));
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -29,38 +29,13 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route index element={<Main />} />
-        <Route
-          path="/welcome"
-          element={
-            // <PublicRoute>
-            <WelcomePage />
-            // </PublicRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            //<PublicRoute>
-            <RegisterPage />
-            //</PublicRoute>
-          }
-        />
-        <Route
-          path="/signin"
-          element={
-            // <PublicRoute>
-            <SignIn />
-            //</PublicRoute>
-          }
-        />
         <Route path="/" element={<Layout />}>
           <Route index element={<Main />} path="/main" />
           <Route
             path="/welcome"
             element={
               // <PublicRoute>
-              <WelcomePage />
+              <Welcome />
               // </PublicRoute>
             }
           />
@@ -80,7 +55,6 @@ export const App = () => {
               // </PublicRoute>
             }
           />
-
           <Route
             path="/categories"
             element={
