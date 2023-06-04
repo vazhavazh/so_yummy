@@ -4,8 +4,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
 // import { useDispatch } from 'react-redux';
 // import { refreshUser } from 'redux/auth/operations';
-// import { PrivateRoute } from '../hoc/PrivateRoute';
-// import { PublicRoute } from '../hoc/PublicRoute';
+import { PrivateRoute } from '../hoc/PrivateRoute';
+import { PublicRoute } from '../hoc/PublicRoute';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
 const Categories = lazy(() => import('../pages/Categories'));
@@ -17,7 +17,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
-const Welcome = lazy(() => import('../pages/Welcome'));
+const Welcome = lazy(() => import('../pages/WelcomePage'));
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -34,33 +34,34 @@ export const App = () => {
           <Route
             path="/welcome"
             element={
-              // <PublicRoute>
-              <Welcome />
-              // </PublicRoute>
+              <PublicRoute>
+                <Welcome />
+              </PublicRoute>
             }
           />
           <Route
             path="/register"
             element={
-              // <PublicRoute>
-              <RegisterPage />
-              // </PublicRoute>
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
             }
           />
           <Route
             path="/signin"
             element={
-              // <PublicRoute>
-              <SignIn />
-              // </PublicRoute>
+              <PublicRoute>
+                <SignIn />
+              </PublicRoute>
             }
           />
+
           <Route
             path="/categories"
             element={
-              // <PrivateRoute>
-              <Categories />
-              // </PrivateRoute>
+              <PrivateRoute>
+                <Categories />
+              </PrivateRoute>
             }
           />
           <Route

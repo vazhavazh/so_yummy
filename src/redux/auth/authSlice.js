@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import {
   // getCurrentUser,
-
-  // loginUser,
+  loginUser,
   // logoutUser,
   registerUser,
 } from './authThunks';
@@ -22,7 +21,6 @@ const authSlice = createSlice({
       id: '',
       username: '',
       email: '',
-
     },
     token: null,
     isLoading: true,
@@ -32,12 +30,12 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: {
     [registerUser.pending]: handlePending,
-    // [loginUser.pending]: handlePending,
+    [loginUser.pending]: handlePending,
     // [getCurrentUser.pending]: handlePending,
     // [logoutUser.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
-    // [loginUser.rejected]: handleRejected,
+    [loginUser.rejected]: handleRejected,
     // [getCurrentUser.rejected]: handleRejected,
     // [logoutUser.rejected]: handleRejected,
 
@@ -49,14 +47,14 @@ const authSlice = createSlice({
         error: null,
       };
     },
-    // [loginUser.fulfilled]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     ...payload,
-    //     isLoading: false,
-    //     error: null,
-    //   };
-    // },
+    [loginUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        ...payload,
+        isLoading: false,
+        error: null,
+      };
+    },
     // [getCurrentUser.fulfilled]: (state, { payload }) => {
     //   return {
     //     ...state,
@@ -96,7 +94,5 @@ const authSlice = createSlice({
     // },
   },
 });
-
-
 
 export default authSlice.reducer;
