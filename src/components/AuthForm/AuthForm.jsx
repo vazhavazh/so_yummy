@@ -10,6 +10,7 @@ import { ReactComponent as PassSvg } from '../../assets/svg/authForm/password.sv
 import { ReactComponent as SvgOrderBlack } from '../../assets/svg/authForm/Order-food-pana-black.svg';
 import { ReactComponent as ErrorSvg } from '../../assets/svg/authForm/error.svg';
 import { ReactComponent as SuccessSvg } from '../../assets/svg/authForm/success.svg';
+import { ReactComponent as WorningSvg } from '../../assets/svg/authForm/worning.svg';
 import { useDispatch } from 'react-redux';
 // import { selectStatus } from 'redux/auth/authSelectors';
 
@@ -163,13 +164,17 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                         {' '}
                         <PassSvg
                           fill="#fafafa"
-                          className={`${
+                          className={` ${
                             errors.password && touched.password
                               ? styles.error_fill
                               : ''
                           } ${
                             !errors.password && touched.password
                               ? styles.success_fill
+                              : ''
+                          } ${
+                            errors.password?.includes('secure')
+                              ? styles.warning_fill
                               : ''
                           }`}
                         />
@@ -187,18 +192,33 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                           !errors.password && touched.password
                             ? styles.success
                             : ''
+                        } ${
+                          errors.password?.includes('secure')
+                            ? styles.warning
+                            : ''
                         }`}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
                       />
-                      {touched.password && errors.password && (
+                      {errors.password?.includes('secure') ? (
                         <>
-                          <p className={styles.error_message}>
+                          <p className={styles.warning_message}>
+                            {' '}
                             {errors.password}
                           </p>
-                          <ErrorSvg className={styles.error_svg} />
+                          <WorningSvg className={styles.warning_svg} />
                         </>
+                      ) : (
+                        touched.password &&
+                        errors.password && (
+                          <>
+                            <p className={styles.error_message}>
+                              {errors.password}
+                            </p>
+                            <ErrorSvg className={styles.error_svg} />
+                          </>
+                        )
                       )}
                       {touched.password && !errors.password && (
                         <>
@@ -208,6 +228,15 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                           <SuccessSvg className={styles.success_svg} />
                         </>
                       )}
+                      {/* {errors.password?.includes('secure') && (
+                        <>
+                          <p className={styles.warning_message}>
+                            {' '}
+                            {errors.password}
+                          </p>
+                          <WorningSvg className={styles.worningSvg_svg} />
+                        </>
+                      )} */}
                     </label>
                     <button
                       className={styles.submit_button}

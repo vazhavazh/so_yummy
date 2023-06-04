@@ -252,3 +252,25 @@
   margin-top: 0;
   position: relative;
 }
+.warning {
+  border: 1px solid #f6c23e;
+}
+.warning_fill {
+  fill: #f6c23e;
+}
+
+.warning_message {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f6c23e;
+  margin-bottom: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.warning_svg {
+  position: absolute;
+  top: 37%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+}
