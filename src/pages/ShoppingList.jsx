@@ -3,10 +3,7 @@ import { IngredientsShoppingList } from 'components/IngredientsShoppingList/Ingr
 const ShoppingList = () => {
   return (
     <>
-      <div className="shoppingPage-container">
-       
-        <IngredientsShoppingList />
-      </div>
+      <IngredientsShoppingList />
     </>
   );
 };

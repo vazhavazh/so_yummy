@@ -1,31 +1,34 @@
-// import axios from 'axios';
+import axios from 'axios';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { setAuthHeader} from '../../api';
 // import { setAuthHeader, clearAuthHeader } from '../../api';
-// const { createAsyncThunk } = require('@reduxjs/toolkit');
+const { createAsyncThunk } = require('@reduxjs/toolkit');
 
-// export const registerUser = createAsyncThunk(
-//   'auth/registration',
-//   async (form, { rejectWithValue }) => {
-//     try {
-//       const {
-//         data: { user, token },
-//       } = await axios.post(`/api/auth/sign-up`, form);
+export const registerUser = createAsyncThunk(
+  'auth/registration',
+  async ({ rejectWithValue, ...userData }) => {
+    try {
+      const {
+        data: { user, token },
+      } = await axios.post(`/api/auth/register`, userData);
 
-//       setAuthHeader(token);
-//       return { user, token };
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+      setAuthHeader(token);
+      return { user, token };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+
 
 // export const loginUser = createAsyncThunk(
 //   'auth/login',
-//   async (form, { rejectWithValue }) => {
+//   async ( { rejectWithValue }) => {
 //     try {
 //       const {
 //         data: { user, token },
-//       } = await axios.post(`/api/auth/sign-in`, form);
+//       } = await axios.post(`/api/auth/sign-in`, );
 
 //       setAuthHeader(token);
 //       return { user, token };
@@ -45,23 +48,6 @@
 //       return rejectWithValue('Unable to fetch user');
 //     }
 
-//     try {
-//       setAuthHeader(token);
-//       const { data } = await axios.get(`/api/users/current`, token);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// export const getUserBalance = createAsyncThunk(
-//   'auth/currentBalance',
-//   async (_, { rejectWithValue, getState }) => {
-//     const { token } = getState().auth;
-//     if (!token) {
-//       return rejectWithValue('Unable to fetch user');
-//     }
 //     try {
 //       setAuthHeader(token);
 //       const { data } = await axios.get(`/api/users/current`, token);

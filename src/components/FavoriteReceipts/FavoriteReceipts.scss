@@ -100,13 +100,16 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 14px;
+
   letter-spacing: -0.24px;
   color: #3e4462;
+  line-height: 1;
+
+  letter-spacing: calc(-0.24px / 14);
 
   @include tablet {
     font-size: 24px;
-    line-height: 24px;
+
     margin-bottom: 28px;
   }
   @include desktop {
@@ -139,8 +142,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 8px;
-  line-height: 10px;
-  /* or 125% */
+  line-height: calc(10 / 8);
 
   letter-spacing: -0.02em;
 
@@ -148,11 +150,9 @@
 
   @include tablet {
     font-size: 14px;
-    line-height: 18px;
   }
   @include desktop {
     font-size: 18px;
-    line-height: 24px;
   }
 }
 
@@ -161,16 +161,15 @@
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
-  line-height: 14px;
-  /* identical to box height, or 140% */
+  line-height: calc(14 / 10);
 
-  letter-spacing: -0.24px;
+  letter-spacing: calc(-0.24px / 10);
 
   color: #3e4462;
 
   @include tablet {
     font-size: 14px;
-    line-height: 20px;
+    
   }
 }
 
