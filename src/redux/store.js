@@ -1,7 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
-
-
 import {
     persistStore,
     persistReducer,
@@ -14,6 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import authReducer from './auth/authSlice';
 
 
 const authPersistConfig = {
@@ -34,12 +33,11 @@ const middleware = [
 
 export const store = configureStore({
     reducer: {
-        auth: persistReducer(authPersistConfig,
-            // authReduser
-        ),
-        
+        auth: persistReducer(authPersistConfig, authReducer),
+
     },
     middleware,
 });
 
 export const persistor = persistStore(store);
+
