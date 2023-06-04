@@ -38,13 +38,13 @@
 
   @include tablet {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
   }
 
-  //  @include desktop {
-  //    font-size: 14px;
-  //    line-height: 20px;
-  //  }
+   @include desktop {
+     font-size: 14px;
+     line-height: 20px;
+   }
 }
 
 .chooseDiscrirtionGreen {
