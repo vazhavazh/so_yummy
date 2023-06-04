@@ -68,20 +68,86 @@
 
 // export default SelectWrapper;
 
+// import React from 'react';
+// import { TextField, Select, MenuItem, styled, Box } from '@mui/material';
+// import { useField, useFormikContext } from 'formik';
+// import { ReactComponent as DropDownIcon } from '../images/dropDownIcon.svg';
+
+// const AddRecipeSelect = styled(Select)(({ theme, error }) => ({
+//   paddingTop: '16.5px',
+//   paddingBottom: '16.5px',
+//   textAlign: 'end',
+//   width: '160px',
+//   '& .MuiSelect-icon': { top: 'calc(55% - 0.5em)' },
+//   '&::before': {
+//     width: '-150%',
+//     left: '-183px',
+//   },
+// }));
+
+// const SelectWrapper = ({ name, options, label, ...otherProps }) => {
+//   const { setFieldValue } = useFormikContext();
+//   const [field, meta] = useField(name);
+
+//   const handleChange = e => {
+//     const { value } = e.target;
+//     setFieldValue(name, value);
+//   };
+
+//   const configSelect = {
+//     ...field,
+//     ...otherProps,
+//     variant: 'standard',
+//     onChange: handleChange,
+//     IconComponent: DropDownIcon,
+//     MenuProps: {
+//       PaperProps: {
+//         style: {
+//           maxHeight: '220px',
+//           width: '155px',
+//         },
+//       },
+//     },
+//   };
+
+//   if (meta && meta.touched && meta.error) {
+//     configSelect.error = true;
+//     // configSelect.helperText = meta.error;
+//   }
+
+//   return (
+//     <AddRecipeSelect label={label} {...configSelect}>
+//       {Object.keys(options).map((item, position) => {
+//         return (
+//           <MenuItem key={position} value={item}>
+//             {options[item]}
+//           </MenuItem>
+//         );
+//       })}
+//     </AddRecipeSelect>
+//   );
+// };
+
+// export default SelectWrapper;
+
 import React from 'react';
-import { TextField, Select, MenuItem, styled } from '@mui/material';
+import { TextField, Select, MenuItem, styled, Box } from '@mui/material';
 import { useField, useFormikContext } from 'formik';
 import { ReactComponent as DropDownIcon } from '../images/dropDownIcon.svg';
-import { blue } from '@mui/material/colors';
 
 const AddRecipeSelect = styled(Select)(({ theme, error }) => ({
-  // '& .MuiPopover-paper': {
-  //   left: '-60px',
-  // },
-  padding: '16.5px',
+  paddingTop: '16.5px',
+  paddingBottom: '16.5px',
+  textAlign: 'end',
+  width: '160px',
+  '& .MuiSelect-icon': { top: 'calc(55% - 0.5em)' },
+  '&::before': {
+    width: '-150%',
+    left: '-183px',
+  },
 }));
 
-const SelectWrapper = ({ name, options, label, ...otherProps }) => {
+const SelectWrapper = ({ name, options, label, text, ...otherProps }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
 
@@ -95,10 +161,8 @@ const SelectWrapper = ({ name, options, label, ...otherProps }) => {
     ...otherProps,
     variant: 'standard',
     onChange: handleChange,
+    IconComponent: DropDownIcon,
     MenuProps: {
-      style: {
-        left: '-60px',
-      },
       PaperProps: {
         style: {
           maxHeight: '220px',
@@ -114,15 +178,28 @@ const SelectWrapper = ({ name, options, label, ...otherProps }) => {
   }
 
   return (
-    <AddRecipeSelect label={label} {...configSelect}>
-      {Object.keys(options).map((item, position) => {
-        return (
-          <MenuItem key={position} value={item}>
-            {options[item]}
-          </MenuItem>
-        );
-      })}
-    </AddRecipeSelect>
+    <Box position="relative">
+      <AddRecipeSelect label={label} {...configSelect}>
+        {Object.keys(options).map((item, position) => {
+          return (
+            <MenuItem key={position} value={item}>
+              {options[item]}
+            </MenuItem>
+          );
+        })}
+      </AddRecipeSelect>
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '-183px',
+          transform: 'translateY(-50%)',
+          opacity: '0.5',
+        }}
+      >
+        <span style={{ textAlign: 'end' }}>{label}</span>
+      </div>
+    </Box>
   );
 };
 

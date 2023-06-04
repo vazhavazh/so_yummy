@@ -13,8 +13,8 @@ import { IconButton } from './UploadFileButton/UploadFileButton';
 const initialValues = {
   title: '',
   about: '',
-  category: '',
-  cookingTime: '',
+  category: 'breakfast',
+  cookingTime: '40 min',
   recipe: '',
   file: '',
 };
