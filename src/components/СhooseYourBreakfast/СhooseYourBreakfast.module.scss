@@ -1,4 +1,4 @@
-@import '../../sass/mixins';
+@import '../../main.scss';
 
 .chooseBox {
   right: -7px;
@@ -34,21 +34,21 @@
   line-height: 18px;
 
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: $mainTextColor;
 
   @include tablet {
     font-size: 14px;
     line-height: 18px;
   }
 
-   @include desktop {
-     font-size: 14px;
-     line-height: 20px;
-   }
+  @include desktop {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 .chooseDiscrirtionGreen {
-  color: #8baa36;
+  color: $mainAccentColor;
 }
 
 .chooseBtn {
@@ -65,7 +65,7 @@
 
   letter-spacing: 0.2px;
 
-  color: #3e4462;
+  color: $mainTextColor;
   background-color: transparent;
   border: none;
 }
@@ -74,18 +74,34 @@
   display: none;
 
   @include tablet {
-  height: 72px;
+    height: 72px;
     width: 136px;
     display: block;
     position: absolute;
     left: 50%;
-      transform: translateX(-50%);
-      bottom: -60%;
+    transform: translateX(-50%);
+    bottom: -60%;
+
+    animation: blinkAnimation 1s linear;
+    opacity: 1;
   }
 
-     @include desktop {
-       height: 89px;
-       width: 167px;
-     
-     }
+  @include desktop {
+    height: 89px;
+    width: 167px;
+  }
+}
+
+@keyframes blinkAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

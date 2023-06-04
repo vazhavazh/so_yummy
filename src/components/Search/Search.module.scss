@@ -1,4 +1,4 @@
-@import '../../sass/mixins';
+@import '../../main.scss';
 
 .searchBox {
   position: relative;
@@ -11,7 +11,7 @@
   background-color: transparent;
   color: #f0f0f0;
   border-radius: 24px 44px;
-  background: #ffffff;
+  background: $secondaryBgColorWhite;
 
   border: 1px solid #f0f0f0;
   box-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
@@ -46,10 +46,16 @@
   font-size: 14px;
   line-height: 21px;
 
-  background-color: #22252a;
-  color: #fafafa;
+  background-color: $secondaryAccentColor;
+  color: $mainBgColorWhite;
   border-radius: 24px 44px;
   border: none;
+
+  transition: background $hoverAnimation;
+  &:hover,
+  &:focus {
+    background: $mainAccentColor;
+  }
 
   @include tablet {
     padding: 18px 52px;

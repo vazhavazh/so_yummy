@@ -99,11 +99,19 @@
 
   border: none;
   background: #8aa936;
-  color: #fafafa;
+  color: $mainBgColorWhite;
   border-radius: 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+
+  transition: background $hoverAnimation;
+
+  &:hover,
+  &:focus {
+    background: $secondaryAccentColor;
+    color: $mainBgColorWhite;
+  }
 }
 
 .otherCategoriesBtn {
@@ -115,7 +123,15 @@
   background-color: transparent;
 
   border-radius: 24px 44px;
-  border: 2px solid #8baa36;
+  border: 2px solid $mainAccentColor;
+
+  transition: background $hoverAnimation;
+
+  &:hover,
+    &:focus {
+      background: $mainAccentColor;
+      color: $mainBgColorWhite;
+    }
 
   @include tablet {
     padding: 20px 52px;

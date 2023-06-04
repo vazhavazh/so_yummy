@@ -38,7 +38,7 @@ export const PreviewCategories = () => {
             <Button className={style.seeAllBtn} text="See All" />
           </li>
         </ul>
-        <Button className={style.otherCategoriesBtn} text="Other categories" />
+        <Button className={style.otherCategoriesBtn} text="Other categories" to="/categories" />
       </div>
     </>
   );

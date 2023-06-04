@@ -10,6 +10,7 @@
   @include desktop {
     width: calc((100% - 42px) / 4);
   }
+
 }
 
 .recipeImg {
@@ -31,8 +32,8 @@
   line-height: 20px;
   letter-spacing: -0.24px;
 
-  color: #3e4462;
-  background: #ffffff;
+  color: $mainTextColor;
+  background: $secondaryBgColorWhite;
   border-radius: 8px;
 
   @include tablet {
