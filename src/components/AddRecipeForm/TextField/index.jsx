@@ -3,7 +3,7 @@ import { TextField, styled } from '@mui/material';
 import { useField } from 'formik';
 
 const AddRecipeTextField = styled(TextField)(({ theme, error }) => ({
-  borderBottom: `1px solid ${error ? 'red' : 'black'}`,
+  borderBottom: `1px solid ${error ? 'red' : '#E0E0E0'}`,
   '& .MuiOutlinedInput-root': {
     '& input': {
       paddingLeft: 0,
