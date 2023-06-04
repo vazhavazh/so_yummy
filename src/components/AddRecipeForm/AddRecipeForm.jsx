@@ -1,4 +1,4 @@
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
@@ -7,21 +7,25 @@ import Select from './Select';
 import Button from './Button';
 import categories from './categories';
 import cookingTime from './cookingTime';
+import { ReactComponent as FileInputImage } from './images/fileInputImage.svg';
+import { IconButton } from './UploadFileButton/UploadFileButton';
 
 const initialValues = {
   title: '',
   about: '',
   category: '',
   cookingTime: '',
-  message: '',
+  recipe: '',
+  file: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
   title: Yup.string().required('Title is required'),
-  about: Yup.string(),
-  category: Yup.string().required('Required'),
-  cookingTime: Yup.string().required('Required'),
-  message: Yup.string(),
+  about: Yup.string().required('About is required'),
+  category: Yup.string().required('Category is required'),
+  cookingTime: Yup.string().required('Cooking time is required'),
+  recipe: Yup.string().required('Recipe is required'),
+  file: Yup.mixed(),
 });
 
 export const AddRecipeForm = () => {
@@ -37,38 +41,41 @@ export const AddRecipeForm = () => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography>Add recipe</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <CustomTextField name="title" placeholder="Enter item recipe" />
-            </Grid>
-            <Grid item xs={12}>
-              <CustomTextField name="about" placeholder="Enter about recipe" />
-            </Grid>
-            <Grid item xs={12}>
+          <div className={styles.addRecipeForm}>
+            <Typography>Add recipe</Typography>
+            <Box
+              width="279px"
+              height="268px"
+              backgroundColor="#8BAA36"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <FileInputImage width="64px" height="64px" />
+            </Box>
+            <CustomTextField name="title" placeholder="Enter item title" />
+            <CustomTextField name="about" placeholder="Enter about recipe" />
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+              width="100%"
+            >
               <Select name="category" label="Category" options={categories} />
-            </Grid>
-            <Grid item xs={12}>
               <Select
                 name="cookingTime"
                 label="Cooking time"
                 options={cookingTime}
               />
-            </Grid>
-            <Grid item xs={12}>
-              <CustomTextField
-                name="message"
-                label="Enter recipe"
-                multiline={true}
-                rows={4}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Button>Submit</Button>
-            </Grid>
-          </Grid>
+            </Box>
+            <CustomTextField
+              name="recipe"
+              placeholder="Enter recipe"
+              multiline={true}
+              rows={4}
+            />
+            <Button>Submit</Button>
+          </div>
         </Form>
       </Formik>
     </div>
@@ -84,12 +91,12 @@ export const AddRecipeForm = () => {
 //     <div className={styles.addRecipeForm}>
 //       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
 //         <Form>
-//           <Field
-//             className={styles.addRecipeInput}
-//             name="title"
-//             type="text"
-//             placeholder="Enter item title"
-//           />
+//   <Field
+//     className={styles.addRecipeInput}
+//     name="title"
+//     type="text"
+//     placeholder="Enter item title"
+//   />
 //           <Field
 //             className={styles.addRecipeInput}
 //             name="about"

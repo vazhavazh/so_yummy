@@ -4,7 +4,6 @@ import { useField } from 'formik';
 
 const AddRecipeTextField = styled(TextField)(({ theme, error }) => ({
   borderBottom: `1px solid ${error ? 'red' : 'black'}`,
-  paddingLeft: '0px',
   '& .MuiOutlinedInput-root': {
     '& input': {
       paddingLeft: 0,
@@ -19,7 +18,10 @@ const AddRecipeTextField = styled(TextField)(({ theme, error }) => ({
   },
   '& .MuiFormHelperText-root': {
     position: 'absolute',
-    bottom: '-20px', // Adjust the value to position the helper text as desired
+    bottom: '-20px',
+  },
+  '& .MuiPopover-paper': {
+    width: '122px',
   },
 }));
 
