@@ -6,7 +6,6 @@ import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 
 export const FavoriteReceipts = () => {
   const favorites = data;
-  console.log(data);
   return (
     <div className="favorites-container">
       <ul className="favorites-list">

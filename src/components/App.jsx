@@ -55,6 +55,32 @@ export const App = () => {
           }
         />
         <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} path="/main" />
+          <Route
+            path="/welcome"
+            element={
+              // <PublicRoute>
+              <WelcomePage />
+              // </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              // <PublicRoute>
+              <RegisterPage />
+              // </PublicRoute>
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              // <PublicRoute>
+              <SignIn />
+              // </PublicRoute>
+            }
+          />
+
           <Route
             path="/categories"
             element={
