@@ -37,24 +37,24 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// export const getCurrentUser = createAsyncThunk(
-//   'auth/current',
-//   async (_, { rejectWithValue, getState }) => {
-//     const { token } = getState().auth;
+export const getCurrentUser = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    const { token } = getState().auth;
 
-//     if (!token) {
-//       return rejectWithValue('Unable to fetch user');
-//     }
+    if (!token) {
+      return rejectWithValue('Unable to fetch user');
+    }
 
-//     try {
-//       setAuthHeader(token);
-//       const { data } = await axios.get(`/api/users/current`, token);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+    try {
+      setAuthHeader(token);
+      const { data } = await axios.get(`/api/auth/current`, token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 // export const logoutUser = createAsyncThunk(
 //   'auth/logout',

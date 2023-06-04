@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  // getCurrentUser,
+  getCurrentUser,
   loginUser,
   // logoutUser,
   registerUser,
@@ -31,12 +31,12 @@ const authSlice = createSlice({
   extraReducers: {
     [registerUser.pending]: handlePending,
     [loginUser.pending]: handlePending,
-    // [getCurrentUser.pending]: handlePending,
+    [getCurrentUser.pending]: handlePending,
     // [logoutUser.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
     [loginUser.rejected]: handleRejected,
-    // [getCurrentUser.rejected]: handleRejected,
+    [getCurrentUser.rejected]: handleRejected,
     // [logoutUser.rejected]: handleRejected,
 
     [registerUser.fulfilled]: (state, { payload }) => {
@@ -55,29 +55,29 @@ const authSlice = createSlice({
         error: null,
       };
     },
-    // [getCurrentUser.fulfilled]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     user: payload,
-    //     error: null,
-    //     isRefreshing: false,
-    //   };
-    // },
+    [getCurrentUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        user: payload,
+        error: null,
+        isRefreshing: false,
+      };
+    },
 
-    // [getCurrentUser.pending]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     error: null,
-    //     isRefreshing: true,
-    //   };
-    // },
-    // [getCurrentUser.rejected]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     error: payload,
-    //     isRefreshing: false,
-    //   };
-    // },
+    [getCurrentUser.pending]: (state, { payload }) => {
+      return {
+        ...state,
+        error: null,
+        isRefreshing: true,
+      };
+    },
+    [getCurrentUser.rejected]: (state, { payload }) => {
+      return {
+        ...state,
+        error: payload,
+        isRefreshing: false,
+      };
+    },
     // [logoutUser.fulfilled]: (state, { payload }) => {
     //   return {
     //     user: {
