@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 import { ReactComponent as IconArrow } from '../../assets/svg/mainPage/icon-arrow-rigth.svg';
 import dottedArrowImg from '../../assets/image/mainPage/dotted-arrow.png';
@@ -12,16 +14,16 @@ export const СhooseYourBreakfast = () => {
       <div className={style.chooseBox}>
         <p className={style.chooseDiscrirtion}>
           <span className={style.chooseDiscrirtionGreen}>
-            Delicious and healthy{' '}
+            Delicious and healthy
           </span>
           <span>
             way to enjoy a variety of fresh ingredients in one satisfying meal
           </span>
         </p>
-        <button className={style.chooseBtn}>
+        <Link className={style.chooseBtn} to="/categories/breakfast">
           See recipes
           <IconArrow />
-        </button>
+        </Link>
               <img className={style.chooseImg} src={dottedArrowImg} alt="dotted arrow"/>
 
       </div>

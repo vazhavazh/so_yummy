@@ -1,4 +1,4 @@
-@import '../../sass/mixins';
+@import '../../main.scss';
 
 .heroBox {
   display: flex;
@@ -27,7 +27,7 @@
   line-height: 60px;
   letter-spacing: -0.005em;
 
-  color: #8baa36;
+  color: $mainAccentColor;
 
   @include tablet {
     font-size: 72px;
@@ -41,7 +41,7 @@
 }
 
 .heroTitle {
-  color: #22252a;
+  color: $secondaryAccentColor;
 }
 
 .heroDiscription {
