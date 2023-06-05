@@ -1,9 +1,42 @@
+@import '../../sass/container';
+
 .burger {
   padding: 0;
   background-color: transparent;
   border: 0;
   width: 28px;
   height: 28px;
-  margin-left: 24px;
+  // margin-left: 24px;
   cursor: pointer;
+}
+
+.header {
+  padding-top: 18px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  margin-right: 14px;
+}
+
+.userInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username {
+  margin-right: 24px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.nav {
+  height: 24px;
 }
