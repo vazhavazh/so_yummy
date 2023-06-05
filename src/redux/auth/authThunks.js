@@ -1,6 +1,6 @@
 import axios from 'axios';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { setAuthHeader} from '../../api';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { setAuthHeader } from '../../api';
 // import { setAuthHeader, clearAuthHeader } from '../../api';
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
@@ -15,48 +15,47 @@ export const registerUser = createAsyncThunk(
       setAuthHeader(token);
       return { user, token };
     } catch (error) {
+      Notify.failure('User is already registered');
       return rejectWithValue(error.message);
     }
   }
 );
 
+export const loginUser = createAsyncThunk(
+  'auth/signin',
+  async ({ rejectWithValue, ...userData }) => {
+    try {
+      const {
+        data: { user, token },
+      } = await axios.post(`/api/auth/login`, userData);
 
+      setAuthHeader(token);
+      return { user, token };
+    } catch (error) {
+      Notify.failure('Incorect email or password');
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
-// export const loginUser = createAsyncThunk(
-//   'auth/login',
-//   async ( { rejectWithValue }) => {
-//     try {
-//       const {
-//         data: { user, token },
-//       } = await axios.post(`/api/auth/sign-in`, );
+export const getCurrentUser = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    const { token } = getState().auth;
 
-//       setAuthHeader(token);
-//       return { user, token };
-//     } catch (error) {
-//       Notify.failure('Incorect email or password');
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+    if (!token) {
+      return rejectWithValue('Unable to fetch user');
+    }
 
-// export const getCurrentUser = createAsyncThunk(
-//   'auth/current',
-//   async (_, { rejectWithValue, getState }) => {
-//     const { token } = getState().auth;
-
-//     if (!token) {
-//       return rejectWithValue('Unable to fetch user');
-//     }
-
-//     try {
-//       setAuthHeader(token);
-//       const { data } = await axios.get(`/api/users/current`, token);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+    try {
+      setAuthHeader(token);
+      const { data } = await axios.get(`/api/auth/current`, token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 // export const logoutUser = createAsyncThunk(
 //   'auth/logout',
