@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/211.bb65e79a.chunk.js","mappings":"qIAUA,UARmB,WACjB,OACE,kBAIH,C","sources":["pages/Categories.jsx"],"sourcesContent":["import React from 'react'\n\nconst Categories = () => {\n  return (\n    <div>\n      \n    </div>\n  )\n}\n\nexport default Categories\n"],"names":[],"sourceRoot":""}
