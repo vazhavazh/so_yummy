@@ -12,6 +12,8 @@
   margin: 0;
   padding: 64px 15px 100px;
 
+  background-color: $mainBgColorWhite;
+
   @include tablet {
     gap: 32px;
     padding: 72px 32px 100px;

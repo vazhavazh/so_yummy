@@ -11,11 +11,11 @@
   height: 92px;
   padding: 8px;
 
-  background-color: #fafafa;
+  background-color: $secondaryBgColorWhite;
   border-radius: 8px;
 
   @include tablet {
-    right: 0px;
+    align-self: flex-end;
     max-width: 261px;
     height: 100px;
     padding: 12px;

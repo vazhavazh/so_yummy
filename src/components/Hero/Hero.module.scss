@@ -1,11 +1,14 @@
-@import '../../sass/mixins';
+@import '../../main.scss';
 
 .hero {
+  display: flex;
+  justify-content: center;
   padding-top: 132px;
   position: relative;
   min-width: 375px;
-  width: 100%;
+  width: 100vw;
   height: 777px;
+  background-color: $mainBgColorWhite;
 
   background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
     url('../../assets/image/mainPage/m-plate.png'),
@@ -13,14 +16,13 @@
     url('../../assets/image/mainPage/m-bg-green.png');
   background-size: auto, 320px 296px, auto, auto;
   background-repeat: no-repeat;
-  background-position: top 35px left, center 322px, left top 25px,
+  background-position: top 35px left, center 322px, right top 25px,
     right top 148px;
 
   @include tablet {
     display: flex;
     padding-top: 204px;
     min-width: 768px;
-    width: 100vw;
     height: 640px;
 
     background-image: url('../../assets/image/mainPage/t-spinach-top.png'),
@@ -29,12 +31,12 @@
     background-size: auto, 378px 351px, auto;
     background-repeat: no-repeat;
     background-position: top left, right 159px, right top;
+    background-attachment: none, fixed, none;
   }
 
   @include desktop {
     padding-top: 226px;
     min-width: 1440px;
-    width: 100vw;
     height: 800px;
 
     background-image: url('../../assets/image/mainPage/d-spinach-top.png'),
