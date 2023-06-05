@@ -10,10 +10,6 @@ import cookingTime from './data/cookingTime.json';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields';
 
-// import data from 'api/fakeApi/fakeIngredientsDB.json';
-
-// console.log(data[0].ttl);
-
 const MAX_FILE_SIZE = 700 * 1024;
 
 const initialValues = {
@@ -21,7 +17,9 @@ const initialValues = {
   about: '',
   category: 'breakfast',
   cookingTime: '40 min',
+  recipe: '',
   file: '',
+  ingredient: '',
 };
 
 const validFileExtensions = {
@@ -40,6 +38,7 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
+  recipe: Yup.string().required('Recipe is required'),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -58,6 +57,7 @@ const FORM_VALIDATION = Yup.object().shape({
       }
     )
     .required('Image is required'),
+  ingredient: Yup.string().required('Ingredient is required'),
 });
 
 export const AddRecipeForm = () => {
@@ -98,23 +98,16 @@ export const AddRecipeForm = () => {
       >
         <Form>
           <div className={styles.addRecipeForm}>
+            <Typography>Add recipe</Typography>
+
             <RecipeDescriptionFields
               isFormSubmitted={isFormSubmitted}
               categories={categories}
               cookingTime={cookingTime}
             />
-            {/* <Box marginBottom="18px" width="100%">
-              <CustomTextField
-                name="recipe"
-                placeholder="Enter recipe"
-                multiline={true}
-                rows={4}
-              />
-            </Box> */}
-
             <RecipeIngredientsFields />
-            <Box width="100%" marginTop="18px">
-              <Button>Add</Button>
+            <Box marginTop="18px" width="100%">
+              <Button type="submit">Submit</Button>
             </Box>
           </div>
         </Form>

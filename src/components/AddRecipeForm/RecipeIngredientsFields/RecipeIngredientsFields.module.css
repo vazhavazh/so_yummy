@@ -9,7 +9,7 @@
 }
 
 .ingredientsWrapper {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     width: 100%;
     margin-top: 67px;
     display: flex;
