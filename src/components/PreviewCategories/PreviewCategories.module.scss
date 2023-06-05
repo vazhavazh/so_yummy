@@ -72,7 +72,26 @@
     line-height: 44px;
   }
 }
-
+.recipeListSearch{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+  
+    padding: 0;
+    margin-bottom: 24px;
+  
+    @include tablet {
+      width: 704px;
+      margin: 0;
+      gap: 32px;
+    }
+  
+    @include desktop {
+      width: 1240px;
+      gap: 14px;
+    }
+}
 .recipeList {
   display: flex;
   flex-wrap: wrap;

@@ -1,10 +1,27 @@
 import React from 'react';
+// import React, { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+
 import data from 'api/fakeApi/fakeIngredientsDB.json';
+
+// import {
+//   fetchAllShoppingIngredients,
+//   fetchDeleteShoppingIngredients,
+// } from 'redux/shoppingIngrs/shopThunks';
+// import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
 import { ReactComponent as RemoveIcon } from 'assets/svg/shoppingListPage/x.svg';
+
 import './IngredientsShoppingList.scss';
 
 export const IngredientsShoppingList = () => {
   const ingredients = data;
+  // const dispatch = useDispatch();
+  // const ingredients = useSelector(selectShoppingListIngredients);
+
+  // useEffect(() => {
+  //   dispatch(fetchAllShoppingIngredients());
+  //   // eslint-disable-next-line
+  // }, [dispatch]);
 
   return (
     <>
@@ -29,17 +46,24 @@ export const IngredientsShoppingList = () => {
                 </div>
                 <h2 className="ingredient-name">{ingredient.ttl}</h2>
               </div>
-             
-               <div className='quantity-remove-wrapper'>
-                  <div className="ingredient-quantity-wrapper">
-                    {' '}
-                    <span className="ingredient-quantity">100g</span>
-                  </div>
-                  <button className="remove-btnX x-btn" type="button">
-                    <RemoveIcon className="remove-btnX--icon" />
-                  </button>
-               </div>
-              
+
+              <div className="quantity-remove-wrapper">
+                <div className="ingredient-quantity-wrapper">
+                  {' '}
+                  <span className="ingredient-quantity">100g</span>
+                </div>
+                <button
+                  className="remove-btnX x-btn"
+                  type="button"
+                  // onClick={() => {
+                  //   dispatch(
+                  //     fetchDeleteShoppingIngredients(ingredient._id.$oid)
+                  //   );
+                  // }}
+                >
+                  <RemoveIcon className="remove-btnX--icon" />
+                </button>
+              </div>
             </li>
           ))}
         </ul>

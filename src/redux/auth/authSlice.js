@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  // getCurrentUser,
-
-  // loginUser,
+  getCurrentUser,
+  loginUser,
   // logoutUser,
   registerUser,
 } from './authThunks';
@@ -22,7 +21,6 @@ const authSlice = createSlice({
       id: '',
       username: '',
       email: '',
-
     },
     token: null,
     isLoading: true,
@@ -32,13 +30,13 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: {
     [registerUser.pending]: handlePending,
-    // [loginUser.pending]: handlePending,
-    // [getCurrentUser.pending]: handlePending,
+    [loginUser.pending]: handlePending,
+    [getCurrentUser.pending]: handlePending,
     // [logoutUser.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
-    // [loginUser.rejected]: handleRejected,
-    // [getCurrentUser.rejected]: handleRejected,
+    [loginUser.rejected]: handleRejected,
+    [getCurrentUser.rejected]: handleRejected,
     // [logoutUser.rejected]: handleRejected,
 
     [registerUser.fulfilled]: (state, { payload }) => {
@@ -49,37 +47,37 @@ const authSlice = createSlice({
         error: null,
       };
     },
-    // [loginUser.fulfilled]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     ...payload,
-    //     isLoading: false,
-    //     error: null,
-    //   };
-    // },
-    // [getCurrentUser.fulfilled]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     user: payload,
-    //     error: null,
-    //     isRefreshing: false,
-    //   };
-    // },
+    [loginUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        ...payload,
+        isLoading: false,
+        error: null,
+      };
+    },
+    [getCurrentUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        user: payload,
+        error: null,
+        isRefreshing: false,
+      };
+    },
 
-    // [getCurrentUser.pending]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     error: null,
-    //     isRefreshing: true,
-    //   };
-    // },
-    // [getCurrentUser.rejected]: (state, { payload }) => {
-    //   return {
-    //     ...state,
-    //     error: payload,
-    //     isRefreshing: false,
-    //   };
-    // },
+    [getCurrentUser.pending]: (state, { payload }) => {
+      return {
+        ...state,
+        error: null,
+        isRefreshing: true,
+      };
+    },
+    [getCurrentUser.rejected]: (state, { payload }) => {
+      return {
+        ...state,
+        error: payload,
+        isRefreshing: false,
+      };
+    },
     // [logoutUser.fulfilled]: (state, { payload }) => {
     //   return {
     //     user: {
@@ -96,7 +94,5 @@ const authSlice = createSlice({
     // },
   },
 });
-
-
 
 export default authSlice.reducer;

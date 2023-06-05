@@ -2,6 +2,7 @@
 
 .searchBox {
   position: relative;
+  margin-bottom: 27px;
 }
 
 .searchInput {
@@ -35,7 +36,9 @@
     padding: 23px 48px;
   }
 }
-
+.searchBtn:hover{
+  background: #8BAA36;
+}
 .searchBtn {
   position: absolute;
   top: 0;
