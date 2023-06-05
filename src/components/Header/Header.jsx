@@ -5,17 +5,27 @@ import burger from '../../assets/svg/header/burger.svg';
 import avatarPlaceholder from '../../assets/svg/header/avatar-placeholder.jpg';
 import style from './Header.module.scss';
 import Menu from './Menu/Menu';
+import Dropdown from './Dropdown/Dropdown';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
 
   return (
     <header className={`${style.header} ${style.container}`}>
-      <img src={logo} alt="logo" />
-      <div className={style.userInfoWrapper}>
-        <img className={style.avatar} src={avatarPlaceholder} alt="avatar" />
-        <p className={style.username}>Name</p>
-        <nav className={style.nav}>
+      <a href="#">
+        <img src={logo} alt="logo" />
+      </a>
+      <div className={style.userNavWrapper}>
+        <div
+          onClick={() => setIsDropdownActive(true)}
+          className={style.userInfoWrapper}
+        >
+          <img className={style.avatar} src={avatarPlaceholder} alt="avatar" />
+          <p className={style.username}>Name</p>
+        </div>
+        <Dropdown></Dropdown>
+        <div className={style.burgerWrapper}>
           <button
             className={style.burger}
             type="button"
@@ -24,11 +34,10 @@ export const Header = () => {
             <img src={burger} alt="" />
           </button>
           <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
-        </nav>
+        </div>
       </div>
     </header>
   );
 };
 
-console.log(style);
-
+// 1bd9f20d66aafa61f9aac797505b16d683f0c1fa
