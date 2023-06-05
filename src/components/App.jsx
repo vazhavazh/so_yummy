@@ -7,7 +7,7 @@ import { PrivateRoute } from '../hoc/PrivateRoute';
 import { PublicRoute } from '../hoc/PublicRoute';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
-// const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
+const Categories = lazy(() => import('../pages/CategoriesPage'));
 const Favorite = lazy(() => import('../pages/Favorite'));
 const Main = lazy(() => import('../pages/Main'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes'));
@@ -68,7 +68,7 @@ export const App = () => {
             path="/categories"
             element={
               <PrivateRoute>
-                {/* <Categories /> */}
+                <Categories />
               </PrivateRoute>
             }
           />
