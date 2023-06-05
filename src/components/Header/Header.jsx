@@ -10,6 +10,7 @@ import Dropdown from './Dropdown/Dropdown';
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+  console.log(isDropdownActive);
 
   return (
     <header className={`${style.header} ${style.container}`}>

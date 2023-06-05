@@ -12,6 +12,7 @@
 }
 
 .backdrop {
+  z-index: 1;
   overflow: hidden;
   position: fixed;
   top: 0;
