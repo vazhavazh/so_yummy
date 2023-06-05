@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
-import scss from './SearchForm.module.scss';
+import React from 'react';
+import { Button } from '..//..//Button/Button';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import style from '..//Search.module.scss';
 
-const SearchForm = ({ onSubmit }) => {
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(searchValue);
-  };
-
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
+const SearchForm = ({ value, onChange, onSubmit }) => {
+  const handleInputChange = (event) => {
+    onChange(event);
   };
 
   return (
-    <div>
-      <form className={scss.search_form} onSubmit={handleSubmit}>
-        <input
-          placeholder='Enter the next'
-          className={scss.search_input}
-          type="text"
-          value={searchValue}
-          onChange={handleChange}
-        />
-        <button className={scss.search_btn} type="submit">Search</button>
-      </form>
-    </div>
+    <form className={style.searchBox} onSubmit={onSubmit}>
+    <ToastContainer />
+    <input
+      className={style.searchInput}
+      type='text'
+      placeholder="Search recipes..."
+      value={value}
+      onChange={handleInputChange}
+    />
+    <Button className={style.searchBtn} text="Search" type="submit" />
+  </form>
   );
 };
 
