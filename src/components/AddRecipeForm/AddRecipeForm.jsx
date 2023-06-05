@@ -4,11 +4,11 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
 import CustomTextField from './TextField';
-import Select from './Select';
 import Button from './AddRecipeButton';
-import categories from './categories';
-import cookingTime from './cookingTime';
+import categories from './data/categories.json';
+import cookingTime from './data/cookingTime.json';
 import { FileUploadField } from './FileInputField';
+import { RecipeDescriptionFields } from './RecipeDescriptionFields';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -98,26 +98,11 @@ export const AddRecipeForm = () => {
           <div className={styles.addRecipeForm}>
             <Typography>Add recipe</Typography>
 
-            <FileUploadField name="file" reset={isFormSubmitted} />
-
-            <CustomTextField name="title" placeholder="Enter item title" />
-
-            <CustomTextField name="about" placeholder="Enter about recipe" />
-
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="flex-end"
-              width="100%"
-            >
-              <Select name="category" label="Category" options={categories} />
-
-              <Select
-                name="cookingTime"
-                label="Cooking time"
-                options={cookingTime}
-              />
-            </Box>
+            <RecipeDescriptionFields
+              isFormSubmitted={isFormSubmitted}
+              categories={categories}
+              cookingTime={cookingTime}
+            />
             <CustomTextField
               name="recipe"
               placeholder="Enter recipe"
