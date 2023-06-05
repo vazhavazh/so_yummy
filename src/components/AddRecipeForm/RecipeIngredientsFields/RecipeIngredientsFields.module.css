@@ -1,0 +1,34 @@
+.addRecipeFormTypography {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    /* color: "#3E4462" */
+    color: "red"
+}
+
+.ingredientsWrapper {
+    outline: 1px solid red;
+    width: 100%;
+    margin-top: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addRemoveCounter{
+    border: 1px solid rgba(51, 51, 51, 0.3);
+    border-radius: 18px;
+    padding: 16px 12px;
+    width: 92px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.counterIcon{
+    cursor: pointer;
+}

@@ -6,6 +6,7 @@
 }
 
 .addRecipeForm > form {
+    outline: 1px solid red;
     min-width: 375px;
     display: flex;
     flex-direction: column;
@@ -61,6 +62,21 @@
     }
 }
 
+.addRecipeFormTypography {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: "#3E4462"
+}
+
+.wrapper {
+    outline: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 

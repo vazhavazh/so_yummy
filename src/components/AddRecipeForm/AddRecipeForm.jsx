@@ -8,6 +8,11 @@ import Button from './AddRecipeButton';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
+import { RecipeIngredientsFields } from './RecipeIngredientsFields';
+
+// import data from 'api/fakeApi/fakeIngredientsDB.json';
+
+// console.log(data[0].ttl);
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -16,7 +21,6 @@ const initialValues = {
   about: '',
   category: 'breakfast',
   cookingTime: '40 min',
-  recipe: '',
   file: '',
 };
 
@@ -36,7 +40,6 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
-  recipe: Yup.string().required('Recipe is required'),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -95,22 +98,22 @@ export const AddRecipeForm = () => {
       >
         <Form>
           <div className={styles.addRecipeForm}>
-            {/* <Typography>Add recipe</Typography> */}
-
             <RecipeDescriptionFields
               isFormSubmitted={isFormSubmitted}
               categories={categories}
               cookingTime={cookingTime}
             />
-            <Box marginBottom="18px" width="100%">
+            {/* <Box marginBottom="18px" width="100%">
               <CustomTextField
                 name="recipe"
                 placeholder="Enter recipe"
                 multiline={true}
                 rows={4}
               />
-            </Box>
-            <Box width="100%">
+            </Box> */}
+
+            <RecipeIngredientsFields />
+            <Box width="100%" marginTop="18px">
               <Button>Add</Button>
             </Box>
           </div>
