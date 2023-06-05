@@ -17,6 +17,7 @@ const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const Welcome = lazy(() => import('../pages/WelcomePage'));
+// const ErrorPage = lazy(() => import('..//pages/Error'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -125,3 +126,5 @@ export const App = () => {
     </>
   );
 };
+
+
