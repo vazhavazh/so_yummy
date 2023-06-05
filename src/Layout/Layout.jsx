@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import Loader  from '../components/Loader/Loader';
 import { Outlet } from 'react-router-dom';
 import { getIsAuth } from '../redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
@@ -13,7 +14,7 @@ export const Layout = () => {
   return (
     <>
       {isLoggedIn && <Header />}
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loader/>}>
         <Outlet />
       </Suspense>
       {isLoggedIn && <Footer />}
