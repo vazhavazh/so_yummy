@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import cross from '../../../assets/svg/header/cross.svg';
 import logo from '../../../assets/svg/header/logo.svg';
 import search from '../../../assets/svg/header/search.svg';
@@ -11,9 +12,9 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
       }`}
     >
       <div className={style.logoCrossWrapper}>
-        <a href="#">
+        <NavLink to="/main">
           <img src={logo} alt="logo" />
-        </a>
+        </NavLink>
         <button
           className={style.cross}
           type="button"
