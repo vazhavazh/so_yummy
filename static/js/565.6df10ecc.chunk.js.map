@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/565.6df10ecc.chunk.js","mappings":"sIAUA,UARe,WACb,OACE,kBAIH,C","sources":["pages/Search.jsx"],"sourcesContent":["import React from 'react'\n\nconst Search = () => {\n  return (\n    <div>\n      \n    </div>\n  )\n}\n\nexport default Search\n"],"names":[],"sourceRoot":""}
