@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://so-yummy-mg49.onrender.com';
-                      
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
 
 
 export const setAuthHeader = token => {
