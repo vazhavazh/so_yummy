@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+
+import { Hero } from '../components/Hero/Hero';
+import { PreviewCategories } from '../components/PreviewCategories/PreviewCategories';
 
 const Main = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <Hero></Hero>
+      <PreviewCategories />
+    </>
+  );
+};
 
-export default Main
+export default Main;

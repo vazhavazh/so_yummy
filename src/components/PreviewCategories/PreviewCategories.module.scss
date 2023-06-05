@@ -1,0 +1,144 @@
+@import '../../main.scss';
+
+.previewCategoriesBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 64px 15px 100px;
+
+  @include tablet {
+    gap: 32px;
+    padding: 72px 32px 100px;
+  }
+
+  @include desktop {
+    gap: 14px;
+    padding: 100px 100px 118px;
+  }
+}
+
+.previewCategoriesList {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: 0;
+  padding: 0;
+
+  @include desktop {
+    gap: 50px;
+  }
+
+  @include desktop {
+    gap: 100px;
+  }
+}
+
+.previewCategoriesListEll {
+  display: flex;
+
+  flex-direction: column;
+  width: 343px;
+
+  @include tablet {
+    gap: 40px;
+    width: 100%;
+  }
+
+  @include desktop {
+    gap: 50px;
+  }
+}
+
+.categoriesName {
+  margin-bottom: 32px;
+
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+
+  @include tablet {
+    margin: 0;
+    font-size: 44px;
+    line-height: 44px;
+  }
+}
+.recipeListSearch{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+  
+    padding: 0;
+    margin-bottom: 24px;
+  
+    @include tablet {
+      width: 704px;
+      margin: 0;
+      gap: 32px;
+    }
+  
+    @include desktop {
+      width: 1240px;
+      gap: 14px;
+    }
+}
+.recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding: 0;
+  margin-bottom: 24px;
+
+  @include tablet {
+    width: 704px;
+    margin: 0;
+    gap: 32px;
+  }
+
+  @include desktop {
+    width: 1240px;
+    gap: 14px;
+  }
+}
+
+.seeAllBtn {
+  padding: 10px 24px;
+  align-self: flex-end;
+
+  border: none;
+  background: #8aa936;
+  color: #fafafa;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.otherCategoriesBtn {
+  padding: 14px 32px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  background-color: transparent;
+
+  border-radius: 24px 44px;
+  border: 2px solid #8baa36;
+
+  @include tablet {
+    padding: 20px 52px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,91 @@
+@import '../../sass/mixins';
+
+.chooseBox {
+  right: -7px;
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  max-width: 229px;
+  height: 92px;
+  padding: 8px;
+
+  background-color: #fafafa;
+  border-radius: 8px;
+
+  @include tablet {
+    right: 0px;
+    max-width: 261px;
+    height: 100px;
+    padding: 12px;
+  }
+
+  @include desktop {
+    max-width: 298px;
+    height: 114px;
+    padding: 16px;
+  }
+}
+
+.chooseDiscrirtion {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+
+  letter-spacing: -0.24px;
+  color: #3e4462;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  //  @include desktop {
+  //    font-size: 14px;
+  //    line-height: 20px;
+  //  }
+}
+
+.chooseDiscrirtionGreen {
+  color: #8baa36;
+}
+
+.chooseBtn {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 4px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+
+  letter-spacing: 0.2px;
+
+  color: #3e4462;
+  background-color: transparent;
+  border: none;
+}
+
+.chooseImg {
+  display: none;
+
+  @include tablet {
+  height: 72px;
+    width: 136px;
+    display: block;
+    position: absolute;
+    left: 50%;
+      transform: translateX(-50%);
+      bottom: -60%;
+  }
+
+     @include desktop {
+       height: 89px;
+       width: 167px;
+     
+     }
+}
