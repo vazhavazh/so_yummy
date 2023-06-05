@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Box } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
@@ -7,7 +7,6 @@ import CustomTextField from './TextField';
 import Button from './AddRecipeButton';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
-import { FileUploadField } from './FileInputField';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
 
 const MAX_FILE_SIZE = 700 * 1024;
