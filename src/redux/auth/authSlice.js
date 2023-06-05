@@ -63,7 +63,6 @@ const authSlice = createSlice({
         isRefreshing: false,
       };
     },
-
     [getCurrentUser.pending]: (state, { payload }) => {
       return {
         ...state,
