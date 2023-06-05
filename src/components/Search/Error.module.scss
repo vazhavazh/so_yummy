@@ -1,0 +1,60 @@
+@import '..//..//sass/mixins';
+
+.errorWrapper {
+    display: flex;
+    margin-left: 58px;
+    margin-right: 58px;
+    @include tablet {
+        margin-left: 130px;
+        margin-right: 130px;
+    }
+    @include desktop {
+        margin-left: 470px;
+        margin-right: 470px;
+    }
+}
+.errorCont {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+.errorTitle {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'liga' off;
+    color: #000000;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+        @include tablet {
+        font-size: 24px;
+        line-height: 24px;
+        }
+}
+.errorText{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #000000;
+    opacity: 0.5;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+        @include tablet {
+            font-size: 18px;
+            line-height: 24px;
+        }
+}

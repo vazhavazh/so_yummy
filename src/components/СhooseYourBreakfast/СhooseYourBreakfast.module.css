@@ -1,0 +1,27 @@
+.chooseBox {
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.chooseDiscrirtion {
+  color: #3e4462;
+}
+
+.chooseDiscrirtionGreen {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  color: #8baa36;
+}
+
+.chooseBtn {
+  display: flex;
+  gap: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  color: #3e4462;
+}/*# sourceMappingURL=СhooseYourBreakfast.module.css.map */

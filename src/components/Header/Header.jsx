@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/svg/header/logo.svg';
 import burger from '../../assets/svg/header/burger.svg';
@@ -39,4 +40,4 @@ export const Header = () => {
   );
 };
 
-// console.log(style);
+// 1bd9f20d66aafa61f9aac797505b16d683f0c1fa

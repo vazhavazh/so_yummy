@@ -1,14 +1,13 @@
-// import { lazy, useEffect } from 'react';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
-// import { useDispatch } from 'react-redux';
-// import { refreshUser } from 'redux/auth/operations';
-// import { PrivateRoute } from '../hoc/PrivateRoute';
-// import { PublicRoute } from '../hoc/PublicRoute';
+import { useDispatch } from 'react-redux';
+import { getCurrentUser } from 'redux/auth/authThunks';
+import { PrivateRoute } from '../hoc/PrivateRoute';
+import { PublicRoute } from '../hoc/PublicRoute';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
-const Categories = lazy(() => import('../pages/Categories'));
+const Categories = lazy(() => import('../pages/CategoriesPage'));
 const Favorite = lazy(() => import('../pages/Favorite'));
 const Main = lazy(() => import('../pages/Main'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes'));
@@ -17,103 +16,115 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
-const Welcome = lazy(() => import('../pages/Welcome'));
+const Welcome = lazy(() => import('../pages/WelcomePage'));
+// const ErrorPage = lazy(() => import('..//pages/Error'));
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    dispatch(getCurrentUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Main />} />
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <Main />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/welcome"
             element={
-              // <PublicRoute>
+              <PublicRoute>
                 <Welcome />
-              // </PublicRoute>
+              </PublicRoute>
             }
           />
           <Route
             path="/register"
             element={
-              // <PublicRoute>
+              <PublicRoute>
                 <RegisterPage />
-              // </PublicRoute>
+              </PublicRoute>
             }
           />
           <Route
             path="/signin"
             element={
-              // <PublicRoute>
+              <PublicRoute>
                 <SignIn />
-              // </PublicRoute>
+              </PublicRoute>
             }
           />
+
           <Route
             path="/categories"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Categories />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/add"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <AddRecipe />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/favorite"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Favorite />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/my"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <MyRecipes />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/recipe/:recipeId"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Recipe />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/search"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Search />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
             path="/shopping-list"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <ShoppingList />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 };
+
+
