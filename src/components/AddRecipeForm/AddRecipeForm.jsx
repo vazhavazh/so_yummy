@@ -1,15 +1,16 @@
-import { Grid, Container, Typography, Box } from '@mui/material';
-import { Field, Form, Formik } from 'formik';
+import React, { useState } from 'react';
+import { Typography, Box } from '@mui/material';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
 import CustomTextField from './TextField';
 import Select from './Select';
-import Button from './Button';
+import Button from './AddRecipeButton';
 import categories from './categories';
 import cookingTime from './cookingTime';
 import { FileUploadField } from './FileInputField';
 
-const MAX_FILE_SIZE = 102400; //100KB
+const MAX_FILE_SIZE = 700 * 1024;
 
 const initialValues = {
   title: '',
@@ -38,22 +39,54 @@ const FORM_VALIDATION = Yup.object().shape({
   cookingTime: Yup.string().required('Cooking time is required'),
   recipe: Yup.string().required('Recipe is required'),
   file: Yup.mixed()
-    .required('Please, upload image')
-    .test('is-valid-type', 'Not a valid image type', value =>
-      isValidFileType(value && value.name.toLowerCase(), 'image')
-    )
+    .test('is-valid-file', 'Invalid file format', function (value) {
+      if (!value) {
+        return true;
+      }
+      return isValidFileType(value && value.name.toLowerCase(), 'image');
+    })
     .test(
       'is-valid-size',
-      'Max allowed size is 100KB',
-      value => value && value.size <= MAX_FILE_SIZE
-    ),
+      'File size exceeds the maximum limit',
+      function (value) {
+        if (!value) {
+          return true;
+        }
+        return value.size <= MAX_FILE_SIZE;
+      }
+    )
+    .required('Image is required'),
 });
 
 export const AddRecipeForm = () => {
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
+
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+    const file = values.file;
+    const errorMessage = validateFile(file);
+    if (!errorMessage) {
+      console.log(values);
+      setFormSubmitted(true);
+      resetForm();
+    }
   };
+
+  const validateFile = file => {
+    if (!file) {
+      return 'Please select a file';
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return 'File size exceeds the maximum limit';
+    }
+
+    if (!isValidFileType(file.name.toLowerCase(), 'image')) {
+      return 'Invalid file format';
+    }
+
+    return undefined;
+  };
+
   return (
     <div className={styles.addRecipeForm}>
       <Formik
@@ -65,7 +98,7 @@ export const AddRecipeForm = () => {
           <div className={styles.addRecipeForm}>
             <Typography>Add recipe</Typography>
 
-            <FileUploadField name="file" />
+            <FileUploadField name="file" reset={isFormSubmitted} />
 
             <CustomTextField name="title" placeholder="Enter item title" />
 
@@ -91,7 +124,7 @@ export const AddRecipeForm = () => {
               multiline={true}
               rows={4}
             />
-            <Button>Submit</Button>
+            <Button type="submit">Submit</Button>
           </div>
         </Form>
       </Formik>
