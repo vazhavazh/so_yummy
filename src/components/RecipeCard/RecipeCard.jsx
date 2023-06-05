@@ -3,7 +3,7 @@ import React from 'react';
 import style from '../RecipeCard/RecipeCard.module.scss';
 
 export const RecipeCard = ({ recipe }) => {
-  const { title, preview, _id } = recipe;
+  const { title, preview, _id, time, description } = recipe;
   return (
     <li className={style.recipeEll}>
       <a href={`/recipe/${_id.$oid}`}>
@@ -13,6 +13,7 @@ export const RecipeCard = ({ recipe }) => {
           alt="recipe prewiew"
         />
         <p className={style.recipeTitle}>{title}</p>
+
       </a>
     </li>
   );
