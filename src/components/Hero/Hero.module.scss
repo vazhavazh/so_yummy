@@ -4,35 +4,46 @@
   padding-top: 132px;
   position: relative;
   min-width: 375px;
+  width: 100%;
   height: 777px;
 
-  background-image: url('../../assets/image/mainPage/m-plate.png');
-  background-size: 320px 296px;
+  background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
+    url('../../assets/image/mainPage/m-plate.png'),
+    url('../../assets/image/mainPage/m-spinach-bottom.png'),
+    url('../../assets/image/mainPage/m-bg-green.png');
+  background-size: auto, 320px 296px, auto, auto;
   background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: 322px;
+  background-position: top 35px left, center 322px, left top 25px,
+    right top 148px;
 
   @include tablet {
     display: flex;
     padding-top: 204px;
     min-width: 768px;
+    width: 100vw;
     height: 640px;
 
-    background-image: url('../../assets/image/mainPage/t-plate.png');
-    background-size: 378px 351px;
+    background-image: url('../../assets/image/mainPage/t-spinach-top.png'),
+      url('../../assets/image/mainPage/t-plate.png'),
+      url('../../assets/image/mainPage/t-bg-green.png');
+    background-size: auto, 378px 351px, auto;
     background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: 159px;
+    background-position: top left, right 159px, right top;
   }
 
   @include desktop {
     padding-top: 226px;
     min-width: 1440px;
+    width: 100vw;
     height: 800px;
 
-    background-image: url('../../assets/image/mainPage/d-plate.png');
-    background-size: 578px 539px;
+    background-image: url('../../assets/image/mainPage/d-spinach-top.png'),
+      url('../../assets/image/mainPage/d-plate.png'),
+      url('../../assets/image/mainPage/d-spinach-bottom.png'),
+      url('../../assets/image/mainPage/d-bg-green.png');
+    background-size: auto 474px, 578px 539px, contain, auto;
     background-repeat: no-repeat;
-    background-position: right 184px top 126px;
+    background-position: top left, right 184px top 126px, right center,
+      right top;
   }
 }
