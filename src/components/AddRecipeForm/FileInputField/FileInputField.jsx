@@ -82,6 +82,7 @@ export const FileInputField = ({ name, reset }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          borderRadius: '8px',
         }}
         onClick={handleClick}
       >
