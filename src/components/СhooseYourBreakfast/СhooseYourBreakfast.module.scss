@@ -1,24 +1,61 @@
+@import '../../main.scss';
+
 .chooseBox {
+  right: -7px;
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  max-width: 229px;
+  height: 92px;
+  padding: 8px;
+
   background-color: #fafafa;
   border-radius: 8px;
+
+  @include tablet {
+    right: 0px;
+    max-width: 261px;
+    height: 100px;
+    padding: 12px;
+  }
+
+  @include desktop {
+    max-width: 298px;
+    height: 114px;
+    padding: 16px;
+  }
 }
 
 .chooseDiscrirtion {
-  color: #3e4462;
-}
-
-.chooseDiscrirtionGreen {
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
 
   letter-spacing: -0.24px;
+  color: $mainTextColor;
 
-  color: #8baa36;
+  @include tablet {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.chooseDiscrirtionGreen {
+  color: $mainAccentColor;
 }
 
 .chooseBtn {
+  align-self: flex-end;
   display: flex;
+  align-items: center;
+  padding: 0;
   gap: 4px;
 
   font-style: normal;
@@ -28,5 +65,43 @@
 
   letter-spacing: 0.2px;
 
-  color: #3e4462;
+  color: $mainTextColor;
+  background-color: transparent;
+  border: none;
+}
+
+.chooseImg {
+  display: none;
+
+  @include tablet {
+    height: 72px;
+    width: 136px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60%;
+
+    animation: blinkAnimation 1s linear;
+    opacity: 1;
+  }
+
+  @include desktop {
+    height: 89px;
+    width: 167px;
+  }
+}
+
+@keyframes blinkAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
