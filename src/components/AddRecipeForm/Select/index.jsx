@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Select, MenuItem, styled, Box } from '@mui/material';
+import { Select, MenuItem, styled, Box } from '@mui/material';
 import { useField, useFormikContext } from 'formik';
 import { ReactComponent as DropDownIcon } from '../images/dropDownIcon.svg';
 
