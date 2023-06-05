@@ -33,7 +33,7 @@ const SearchedRecipesList = ({ searchValue }) => {
     setIsLoading(true);
 
     const delayTimer = setTimeout(() => {
-      const filtered = recipes.filter((recipe) =>
+      const filtered = recipes.filter(recipe =>
         recipe.title.toLowerCase().includes(searchValue.toLowerCase())
       );
       setFilteredRecipes(filtered);
@@ -42,6 +42,7 @@ const SearchedRecipesList = ({ searchValue }) => {
     }, 500);
 
     return () => clearTimeout(delayTimer);
+    // eslint-disable-next-line
   }, [searchValue]);
 
   const handlePageClick = (data) => {
