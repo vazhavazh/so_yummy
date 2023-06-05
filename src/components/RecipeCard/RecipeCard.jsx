@@ -3,15 +3,16 @@ import React from 'react';
 import style from '../RecipeCard/RecipeCard.module.scss';
 
 export const RecipeCard = ({ recipe }) => {
+  const { title, preview, _id } = recipe;
   return (
     <li className={style.recipeEll}>
-      <a href="https://www.youtube.com/">
+      <a href={`/recipe/${_id.$oid}`}>
         <img
           className={style.recipeImg}
-          src={recipe.preview}
+          src={preview}
           alt="recipe prewiew"
         />
-        <p className={style.recipeTitle}>{recipe.title}</p>
+        <p className={style.recipeTitle}>{title}</p>
       </a>
     </li>
   );

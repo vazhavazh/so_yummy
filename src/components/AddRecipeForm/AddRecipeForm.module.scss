@@ -1,0 +1,49 @@
+.addRecipeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addRecipeForm > form {
+    min-width: 375px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 16px;
+}
+
+.selectLabel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addRecipeInput {
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    outline: none;
+    height: 52px;
+
+}
+
+.addRecipeInput::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.categorySelect{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E0E0E0;
+
+}
+
+
+
+
+
+
