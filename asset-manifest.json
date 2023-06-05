@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/so_yummy/static/css/main.e42c3c36.css",
-    "main.js": "/so_yummy/static/js/main.6a8fafe6.js",
+    "main.css": "/so_yummy/static/css/main.20e19f63.css",
+    "main.js": "/so_yummy/static/js/main.99f85313.js",
     "static/css/135.b425fc35.chunk.css": "/so_yummy/static/css/135.b425fc35.chunk.css",
     "static/js/135.03429c5a.chunk.js": "/so_yummy/static/js/135.03429c5a.chunk.js",
     "static/css/761.a529de1b.chunk.css": "/so_yummy/static/css/761.a529de1b.chunk.css",
@@ -29,7 +29,7 @@
     "static/js/483.6f7221f9.chunk.js": "/so_yummy/static/js/483.6f7221f9.chunk.js",
     "static/js/918.4a87e0ab.chunk.js": "/so_yummy/static/js/918.4a87e0ab.chunk.js",
     "static/js/211.76bb528d.chunk.js": "/so_yummy/static/js/211.76bb528d.chunk.js",
-    "static/js/669.80b473fb.chunk.js": "/so_yummy/static/js/669.80b473fb.chunk.js",
+    "static/js/669.37feda22.chunk.js": "/so_yummy/static/js/669.37feda22.chunk.js",
     "static/js/950.e0c32622.chunk.js": "/so_yummy/static/js/950.e0c32622.chunk.js",
     "static/media/welcomePage@1x-tab.png": "/so_yummy/static/media/welcomePage@1x-tab.439c0fe961a05c52829c.png",
     "static/media/welcomePage@1x-desk.png": "/so_yummy/static/media/welcomePage@1x-desk.d13214dc4a08569781ae.png",
@@ -37,6 +37,7 @@
     "static/media/t-plate.png": "/so_yummy/static/media/t-plate.c854a042e4e392e8e902.png",
     "static/media/welcomePage@1x-mob.png": "/so_yummy/static/media/welcomePage@1x-mob.80644ea7b24a2a58d8eb.png",
     "static/media/m-plate.png": "/so_yummy/static/media/m-plate.7b3c9e8ee549b1462419.png",
+    "static/media/menu-background.png": "/so_yummy/static/media/menu-background.55a158688dd2d57bef07.png",
     "static/media/Order-food-pana-black.svg": "/so_yummy/static/media/Order-food-pana-black.946f99de56c4b529fe5f7620240262cd.svg",
     "static/media/kisspng-vegetable.webp": "/so_yummy/static/media/kisspng-vegetable.b8ddd1d1a02f272ef517.webp",
     "static/media/dotted-arrow.png": "/so_yummy/static/media/dotted-arrow.3bf7be6a7940e0c82421.png",
@@ -49,14 +50,15 @@
     "static/media/error.svg": "/so_yummy/static/media/error.9dffa3c548a425b2581fb25922c3c0aa.svg",
     "static/media/worning.svg": "/so_yummy/static/media/worning.e0b8838cef8aa334e62f5a69bf5558fe.svg",
     "static/media/success.svg": "/so_yummy/static/media/success.2c20cfce5010676dc2acf065541b3183.svg",
+    "static/media/search.svg": "/so_yummy/static/media/search.2d6c8eb4d03192b8ece8dd107cf5062e.svg",
     "static/media/x.svg": "/so_yummy/static/media/x.3ed639bb99455c54e7b7907e53837d75.svg",
     "static/media/password.svg": "/so_yummy/static/media/password.ac6510d52f598fdceae5204b7a489cf2.svg",
     "static/media/cross.svg": "/so_yummy/static/media/cross.4361f7124e50acd44864b5ffb9da59e7.svg",
     "static/media/icon-arrow-rigth.svg": "/so_yummy/static/media/icon-arrow-rigth.e93324c14d097c9180865a3dd07c4b56.svg",
     "static/media/burger.svg": "/so_yummy/static/media/burger.0e7a3ceba8d1c2ac98513490254e232d.svg",
     "static/media/dropDownIcon.svg": "/so_yummy/static/media/dropDownIcon.bfa89af93715e17c4b279c05d6a17e4d.svg",
-    "main.e42c3c36.css.map": "/so_yummy/static/css/main.e42c3c36.css.map",
-    "main.6a8fafe6.js.map": "/so_yummy/static/js/main.6a8fafe6.js.map",
+    "main.20e19f63.css.map": "/so_yummy/static/css/main.20e19f63.css.map",
+    "main.99f85313.js.map": "/so_yummy/static/js/main.99f85313.js.map",
     "135.b425fc35.chunk.css.map": "/so_yummy/static/css/135.b425fc35.chunk.css.map",
     "135.03429c5a.chunk.js.map": "/so_yummy/static/js/135.03429c5a.chunk.js.map",
     "761.a529de1b.chunk.css.map": "/so_yummy/static/css/761.a529de1b.chunk.css.map",
@@ -84,10 +86,10 @@
     "483.6f7221f9.chunk.js.map": "/so_yummy/static/js/483.6f7221f9.chunk.js.map",
     "918.4a87e0ab.chunk.js.map": "/so_yummy/static/js/918.4a87e0ab.chunk.js.map",
     "211.76bb528d.chunk.js.map": "/so_yummy/static/js/211.76bb528d.chunk.js.map",
-    "669.80b473fb.chunk.js.map": "/so_yummy/static/js/669.80b473fb.chunk.js.map"
+    "669.37feda22.chunk.js.map": "/so_yummy/static/js/669.37feda22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e42c3c36.css",
-    "static/js/main.6a8fafe6.js"
+    "static/css/main.20e19f63.css",
+    "static/js/main.99f85313.js"
   ]
 }
