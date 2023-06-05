@@ -1,4 +1,5 @@
 @import '../../sass/container';
+@import '../../sass/variables';
 
 .burger {
   padding: 0;
@@ -6,7 +7,6 @@
   border: 0;
   width: 28px;
   height: 28px;
-  // margin-left: 24px;
   cursor: pointer;
 }
 
@@ -22,9 +22,16 @@
   width: 34px;
   height: 34px;
   margin-right: 14px;
+  border-radius: 50%;
 }
 
 .userInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userNavWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,8 +42,9 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 1.7;
+  color: $secondaryAccentColor;
 }
 
-.nav {
+.burgerWrapper {
   height: 24px;
 }

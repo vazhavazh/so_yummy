@@ -1,26 +1,40 @@
 import cross from '../../../assets/svg/header/cross.svg';
 import logo from '../../../assets/svg/header/logo.svg';
+import search from '../../../assets/svg/header/search.svg';
 import style from './Menu.module.scss';
 
 const Menu = ({ setIsMenuActive, isMenuActive }) => {
   return (
-    <div className={`${style.backdrop} ${isMenuActive ? style.active : ''}`}>
-      <img src={logo} alt="logo" />
-      <button
-        className={style.cross}
-        type="button"
-        onClick={() => setIsMenuActive(false)}
-      >
-        <img src={cross} alt="cross" />
-      </button>
-      <ul>
-        <li>Categories</li>
-        <li>Add recipes</li>
-        <li>My recipes</li>
-        <li>Favorites</li>
-        <li>Shopping list</li>
-        <li>Search</li>
-      </ul>
+    <div
+      className={`${style.backdrop} ${isMenuActive ? style.active : ''} ${
+        style.container
+      }`}
+    >
+      <div className={style.logoCrossWrapper}>
+        <a href="#">
+          <img src={logo} alt="logo" />
+        </a>
+        <button
+          className={style.cross}
+          type="button"
+          onClick={() => setIsMenuActive(false)}
+        >
+          <img src={cross} alt="cross" />
+        </button>
+      </div>
+      <nav>
+        <ul className={style.navList}>
+          <li className={style.navItem}>Categories</li>
+          <li className={style.navItem}>Add recipes</li>
+          <li className={style.navItem}>My recipes</li>
+          <li className={style.navItem}>Favorites</li>
+          <li className={style.navItem}>Shopping list</li>
+          <li className={style.navItem}>
+            <img className={style.searchIcon} src={search} alt="search icon" />
+            Search
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };
