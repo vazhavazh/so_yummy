@@ -1,4 +1,4 @@
-import style from './Dropdown.module.scss';
+// import style from './Dropdown.module.scss';
 
 const Dropdown = () => {
   return <div></div>;
