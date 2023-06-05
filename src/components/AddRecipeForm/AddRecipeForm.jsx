@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
@@ -95,20 +95,24 @@ export const AddRecipeForm = () => {
       >
         <Form>
           <div className={styles.addRecipeForm}>
-            <Typography>Add recipe</Typography>
+            {/* <Typography>Add recipe</Typography> */}
 
             <RecipeDescriptionFields
               isFormSubmitted={isFormSubmitted}
               categories={categories}
               cookingTime={cookingTime}
             />
-            <CustomTextField
-              name="recipe"
-              placeholder="Enter recipe"
-              multiline={true}
-              rows={4}
-            />
-            <Button type="submit">Submit</Button>
+            <Box marginBottom="18px" width="100%">
+              <CustomTextField
+                name="recipe"
+                placeholder="Enter recipe"
+                multiline={true}
+                rows={4}
+              />
+            </Box>
+            <Box width="100%">
+              <Button>Add</Button>
+            </Box>
           </div>
         </Form>
       </Formik>
