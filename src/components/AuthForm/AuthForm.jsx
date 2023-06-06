@@ -6,6 +6,7 @@ import { registerUser, loginUser } from 'redux/auth/authThunks';
 import styles from './AuthForm.module.scss';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as UserSvg } from '../../assets/svg/authForm/name.svg';
+import { ReactComponent as GoogleSvg } from '../../assets/svg/authForm/google.svg';
 import { ReactComponent as EmailSvg } from '../../assets/svg/authForm/email.svg';
 import { ReactComponent as PassSvg } from '../../assets/svg/authForm/password.svg';
 // import { ReactComponent as SvgOrderWhite } from '../../assets/svg/authForm/Order-food-pana-white.svg';
@@ -60,6 +61,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
         <div className={styles.wrp_test}>
           <div className={styles.form_wrapper}>
             <h2 className={styles.form_title}>{title}</h2>
+
             <Formik
               initialValues={initialValues}
               validationSchema={schema}
@@ -264,6 +266,15 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                     >
                       {page === 'signin' ? 'Sing in' : 'Sign up'}
                     </button>
+                    <a
+                      className={styles.auth_link}
+                      href="https://www.google.com/"
+                    >
+                      <div className={styles.google_wrap}>
+                        <p className={styles.google_text}>Continue with</p>
+                        <GoogleSvg className={styles.google_svg} />
+                      </div>
+                    </a>
                   </Form>
                 );
               }}

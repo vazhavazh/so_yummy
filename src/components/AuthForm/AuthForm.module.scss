@@ -125,7 +125,7 @@
   height: 45px;
   color: $mainBgColorWhite;
   background: $mainAccentColor;
-  margin-bottom: 20px;
+  // margin-bottom: 10px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -171,7 +171,8 @@
 }
 
 .auth_link {
-  margin-bottom: 20px;
+  text-align: center;
+  // margin-bottom: 10px;
   text-decoration: underline;
   color: $mainBgColorWhite;
   font-weight: 400;
@@ -292,3 +293,14 @@
     top: 32px;
   }
 }
+.google_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+// .google_svg {
+//   width: 60px;
+//   height: 60px;
+// }
