@@ -1,6 +1,7 @@
 @import '../../sass/mixins';
 
 .hero {
+ background-color: var(--mainBgColorWhite);
   padding-top: 132px;
   position: relative;
   min-width: 375px;

@@ -1,13 +1,11 @@
-import { FavoriteReceipts } from 'components/FavoriteReceipts/FavoriteReceipts';
 import React from 'react';
-
+import { FavoriteReceipts } from 'components/FavoriteReceipts/FavoriteReceipts';
 
 const Favorite = () => {
   return (
     <>
-   
-        <FavoriteReceipts />
- 
+      <FavoriteReceipts />
+     
     </>
   );
 };

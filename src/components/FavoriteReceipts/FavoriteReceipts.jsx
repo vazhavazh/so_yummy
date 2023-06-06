@@ -4,6 +4,7 @@ import data from 'api/fakeApi/fakeFavoriteDBcopy.json';
 import './FavoriteReceipts.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 
+
 export const FavoriteReceipts = () => {
   const favorites = data;
   return (
