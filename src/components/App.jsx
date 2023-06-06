@@ -97,7 +97,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/recipe/:recipeId"
+            path="/recipe"
             element={
               <PrivateRoute>
                 <Recipe />
