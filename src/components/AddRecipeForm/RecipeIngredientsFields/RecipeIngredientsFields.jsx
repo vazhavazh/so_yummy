@@ -63,7 +63,7 @@ export const RecipeIngredientsFields = ({
                     value={ingredient.dose}
                     sx={{ width: '84px', marginLeft: '14px' }}
                   />
-                  {index > 0 && (
+                  {values.ingredients.length > 1 && (
                     <DeleteIcon
                       width="18px"
                       height="18px"
