@@ -9,7 +9,6 @@ import Dropdown from './Dropdown/Dropdown';
 import { NavLink } from 'react-router-dom';
 import ToggleTheme from 'components/theme/ToggleTheme';
 
-
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -40,7 +39,7 @@ export const Header = () => {
           <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
-      <ToggleTheme />;
+      <ToggleTheme />
     </header>
   );
 };

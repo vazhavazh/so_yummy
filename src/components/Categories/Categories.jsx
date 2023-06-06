@@ -7,15 +7,15 @@ import TabPanel from '@mui/lab/TabPanel';
 ///temp
 import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
 //
-import { CategoriesItem } from './CategoriesItem/CategoriesItem';
+// import { CategoriesItem } from './CategoriesItem/CategoriesItem';
 import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
+import { RecipeCard } from 'components/RecipeCard/RecipeCard';
 
 export const Categories = () => {
   const [value, setValue] = useState('Beef');
   const [dishData, setDishData] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
-  //   const [unicCategories, setUnicCategories] = useState([]);
 
   useEffect(() => {
     setAllCategories(dishes.map(dish => dish.category));
@@ -90,15 +90,15 @@ export const Categories = () => {
           </TabList>
         </div>
         <TabPanel value={value} sx={{ p: 0 }}>
-          <div className="categories-cards">
+          <ul className="categories-cards">
             {dishData.length > 0 ? (
-              dishData.map(dish => {
-                return <CategoriesItem data={dish} key={nanoid()} />;
+              dishData.map(recipe => {
+                return <RecipeCard key={recipe._id.$oid} recipe={recipe} />;
               })
             ) : (
               <div>Loading...</div>
             )}
-          </div>
+          </ul>
         </TabPanel>
       </TabContext>
     </div>
