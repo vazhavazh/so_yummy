@@ -47,6 +47,7 @@ export const RecipeIngredientsFields = ({
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     variant="outlined"
+                    value={ingredient.name}
                     sx={{
                       width: '194px',
                       height: '53px',
@@ -58,6 +59,7 @@ export const RecipeIngredientsFields = ({
                     placeholder="Dose"
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    value={ingredient.dose}
                     sx={{ width: '84px', marginLeft: '14px' }}
                   />
                   {index > 0 && (
