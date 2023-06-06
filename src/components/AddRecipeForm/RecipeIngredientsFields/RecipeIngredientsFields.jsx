@@ -61,7 +61,7 @@ export const RecipeIngredientsFields = ({
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     value={ingredient.dose}
-                    sx={{ width: '84px', marginLeft: '14px' }}
+                    sx={{ width: '84px', height: '53px', marginLeft: '14px' }}
                   />
                   {values.ingredients.length > 1 && (
                     <DeleteIcon

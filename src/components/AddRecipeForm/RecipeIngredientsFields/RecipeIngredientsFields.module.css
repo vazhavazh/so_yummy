@@ -48,20 +48,17 @@
     text-align: end;
 }
 
-.inputWrapper:first-child {
+.inputWrapper {
     /* outline: 1px solid red; */
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.inputWrapper:not(:first-child) {
-    /* outline: 1px solid red; */
-    width: 100%;
-    display: flex;
-    align-items: center;
+.inputWrapper:not(:last-child){
+    margin-bottom: 18px;
 }
 
 .deleteIcon{
-    margin-left: 37px;
+    margin-left: 30px;
 }
