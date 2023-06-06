@@ -120,12 +120,13 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          <Route path='/error'
+          <Route
+            path="/error"
             element={
-              <PrivateRoute>
+              
                 <ErrorPage />
-            </PrivateRoute>
-          }
+              
+            }
           />
           <Route path="*" element={<Navigate to="/error" />} />
         </Route>
@@ -133,5 +134,3 @@ export const App = () => {
     </>
   );
 };
-
-

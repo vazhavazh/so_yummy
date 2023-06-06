@@ -12,7 +12,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
       }`}
     >
       <div className={style.logoCrossWrapper}>
-        <NavLink to="/main">
+        <NavLink to="/">
           <img src={logo} alt="logo" />
         </NavLink>
         <button
