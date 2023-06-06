@@ -171,6 +171,7 @@
 }
 
 .auth_link {
+  margin-bottom: 20px;
   text-decoration: underline;
   color: $mainBgColorWhite;
   font-weight: 400;
@@ -273,4 +274,21 @@
   top: 37%;
   right: 0%;
   transform: translate(-50%, -50%);
+}
+
+.eye_box {
+  position: absolute;
+  right: 36px;
+  top: 27px;
+  transform: translateY(-50%);
+  fill: #e0e0e0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    fill: #3cbc81;
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    top: 32px;
+  }
 }

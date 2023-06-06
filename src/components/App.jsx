@@ -7,7 +7,7 @@ import { PrivateRoute } from '../hoc/PrivateRoute';
 import { PublicRoute } from '../hoc/PublicRoute';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
-const Categories = lazy(() => import('../pages/Categories'));
+const Categories = lazy(() => import('../pages/CategoriesPage'));
 const Favorite = lazy(() => import('../pages/Favorite'));
 const Main = lazy(() => import('../pages/Main'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes'));

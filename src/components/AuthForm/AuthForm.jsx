@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 // import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authThunks';
@@ -17,6 +18,7 @@ import { useDispatch } from 'react-redux';
 
 export const AuthForm = ({ title, page, redirect, schema }) => {
   const [data, setData] = useState();
+  const [passwordType, setPasswordType] = useState('password');
   const dispatch = useDispatch();
   // const status = useSelector(selectStatus);
 
@@ -31,6 +33,13 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
     await dispatch(registerUser(userData));
     // return <Navigate to="/main" />;
     // console.log(userData);
+  };
+  const togglePassword = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+      return;
+    }
+    setPasswordType('password');
   };
 
   const initialValues =
@@ -184,7 +193,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                       <Field
                         autoComplete="off"
                         name="password"
-                        type="password"
+                        type={passwordType}
                         placeholder="Password"
                         className={`${styles.input} ${
                           errors.password && touched.password
@@ -203,6 +212,13 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                         onBlur={handleBlur}
                         value={values.password}
                       />
+                      <div className={styles.eye_box} onClick={togglePassword}>
+                        {passwordType === 'password' ? (
+                          <BsEyeSlash fill="#fafafa" />
+                        ) : (
+                          <BsEye fill="#fafafa" />
+                        )}
+                      </div>
                       {errors.password?.includes('secure') ? (
                         <>
                           <p className={styles.warning_message}>
