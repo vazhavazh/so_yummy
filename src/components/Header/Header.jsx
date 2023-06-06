@@ -6,7 +6,8 @@ import avatarPlaceholder from '../../assets/svg/header/avatar-placeholder.jpg';
 import style from './Header.module.scss';
 import Menu from './Menu/Menu';
 import Dropdown from './Dropdown/Dropdown';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
+import ToggleTheme from 'components/theme/ToggleTheme';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -15,10 +16,9 @@ export const Header = () => {
 
   return (
     <header className={`${style.header} ${style.container}`}>
-      <NavLink to="/main">
+      <NavLink to="/">
         <img src={logo} alt="logo" />
       </NavLink>
-
       <div className={style.userNavWrapper}>
         <div
           onClick={() => setIsDropdownActive(true)}
@@ -39,6 +39,7 @@ export const Header = () => {
           <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
+      <ToggleTheme />
     </header>
   );
 };
