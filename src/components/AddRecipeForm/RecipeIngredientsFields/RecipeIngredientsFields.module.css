@@ -1,3 +1,9 @@
+.ingredientsWrapper{
+    position: relative;
+    width: 100%;
+    margin-top: 67px;
+}
+
 .addRecipeFormTypography {
     font-family: 'Poppins';
     font-style: normal;
@@ -8,16 +14,19 @@
     color: "red"
 }
 
-.ingredientsWrapper {
+.ingredientsHeaderWrapper {
     /* outline: 1px solid red; */
+    position: relative;
     width: 100%;
-    margin-top: 67px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .addRemoveCounter{
+    position: absolute;
+    top: 0;
+    right: 0;
     border: 1px solid rgba(51, 51, 51, 0.3);
     border-radius: 18px;
     padding: 16px 12px;
@@ -25,10 +34,24 @@
     height: 28px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
 
+}
+
+.addRemoveCounter > span{
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .counterIcon{
     cursor: pointer;
+    text-align: end;
+}
+
+.inputWrapper {
+    outline: 1px solid red;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

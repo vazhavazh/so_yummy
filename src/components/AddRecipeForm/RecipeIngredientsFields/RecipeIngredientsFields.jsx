@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Select, Typography } from '@mui/material';
+import { Field, FieldArray } from 'formik';
 import styles from './RecipeIngredientsFields.module.css';
 import CustomTextField from '../TextField';
 import { ReactComponent as IncrementIcon } from '../images/ingredientsIncrement.svg';
 import { ReactComponent as DecrementIcon } from '../images/ingredientsDecrement.svg';
+import { ReactComponent as DeleteIcon } from '../images/ingredientsDeleteIcon.svg';
 
-export const RecipeIngredientsFields = () => {
-  const [counter, setCounter] = useState(3);
-
-  const handleIncrement = () => {
-    setCounter(prevCounter => prevCounter + 1);
-  };
-
-  const handleDecrement = () => {
-    if (counter > 1) {
-      setCounter(prevCounter => prevCounter - 1);
-    }
-  };
+export const RecipeIngredientsFields = ({
+  counter,
+  handleIncrement,
+  handleDecrement,
+}) => {
   return (
-    <>
-      <Box className={styles.ingredientsWrapper}>
+    <Box className={styles.ingredientsWrapper}>
+      <Box className={styles.ingredientsHeaderWrapper}>
         <Typography
           sx={{
             fontFamily: 'Poppins',
@@ -32,24 +27,66 @@ export const RecipeIngredientsFields = () => {
         >
           Ingredients
         </Typography>
-        <Box className={styles.addRemoveCounter}>
-          <DecrementIcon
-            onClick={handleDecrement}
-            className={styles.counterIcon}
-          />
-          <span>{counter}</span>
-          <IncrementIcon
-            onClick={handleIncrement}
-            className={styles.counterIcon}
-          />
-        </Box>
       </Box>
-      <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-        <CustomTextField
-          name="ingredient"
-          placeholder="Enter ingredient name"
-        />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          marginTop: '28px',
+        }}
+      >
+        <FieldArray name="ingredients">
+          {props => {
+            const { push, remove, form } = props;
+            const { values } = form;
+            const { ingredients } = values;
+            return (
+              <div>
+                {ingredients.map((ingredient, index) => (
+                  <div key={index} className={styles.inputWrapper}>
+                    <CustomTextField
+                      name={`ingredients[${index}].name`}
+                      placeholder="Enter ingredient"
+                    />
+                    <Field />
+                    {index > 0 && (
+                      <DeleteIcon
+                        width="18px"
+                        height="18px"
+                        cursor="pointer"
+                        onClick={() => {
+                          remove(index);
+                          handleDecrement();
+                        }}
+                      />
+                    )}
+                  </div>
+                ))}
+                <Box className={styles.addRemoveCounter}>
+                  {counter > 1 && (
+                    <DecrementIcon
+                      onClick={() => {
+                        remove(counter - 1);
+                        handleDecrement();
+                      }}
+                      className={styles.counterIcon}
+                    />
+                  )}
+                  <span>{counter}</span>
+                  <IncrementIcon
+                    onClick={() => {
+                      push('');
+                      handleIncrement();
+                    }}
+                    className={styles.counterIcon}
+                  />
+                </Box>
+              </div>
+            );
+          }}
+        </FieldArray>
       </div>
-    </>
+    </Box>
   );
 };

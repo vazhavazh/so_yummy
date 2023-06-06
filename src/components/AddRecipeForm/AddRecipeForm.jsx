@@ -19,7 +19,7 @@ const initialValues = {
   cookingTime: '40 min',
   recipe: '',
   file: '',
-  ingredient: '',
+  ingredients: [''],
 };
 
 const validFileExtensions = {
@@ -33,35 +33,38 @@ function isValidFileType(fileName, fileType) {
   );
 }
 
-const FORM_VALIDATION = Yup.object().shape({
-  title: Yup.string().required('Title is required'),
-  about: Yup.string().required('About is required'),
-  category: Yup.string().required('Category is required'),
-  cookingTime: Yup.string().required('Cooking time is required'),
-  recipe: Yup.string().required('Recipe is required'),
-  file: Yup.mixed()
-    .test('is-valid-file', 'Invalid file format', function (value) {
-      if (!value) {
-        return true;
-      }
-      return isValidFileType(value && value.name.toLowerCase(), 'image');
-    })
-    .test(
-      'is-valid-size',
-      'File size exceeds the maximum limit',
-      function (value) {
-        if (!value) {
-          return true;
-        }
-        return value.size <= MAX_FILE_SIZE;
-      }
-    )
-    .required('Image is required'),
-  ingredient: Yup.string().required('Ingredient is required'),
-});
+// const FORM_VALIDATION = Yup.object().shape({
+//   title: Yup.string().required('Title is required'),
+//   about: Yup.string().required('About is required'),
+//   category: Yup.string().required('Category is required'),
+//   cookingTime: Yup.string().required('Cooking time is required'),
+//   recipe: Yup.string().required('Recipe is required'),
+//   file: Yup.mixed()
+//     .test('is-valid-file', 'Invalid file format', function (value) {
+//       if (!value) {
+//         return true;
+//       }
+//       return isValidFileType(value && value.name.toLowerCase(), 'image');
+//     })
+//     .test(
+//       'is-valid-size',
+//       'File size exceeds the maximum limit',
+//       function (value) {
+//         if (!value) {
+//           return true;
+//         }
+//         return value.size <= MAX_FILE_SIZE;
+//       }
+//     )
+//     .required('Image is required'),
+//   ingredients: Yup.lazy(val =>
+//     Array.isArray(val) ? Yup.array().of(Yup.string()) : Yup.string()
+//   ),
+// });
 
 export const AddRecipeForm = () => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
+  const [counter, setCounter] = useState(1);
 
   const handleSubmit = (values, { resetForm }) => {
     const file = values.file;
@@ -69,7 +72,18 @@ export const AddRecipeForm = () => {
     if (!errorMessage) {
       console.log(values);
       setFormSubmitted(true);
+      setCounter(1);
       resetForm();
+    }
+  };
+
+  const handleIncrement = () => {
+    setCounter(prevCounter => prevCounter + 1);
+  };
+
+  const handleDecrement = () => {
+    if (counter > 1) {
+      setCounter(prevCounter => prevCounter - 1);
     }
   };
 
@@ -93,7 +107,7 @@ export const AddRecipeForm = () => {
     <div className={styles.addRecipeForm}>
       <Formik
         initialValues={initialValues}
-        validationSchema={FORM_VALIDATION}
+        // validationSchema={FORM_VALIDATION}
         onSubmit={handleSubmit}
       >
         <Form>
@@ -105,8 +119,12 @@ export const AddRecipeForm = () => {
               categories={categories}
               cookingTime={cookingTime}
             />
-            <RecipeIngredientsFields />
-            <Box marginTop="18px" width="100%">
+            <RecipeIngredientsFields
+              counter={counter}
+              handleIncrement={handleIncrement}
+              handleDecrement={handleDecrement}
+            />
+            <Box marginTop="18px" width="100%" textAlign="end">
               <Button type="submit">Submit</Button>
             </Box>
           </div>
