@@ -7,13 +7,12 @@ export const RecipeCard = ({ recipe }) => {
   return (
     <li className={style.recipeEll}>
       <a href={`/recipe/${_id.$oid}`}>
-        <img
-          className={style.recipeImg}
-          src={preview}
-          alt="recipe prewiew"
-        />
+        <img className={style.recipeImg} src={preview} alt="recipe prewiew" />
         <p className={style.recipeTitle}>{title}</p>
-
+        <div className={style.recipeOverlay}>
+          <p className={style.recipeTime}>{`🕔 ${time} min`}</p>
+          <p className={style.recipeText}>{description}</p>
+        </div>
       </a>
     </li>
   );
