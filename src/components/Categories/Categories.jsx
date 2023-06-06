@@ -7,7 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 ///temp
 import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
 //
-import { CategoriesItem } from './CategoriesItem/CategoriesItem';
+// import { CategoriesItem } from './CategoriesItem/CategoriesItem';
 import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { RecipeCard } from 'components/RecipeCard/RecipeCard';
@@ -25,9 +25,9 @@ export const Categories = () => {
     setValue(event.target.textContent);
     setDishData(dishes.filter(dish => dish.category === value));
   };
-  const unicCategories = allCategories.filter(
-    (course, index, array) => array.indexOf(course) === index
-  );
+  const unicCategories = allCategories
+    .filter((course, index, array) => array.indexOf(course) === index)
+    .sort();
 
   return (
     <div className="categories">
