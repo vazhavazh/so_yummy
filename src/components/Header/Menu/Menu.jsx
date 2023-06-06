@@ -37,7 +37,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
               <NavLink to="/my">My recipes</NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink to="/favorites">Favorites</NavLink>
+              <NavLink to="/favorite">Favorites</NavLink>
             </li>
             <li className={style.navItem}>
               <NavLink to="/shopping-list">Shopping list</NavLink>
