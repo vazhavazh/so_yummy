@@ -7,6 +7,7 @@
   justify-content: space-between;
   gap: 115px;
   position: absolute;
+
   bottom: 83px;
   left: 50%;
   transform: translateX(-50%);
@@ -15,14 +16,13 @@
     flex-direction: row-reverse;
     gap: 0;
 
-    width: 100%;
-    padding: 0 32px;
-    bottom: 168px;
+    width: 704px;
+    bottom: 150px;
   }
 
   @include desktop {
+    width: 1240px;
     align-items: flex-start;
-    padding: 0 100px;
     bottom: 224px;
   }
 }

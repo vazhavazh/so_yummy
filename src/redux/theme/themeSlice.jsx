@@ -13,4 +13,5 @@ const themeSlice = createSlice({
 });
 
 export const { toggleDarkMode } = themeSlice.actions;
+
 export default themeSlice.reducer;

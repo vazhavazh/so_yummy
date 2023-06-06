@@ -8,25 +8,3 @@ $shadowColor: #e0e0e0;
 $wrapperBgGrey: #ebf3d4;
 
 
-// Светлая тема
-$light-primary-color: #3e4462;
-$light-background-color: #fafafa;
-
-// Темная тема
-$dark-primary-color: #fafafa;
-$dark-background-color: #1E1F28;
-
-// Миксин для переключения темы
-@mixin theme($primary-color, $background-color) {
-  // Определите стили для выбранной темы
-  color: $primary-color;
-  background-color: $background-color;
-}
-
-.light-mode {
-  @include theme($light-primary-color, $light-background-color);
-}
-
-.dark-mode {
-  @include theme($dark-primary-color, $dark-background-color);
-}
