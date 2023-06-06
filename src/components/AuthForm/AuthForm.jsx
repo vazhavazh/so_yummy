@@ -222,13 +222,13 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                         )}
                       </div>
                       {errors.password?.includes('secure') ? (
-                        <>
+                        <div className={styles.warningmessage_wrp}>
                           <p className={styles.warning_message}>
                             {' '}
                             {errors.password}
                           </p>
                           <WorningSvg className={styles.warning_svg} />
-                        </>
+                        </div>
                       ) : (
                         touched.password &&
                         errors.password && (

@@ -146,7 +146,7 @@
   width: 100%;
   max-width: 400px;
   height: 45px;
-  padding: 12px 0 12px 40px;
+  padding: 12px 52px 12px 40px;
   color: $mainBgColorWhite;
   background-color: transparent;
   border: 1px solid gray;
@@ -262,6 +262,7 @@
 }
 
 .warning_message {
+  max-width: 100%;
   font-size: 14px;
   line-height: 1.5;
   color: #f6c23e;
@@ -272,7 +273,7 @@
 
 .warning_svg {
   position: absolute;
-  top: 37%;
+  top: 30%;
   right: 0%;
   transform: translate(-50%, -50%);
 }
@@ -304,3 +305,7 @@
 //   width: 60px;
 //   height: 60px;
 // }
+
+.warningmessage_wrp {
+  width: 400px;
+}
