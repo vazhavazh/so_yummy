@@ -23,6 +23,12 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+  
+}
+
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
@@ -35,7 +41,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     shoppingListIngredients: shoppingListIngredientsReducer,
-    theme: themeReducer,
+    theme: persistReducer(themePersistConfig, themeReducer),
     
   },
   middleware,

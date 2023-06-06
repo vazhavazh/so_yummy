@@ -10,9 +10,12 @@ export const GlobalStyles = createGlobalStyle`
     --hoverAnimation: 0.2s ease;
     --shadowColor: #e0e0e0;
     --wrapperBgGrey: #ebf3d4;
+    --greenToWhite: #8baa36;
   }
 
   .dark-mode {
+    --wrapperBgGrey: #1E1F28;
+    --greenToWhite: #fafafa;
     --mainBgColorWhite: #1E1F28;
     --secondaryBgColorWhite: #2A2C36;
     --mainTextColor: #fafafa;
