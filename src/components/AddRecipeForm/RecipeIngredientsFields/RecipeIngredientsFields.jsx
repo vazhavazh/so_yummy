@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Select, Typography } from '@mui/material';
+import { Box, Select, TextField, Typography } from '@mui/material';
 import { Field, FieldArray } from 'formik';
 import styles from './RecipeIngredientsFields.module.css';
 import CustomTextField from '../TextField';
@@ -45,16 +45,26 @@ export const RecipeIngredientsFields = ({
               <div>
                 {ingredients.map((ingredient, index) => (
                   <div key={index} className={styles.inputWrapper}>
-                    <CustomTextField
+                    <TextField
                       name={`ingredients[${index}].name`}
                       placeholder="Enter ingredient"
+                      variant="outlined"
+                      sx={{
+                        width: '194px',
+                        height: '53px',
+                        color: 'red',
+                      }}
                     />
-                    <Field />
+                    <TextField
+                      name={`ingredients[${index}].dose`}
+                      sx={{ width: '84px', marginLeft: '14px' }}
+                    />
                     {index > 0 && (
                       <DeleteIcon
                         width="18px"
                         height="18px"
                         cursor="pointer"
+                        className={styles.deleteIcon}
                         onClick={() => {
                           remove(index);
                           handleDecrement();
