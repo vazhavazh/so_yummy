@@ -40,6 +40,7 @@ export const Header = () => {
         </div>
       </div>
       <ToggleTheme />
+      
     </header>
   );
 };
