@@ -39,15 +39,13 @@ export const RecipeIngredientsFields = ({
         <FieldArray name="ingredients">
           {props => {
             const { push, remove, form } = props;
-            const { values } = form;
-            const { ingredients } = values;
             return (
               <div>
-                {ingredients.map((ingredient, index) => (
+                {form.values.ingredients.map((ingredient, index) => (
                   <div key={index} className={styles.inputWrapper}>
                     <TextField
                       name={`ingredients[${index}].name`}
-                      placeholder="Enter ingredient"
+                      placeholder={`Enter ingredient${index}`}
                       variant="outlined"
                       sx={{
                         width: '194px',
