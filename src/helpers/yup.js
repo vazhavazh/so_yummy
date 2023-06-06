@@ -35,10 +35,11 @@ export const SignupSchema = Yup.object().shape({
 
 export const LoginSchema = Yup.object().shape({
   email: Yup.string()
+    .trim()
     .email('Invalid email')
     .required('Please enter your email'),
   password: Yup.string()
-    // .trim()
+    .trim()
     .required('Please enter your password')
     .min(6, 'Your password is too short')
     .max(16, 'Password cannot be longer than 20 characters'),
