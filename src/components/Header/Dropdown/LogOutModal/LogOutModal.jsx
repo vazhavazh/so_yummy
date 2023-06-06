@@ -6,6 +6,9 @@ import { logoutUser } from 'redux/auth/authThunks';
 const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
   const dispatch = useDispatch();
 
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  }
   return (
     <div
       onClick={e => e.stopPropagation()}
@@ -19,7 +22,7 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
       </button>
       <p className={style.warning}>Are you sure you want to log out?</p>
       <div className={style.btnWrapper}>
-        <button onClick={() => dispatch(logoutUser)} className={style.yesBtn}>
+        <button onClick={handleLogout} className={style.yesBtn}>
           Yes
         </button>
         <button

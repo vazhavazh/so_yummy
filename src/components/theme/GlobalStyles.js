@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     --mainTextColor: #3e4462;
     --mainAccentColor: #8baa36;
     --secondaryAccentColor: #22252a;
-    --hoverAnimation: 0.2s ease;
+  
     --shadowColor: #e0e0e0;
     --wrapperBgGrey: #ebf3d4;
     --greenToWhite: #8baa36;
@@ -24,8 +24,3 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 `;
-
-// .my - special -case {
-//   --mainBgColor: #ff0000; /* Желаемый цвет для частного случая */
-//   --mainTextColor: #00ff00; /* Желаемый цвет для частного случая */
-// }
