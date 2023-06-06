@@ -57,7 +57,8 @@
 }
 
 .heroTitle {
-  color: $secondaryAccentColor;
+  color: var(--secondaryAccentColor);
+  
 }
 
 .heroDiscription {

@@ -10,7 +10,8 @@
   display: flex;
   justify-content: center;
 
-  background-color: #fafafa;
+  background-color: var(--mainBgColorWhite);
+
 
   @include tablet {
     max-width: 768px;
@@ -50,7 +51,7 @@
   gap: 14px;
   display: flex;
 
-  background: #ffffff;
+  // background: #ffffff;
   border-radius: 8px;
 
   @include tablet {
@@ -102,7 +103,7 @@
   font-size: 14px;
 
   letter-spacing: -0.24px;
-  color: #3e4462;
+  // color: #3e4462;
   line-height: 1;
 
   letter-spacing: calc(-0.24px / 14);
@@ -146,7 +147,7 @@
 
   letter-spacing: -0.02em;
 
-  color: #23262a;
+  // color: #23262a;
 
   @include tablet {
     font-size: 14px;
@@ -165,7 +166,7 @@
 
   letter-spacing: calc(-0.24px / 10);
 
-  color: #3e4462;
+  // color: #3e4462;
 
   @include tablet {
     font-size: 14px;
