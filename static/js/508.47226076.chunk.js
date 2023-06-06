@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkso_yummy=self.webpackChunkso_yummy||[]).push([[508],{5848:function(e,n,i){i.r(n);i(2791);var s=i(806),t=i(6416),u=i(3329);n.default=function(){return(0,u.jsx)("div",{children:(0,u.jsx)(s.B,{schema:t.p,title:"Sign In",redirect:"Registration",page:"signin"})})}}}]);
+//# sourceMappingURL=508.47226076.chunk.js.map
