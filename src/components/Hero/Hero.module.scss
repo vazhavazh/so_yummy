@@ -1,8 +1,11 @@
 @import '../../main.scss';
 
 .hero {
-  display: flex;
+ display: flex;
   justify-content: center;
+ background-color: var(--mainBgColorWhite);
+  padding-top: 132px;
+
   position: relative;
   min-width: 375px;
   width: 100vw;
