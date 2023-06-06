@@ -14,7 +14,9 @@ export const registerUser = createAsyncThunk(
       setAuthHeader(token);
       return { user, token };
     } catch (error) {
-      Notify.failure('User is already registered');
+      if (error.response.status === 409) {
+        Notify.failure('User is already registered');
+      }
       return rejectWithValue(error.message);
     }
   }
