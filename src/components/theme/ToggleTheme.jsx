@@ -4,7 +4,7 @@ import { toggleDarkMode } from 'redux/theme/themeSlice';
 import { selectDarkMode } from 'redux/theme/themeSelector';
 import './ToggleTheme.scss';
 
-const MyComponent = () => {
+const ToggleTheme = () => {
   const darkMode = useSelector(selectDarkMode);
   const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default ToggleTheme;
