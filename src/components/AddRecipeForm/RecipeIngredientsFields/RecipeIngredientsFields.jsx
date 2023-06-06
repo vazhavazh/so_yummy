@@ -37,62 +37,64 @@ export const RecipeIngredientsFields = ({
         }}
       >
         <FieldArray name="ingredients">
-          {props => {
-            const { push, remove, form } = props;
-            return (
-              <div>
-                {form.values.ingredients.map((ingredient, index) => (
-                  <div key={index} className={styles.inputWrapper}>
-                    <TextField
-                      name={`ingredients[${index}].name`}
-                      placeholder={`Enter ingredient${index}`}
-                      variant="outlined"
-                      sx={{
-                        width: '194px',
-                        height: '53px',
-                        color: 'red',
-                      }}
-                    />
-                    <TextField
-                      name={`ingredients[${index}].dose`}
-                      sx={{ width: '84px', marginLeft: '14px' }}
-                    />
-                    {index > 0 && (
-                      <DeleteIcon
-                        width="18px"
-                        height="18px"
-                        cursor="pointer"
-                        className={styles.deleteIcon}
-                        onClick={() => {
-                          remove(index);
-                          handleDecrement();
-                        }}
-                      />
-                    )}
-                  </div>
-                ))}
-                <Box className={styles.addRemoveCounter}>
-                  {counter > 1 && (
-                    <DecrementIcon
+          {({ push, remove, form }) => (
+            <div>
+              {form.values.ingredients.map((ingredient, index) => (
+                <div key={index} className={styles.inputWrapper}>
+                  <TextField
+                    name={`ingredients[${index}].name`}
+                    placeholder={`Enter ingredient${index}`}
+                    onChange={form.handleChange}
+                    onBlur={form.handleBlur}
+                    variant="outlined"
+                    sx={{
+                      width: '194px',
+                      height: '53px',
+                      color: 'red',
+                    }}
+                  />
+                  <TextField
+                    name={`ingredients[${index}].dose`}
+                    placeholder="Dose"
+                    onChange={form.handleChange}
+                    onBlur={form.handleBlur}
+                    sx={{ width: '84px', marginLeft: '14px' }}
+                  />
+                  {index > 0 && (
+                    <DeleteIcon
+                      width="18px"
+                      height="18px"
+                      cursor="pointer"
+                      className={styles.deleteIcon}
                       onClick={() => {
-                        remove(counter - 1);
+                        remove(index);
                         handleDecrement();
                       }}
-                      className={styles.counterIcon}
                     />
                   )}
-                  <span>{counter}</span>
-                  <IncrementIcon
+                </div>
+              ))}
+              <Box className={styles.addRemoveCounter}>
+                {counter > 1 && (
+                  <DecrementIcon
                     onClick={() => {
-                      push('');
-                      handleIncrement();
+                      remove(counter - 1);
+                      handleDecrement();
                     }}
                     className={styles.counterIcon}
                   />
-                </Box>
-              </div>
-            );
-          }}
+                )}
+                <span>{counter}</span>
+                <IncrementIcon
+                  onClick={() => {
+                    push({ name: '', dose: '' });
+                    handleIncrement();
+                  }}
+                  className={styles.counterIcon}
+                />
+              </Box>
+            </div>
+          )}
         </FieldArray>
       </div>
     </Box>

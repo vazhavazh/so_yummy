@@ -19,7 +19,7 @@ const initialValues = {
   cookingTime: '40 min',
   recipe: '',
   file: '',
-  ingredients: [''],
+  ingredients: [{ name: '', dose: '' }],
 };
 
 const validFileExtensions = {
