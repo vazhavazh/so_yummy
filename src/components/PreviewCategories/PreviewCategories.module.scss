@@ -6,9 +6,13 @@
   justify-content: center;
   gap: 40px;
   align-items: center;
+  
+
   width: 100%;
   margin: 0;
   padding: 64px 15px 100px;
+
+  background-color: $mainBgColorWhite;
 
   @include tablet {
     gap: 32px;
@@ -28,22 +32,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 
   margin: 0;
   padding: 0;
 
-  @include desktop {
+  @include tablet {
+    max-width: 704px;
     gap: 50px;
   }
 
   @include desktop {
+    max-width: 1240px;
     gap: 100px;
   }
 }
 
 .previewCategoriesListEll {
   display: flex;
+  align-items: center;
 
   flex-direction: column;
   width: 343px;
@@ -59,6 +66,7 @@
 }
 
 .categoriesName {
+    align-self: flex-start;
   margin-bottom: 32px;
 
   font-weight: 600;
@@ -72,25 +80,25 @@
     line-height: 44px;
   }
 }
-.recipeListSearch{
+.recipeListSearch {
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-  
-    padding: 0;
-    margin-bottom: 24px;
-  
-    @include tablet {
-      width: 704px;
-      margin: 0;
-      gap: 32px;
-    }
-  
-    @include desktop {
-      width: 1240px;
-      gap: 14px;
-    }
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+
+  padding: 0;
+  margin-bottom: 24px;
+
+  @include tablet {
+    width: 704px;
+    margin: 0;
+    gap: 32px;
+  }
+
+  @include desktop {
+    width: 1240px;
+    gap: 14px;
+  }
 }
 .recipeList {
   display: flex;
@@ -147,10 +155,10 @@
   transition: background $hoverAnimation;
 
   &:hover,
-    &:focus {
-      background: $mainAccentColor;
-      color: $mainBgColorWhite;
-    }
+  &:focus {
+    background: $mainAccentColor;
+    color: $mainBgColorWhite;
+  }
 
   @include tablet {
     padding: 20px 52px;

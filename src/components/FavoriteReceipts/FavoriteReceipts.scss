@@ -10,7 +10,8 @@
   display: flex;
   justify-content: center;
 
-  background-color: #fafafa;
+  background-color: var(--mainBgColorWhite);
+
 
   @include tablet {
     max-width: 768px;
@@ -50,7 +51,7 @@
   gap: 14px;
   display: flex;
 
-  background: #ffffff;
+  background: var(--secondaryBgColorWhite);
   border-radius: 8px;
 
   @include tablet {
@@ -102,7 +103,7 @@
   font-size: 14px;
 
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: var(--mainTextColor);
   line-height: 1;
 
   letter-spacing: calc(-0.24px / 14);
@@ -140,13 +141,13 @@
 .favorite-description {
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 8px;
   line-height: calc(10 / 8);
 
   letter-spacing: -0.02em;
 
-  color: #23262a;
+  color: var(--secondaryAccentColor);
 
   @include tablet {
     font-size: 14px;
@@ -165,7 +166,7 @@
 
   letter-spacing: calc(-0.24px / 10);
 
-  color: #3e4462;
+  color: var(--mainTextColor);
 
   @include tablet {
     font-size: 14px;
