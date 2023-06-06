@@ -102,7 +102,7 @@ button {
   justify-content: center;
   flex-wrap: wrap;
 
-  background: $secondaryAccentColor;
+  background-color: var(--darkGreytoGreen);
   transition: background $hoverAnimation;
   & span {
     font-family: 'Poppins';

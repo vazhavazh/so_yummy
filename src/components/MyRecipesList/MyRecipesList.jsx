@@ -20,11 +20,11 @@ export const MyRecipesList = () => {
             </div>
 
             <button
-              className="favorite-delete-btn trashBtn"
+              className="favorite-delete-btn trashBtn mod"
               type="button"
               // onClick={() => handleDelete(favorite._id.$oid)}
             >
-              <TrashIcon className="trashBtn--icon" />
+              <TrashIcon className="trashBtn--icon mod--icon" />
             </button>
 
             <div className="favorite-description-wrapper">
@@ -35,10 +35,10 @@ export const MyRecipesList = () => {
               <span className="favorite-time">{favorite.time} min</span>
             </div>
             <Link
-              className="base-link-leaf favorite-link"
+              className="base-link-leaf favorite-link base-link-leaf--mod"
               to={`/recipe/${favorite._id.$oid}`}
             >
-              <span>See recipe</span>
+              <span className="base-link-leaf--mod--span">See recipe</span>
             </Link>
           </li>
         ))}
