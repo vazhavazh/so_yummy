@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Select, TextField, Typography } from '@mui/material';
-import { Field, FieldArray } from 'formik';
+import { Field, FieldArray, ErrorMessage, useFormikContext } from 'formik';
 import styles from './RecipeIngredientsFields.module.css';
 import CustomTextField from '../TextField';
 import { ReactComponent as IncrementIcon } from '../images/ingredientsIncrement.svg';
@@ -12,6 +12,7 @@ export const RecipeIngredientsFields = ({
   handleIncrement,
   handleDecrement,
 }) => {
+  const { values } = useFormikContext();
   return (
     <Box className={styles.ingredientsWrapper}>
       <Box className={styles.ingredientsHeaderWrapper}>
@@ -70,6 +71,7 @@ export const RecipeIngredientsFields = ({
                       className={styles.deleteIcon}
                       onClick={() => {
                         remove(index);
+                        delete values.ingredients[index];
                         handleDecrement();
                       }}
                     />

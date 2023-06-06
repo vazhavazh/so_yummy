@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
-import { Form, Formik } from 'formik';
+import { Form, Formik, useFormikContext } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
 import CustomTextField from './TextField';
@@ -33,34 +33,39 @@ function isValidFileType(fileName, fileType) {
   );
 }
 
-// const FORM_VALIDATION = Yup.object().shape({
-//   title: Yup.string().required('Title is required'),
-//   about: Yup.string().required('About is required'),
-//   category: Yup.string().required('Category is required'),
-//   cookingTime: Yup.string().required('Cooking time is required'),
-//   recipe: Yup.string().required('Recipe is required'),
-//   file: Yup.mixed()
-//     .test('is-valid-file', 'Invalid file format', function (value) {
-//       if (!value) {
-//         return true;
-//       }
-//       return isValidFileType(value && value.name.toLowerCase(), 'image');
-//     })
-//     .test(
-//       'is-valid-size',
-//       'File size exceeds the maximum limit',
-//       function (value) {
-//         if (!value) {
-//           return true;
-//         }
-//         return value.size <= MAX_FILE_SIZE;
-//       }
-//     )
-//     .required('Image is required'),
-//   ingredients: Yup.lazy(val =>
-//     Array.isArray(val) ? Yup.array().of(Yup.string()) : Yup.string()
-//   ),
-// });
+const FORM_VALIDATION = Yup.object().shape({
+  title: Yup.string().required('Title is required'),
+  about: Yup.string().required('About is required'),
+  category: Yup.string().required('Category is required'),
+  cookingTime: Yup.string().required('Cooking time is required'),
+  // recipe: Yup.string().required('Recipe is required'),
+  file: Yup.mixed()
+    .test('is-valid-file', 'Invalid file format', function (value) {
+      if (!value) {
+        return true;
+      }
+      return isValidFileType(value && value.name.toLowerCase(), 'image');
+    })
+    .test(
+      'is-valid-size',
+      'File size exceeds the maximum limit',
+      function (value) {
+        if (!value) {
+          return true;
+        }
+        return value.size <= MAX_FILE_SIZE;
+      }
+    )
+    .required('Image is required'),
+  ingredients: Yup.array()
+    .of(
+      Yup.object().shape({
+        name: Yup.string().required('Ingredient is required'),
+        dose: Yup.string().required('Dose is required'),
+      })
+    )
+    .required('Ingredients are required'),
+});
 
 export const AddRecipeForm = () => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
@@ -107,28 +112,30 @@ export const AddRecipeForm = () => {
     <div className={styles.addRecipeForm}>
       <Formik
         initialValues={initialValues}
-        // validationSchema={FORM_VALIDATION}
+        validationSchema={FORM_VALIDATION}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div className={styles.addRecipeForm}>
-            <Typography>Add recipe</Typography>
-
-            <RecipeDescriptionFields
-              isFormSubmitted={isFormSubmitted}
-              categories={categories}
-              cookingTime={cookingTime}
-            />
-            <RecipeIngredientsFields
-              counter={counter}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
-            />
-            <Box marginTop="18px" width="100%" textAlign="end">
-              <Button type="submit">Submit</Button>
-            </Box>
-          </div>
-        </Form>
+        {({ values, errors }) => (
+          <Form>
+            <div className={styles.addRecipeForm}>
+              <RecipeDescriptionFields
+                isFormSubmitted={isFormSubmitted}
+                categories={categories}
+                cookingTime={cookingTime}
+              />
+              <RecipeIngredientsFields
+                counter={counter}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+              />
+              <Box marginTop="18px" width="100%">
+                <Button type="submit">Submit</Button>
+              </Box>
+            </div>
+            <pre>{JSON.stringify(errors, null, 4)}</pre>
+            <pre>{JSON.stringify(values, null, 4)}</pre>
+          </Form>
+        )}
       </Formik>
     </div>
   );
