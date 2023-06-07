@@ -125,7 +125,7 @@
   height: 45px;
   color: $mainBgColorWhite;
   background: $mainAccentColor;
-  // margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -146,7 +146,7 @@
   width: 100%;
   max-width: 400px;
   height: 45px;
-  padding: 12px 52px 12px 40px;
+  padding: 12px 0 12px 40px;
   color: $mainBgColorWhite;
   background-color: transparent;
   border: 1px solid gray;
@@ -171,8 +171,6 @@
 }
 
 .auth_link {
-  text-align: center;
-  // margin-bottom: 10px;
   text-decoration: underline;
   color: $mainBgColorWhite;
   font-weight: 400;
@@ -262,7 +260,6 @@
 }
 
 .warning_message {
-  max-width: 100%;
   font-size: 14px;
   line-height: 1.5;
   color: #f6c23e;
@@ -273,39 +270,7 @@
 
 .warning_svg {
   position: absolute;
-  top: 30%;
+  top: 37%;
   right: 0%;
   transform: translate(-50%, -50%);
-}
-
-.eye_box {
-  position: absolute;
-  right: 36px;
-  top: 27px;
-  transform: translateY(-50%);
-  fill: #e0e0e0;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  &:hover,
-  &:focus {
-    fill: #3cbc81;
-  }
-  @media screen and (min-width: $breakpoint-tablet) {
-    top: 32px;
-  }
-}
-.google_wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-// .google_svg {
-//   width: 60px;
-//   height: 60px;
-// }
-
-.warningmessage_wrp {
-  width: 400px;
 }

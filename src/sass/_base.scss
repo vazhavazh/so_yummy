@@ -15,7 +15,6 @@ html {
   }
 }
 
-
 body {
   position: relative;
   display: flex;
@@ -28,8 +27,6 @@ body {
   font-weight: 400;
 }
 
-
-
 h1,
 h2,
 h3,
@@ -37,8 +34,7 @@ p {
   margin: 0;
 }
 
-ul,
-li {
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -56,10 +52,6 @@ a {
 
 button {
   cursor: pointer;
-}
-
-.dark-mode {
-  background-color: var(--mainBgColorWhite);
 }
 
 .remove-btnX {
@@ -102,7 +94,7 @@ button {
   justify-content: center;
   flex-wrap: wrap;
 
-  background-color: var(--darkGreytoGreen);
+  background: $secondaryAccentColor;
   transition: background $hoverAnimation;
   & span {
     font-family: 'Poppins';
@@ -143,7 +135,7 @@ button {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--wrapperBgGrey);
+  background-color: $wrapperBgGrey;
   transition: background $hoverAnimation;
   border: none;
   width: 24px;
@@ -177,7 +169,7 @@ button {
 }
 
 .trashBtn--icon {
-  fill: var(--secondaryAccentColor);
+  fill: $secondaryAccentColor;
   transition: fill $hoverAnimation;
 }
 .trashBtn:hover .trashBtn--icon,

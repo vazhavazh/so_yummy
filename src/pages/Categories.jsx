@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const Footer = () => {
+const Categories = () => {
   return (
     <div>
-      Footer
+      
     </div>
   )
 }
 
-
+export default Categories

@@ -1,39 +1,23 @@
-@import '../../main.scss';
+@import '../../sass/mixins';
 
 .heroBox {
   display: flex;
   flex-direction: column;
-  position: relative;
-  padding-top: 132px;
+  align-items: center;
   gap: 14px;
 
+  width: 100%;
   height: 100%;
 
-  background-image: url('../../assets/image/mainPage/m-plate.png');
-  background-size: 320px 296px;
-  background-position: center 322px;
-  background-repeat: no-repeat;
-
   @include tablet {
-    width: 704px;
     gap: 24px;
-    padding-top: 226px;
-
-    background-image: url('../../assets/image/mainPage/t-plate.png');
-    background-size: 370px 345px;
-    background-position: right -8px top 170px;
-    background-repeat: no-repeat;
+    padding: 0 32px;
+    align-items: flex-start;
   }
 
   @include desktop {
-    width: 1240px;
     gap: 14px;
-    padding-top: 226px;
-
-    background-image: url('../../assets/image/mainPage/d-plate.png');
-    background-size: 578px 539px;
-    background-position: calc(100% - 84px) 126px;
-    background-repeat: no-repeat;
+    padding: 0 100px;
   }
 }
 
@@ -43,7 +27,7 @@
   line-height: 60px;
   letter-spacing: -0.005em;
 
-  color: $mainAccentColor;
+  color: #8baa36;
 
   @include tablet {
     font-size: 72px;
@@ -57,12 +41,10 @@
 }
 
 .heroTitle {
-  color: var(--secondaryAccentColor);
-  
+  color: #22252a;
 }
 
 .heroDiscription {
-  align-self: center;
   max-width: 248px;
   text-align: center;
 
@@ -74,7 +56,6 @@
   @include tablet {
     max-width: 362px;
     text-align: start;
-    align-self: flex-start;
   }
 
   @include desktop {

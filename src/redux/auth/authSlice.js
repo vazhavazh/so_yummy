@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   getCurrentUser,
   loginUser,
-  logoutUser,
+  // logoutUser,
   registerUser,
 } from './authThunks';
 const handlePending = state => {
@@ -32,12 +32,12 @@ const authSlice = createSlice({
     [registerUser.pending]: handlePending,
     [loginUser.pending]: handlePending,
     [getCurrentUser.pending]: handlePending,
-    [logoutUser.pending]: handlePending,
+    // [logoutUser.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
     [loginUser.rejected]: handleRejected,
     [getCurrentUser.rejected]: handleRejected,
-    [logoutUser.rejected]: handleRejected,
+    // [logoutUser.rejected]: handleRejected,
 
     [registerUser.fulfilled]: (state, { payload }) => {
       return {
@@ -63,6 +63,7 @@ const authSlice = createSlice({
         isRefreshing: false,
       };
     },
+
     [getCurrentUser.pending]: (state, { payload }) => {
       return {
         ...state,
@@ -77,19 +78,20 @@ const authSlice = createSlice({
         isRefreshing: false,
       };
     },
-    [logoutUser.fulfilled]: (state, { payload }) => {
-      return {
-        user: {
-          id: '',
-          username: '',
-          email: '',
-        },
-        isLoading: false,
-        error: null,
-        isRefreshing: false,
-        token: null,
-      };
-    },
+    // [logoutUser.fulfilled]: (state, { payload }) => {
+    //   return {
+    //     user: {
+    //       id: '',
+    //       username: '',
+    //       email: '',
+
+    //     },
+    //     isLoading: false,
+    //     error: null,
+    //     isRefreshing: false,
+    //     token: null,
+    //   };
+    // },
   },
 });
 

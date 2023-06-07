@@ -1,10 +1,7 @@
-import { Link } from "react-router-dom";
-
-export const Button = ({ text, to, className }) => {
-
+export const Button = ({ text, onClick, className }) => {
   return (
-    <Link className={className} to={to}>
+    <button className={className} onClick={onClick}>
       {text}
-    </Link>
+    </button>
   );
 };

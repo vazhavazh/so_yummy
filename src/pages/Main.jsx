@@ -6,7 +6,7 @@ import { PreviewCategories } from '../components/PreviewCategories/PreviewCatego
 const Main = () => {
   return (
     <>
-      <Hero />
+      <Hero></Hero>
       <PreviewCategories />
     </>
   );

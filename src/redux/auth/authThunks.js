@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { setAuthHeader, clearAuthHeader } from '../../api';
+import { setAuthHeader } from '../../api';
+// import { setAuthHeader, clearAuthHeader } from '../../api';
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
 export const registerUser = createAsyncThunk(
@@ -14,9 +15,7 @@ export const registerUser = createAsyncThunk(
       setAuthHeader(token);
       return { user, token };
     } catch (error) {
-      if (error.response.status === 409) {
-        Notify.failure('User is already registered');
-      }
+      Notify.failure('User is already registered');
       return rejectWithValue(error.message);
     }
   }
@@ -58,17 +57,17 @@ export const getCurrentUser = createAsyncThunk(
   }
 );
 
-export const logoutUser = createAsyncThunk(
-  'auth/logout',
-  async (_, { rejectWithValue, getState }) => {
-    const { token } = getState().auth;
-    try {
-      setAuthHeader(token);
-      const { data } = await axios.post(`/api/auth/logout`, token);
-      clearAuthHeader();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// export const logoutUser = createAsyncThunk(
+//   'auth/logout',
+//   async (_, { rejectWithValue, getState }) => {
+//     const { token } = getState().auth;
+//     try {
+//       setAuthHeader(token);
+//       const { data } = await axios.delete(`/api/auth/sign-out`, token);
+//       clearAuthHeader();
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );

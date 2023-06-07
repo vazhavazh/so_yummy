@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from 'api/fakeApi/fakeFavoriteDBcopy.json';
+import data from 'api/fakeApi/fakeFavoriteDB.json';
 import './FavoriteReceipts.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
-
 
 export const FavoriteReceipts = () => {
   const favorites = data;
@@ -13,7 +12,7 @@ export const FavoriteReceipts = () => {
         {favorites.map(favorite => (
           <li key={favorite._id.$oid} className="favorite-item">
             <div className="favorite-img-wrapper">
-              <img src={favorite.preview} alt="food" className="favorite-img again" />
+              <img src={favorite.preview} alt="food" className="favorite-img" />
             </div>
 
             <button

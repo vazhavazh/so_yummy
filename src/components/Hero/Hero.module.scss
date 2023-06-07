@@ -1,46 +1,38 @@
-@import '../../main.scss';
+@import '../../sass/mixins';
 
 .hero {
- display: flex;
-  justify-content: center;
- background-color: var(--mainBgColorWhite);
   padding-top: 132px;
-
   position: relative;
   min-width: 375px;
-  width: 100vw;
   height: 777px;
-  background-color: $mainBgColorWhite;
 
-  background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
-    url('../../assets/image/mainPage/m-spinach-bottom.png'),
-    url('../../assets/image/mainPage/m-bg-green.png');
-  background-size: auto, auto, auto;
+  background-image: url('../../assets/image/mainPage/m-plate.png');
+  background-size: 320px 296px;
   background-repeat: no-repeat;
-  background-position: top 35px left, right top 25px, right top 148px;
+  background-position-x: center;
+  background-position-y: 322px;
 
   @include tablet {
     display: flex;
+    padding-top: 204px;
     min-width: 768px;
     height: 640px;
-    gap: 18px;
 
-    background-image: url('../../assets/image/mainPage/t-spinach-top.png'),
-      url('../../assets/image/mainPage/t-bg-green.png');
-    background-size: auto, auto;
+    background-image: url('../../assets/image/mainPage/t-plate.png');
+    background-size: 378px 351px;
     background-repeat: no-repeat;
-    background-position: top left, right top;
+    background-position-x: right;
+    background-position-y: 159px;
   }
 
   @include desktop {
+    padding-top: 226px;
     min-width: 1440px;
     height: 800px;
 
-    background-image: url('../../assets/image/mainPage/d-spinach-top.png'),
-      url('../../assets/image/mainPage/d-spinach-bottom.png'),
-      url('../../assets/image/mainPage/d-bg-green.png');
-    background-size: auto 474px, contain, auto;
+    background-image: url('../../assets/image/mainPage/d-plate.png');
+    background-size: 578px 539px;
     background-repeat: no-repeat;
-    background-position: top left, right center, right top;
+    background-position: right 184px top 126px;
   }
 }

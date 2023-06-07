@@ -1,4 +1,4 @@
-@import '../../main.scss';
+@import '../../sass/mixins';
 
 .chooseBox {
   right: -7px;
@@ -11,18 +11,17 @@
   height: 92px;
   padding: 8px;
 
-  background-color: $secondaryBgColorWhite;
+  background-color: #fafafa;
   border-radius: 8px;
 
   @include tablet {
-    align-self: flex-end;
+    right: 0px;
     max-width: 261px;
     height: 100px;
     padding: 12px;
   }
 
   @include desktop {
-    right: 23px;
     max-width: 298px;
     height: 114px;
     padding: 16px;
@@ -35,21 +34,21 @@
   line-height: 18px;
 
   letter-spacing: -0.24px;
-  color: $mainTextColor;
+  color: #3e4462;
 
   @include tablet {
     font-size: 14px;
-    line-height: 18px;
-  }
-
-  @include desktop {
-    font-size: 14px;
     line-height: 20px;
   }
+
+  //  @include desktop {
+  //    font-size: 14px;
+  //    line-height: 20px;
+  //  }
 }
 
 .chooseDiscrirtionGreen {
-  color: $mainAccentColor;
+  color: #8baa36;
 }
 
 .chooseBtn {
@@ -66,7 +65,7 @@
 
   letter-spacing: 0.2px;
 
-  color: $mainTextColor;
+  color: #3e4462;
   background-color: transparent;
   border: none;
 }
@@ -75,35 +74,18 @@
   display: none;
 
   @include tablet {
-    height: auto;
+  height: 72px;
     width: 136px;
     display: block;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: -65%;
-
-    animation: blinkAnimation 1s linear;
-    opacity: 1;
+      transform: translateX(-50%);
+      bottom: -60%;
   }
 
-  @include desktop {
-    bottom: -70%;
-    height: auto;
-    width: 167px;
-  }
-}
-
-@keyframes blinkAnimation {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+     @include desktop {
+       height: 89px;
+       width: 167px;
+     
+     }
 }
