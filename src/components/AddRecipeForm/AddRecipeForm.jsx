@@ -65,7 +65,7 @@ const FORM_VALIDATION = Yup.object().shape({
       })
     )
     .required('Ingredients are required'),
-  preparation: Yup.string().required(),
+  preparation: Yup.string(),
 });
 
 export const AddRecipeForm = () => {
