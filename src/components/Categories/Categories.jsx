@@ -5,33 +5,46 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 ///temp
-import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
+// import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
 //
-// import { CategoriesItem } from './CategoriesItem/CategoriesItem';
 import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { RecipeCard } from 'components/RecipeCard/RecipeCard';
-
-
-import { GlobalStyles } from 'components/theme/GlobalStyles';
-console.log(GlobalStyles)
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchCategories,
+  fetchCurrentCategory,
+} from 'redux/categories/categoriesThanks';
+import Loader from 'components/Loader/Loader';
 
 export const Categories = () => {
+  const dispatch = useDispatch();
+
   const [value, setValue] = useState('Beef');
-  const [dishData, setDishData] = useState([]);
-  const [allCategories, setAllCategories] = useState([]);
+  const [dishData, setDishData] = useState(null);
+
+  const { currentCategories } = useSelector(
+    state => state.categoriesStore.categories
+  );
 
   useEffect(() => {
-    setAllCategories(dishes.map(dish => dish.category));
-    setDishData(dishes.filter(dish => dish.category === value));
-  }, [value]);
+    dispatch(fetchCategories());
+
+    dispatch(fetchCurrentCategory(value));
+
+    setDishData(currentCategories[0]);
+  }, [dispatch, value]);
+
+  const { categoriesTitle } = useSelector(
+    state => state.categoriesStore.categories
+  );
+
   const handleChange = (event, newValue) => {
-    setValue(event.target.textContent);
-    setDishData(dishes.filter(dish => dish.category === value));
+    const categoryTitle = event.target.textContent;
+    setValue(categoryTitle);
+
+    setDishData(currentCategories[0]);
   };
-  const unicCategories = allCategories
-    .filter((course, index, array) => array.indexOf(course) === index)
-    .sort();
 
   return (
     <div className="categories">
@@ -75,12 +88,12 @@ export const Categories = () => {
               },
             }}
           >
-            {unicCategories.map(category => {
+            {categoriesTitle.map(({ category, _id }) => {
               return (
                 <Tab
                   label={category}
                   value={category}
-                  key={nanoid()}
+                  key={_id}
                   sx={{
                     padding: '0',
                     color: '#BDBDBD',
@@ -95,12 +108,12 @@ export const Categories = () => {
         </div>
         <TabPanel value={value} sx={{ p: 0 }}>
           <ul className="categories-cards">
-            {dishData.length > 0 ? (
-              dishData.map(recipe => {
-                return <RecipeCard key={recipe._id.$oid} recipe={recipe} />;
+            {dishData ? (
+              dishData.recipes.map(recipe => {
+                return <RecipeCard key={nanoid()} recipe={recipe} />;
               })
             ) : (
-              <div>Loading...</div>
+              <Loader />
             )}
           </ul>
         </TabPanel>
