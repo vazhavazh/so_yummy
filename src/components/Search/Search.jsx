@@ -8,7 +8,7 @@ export const Search = () => {
   return (
     <label className={style.searchBox}>
       <input className={style.searchInput} />
-      <Button className={style.searchBtn} text="Search" />
+      <Button className={style.searchBtn} text="Search" to="/search"/>
     </label>
   );
 };

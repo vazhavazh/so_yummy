@@ -1,0 +1,21 @@
+.heroTitle {
+  margin-bottom: 14px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 60px;
+  letter-spacing: -0.005em;
+  color: #22252a;
+}
+
+.heroTitleGreen {
+  color: #8baa36;
+}
+
+.heroDiscription {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+}/*# sourceMappingURL=HeroTitle.module.css.map */
