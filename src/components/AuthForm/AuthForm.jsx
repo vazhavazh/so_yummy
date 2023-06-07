@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 // import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authThunks';
 import styles from './AuthForm.module.scss';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as UserSvg } from '../../assets/svg/authForm/name.svg';
+import { ReactComponent as GoogleSvg } from '../../assets/svg/authForm/google.svg';
 import { ReactComponent as EmailSvg } from '../../assets/svg/authForm/email.svg';
 import { ReactComponent as PassSvg } from '../../assets/svg/authForm/password.svg';
 // import { ReactComponent as SvgOrderWhite } from '../../assets/svg/authForm/Order-food-pana-white.svg';
@@ -17,6 +19,7 @@ import { useDispatch } from 'react-redux';
 
 export const AuthForm = ({ title, page, redirect, schema }) => {
   const [data, setData] = useState();
+  const [passwordType, setPasswordType] = useState('password');
   const dispatch = useDispatch();
   // const status = useSelector(selectStatus);
 
@@ -31,6 +34,13 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
     await dispatch(registerUser(userData));
     // return <Navigate to="/main" />;
     // console.log(userData);
+  };
+  const togglePassword = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+      return;
+    }
+    setPasswordType('password');
   };
 
   const initialValues =
@@ -51,6 +61,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
         <div className={styles.wrp_test}>
           <div className={styles.form_wrapper}>
             <h2 className={styles.form_title}>{title}</h2>
+
             <Formik
               initialValues={initialValues}
               validationSchema={schema}
@@ -184,7 +195,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                       <Field
                         autoComplete="off"
                         name="password"
-                        type="password"
+                        type={passwordType}
                         placeholder="Password"
                         className={`${styles.input} ${
                           errors.password && touched.password
@@ -203,14 +214,21 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                         onBlur={handleBlur}
                         value={values.password}
                       />
+                      <div className={styles.eye_box} onClick={togglePassword}>
+                        {passwordType === 'password' ? (
+                          <BsEyeSlash fill="#fafafa" />
+                        ) : (
+                          <BsEye fill="#fafafa" />
+                        )}
+                      </div>
                       {errors.password?.includes('secure') ? (
-                        <>
+                        <div className={styles.warningmessage_wrp}>
                           <p className={styles.warning_message}>
                             {' '}
                             {errors.password}
                           </p>
                           <WorningSvg className={styles.warning_svg} />
-                        </>
+                        </div>
                       ) : (
                         touched.password &&
                         errors.password && (
@@ -248,6 +266,15 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                     >
                       {page === 'signin' ? 'Sing in' : 'Sign up'}
                     </button>
+                    <a
+                      className={styles.auth_link}
+                      href="https://www.google.com/"
+                    >
+                      <div className={styles.google_wrap}>
+                        <p className={styles.google_text}>Continue with</p>
+                        <GoogleSvg className={styles.google_svg} />
+                      </div>
+                    </a>
                   </Form>
                 );
               }}

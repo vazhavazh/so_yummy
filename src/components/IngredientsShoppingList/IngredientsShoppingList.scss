@@ -11,7 +11,7 @@
   justify-content: center;
   flex-direction: column;
 
-    background-color: $mainBgColorWhite;
+    background-color: var(--mainBgColorWhite);
 
 
   @include tablet {
@@ -132,7 +132,7 @@
   min-height: 60px;
   max-height: 60px;
 
-  background: $wrapperBgGrey;
+  background: var(--greyImageToDarkGrey);
   border-radius: 6px;
   padding: 6px;
 

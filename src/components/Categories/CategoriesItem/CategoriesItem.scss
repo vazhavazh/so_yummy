@@ -1,0 +1,47 @@
+@import '../../../main.scss';
+.categories_item {
+  position: relative;
+  &-img {
+    border-radius: 8px;
+    width: 343px;
+    height: 323px;
+
+    @include tablet {
+      width: 336px;
+    }
+    @include desktop {
+      width: 300px;
+    }
+  }
+
+  &-text_container {
+    position: absolute;
+    width: 307px;
+    bottom: 26px;
+    left: 18px;
+
+    @include tablet {
+      width: 300px;
+      bottom: 26px;
+      left: 18px;
+    }
+    @include desktop {
+      width: 268px;
+      bottom: 24px;
+      left: 16px;
+    }
+    &-text {
+      padding: 16px;
+      background-color: #fff;
+      border-radius: 8px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+
+      letter-spacing: -0.24px;
+
+      color: #3e4462;
+    }
+  }
+}

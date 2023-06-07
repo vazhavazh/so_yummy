@@ -1,0 +1,224 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: #333333;
+  transition: stroke 0.2s ease;
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: #8BAA36;
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #22252A;
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8BAA36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebf3d4;
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8BAA36;
+}
+
+.trashBtn--icon {
+  fill: #22252A;
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.categories_item {
+  position: relative;
+}
+.categories_item-img {
+  border-radius: 8px;
+  width: 343px;
+  height: 323px;
+}
+@media screen and (min-width: 768px) {
+  .categories_item-img {
+    width: 336px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .categories_item-img {
+    width: 300px;
+  }
+}
+.categories_item-text_container {
+  position: absolute;
+  width: 307px;
+  bottom: 26px;
+  left: 18px;
+}
+@media screen and (min-width: 768px) {
+  .categories_item-text_container {
+    width: 300px;
+    bottom: 26px;
+    left: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .categories_item-text_container {
+    width: 268px;
+    bottom: 24px;
+    left: 16px;
+  }
+}
+.categories_item-text_container-text {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  color: #3e4462;
+}/*# sourceMappingURL=CategoriesItem.css.map */

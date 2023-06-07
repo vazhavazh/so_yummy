@@ -6,7 +6,7 @@ export const PublicRoute = ({ children }) => {
   const isLoggedIn = useSelector(getIsAuth);
 
   if (isLoggedIn) {
-    return <Navigate to="main" />;
+    return <Navigate to="/" />;
   }
   return children;
 };

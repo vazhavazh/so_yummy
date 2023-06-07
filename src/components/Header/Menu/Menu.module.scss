@@ -1,0 +1,88 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+@import '../../../sass/container';
+
+.cross {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.backdrop {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-top: 18px;
+
+  background-color: $wrapperBgGrey;
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition: transform 200ms linear;
+  &::before {
+    z-index: -1;
+    position: fixed;
+    bottom: -153px;
+    left: 178px;
+
+    width: 360px;
+    height: 550px;
+    content: '';
+    transform: rotate(83deg);
+    background-image: url(../../../assets/image/header/menu-background.png);
+  }
+}
+
+.backdrop.active {
+  transform: translateX(0);
+}
+
+.logoCrossWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList {
+  margin-top: 124px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.navItem {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $secondaryAccentColor;
+  margin-bottom: 32px;
+  &:last-child {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.searchIcon {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+}
+
+.navItem.active {
+  color: $mainAccentColor;
+  font-weight: 600;
+}
+
+.toggle {
+  margin-bottom: 18px;
+}

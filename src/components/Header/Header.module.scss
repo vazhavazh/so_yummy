@@ -1,0 +1,52 @@
+@import '../../sass/container';
+@import '../../sass/variables';
+
+.burger {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.header {
+  padding-top: 18px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $mainBgColorWhite;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  margin-right: 14px;
+  border-radius: 50%;
+}
+
+.userInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userNavWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username {
+  margin-right: 24px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.7;
+  color: $secondaryAccentColor;
+}
+
+.burgerWrapper {
+  height: 24px;
+}
