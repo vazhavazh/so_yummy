@@ -9,6 +9,7 @@ import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields';
+import { RecipePreparationFields } from './RecipePreparationFields/RecipePreparationFields';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -20,6 +21,7 @@ const initialValues = {
   recipe: '',
   file: '',
   ingredients: [{ name: '', dose: '' }],
+  preparation: '',
 };
 
 const validFileExtensions = {
@@ -65,6 +67,7 @@ const FORM_VALIDATION = Yup.object().shape({
       })
     )
     .required('Ingredients are required'),
+  preparation: Yup.string().required(),
 });
 
 export const AddRecipeForm = () => {
@@ -128,6 +131,7 @@ export const AddRecipeForm = () => {
                 handleIncrement={handleIncrement}
                 handleDecrement={handleDecrement}
               />
+              <RecipePreparationFields />
               <Box marginTop="18px" width="100%">
                 <Button type="submit">Submit</Button>
               </Box>
