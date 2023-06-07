@@ -30,7 +30,6 @@ export const RecipePreparationFields = () => {
           placeholder="enter preparation here"
           variant="outlined"
           as="textarea"
-          resize="false"
         ></Field>
       </div>
     </Box>

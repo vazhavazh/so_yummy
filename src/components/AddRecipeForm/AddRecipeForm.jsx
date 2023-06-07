@@ -40,7 +40,6 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
-  // recipe: Yup.string().required('Recipe is required'),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
