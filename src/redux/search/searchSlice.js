@@ -12,6 +12,6 @@ const searchSlice = createSlice({
   },
 });
 
-export const { toggleSearch } = themeSlice.actions;
+export const { toggleSearch } = searchSlice.actions;
 
 export default searchSlice.reducer;
