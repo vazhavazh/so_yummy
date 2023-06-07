@@ -1,0 +1,123 @@
+@import '../../../../sass/variables';
+
+.modal {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  width: 330px;
+  height: 327px;
+  padding: 32px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $mainBgColorWhite;
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+
+.crossBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  padding: 0;
+  height: 20px;
+  width: 20px;
+
+  border: 0;
+  background-color: transparent;
+}
+
+.avatarBtn {
+  position: relative;
+  height: 88px;
+  width: 88px;
+  margin-bottom: 54px;
+
+  background-color: $ellipseColor;
+  border-radius: 50%;
+
+  border: 0;
+}
+
+.grayUser {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.plusIcon {
+  position: absolute;
+  right: 13px;
+  bottom: -6px;
+}
+
+.modalHidden {
+  display: none;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 15px 36px 12px 40px;
+
+  border: 1px solid $dropdownTextColor;
+  border-radius: 6px;
+  background-color: transparent;
+
+  font-family: 'Poppins';
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: $dropdownTextColor;
+
+  &::placeholder {
+    font-family: 'Poppins';
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: $dropdownTextColor;
+    opacity: 0.8;
+  }
+}
+
+.blackUser {
+  position: absolute;
+  top: 17px;
+  left: 14px;
+  height: 18px;
+  width: 18px;
+}
+
+.editIcon {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  height: 17px;
+  width: 17px;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 49px;
+
+  font-family: 'Poppins';
+  font-size: 14px;
+  line-height: 1.29;
+  color: $mainBgColorWhite;
+
+  background-color: $mainAccentColor;
+  border-radius: 6px;
+  border: 0;
+}

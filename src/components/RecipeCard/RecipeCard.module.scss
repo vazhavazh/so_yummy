@@ -26,7 +26,7 @@
 
 .recipeTitle {
   position: absolute;
-  z-index: 1;
+  // z-index: 1;
   bottom: 26px;
   left: 50%;
   transform: translateX(-50%);
@@ -38,8 +38,8 @@
   line-height: 20px;
   letter-spacing: -0.24px;
 
-  color: $mainTextColor;
-  background: $secondaryBgColorWhite;
+  color: var(--mainTextColor);
+  background: var(--mainBgColorWhite);
   border-radius: 8px;
 
   @include tablet {

@@ -17,7 +17,7 @@ const Search = lazy(() => import('../pages/Search'));
 const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const Welcome = lazy(() => import('../pages/WelcomePage'));
-// const ErrorPage = lazy(() => import('..//pages/Error'));
+const ErrorPage = lazy(() => import('../pages/Error'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -120,11 +120,10 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="*" element={<Navigate to="/error" />} />
         </Route>
       </Routes>
     </>
   );
 };
-
-

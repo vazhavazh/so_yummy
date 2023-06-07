@@ -67,7 +67,21 @@
     gap: 50px;
   }
 }
-
+.mod {
+  background-color: var(--greenToGrey);
+  &:hover,
+  &:focus {
+    background-color: var(--darkGreytoGreen);
+  }
+}
+.mod--icon {
+  fill: var(--whiteToWhite);
+  
+}
+.mod:hover .mod--icon,
+.mod:focus .mod--icon {
+  fill: $mainBgColorWhite;
+}
 .favorite-img-wrapper {
   max-width: 124px;
   max-height: 124px;
@@ -141,7 +155,7 @@
 .favorite-description {
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 8px;
   line-height: calc(10 / 8);
 
@@ -187,5 +201,21 @@
   @include desktop {
     left: 1040px;
     top: 310px;
+  }
+}
+
+
+.base-link-leaf--mod {
+
+  background-color: var(--mainAccentColor);
+  
+
+  &:hover,
+  &:focus {
+    background: var(--darkToWhite);
+
+  .base-link-leaf--mod--span {
+    color: var(--secondaryBgColorWhite);
+  }
   }
 }
