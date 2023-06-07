@@ -17,10 +17,18 @@ export const Footer = () => {
         </NavLink>
         <ul className={style.navList}>
           <li className={style.navItem}>Ingredients</li>
-          <li className={style.navItem}>Add recipes</li>
-          <li className={style.navItem}>My recipes</li>
-          <li className={style.navItem}>Favorite</li>
-          <li className={style.navItem}>Shopping list</li>
+          <li className={style.navItem}>
+            <NavLink to="/add">Add recipes</NavLink>
+          </li>
+          <li className={style.navItem}>
+            <NavLink to="/my">My recipes</NavLink>
+          </li>
+          <li className={style.navItem}>
+            <NavLink to="/favorite">Favorites</NavLink>
+          </li>
+          <li className={style.navItem}>
+            <NavLink to="/shopping-list">Shopping list</NavLink>
+          </li>
         </ul>
         <div className={style.inputWrapper}>
           <img className={style.mailIcon} src={mail} alt="" />
