@@ -14,10 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="/so_yummy">
         <ThemeProvider>
-
-
-
-          
           <App />
         </ThemeProvider>
       </BrowserRouter>
