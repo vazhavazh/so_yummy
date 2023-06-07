@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Select, TextField, Typography } from '@mui/material';
-import { Field, FieldArray, ErrorMessage, useFormikContext } from 'formik';
+import React from 'react';
+import { Box, TextField, Typography } from '@mui/material';
+import {  FieldArray,  useFormikContext } from 'formik';
+// import { Field, FieldArray, ErrorMessage, useFormikContext } from 'formik';
 import styles from './RecipeIngredientsFields.module.css';
-import CustomTextField from '../TextField';
+// import CustomTextField from '../TextField';
 import { ReactComponent as IncrementIcon } from '../images/ingredientsIncrement.svg';
 import { ReactComponent as DecrementIcon } from '../images/ingredientsDecrement.svg';
 import { ReactComponent as DeleteIcon } from '../images/ingredientsDeleteIcon.svg';
