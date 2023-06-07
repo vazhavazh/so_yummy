@@ -3,7 +3,7 @@ import cross from '../../../assets/svg/header/cross.svg';
 import logo from '../../../assets/svg/header/logo.svg';
 import search from '../../../assets/svg/header/search.svg';
 import style from './Menu.module.scss';
-
+import ToggleTheme from 'components/theme/ToggleTheme';
 
 const Menu = ({ setIsMenuActive, isMenuActive }) => {
   return (
@@ -27,36 +27,24 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
         </div>
         <nav>
           <ul className={style.navList}>
+            <li className={style.navItem}>Categories</li>
+            <li className={style.navItem}>Add recipes</li>
+            <li className={style.navItem}>My recipes</li>
+            <li className={style.navItem}>Favorites</li>
+            <li className={style.navItem}>Shopping list</li>
             <li className={style.navItem}>
-              <NavLink to="/categories">Categories</NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink to="/add">Add recipes</NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink to="/my">My recipes</NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink to="/favorite">Favorites</NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink to="/shopping-list">Shopping list</NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink to="/search">
-                <img
-                  className={style.searchIcon}
-                  src={search}
-                  alt="search icon"
-                />
-                Search
-              </NavLink>
+              <img
+                className={style.searchIcon}
+                src={search}
+                alt="search icon"
+              />
+              Search
             </li>
           </ul>
         </nav>
       </div>
       <div className={style.toggle}>
-        
+        <ToggleTheme />
       </div>
     </div>
   );
