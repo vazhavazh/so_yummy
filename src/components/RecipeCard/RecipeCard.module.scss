@@ -38,8 +38,8 @@
   line-height: 20px;
   letter-spacing: -0.24px;
 
-  color: $mainTextColor;
-  background: $secondaryBgColorWhite;
+  color: var(--mainTextColor);
+  background: var(--mainBgColorWhite);
   border-radius: 8px;
 
   @include tablet {
@@ -72,12 +72,33 @@
 
 .recipeTime {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  top: 14px;
+  right: 14px;
+}
+
+.recipeClock {
+  width: 18px;
+  height: 18px;
+  fill: $secondaryBgColorWhite;
+  animation: rotateClockwise 2s infinite linear;
 }
 
 .recipeText {
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

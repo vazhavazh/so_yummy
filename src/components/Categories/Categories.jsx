@@ -12,6 +12,10 @@ import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { RecipeCard } from 'components/RecipeCard/RecipeCard';
 
+
+import { GlobalStyles } from 'components/theme/GlobalStyles';
+console.log(GlobalStyles)
+
 export const Categories = () => {
   const [value, setValue] = useState('Beef');
   const [dishData, setDishData] = useState([]);

@@ -41,7 +41,6 @@ export const Header = () => {
           <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
-
       <ToggleTheme />
     </header>
   );

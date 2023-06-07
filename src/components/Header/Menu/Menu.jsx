@@ -4,7 +4,6 @@ import logo from '../../../assets/svg/header/logo.svg';
 import search from '../../../assets/svg/header/search.svg';
 import style from './Menu.module.scss';
 
-
 const Menu = ({ setIsMenuActive, isMenuActive }) => {
   return (
     <div
@@ -37,29 +36,31 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
               <NavLink to="/my">My recipes</NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink to="/favorites">Favorites</NavLink>
+              <NavLink to="/favorite">Favorites</NavLink>
             </li>
             <li className={style.navItem}>
               <NavLink to="/shopping-list">Shopping list</NavLink>
             </li>
             <li className={style.navItem}>
               <NavLink to="/search">
-                <img
-                  className={style.searchIcon}
-                  src={search}
-                  alt="search icon"
-                />
-                Search
+                {' '}
+                <>
+                  <img
+                    className={style.searchIcon}
+                    src={search}
+                    alt="search icon"
+                  />
+                  Search
+                </>
               </NavLink>
             </li>
           </ul>
         </nav>
       </div>
-      <div className={style.toggle}>
-        
-      </div>
+      <div className={style.toggle}></div>
     </div>
   );
 };
 
 export default Menu;
+

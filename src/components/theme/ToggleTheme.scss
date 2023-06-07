@@ -1,9 +1,11 @@
 .theme-switch {
   display: flex;
   align-items: center;
+  border-radius: 50px;
 }
 
 .toggle-switch {
+  
   position: relative;
   display: inline-block;
   width: 61px;
