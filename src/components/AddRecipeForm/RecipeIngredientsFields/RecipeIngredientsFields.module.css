@@ -10,12 +10,10 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;
-    /* color: "#3E4462" */
     color: "red"
 }
 
 .ingredientsHeaderWrapper {
-    /* outline: 1px solid red; */
     position: relative;
     width: 100%;
     display: flex;
@@ -34,7 +32,7 @@
     height: 28px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 
 }
 
@@ -49,7 +47,6 @@
 }
 
 .inputWrapper {
-    /* outline: 1px solid red; */
     width: 100%;
     display: flex;
     align-items: center;
