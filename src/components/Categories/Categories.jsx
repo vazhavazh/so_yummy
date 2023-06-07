@@ -28,11 +28,13 @@ export const Categories = () => {
   );
 
   useEffect(() => {
+    setDishData(currentCategories[0]);
+  }, [currentCategories]);
+
+  useEffect(() => {
     dispatch(fetchCategories());
 
     dispatch(fetchCurrentCategory(value));
-
-    setDishData(currentCategories[0]);
   }, [dispatch, value]);
 
   const { categoriesTitle } = useSelector(
@@ -43,7 +45,7 @@ export const Categories = () => {
     const categoryTitle = event.target.textContent;
     setValue(categoryTitle);
 
-    setDishData(currentCategories[0]);
+    // setDishData(currentCategories[0]);
   };
 
   return (
@@ -110,7 +112,8 @@ export const Categories = () => {
           <ul className="categories-cards">
             {dishData ? (
               dishData.recipes.map(recipe => {
-                return <RecipeCard key={nanoid()} recipe={recipe} />;
+                console.log(recipe);
+                return <RecipeCard key={recipe._id} recipe={recipe} />;
               })
             ) : (
               <Loader />
