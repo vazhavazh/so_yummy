@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '../Button/Button';
 
-import style from 'components/Search/Search.module.scss';
+import style from '../Search/Search.module.scss';
 
 export const Search = () => {
   return (

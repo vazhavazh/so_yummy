@@ -35,7 +35,14 @@ const customStyles = {
     '&:hover': {
       borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
     },
-    
+    '@include tablet': {
+        width: 175,
+        height: 41,
+    },
+    '@include desktop': {
+        width: 192,
+        height: 49,
+    }
   }),
 };
 
