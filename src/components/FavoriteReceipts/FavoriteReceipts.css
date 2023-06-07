@@ -1,0 +1,361 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+h1 a,
+h1 a:hover,
+h1 a:focus, h2 a,
+h2 a:hover,
+h2 a:focus, h3 a,
+h3 a:hover,
+h3 a:focus, h4 a,
+h4 a:hover,
+h4 a:focus, h5 a,
+h5 a:hover,
+h5 a:focus, h6 a,
+h6 a:hover,
+h6 a:focus, .h1 a,
+.h1 a:hover,
+.h1 a:focus, .h2 a,
+.h2 a:hover,
+.h2 a:focus, .h3 a,
+.h3 a:hover,
+.h3 a:focus, .h4 a,
+.h4 a:hover,
+.h4 a:focus, .h5 a,
+.h5 a:hover,
+.h5 a:focus, .h6 a,
+.h6 a:hover,
+.h6 a:focus {
+  text-decoration: none;
+}
+h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em, .h1 > em, .h2 > em, .h3 > em, .h4 > em, .h5 > em, .h6 > em {
+  font-style: normal;
+}
+
+#modal-root {
+  z-index: 10;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.favorites-container {
+  max-width: 375px;
+  min-width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .favorites-container {
+    max-width: 768px;
+    min-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorites-container {
+    max-width: 1440px;
+    min-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+@media screen and (min-width: 768px) {
+  .favorites-list {
+    gap: 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorites-list {
+    gap: 50px;
+  }
+}
+
+.favorite-item {
+  min-height: 152px;
+  max-height: 152px;
+  position: relative;
+  padding: 14px 43px 14px 9px;
+  gap: 14px;
+  display: flex;
+  background: #ffffff;
+  border-radius: 8px;
+}
+@media screen and (min-width: 768px) {
+  .favorite-item {
+    min-height: 288px;
+    max-height: 288px;
+    padding: 28px 130px 28px 24px;
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-item {
+    min-height: 404px;
+    max-height: 404px;
+    padding: 40px 163px 40px 40px;
+    gap: 50px;
+  }
+}
+
+.favorite-img-wrapper {
+  max-width: 124px;
+  max-height: 124px;
+  min-width: 124px;
+  min-height: 124px;
+}
+@media screen and (min-width: 768px) {
+  .favorite-img-wrapper {
+    max-width: 228px;
+    min-width: 228px;
+    max-height: 232px;
+    min-height: 232px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-img-wrapper {
+    max-width: 318px;
+    min-width: 318px;
+    max-height: 324px;
+    min-height: 324px;
+  }
+}
+
+.favorite-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.favorite-title {
+  margin-bottom: 14px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+  color: #3e4462;
+}
+@media screen and (min-width: 768px) {
+  .favorite-title {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 28px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-title {
+    margin-bottom: 50px;
+  }
+}
+
+.favorite-delete-btn {
+  position: absolute;
+  left: 310px;
+  top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebf3d4;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .favorite-delete-btn {
+    left: 642px;
+    top: 28px;
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-delete-btn {
+    width: 44px;
+    height: 44px;
+    left: 1156px;
+    top: 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .favorite-delete-btn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-delete-btn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.favorite-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.favorite-description {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  /* or 125% */
+  letter-spacing: -0.02em;
+  color: #23262a;
+}
+@media screen and (min-width: 768px) {
+  .favorite-description {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-description {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.favorite-time {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  /* identical to box height, or 140% */
+  letter-spacing: -0.24px;
+  color: #3e4462;
+}
+@media screen and (min-width: 768px) {
+  .favorite-time {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.favorite-link {
+  position: absolute;
+  left: 247px;
+  top: 111px;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #22252a;
+}
+.favorite-link span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .favorite-link span {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .favorite-link {
+    max-width: 138px;
+    max-height: 45px;
+    left: 542px;
+    top: 215px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .favorite-link {
+    max-width: 160px;
+    max-height: 54px;
+    left: 1040px;
+    top: 310px;
+  }
+}/*# sourceMappingURL=FavoriteReceipts.css.map */

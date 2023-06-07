@@ -11,17 +11,18 @@
   height: 92px;
   padding: 8px;
 
-  background-color: #fafafa;
+  background-color: $secondaryBgColorWhite;
   border-radius: 8px;
 
   @include tablet {
-    right: 0px;
+    align-self: flex-end;
     max-width: 261px;
     height: 100px;
     padding: 12px;
   }
 
   @include desktop {
+    right: 23px;
     max-width: 298px;
     height: 114px;
     padding: 16px;
@@ -74,20 +75,21 @@
   display: none;
 
   @include tablet {
-    height: 72px;
+    height: auto;
     width: 136px;
     display: block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -60%;
+    bottom: -65%;
 
     animation: blinkAnimation 1s linear;
     opacity: 1;
   }
 
   @include desktop {
-    height: 89px;
+    bottom: -70%;
+    height: auto;
     width: 167px;
   }
 }

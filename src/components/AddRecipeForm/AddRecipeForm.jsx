@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AddRecipeForm.module.scss';
-import CustomTextField from './TextField';
 import Button from './AddRecipeButton';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
+import { RecipeIngredientsFields } from './RecipeIngredientsFields';
+import { RecipePreparationFields } from './RecipePreparationFields/RecipePreparationFields';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -18,6 +19,8 @@ const initialValues = {
   cookingTime: '40 min',
   recipe: '',
   file: '',
+  ingredients: [{ name: '', dose: '' }],
+  preparation: '',
 };
 
 const validFileExtensions = {
@@ -36,7 +39,6 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
-  recipe: Yup.string().required('Recipe is required'),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -55,10 +57,20 @@ const FORM_VALIDATION = Yup.object().shape({
       }
     )
     .required('Image is required'),
+  ingredients: Yup.array()
+    .of(
+      Yup.object().shape({
+        name: Yup.string().required('Ingredient is required'),
+        dose: Yup.string().required('Dose is required'),
+      })
+    )
+    .required('Ingredients are required'),
+  preparation: Yup.string().required(),
 });
 
 export const AddRecipeForm = () => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
+  const [counter, setCounter] = useState(1);
 
   const handleSubmit = (values, { resetForm }) => {
     const file = values.file;
@@ -66,7 +78,18 @@ export const AddRecipeForm = () => {
     if (!errorMessage) {
       console.log(values);
       setFormSubmitted(true);
+      setCounter(1);
       resetForm();
+    }
+  };
+
+  const handleIncrement = () => {
+    setCounter(prevCounter => prevCounter + 1);
+  };
+
+  const handleDecrement = () => {
+    if (counter > 1) {
+      setCounter(prevCounter => prevCounter - 1);
     }
   };
 
@@ -93,24 +116,28 @@ export const AddRecipeForm = () => {
         validationSchema={FORM_VALIDATION}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div className={styles.addRecipeForm}>
-            <Typography>Add recipe</Typography>
-
-            <RecipeDescriptionFields
-              isFormSubmitted={isFormSubmitted}
-              categories={categories}
-              cookingTime={cookingTime}
-            />
-            <CustomTextField
-              name="recipe"
-              placeholder="Enter recipe"
-              multiline={true}
-              rows={4}
-            />
-            <Button type="submit">Submit</Button>
-          </div>
-        </Form>
+        {({ values, errors }) => (
+          <Form>
+            <div className={styles.addRecipeForm}>
+              <RecipeDescriptionFields
+                isFormSubmitted={isFormSubmitted}
+                categories={categories}
+                cookingTime={cookingTime}
+              />
+              <RecipeIngredientsFields
+                counter={counter}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+              />
+              <RecipePreparationFields />
+              <Box marginTop="18px" width="100%">
+                <Button type="submit">Submit</Button>
+              </Box>
+            </div>
+            {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
+            <pre>{JSON.stringify(values, null, 4)}</pre> */}
+          </Form>
+        )}
       </Formik>
     </div>
   );
