@@ -16,18 +16,29 @@ export const Footer = () => {
           <p className={style.title}>So Yummy</p>
         </NavLink>
         <ul className={style.navList}>
+          {/* <li className={style.navItem}>
+            <NavLink className={style.navLink} to="/">Add Ingredients</NavLink>
+          </li> */}
           <li className={style.navItem}>Ingredients</li>
           <li className={style.navItem}>
-            <NavLink to="/add">Add recipes</NavLink>
+            <NavLink className={style.navLink} to="/add">
+              Add recipes
+            </NavLink>
           </li>
           <li className={style.navItem}>
-            <NavLink to="/my">My recipes</NavLink>
+            <NavLink className={style.navLink} to="/my">
+              My recipes
+            </NavLink>
           </li>
           <li className={style.navItem}>
-            <NavLink to="/favorite">Favorites</NavLink>
+            <NavLink className={style.navLink} to="/favorite">
+              Favorites
+            </NavLink>
           </li>
           <li className={style.navItem}>
-            <NavLink to="/shopping-list">Shopping list</NavLink>
+            <NavLink className={style.navLink} to="/shopping-list">
+              Shopping list
+            </NavLink>
           </li>
         </ul>
         <div className={style.inputWrapper}>

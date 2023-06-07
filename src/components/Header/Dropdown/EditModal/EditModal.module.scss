@@ -1,4 +1,5 @@
 @import '../../../../sass/variables';
+@import '../../../../sass/mixins';
 
 .modal {
   position: absolute;
@@ -17,6 +18,12 @@
   background-color: $mainBgColorWhite;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
+
+  @include tablet {
+    width: 480px;
+    height: 402px;
+    padding: 50px 40px;
+  }
 }
 
 .crossBtn {
@@ -25,11 +32,24 @@
   right: 18px;
 
   padding: 0;
-  height: 20px;
-  width: 20px;
 
   border: 0;
   background-color: transparent;
+
+  @include tablet {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.cross {
+  height: 20px;
+  width: 20px;
+
+  @include tablet {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .avatarBtn {
@@ -42,6 +62,11 @@
   border-radius: 50%;
 
   border: 0;
+  @include tablet {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 50px;
+  }
 }
 
 .grayUser {
@@ -49,6 +74,11 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+
+  @include tablet {
+    width: 47px;
+    height: 47px;
+  }
 }
 
 .plusIcon {
@@ -65,6 +95,9 @@
   position: relative;
   width: 100%;
   margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
 }
 
 .input {
@@ -72,15 +105,23 @@
   height: 48px;
   padding: 15px 36px 12px 40px;
 
-  border: 1px solid $dropdownTextColor;
+  border: 1px solid $inputBorderColor;
   border-radius: 6px;
   background-color: transparent;
+  box-shadow: 0px 4px 4px $inputShadowColor;
 
   font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: $dropdownTextColor;
+
+  @include tablet {
+    padding: 17px 41px 14px 51px;
+    font-size: 18px;
+
+    height: 58px;
+  }
 
   &::placeholder {
     font-family: 'Poppins';
@@ -89,6 +130,10 @@
     letter-spacing: -0.02em;
     color: $dropdownTextColor;
     opacity: 0.8;
+
+    @include tablet {
+      font-size: 18px;
+    }
   }
 }
 
@@ -98,6 +143,14 @@
   left: 14px;
   height: 18px;
   width: 18px;
+
+  @include tablet {
+    top: 18px;
+    left: 19px;
+
+    height: 24px;
+    width: 24px;
+  }
 }
 
 .editIcon {
@@ -106,6 +159,14 @@
   right: 14px;
   height: 17px;
   width: 17px;
+
+  @include tablet {
+    top: 20px;
+    right: 19px;
+
+    height: 19px;
+    width: 19px;
+  }
 }
 
 .submitBtn {
@@ -120,4 +181,9 @@
   background-color: $mainAccentColor;
   border-radius: 6px;
   border: 0;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 1.12;
+  }
 }

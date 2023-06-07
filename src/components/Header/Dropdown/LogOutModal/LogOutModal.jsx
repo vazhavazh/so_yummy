@@ -8,7 +8,7 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-  }
+  };
   return (
     <div
       onClick={e => e.stopPropagation()}
@@ -18,7 +18,7 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
         onClick={() => setIsLogOutModalOpen(false)}
         className={style.crossBtn}
       >
-        <img src={cross} alt="cross" />
+        <img className={style.cross} src={cross} alt="cross" />
       </button>
       <p className={style.warning}>Are you sure you want to log out?</p>
       <div className={style.btnWrapper}>

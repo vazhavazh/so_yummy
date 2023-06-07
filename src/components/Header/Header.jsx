@@ -7,7 +7,7 @@ import style from './Header.module.scss';
 import Menu from './Menu/Menu';
 import Dropdown from './Dropdown/Dropdown';
 import { NavLink } from 'react-router-dom';
-import ToggleTheme from 'components/theme/ToggleTheme';
+// import ToggleTheme from 'components/theme/ToggleTheme';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <header className={`${style.header} ${style.container}`}>
       <NavLink to="/">
-        <img src={logo} alt="logo" />
+        <img className={style.logo} src={logo} alt="logo" />
       </NavLink>
       <div className={style.userNavWrapper}>
         <div
@@ -32,16 +32,16 @@ export const Header = () => {
         ></Dropdown>
         <div className={style.burgerWrapper}>
           <button
-            className={style.burger}
+            className={style.burgerBtn}
             type="button"
             onClick={() => setIsMenuActive(true)}
           >
-            <img src={burger} alt="" />
+            <img className={style.burger} src={burger} alt="" />
           </button>
           <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
-      <ToggleTheme />
+      {/* <ToggleTheme /> */}
     </header>
   );
 };

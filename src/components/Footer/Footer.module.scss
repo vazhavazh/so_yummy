@@ -39,15 +39,17 @@
 .navItem {
   margin-bottom: 14px;
 
+  &:last-child {
+    margin-bottom: 32px;
+  }
+}
+
+.navLink {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: $mainBgColorWhite;
-
-  &:last-child {
-    margin-bottom: 32px;
-  }
 }
 
 .inputWrapper {

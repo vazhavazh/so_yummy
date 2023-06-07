@@ -1,4 +1,5 @@
 @import '../../../../sass/variables';
+@import '../../../../sass/mixins';
 
 .modal {
   position: absolute;
@@ -17,6 +18,12 @@
   background-color: $mainBgColorWhite;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+
+  @include tablet {
+    width: 480px;
+    height: 215px;
+    padding: 50px 40px;
+  }
 }
 
 .crossBtn {
@@ -25,17 +32,36 @@
   right: 18px;
 
   padding: 0;
-  height: 20px;
-  width: 20px;
 
   border: 0;
   background-color: transparent;
+
+  @include tablet {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.cross {
+  height: 20px;
+  width: 20px;
+
+  @include tablet {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .warning {
   line-height: 1.29;
   color: $dropdownTextColor;
   margin-bottom: 24px;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: 32px;
+  }
 }
 
 .btnWrapper {
@@ -55,12 +81,23 @@
   font-size: 14px;
   line-height: 1.29;
   color: $mainBgColorWhite;
+
+  @include tablet {
+    height: 59px;
+    width: 192px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
 }
 
 .noBtn {
   margin-left: 8px;
   background-color: $ellipseColor;
   color: $dropdownTextColor;
+
+  @include tablet {
+    margin-left: 16px;
+  }
 }
 
 .modalHidden {

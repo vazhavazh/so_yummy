@@ -1,14 +1,6 @@
 @import '../../sass/container';
 @import '../../sass/variables';
-
-.burger {
-  padding: 0;
-  background-color: transparent;
-  border: 0;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-}
+@import '../../sass/mixins';
 
 .header {
   padding-top: 18px;
@@ -19,18 +11,33 @@
   background-color: $mainBgColorWhite;
 }
 
+.logo {
+  @include tablet {
+    height: 44px;
+    width: 44px;
+  }
+}
+
 .avatar {
   width: 34px;
   height: 34px;
   margin-right: 14px;
   border-radius: 50%;
+  @include tablet {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .userInfoWrapper {
   display: flex;
+  margin-right: 24px;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  @include tablet {
+    margin-right: 50px;
+  }
 }
 
 .userNavWrapper {
@@ -40,13 +47,32 @@
 }
 
 .username {
-  margin-right: 24px;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.7;
   color: $secondaryAccentColor;
+  @include tablet {
+    font-size: 14px;
+  }
 }
 
 .burgerWrapper {
-  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.burgerBtn {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.burger {
+  width: 28px;
+  height: 28px;
+  @include tablet {
+    width: 32px;
+    height: 32px;
+  }
 }
