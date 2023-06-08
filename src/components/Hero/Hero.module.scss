@@ -9,7 +9,7 @@
   min-width: 375px;
   width: 100vw;
   height: 777px;
-  background-color: $mainBgColorWhite;
+  background-color: var(--mainBgColorWhite);
 
   background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
     url('../../assets/image/mainPage/m-spinach-bottom.png'),

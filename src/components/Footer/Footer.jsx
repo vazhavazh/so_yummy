@@ -16,7 +16,9 @@ export const Footer = () => {
           <p className={style.title}>So Yummy</p>
         </NavLink>
         <ul className={style.navList}>
-          <li className={style.navItem}>Ingredients</li>
+          <li className={style.navItem}>
+            <NavLink to="/search">Ingredients</NavLink>
+          </li>
           <li className={style.navItem}>
             <NavLink to="/add">Add recipes</NavLink>
           </li>
