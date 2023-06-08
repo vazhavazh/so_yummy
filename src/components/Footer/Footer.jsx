@@ -11,70 +11,98 @@ export const Footer = () => {
   return (
     <div>
       <section className={style.contactsSection}>
-        <NavLink className={style.mainLink} to="/">
-          <img className={style.logo} src={logo} alt="logo" />
-          <p className={style.title}>So Yummy</p>
-        </NavLink>
-        <ul className={style.navList}>
-          {/* <li className={style.navItem}>
+        <div className={style.navAdvWrapper}>
+          <div>
+            <NavLink className={style.mainLink} to="/">
+              <img className={style.logo} src={logo} alt="logo" />
+              <p className={style.title}>So Yummy</p>
+            </NavLink>
+            <ul className={style.advantagesList}>
+              <li className={style.advantagesItem}>
+                Database of recipes that can be replenished
+              </li>
+              <li className={style.advantagesItem}>
+                Flexible search for desired and unwanted ingredients
+              </li>
+              <li className={style.advantagesItem}>
+                Ability to add your own recipes with photos
+              </li>
+              <li className={style.advantagesItem}>
+                Convenient and easy to use
+              </li>
+            </ul>
+          </div>
+          <ul className={style.navList}>
+            {/* <li className={style.navItem}>
             <NavLink className={style.navLink} to="/">Add Ingredients</NavLink>
           </li> */}
-          <li className={style.navItem}>Ingredients</li>
-          <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/add">
-              Add recipes
-            </NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/my">
-              My recipes
-            </NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/favorite">
-              Favorites
-            </NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/shopping-list">
-              Shopping list
-            </NavLink>
-          </li>
-        </ul>
-        <div className={style.inputWrapper}>
-          <img className={style.mailIcon} src={mail} alt="" />
-          <input
-            className={style.input}
-            type="text"
-            placeholder="Enter your email address"
-          />
+            <li className={style.navItem}>Ingredients</li>
+            <li className={style.navItem}>
+              <NavLink className={style.navLink} to="/add">
+                Add recipes
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink className={style.navLink} to="/my">
+                My recipes
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink className={style.navLink} to="/favorite">
+                Favorites
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink className={style.navLink} to="/shopping-list">
+                Shopping list
+              </NavLink>
+            </li>
+          </ul>
         </div>
-        <button type="submit" className={style.subscribeBtn}>
-          Subscribe
-        </button>
+        <div className={style.subscribeWrapper}>
+          <div className={style.inputWrapper}>
+            <img className={style.mailIcon} src={mail} alt="" />
+            <input
+              className={style.input}
+              type="text"
+              placeholder="Enter your email address"
+            />
+          </div>
+          <button type="submit" className={style.subscribeBtn}>
+            Subscribe
+          </button>
+        </div>
         <ul className={style.contactsList}>
-          <li className={style.facebookIcon}>
+          <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-              <img src={facebook} alt="facebook" />
+              <img
+                className={style.facebookIcon}
+                src={facebook}
+                alt="facebook"
+              />
             </a>
           </li>
-          <li className={style.youtubeIcon}>
+          <li className={style.youtubeItem}>
             <a target="_blank" rel="noreferrer" href="https://www.youtube.com">
-              <img src={youtube} alt="youtube" />
+              <img className={style.youtubeIcon} src={youtube} alt="youtube" />
             </a>
           </li>
-          <li className={style.twitterIcon}>
+          <li className={style.twitterItem}>
             <a target="_blank" rel="noreferrer" href="https://twitter.com">
-              <img src={twitter} alt="twitter" />
+              <img className={style.twitterIcon} src={twitter} alt="twitter" />
             </a>
           </li>
-          <li className={style.instagramIcon}>
+          <li className={style.instagramItem}>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://www.instagram.com"
             >
-              <img src={instagram} alt="instagram" />
+              <img
+                className={style.instagramIcon}
+                src={instagram}
+                alt="instagram"
+              />
             </a>
           </li>
         </ul>
