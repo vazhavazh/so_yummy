@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, TextField, Autocomplete } from '@mui/material';
+import { Box, Typography, Autocomplete } from '@mui/material';
 import { FieldArray, useFormikContext, useField } from 'formik';
-import AsyncSelect from 'react-select/async';
 import styles from './RecipeIngredientsFields.module.css';
 import IngredientsTextField from '../IngredientsTextField';
-import ingredientsData from '../../../api/fakeApi/fakeIngredientsDB.json';
 import { ReactComponent as IncrementIcon } from '../images/ingredientsIncrement.svg';
 import { ReactComponent as DecrementIcon } from '../images/ingredientsDecrement.svg';
 import { ReactComponent as DeleteIcon } from '../images/ingredientsDeleteIcon.svg';
+import { ReactComponent as DropDownIcon } from '../images/dropDownIcon.svg';
 
 const data = [
   { id: 'chicken', label: 'Chicken' },
@@ -70,10 +69,15 @@ export const RecipeIngredientsFields = ({
                   <Autocomplete
                     name={`ingredients[${index}].name`}
                     options={data}
+                    popupIcon={<DropDownIcon />}
                     onChange={(e, newValue) => {
-                      form.handleChange(`ingredients[${index}].name`)(
-                        newValue.id
-                      );
+                      if (newValue) {
+                        form.handleChange(`ingredients[${index}].name`)(
+                          newValue.id
+                        );
+                      } else {
+                        form.handleChange(`ingredients[${index}].name`)('');
+                      }
                     }}
                     renderInput={params => (
                       <IngredientsTextField
