@@ -21,6 +21,7 @@ const initialValues = {
   file: '',
   ingredients: [{ name: '', dose: '' }],
   preparation: '',
+  test: '',
 };
 
 const validFileExtensions = {
@@ -66,6 +67,7 @@ const FORM_VALIDATION = Yup.object().shape({
     )
     .required('Ingredients are required'),
   preparation: Yup.string(),
+  test: Yup.string().required(),
 });
 
 export const AddRecipeForm = () => {

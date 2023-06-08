@@ -69,11 +69,18 @@ export const RecipeIngredientsFields = ({
                 <div key={index} className={styles.inputWrapper}>
                   <Autocomplete
                     name={`ingredients[${index}].name`}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    value={ingredient.name}
                     options={data}
-                    renderInput={params => <IngredientsTextField {...params} />}
+                    onChange={(e, newValue) => {
+                      form.handleChange(`ingredients[${index}].name`)(
+                        newValue.id
+                      );
+                    }}
+                    renderInput={params => (
+                      <IngredientsTextField
+                        {...params}
+                        name={`ingredients[${index}].name`}
+                      />
+                    )}
                     sx={{
                       width: '194px',
                       height: '53px',
