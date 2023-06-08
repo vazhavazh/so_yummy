@@ -16,7 +16,8 @@ import authReducer from './auth/authSlice';
 import shoppingListIngredientsReducer from './shoppingIngrs/shopSlice';
 import themeReducer from './theme/themeSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
-import searchReducer from './search/searchSlice'
+import searchReducer from './search/searchSlice';
+import { recipeReducer } from './recipes/recipeSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,11 @@ const themePersistConfig = {
   key: 'theme',
   storage,
 };
+
+const recipePersistConfig = {
+  key: 'recipe',
+  storage,
+}
 
 
 
@@ -45,7 +51,8 @@ export const store = configureStore({
     shoppingListIngredients: shoppingListIngredientsReducer,
     theme: persistReducer(themePersistConfig, themeReducer),
     categoriesStore: categoriesReducer,
-    search: searchReducer
+    search: searchReducer,
+    recipeMain: persistReducer(recipePersistConfig, recipeReducer)
     
   },
   middleware,
