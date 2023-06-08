@@ -107,7 +107,7 @@ export const RecipeIngredientsFields = ({
                       className={styles.deleteIcon}
                       onClick={() => {
                         remove(index);
-                        delete values.ingredients[index];
+                        // delete values.ingredients[index];
                         handleDecrement();
                       }}
                     />
