@@ -8,7 +8,7 @@
 .searchInput {
   align-self: flex-start;
   min-width: 295px;
- 
+
   padding: 17px 0 17px 32px;
   background-color: transparent;
   color: #f0f0f0;
@@ -49,7 +49,9 @@
 
 .searchBtn {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
   right: 0;
   padding: 16px 32px;
 
@@ -79,5 +81,3 @@
     padding: 23px 52px;
   }
 }
-
-
