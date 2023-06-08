@@ -22,6 +22,19 @@ const data = [
   { value: 'cucumber', label: 'Cucumber' },
 ];
 
+const selectStyles = {
+  control: styles => ({
+    ...styles,
+    background: '#D9D9D9',
+    borderRadius: '6px',
+    height: '53px',
+  }),
+  menuList: styles => ({
+    ...styles,
+    maxHeight: '240px',
+  }),
+};
+
 export const RecipeIngredientsFields = ({
   counter,
   handleIncrement,
@@ -75,7 +88,11 @@ export const RecipeIngredientsFields = ({
           marginTop: '28px',
         }}
       >
-        <AsyncSelect loadOptions={promiseOptions} defaultOptions />
+        <AsyncSelect
+          loadOptions={promiseOptions}
+          styles={selectStyles}
+          defaultOptions
+        />
         <FieldArray name="ingredients">
           {({ push, remove, form }) => (
             <div>

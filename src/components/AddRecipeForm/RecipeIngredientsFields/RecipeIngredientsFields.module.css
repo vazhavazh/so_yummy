@@ -69,3 +69,25 @@
     line-height: 1.66;
     letter-spacing: 0.03333em;
 }
+
+.ingredientsSelect{
+    &__menu {
+            margin: 0.125rem auto;
+        }
+    
+        &__option {
+            background-color: white;
+    
+            &--is-focused {
+                background-color: lightblue;
+            }
+        }
+    
+        &__group {
+            padding: 0;
+        }
+    
+        &__menu-portal {
+            border: 1px solid darkblue;
+        }
+}
