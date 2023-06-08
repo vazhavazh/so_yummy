@@ -9,4 +9,8 @@
     padding-left: 32px;
     padding-right: 32px;
   }
+  @include desktop {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

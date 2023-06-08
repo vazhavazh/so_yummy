@@ -12,7 +12,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
         style.container
       }`}
     >
-      <div>
+      <div className={style.navWrapper}>
         <div className={style.logoCrossWrapper}>
           <NavLink to="/">
             <img className={style.logo} src={logo} alt="logo" />
@@ -53,14 +53,19 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <img
-                className={style.searchIcon}
-                src={search}
-                alt="search icon"
-              />
-              <NavLink className={style.navLink} to="/search">
-                Search
-              </NavLink>
+              <button className={style.searchBtn}>
+                <img
+                  className={style.searchIcon}
+                  src={search}
+                  alt="search icon"
+                />
+                <NavLink
+                  className={`${style.navLink} ${style.searchLink}`}
+                  to="/search"
+                >
+                  Search
+                </NavLink>
+              </button>
             </li>
           </ul>
         </nav>

@@ -9,12 +9,22 @@
   justify-content: space-between;
   align-items: center;
   background-color: $mainBgColorWhite;
+  // @include desktop {
+  // }
+}
+
+.navWrapper {
+  display: flex;
 }
 
 .logo {
   @include tablet {
     height: 44px;
     width: 44px;
+  }
+
+  @include desktop {
+    margin-right: 187px;
   }
 }
 
@@ -38,9 +48,12 @@
   @include tablet {
     margin-right: 50px;
   }
+  @include tablet {
+    margin-right: 0px;
+  }
 }
 
-.userNavWrapper {
+.userWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,6 +67,9 @@
   @include tablet {
     font-size: 14px;
   }
+  @include desktop {
+    margin-right: 50px;
+  }
 }
 
 .burgerWrapper {
@@ -66,6 +82,10 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
+
+  @include desktop {
+    display: none;
+  }
 }
 
 .burger {
@@ -75,4 +95,7 @@
     width: 32px;
     height: 32px;
   }
+}
+
+.toggle {
 }
