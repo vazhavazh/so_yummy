@@ -1,6 +1,5 @@
-{
-  "breakfast": "Breakfast",
-  "dessert": "Dessert",
-  "miscellaneous": "Miscellaneous",
-  "perogy": "Pierogi"
-}
+[
+  { "value": "breakfast", "label": "Breakfast" },
+  { "value": "dessert", "label": "Dessert" },
+  { "value": "miscellaneous", "label": "Miscellaneous" }
+]

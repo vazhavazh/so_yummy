@@ -1,15 +1,10 @@
 @import '../../main.scss';
 
 .addRecipeFormWrapper {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
     outline: 1px solid red
 }
 
 .addRecipeForm {
-    // outline: 1px solid red;
     min-width: 375px;
     display: flex;
     flex-direction: column;
@@ -48,6 +43,23 @@
 
 .recipeDescriptionInput.error{
     border-bottom: 1px solid red;
+}
+
+.inputWrapperCategory {
+    // outline: 1px solid red;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    min-width: 343px;
+    height: 59px;
+    border-bottom: 1px solid $shadowColor;
+    
+}
+
+.categoryLabel {
+    color: #6A6A6A;
 }
 
 // .selectLabel{
