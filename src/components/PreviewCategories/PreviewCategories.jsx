@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useChangeScreen } from 'hoc/useChangeScreen';
 import { selectRecipeMainPage } from '../../redux/recipes/recipeSelector';
@@ -9,10 +9,13 @@ import { RecipeCard } from '../RecipeCard/RecipeCard';
 // import recipes from '../../api/fakeApi/fakeFavoriteDBcopy.json';
 
 import style from '../PreviewCategories/PreviewCategories.module.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMainPageRecipe, clearRecipeMainPageState } from '../../redux/recipes/recipeThunks';
 
 export const PreviewCategories = () => {
   const recipes = useSelector(selectRecipeMainPage);
+  const dispatch = useDispatch();
+
   const screenWidthMobile = useChangeScreen(767.9);
   const screenWidthTablet = useChangeScreen(1439.9);
 
@@ -28,19 +31,27 @@ export const PreviewCategories = () => {
     if (window.innerWidth >= 1440) {
       return recipes.slice(0, 4);
     }
+    return recipes;
   };
+
+  useEffect(() => {
+    dispatch(fetchMainPageRecipe())
+  }, [dispatch]);
 
   return (
     <>
       <div className={style.previewCategoriesBox}>
         <ul className={style.previewCategoriesList}>
           <li className={style.previewCategoriesListEll}>
-            <p className={style.categoriesName}>{recipes.categorie}</p>
-            <ul className={style.recipeList}>
+            <p className={style.categoriesName}>{'recipes.category'}</p>
+            {recipes &&
+            (<ul className={style.recipeList}>
+              
               {numberOfRecipes(recipes).map(recipe => (
                 <RecipeCard key={recipe._id.$oid} recipe={recipe} />
               ))}
-            </ul>
+            </ul>)
+              }
             <Button className={style.seeAllBtn} text="See All" />
           </li>
         </ul>

@@ -4,7 +4,7 @@ import style from '../RecipeCard/RecipeCard.module.scss';
 import { ReactComponent as IconTime } from '../../assets/svg/mainPage/icon-time.svg';
 
 export const RecipeCard = ({ recipe }) => {
-  const { title, preview, _id, time, description } = recipe;
+  const { title, preview, _id, time, description } = recipe.recipes;
   return (
     <li className={style.recipeEll}>
       <a href={`/recipe/${_id}`}>
