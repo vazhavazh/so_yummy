@@ -24,6 +24,11 @@
     height: 215px;
     padding: 50px 40px;
   }
+
+  @include desktop {
+    width: 500px;
+    padding: 50px;
+  }
 }
 
 .crossBtn {

@@ -23,13 +23,13 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
       <p className={style.warning}>Are you sure you want to log out?</p>
       <div className={style.btnWrapper}>
         <button onClick={handleLogout} className={style.yesBtn}>
-          Yes
+          Log out
         </button>
         <button
           onClick={() => setIsLogOutModalOpen(false)}
           className={style.noBtn}
         >
-          No
+          Cancel
         </button>
       </div>
     </div>
