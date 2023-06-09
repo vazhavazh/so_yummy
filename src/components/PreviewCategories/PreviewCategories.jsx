@@ -1,16 +1,22 @@
 import React from 'react';
 
 import { useChangeScreen } from 'hoc/useChangeScreen';
+import { selectRecipeMainPage } from '../../redux/recipes/recipeSelector';
+// import {getr}
 
 import { Button } from '../Button/Button';
 import { RecipeCard } from '../RecipeCard/RecipeCard';
-import recipes from '../../api/fakeApi/fakeFavoriteDBcopy.json';
+// import recipes from '../../api/fakeApi/fakeFavoriteDBcopy.json';
 
 import style from '../PreviewCategories/PreviewCategories.module.scss';
+import { useSelector } from 'react-redux';
 
 export const PreviewCategories = () => {
+  const recipes = useSelector(selectRecipeMainPage);
   const screenWidthMobile = useChangeScreen(767.9);
   const screenWidthTablet = useChangeScreen(1439.9);
+
+  console.log(recipes);
 
   const numberOfRecipes = recipes => {
     if (screenWidthMobile) {
@@ -29,7 +35,7 @@ export const PreviewCategories = () => {
       <div className={style.previewCategoriesBox}>
         <ul className={style.previewCategoriesList}>
           <li className={style.previewCategoriesListEll}>
-            <p className={style.categoriesName}>Categorie name</p>
+            <p className={style.categoriesName}>{recipes.categorie}</p>
             <ul className={style.recipeList}>
               {numberOfRecipes(recipes).map(recipe => (
                 <RecipeCard key={recipe._id.$oid} recipe={recipe} />
