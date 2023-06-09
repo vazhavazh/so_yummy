@@ -24,6 +24,12 @@
     height: 402px;
     padding: 50px 40px;
   }
+
+  @include desktop {
+    width: 500px;
+    height: 425px;
+    padding: 60px 50px;
+  }
 }
 
 .crossBtn {
@@ -62,10 +68,15 @@
   border-radius: 50%;
 
   border: 0;
+
   @include tablet {
     width: 103px;
     height: 103px;
     margin-bottom: 50px;
+  }
+
+  @include desktop {
+    margin-bottom: 52px;
   }
 }
 
@@ -116,13 +127,6 @@
   letter-spacing: -0.02em;
   color: $dropdownTextColor;
 
-  @include tablet {
-    padding: 17px 41px 14px 51px;
-    font-size: 18px;
-
-    height: 58px;
-  }
-
   &::placeholder {
     font-family: 'Poppins';
     font-size: 14px;
@@ -130,10 +134,21 @@
     letter-spacing: -0.02em;
     color: $dropdownTextColor;
     opacity: 0.8;
+  }
 
-    @include tablet {
+  @include tablet {
+    padding: 17px 41px 14px 51px;
+    font-size: 18px;
+
+    height: 58px;
+
+    &::placeholder {
       font-size: 18px;
     }
+  }
+
+  @include desktop {
+    height: 59px;
   }
 }
 
@@ -167,6 +182,10 @@
     height: 19px;
     width: 19px;
   }
+
+  @include desktop {
+    right: 18px;
+  }
 }
 
 .submitBtn {
@@ -185,5 +204,6 @@
   @include tablet {
     font-size: 16px;
     line-height: 1.12;
+    height: 59px;
   }
 }
