@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteReceipts,
   selectIsLoading,
-  selectError,
+  
 } from 'redux/favoriteReceipts/favoriteReceiptsSelector';
 import { useEffect } from 'react';
 import {
@@ -15,29 +15,23 @@ import {
   fetchUpdateFavoriteReceipts,
 } from 'redux/favoriteReceipts/favoriteReceiptsThunks';
 
-import Loader from 'components/Loader/Loader'
+import Loader from 'components/Loader/Loader';
+
 
 export const FavoriteReceipts = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavoriteReceipts);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchAllFavoriteReceipts());
   }, [dispatch]);
 
-const handleUpdateFavoriteReceipt = receiptId => {
-  dispatch(fetchUpdateFavoriteReceipts(receiptId));
-  
-};
-
+  const handleUpdateFavoriteReceipt = async receiptId => {
+     dispatch(fetchUpdateFavoriteReceipts(receiptId));
+  };
   if (isLoading) {
     return <Loader />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
   }
 
   return (

@@ -2,7 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
-
 export const fetchAllFavoriteReceipts = createAsyncThunk(
   'shoppingIngredients/fetchAll',
   async (_, thunkAPI) => {
