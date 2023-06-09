@@ -11,6 +11,7 @@ export const Footer = () => {
   return (
     <div>
       <section className={style.contactsSection}>
+ 
         <div className={style.navAdvSubWrapper}>
           <div className={style.navAdvWrapper}>
             <div className={style.nav}>
