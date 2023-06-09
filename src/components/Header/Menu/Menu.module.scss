@@ -9,10 +9,13 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
+  @include desktop {
+    display: none;
+  }
 }
 
 .backdrop {
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,17 +31,40 @@
   overflow: hidden;
   transform: translateX(-100%);
   transition: transform 200ms linear;
-  &::before {
+  &::after {
     z-index: -1;
     position: fixed;
-    bottom: -153px;
-    left: 178px;
+    bottom: 0;
+    right: 0;
 
-    width: 360px;
-    height: 550px;
+    width: 320px;
+    height: 343px;
     content: '';
-    transform: rotate(83deg);
     background-image: url(../../../assets/image/header/menu-background.png);
+    background-repeat: no-repeat;
+  }
+
+  @include tablet {
+    &::after {
+      width: 591px;
+      height: 505px;
+      background-image: url(../../../assets/image/header/menu-background-m.png);
+    }
+  }
+
+  @include desktop {
+    position: static;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    padding: 0;
+    flex-direction: row;
+    transform: translateX(0);
+    margin-left: 187px;
+
+    &::after {
+      background-image: none;
+    }
   }
 }
 
@@ -46,9 +72,27 @@
   transform: translateX(0);
 }
 
+.navWrapper {
+  @include desktop {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .logoCrossWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  @include tablet {
+    height: 44px;
+    width: 44px;
+  }
+  @include desktop {
+    display: none;
+  }
 }
 
 .navList {
@@ -56,26 +100,74 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  @include desktop {
+    margin-top: 0px;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .navItem {
+  margin-bottom: 32px;
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @include desktop {
+    margin-bottom: 0px;
+    margin-right: 30px;
+    &:last-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.navLink {
   font-weight: 500;
   font-size: 18px;
   line-height: 1;
   letter-spacing: -0.02em;
   color: $secondaryAccentColor;
-  margin-bottom: 32px;
-  &:last-child {
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
+  @include tablet {
+    font-size: 24px;
   }
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+.searchBtn {
+  border: 0;
+  background-color: transparent;
+  font-family: 'Poppins';
 }
 
 .searchIcon {
   height: 20px;
   width: 20px;
   margin-right: 8px;
+  @include tablet {
+    height: 24px;
+    width: 24px;
+  }
+
+  @include desktop {
+    margin-right: 0px;
+  }
+}
+
+.searchLink {
+  display: flex;
+  justify-content: center;
+}
+
+.searchLinkText {
+  @include desktop {
+    display: none;
+  }
 }
 
 .navItem.active {
@@ -85,4 +177,7 @@
 
 .toggle {
   margin-bottom: 18px;
+  @include desktop {
+    display: none;
+  }
 }
