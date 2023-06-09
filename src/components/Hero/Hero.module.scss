@@ -1,16 +1,15 @@
 @import '../../main.scss';
 
 .hero {
- display: flex;
+  display: flex;
   justify-content: center;
- background-color: var(--mainBgColorWhite);
-  padding-top: 132px;
+  background-color: var(--mainBgColorWhite);
 
   position: relative;
   min-width: 375px;
   width: 100vw;
   height: 777px;
-  background-color: $mainBgColorWhite;
+  background-color: var(--mainBgColorWhite);
 
   background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
     url('../../assets/image/mainPage/m-spinach-bottom.png'),

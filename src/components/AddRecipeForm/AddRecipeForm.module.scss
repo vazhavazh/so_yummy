@@ -6,6 +6,7 @@
 }
 
 .addRecipeForm > form {
+    // outline: 1px solid red;
     min-width: 375px;
     display: flex;
     flex-direction: column;
@@ -42,6 +43,40 @@
 
 }
 
+.addRecipeFormButton {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FAFAFA;
+
+    width: 161px;
+    height: 70px;
+    border-radius: 24px 44px;
+    border: 1px solid #F0F0F0;
+    background: #22252A;
+
+    &:hover {
+        background: #8BAA36;
+    }
+}
+
+.addRecipeFormTypography {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: "#3E4462"
+}
+
+.wrapper {
+    outline: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 

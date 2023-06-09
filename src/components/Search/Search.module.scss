@@ -1,14 +1,16 @@
 @import '../../main.scss';
-
+.newBtn {
+  background-color: red;
+}
 .searchBox {
   position: relative;
   // margin-bottom: 27px;
 }
 
 .searchInput {
-
   align-self: flex-start;
   min-width: 295px;
+
   padding: 17px 0 17px 32px;
   background-color: transparent;
   color: #f0f0f0;
@@ -24,6 +26,11 @@
 
   color: #bdbdbd;
 
+  &:focus {
+    outline: none;
+    border: 1px solid $mainAccentColor;
+  }
+
   @include tablet {
     min-width: 369px;
     padding: 18px 38px;
@@ -37,12 +44,16 @@
     padding: 23px 48px;
   }
 }
-.searchBtn:hover{
-  background: #8BAA36;
+
+.searchBtn:hover {
+  background: #8baa36;
 }
+
 .searchBtn {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
   right: 0;
   padding: 16px 32px;
 
