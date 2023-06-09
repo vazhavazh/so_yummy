@@ -1,4 +1,5 @@
 @import '../../main.scss';
+//////FormStyles/////
 
 .addRecipeFormWrapper {
     outline: 1px solid red;
@@ -13,6 +14,8 @@
     padding: 0px 16px;
     margin-top: 72px;
 }
+
+//////RecipeDesctiptionStyles/////
 
 .inputWrapper {
     position: relative;
@@ -89,70 +92,51 @@
     font-size: small;
 }
 
-// .selectLabel{
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-// }
 
-// .addRecipeInput {
-//     border: none;
-//     border-bottom: 1px solid #E0E0E0;
-//     outline: none;
-//     height: 52px;
+//////RecipeIngredientsStyles/////
 
-// }
+.ingredientsWrapper{
+    margin-top: 67px;
+}
 
-// .addRecipeInput::placeholder {
-//     font-family: 'Poppins';
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 14px;
-// }
+.ingredientsTitle{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+}
 
-// .categorySelect{
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     border-bottom: 1px solid #E0E0E0;
+.ingredientsHeaderWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-// }
+.ingredientsInputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 28px;
+}
 
-// .addRecipeFormButton {
-//     font-family: 'Poppins';
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 16px;
-//     line-height: 24px;
-//     color: #FAFAFA;
+.ingredientItemWrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    outline: 1px solid red;
+}
 
-//     width: 161px;
-//     height: 70px;
-//     border-radius: 24px 44px;
-//     border: 1px solid #F0F0F0;
-//     background: #22252A;
-
-//     &:hover {
-//         background: #8BAA36;
-//     }
-// }
-
-// .addRecipeFormTypography {
-//     font-family: 'Poppins';
-//     font-style: normal;
-//     font-weight: 600;
-//     font-size: 24px;
-//     line-height: 24px;
-//     color: "#3E4462"
-// }
-
-// .wrapper {
-//     outline: 1px solid red;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-// }
-
+.ingredientDose{
+    height: 53px;
+    width: 84px;
+    border: none;
+    outline: none;
+    background-color: #f5f5f5;
+}
 
 
 
