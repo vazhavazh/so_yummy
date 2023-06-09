@@ -143,7 +143,7 @@
 //   );
 // };
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
@@ -152,6 +152,8 @@ import styles from './AddRecipeForm.module.scss';
 import Button from './AddRecipeButton';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
+
+const variables = getComputedStyle(document.documentElement);
 
 const initialValues = {
   title: '',
@@ -166,50 +168,47 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 
 const customStyles = {
-  menu: provided => ({
-    ...provided,
-    background: 'transparent',
+  container: (baseStyles, state) => ({
+    ...baseStyles,
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '12px',
+    border: state.isFocused ? 'none' : 'none',
+    outline: state.isFocused ? 'none' : 'none',
   }),
-  option: (provided, state) => ({
-    ...provided,
-    backgroundColor: state.isFocused ? '#D9D9D9' : 'white',
-    color: state.isFocused ? 'white' : 'black',
+  dropdownIndicator: baseStyles => ({
+    ...baseStyles,
+    color: '#8baa36',
   }),
-  input: provided => ({
-    ...provided,
-    color: '#8BAA36',
+  menu: baseStyles => ({
+    ...baseStyles,
+    maxHeight: '144px',
+    maxWidth: '123px',
+    overflow: 'scroll',
+    left: '25px',
   }),
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    border: 'none',
-    boxShadow: 'none',
-    color: '#8BAA36', // Зміна коліру стрілки при наведенні
-  }),
-  control: (provided, state) => ({
-    ...provided,
+  control: (baseStyles, state) => ({
+    ...baseStyles,
     height: 34,
-    width: 143,
-    background: '#D9D9D9',
-    borderRadius: 6,
-    borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
-    boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Зміна тіні рамки при наведенні
-    '&:hover': {
-      borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
-    },
-    '@include tablet': {
-      width: 175,
-      height: 41,
-    },
-    '@include desktop': {
-      width: 192,
-      height: 49,
-    },
+    width: '150px',
+    border: 'none',
+    outline: 'none',
+    textAlign: 'end',
+  }),
+  indicatorSeparator: baseStyles => ({
+    ...baseStyles,
+    display: 'none',
   }),
 };
 
 export const AddRecipeForm = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    setIsSubmitted(true);
     resetForm();
   };
 
@@ -220,7 +219,7 @@ export const AddRecipeForm = () => {
         validationSchema={FORM_VALIDATION}
         onSubmit={handleSubmit}
       >
-        {({ values, errors, touched, handleChange, setFieldValue }) => (
+        {({ values, errors, touched, isSubmitting, setFieldValue }) => (
           <Form className={styles.addRecipeForm}>
             <div className={styles.inputWrapper}>
               <Field
@@ -252,22 +251,35 @@ export const AddRecipeForm = () => {
                 className={styles.errorMessage}
               />
             </div>
-            <div className={styles.inputWrapperCategory}>
+            <div
+              className={`${styles.inputWrapperCategory} ${
+                errors.category && touched.category ? styles.error : ''
+              }`}
+            >
               <label className={styles.categoryLabel} htmlFor="category">
-                Search by:
+                Category
               </label>
+
               <ReactSelect
-                // className={styles.search_select}
+                id="category"
                 name="category"
                 options={categories}
-                // styles={customStyles}
-                getOptionLabel={option => option.label} //можна буде змінити label, якщо на беку він буде підписаний по-іншому
-                getOptionValue={option => option.value} //можна буде змінити label, якщо на беку він буде підписаний по-іншому
+                styles={customStyles}
                 isSearchable={false}
-                value={categories.find(
-                  option => option.value === values.category
-                )}
-                onChange={option => setFieldValue('category', option.value)}
+                // onChange={value => setFieldValue('category', value.value)}
+                value={
+                  isSubmitted
+                    ? ''
+                    : categories.find(
+                        option => option.value === values.category
+                      )
+                }
+                onChange={value => setFieldValue('category', value.value)}
+              />
+              <ErrorMessage
+                name="category"
+                component="div"
+                className={styles.errorMessage}
               />
             </div>
             <Box marginTop="18px" width="100%">

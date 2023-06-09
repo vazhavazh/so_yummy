@@ -54,12 +54,20 @@
     margin-bottom: 3px;
     min-width: 343px;
     height: 59px;
-    border-bottom: 1px solid $shadowColor;
-    
+    border-bottom: 1px solid $shadowColor;  
+}
+
+.inputWrapperCategory.error{
+    border-bottom: 1px solid red;
 }
 
 .categoryLabel {
     color: #6A6A6A;
+    font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
 }
 
 // .selectLabel{
