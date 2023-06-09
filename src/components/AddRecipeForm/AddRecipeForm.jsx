@@ -39,24 +39,24 @@
 //   about: Yup.string().required('About is required'),
 //   category: Yup.string().required('Category is required'),
 //   cookingTime: Yup.string().required('Cooking time is required'),
-//   file: Yup.mixed()
-//     .test('is-valid-file', 'Invalid file format', function (value) {
+// file: Yup.mixed()
+//   .test('is-valid-file', 'Invalid file format', function (value) {
+//     if (!value) {
+//       return true;
+//     }
+//     return isValidFileType(value && value.name.toLowerCase(), 'image');
+//   })
+//   .test(
+//     'is-valid-size',
+//     'File size exceeds the maximum limit',
+//     function (value) {
 //       if (!value) {
 //         return true;
 //       }
-//       return isValidFileType(value && value.name.toLowerCase(), 'image');
-//     })
-//     .test(
-//       'is-valid-size',
-//       'File size exceeds the maximum limit',
-//       function (value) {
-//         if (!value) {
-//           return true;
-//         }
-//         return value.size <= MAX_FILE_SIZE;
-//       }
-//     )
-//     .required('Image is required'),
+//       return value.size <= MAX_FILE_SIZE;
+//     }
+//   )
+//   .required('Image is required'),
 //   ingredients: Yup.array()
 //     .of(
 //       Yup.object().shape({
@@ -143,19 +143,32 @@
 //   );
 // };
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
 import ReactSelect from 'react-select';
 import styles from './AddRecipeForm.module.scss';
 import Button from './AddRecipeButton';
+import { FileInputField } from './FileInputField';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
 
-const variables = getComputedStyle(document.documentElement);
+const MAX_FILE_SIZE = 700 * 1024;
+
+const validFileExtensions = {
+  image: ['jpg', 'png', 'jpeg', 'webp'],
+};
+
+function isValidFileType(fileName, fileType) {
+  return (
+    fileName &&
+    validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
+  );
+}
 
 const initialValues = {
+  file: '',
   title: '',
   about: '',
   category: '',
@@ -167,6 +180,24 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
+  file: Yup.mixed()
+    .test('is-valid-file', 'Invalid file format', function (value) {
+      if (!value) {
+        return true;
+      }
+      return isValidFileType(value && value.name.toLowerCase(), 'image');
+    })
+    .test(
+      'is-valid-size',
+      'File size exceeds the maximum limit',
+      function (value) {
+        if (!value) {
+          return true;
+        }
+        return value.size <= MAX_FILE_SIZE;
+      }
+    )
+    .required('Image is required'),
 });
 
 const customStyles = {
@@ -223,6 +254,14 @@ export const AddRecipeForm = () => {
       >
         {({ values, errors, touched, isSubmitting, setFieldValue }) => (
           <Form className={styles.addRecipeForm}>
+            <div className={styles.inputWrapperFile}>
+              <FileInputField name="file" reset={isSubmitted} />
+              <ErrorMessage
+                className={styles.errorMessageFile}
+                name="file"
+                component="div"
+              />
+            </div>
             <div className={styles.inputWrapper}>
               <Field
                 className={`${styles.recipeDescriptionInput} ${
@@ -286,7 +325,7 @@ export const AddRecipeForm = () => {
             </div>
             <div
               className={`${styles.inputWrapperCategory} ${
-                errors.category && touched.category ? styles.error : ''
+                errors.cookingTime && touched.cookingTime ? styles.error : ''
               }`}
             >
               <label className={styles.categoryLabel} htmlFor="category">
@@ -310,7 +349,7 @@ export const AddRecipeForm = () => {
                 onChange={value => setFieldValue('cookingTime', value.value)}
               />
               <ErrorMessage
-                name="category"
+                name="cookingTime"
                 component="div"
                 className={styles.errorMessage}
               />

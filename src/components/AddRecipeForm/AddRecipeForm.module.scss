@@ -1,7 +1,8 @@
 @import '../../main.scss';
 
 .addRecipeFormWrapper {
-    outline: 1px solid red
+    outline: 1px solid red;
+    background-color: $inputBackgroundColor;
 }
 
 .addRecipeForm {
@@ -33,7 +34,7 @@
     border: none;
     outline: none;
     border-bottom: 1px solid $shadowColor;
-
+    
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -64,10 +65,28 @@
 .categoryLabel {
     color: #6A6A6A;
     font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 21px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.inputWrapperFile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3px;
+    min-width: 100%;
+    outline: 1px solid red;
+}
+
+.errorMessageFile{
+    position: absolute;
+    bottom: -0px;
+    left: 0;
+    color: red;
+    font-size: small;
 }
 
 // .selectLabel{
