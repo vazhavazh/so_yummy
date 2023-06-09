@@ -1,82 +1,118 @@
-.addRecipeForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@import '../../main.scss';
+
+.addRecipeFormWrapper {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    outline: 1px solid red
 }
 
-.addRecipeForm > form {
-    outline: 1px solid red;
+.addRecipeForm {
+    // outline: 1px solid red;
     min-width: 375px;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: $secondaryBgColorWhite;
     padding: 16px;
 }
 
-.selectLabel{
+.inputWrapper {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 3px;
+    min-width: 343px;
 }
 
-.addRecipeInput {
+.errorMessage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: red;
+    font-size: small;
+}
+
+.recipeDescriptionInput {
+    min-width: 100%;
+    height: 60px;
     border: none;
-    border-bottom: 1px solid #E0E0E0;
     outline: none;
-    height: 52px;
+    border-bottom: 1px solid $shadowColor;
 
-}
-
-.addRecipeInput::placeholder {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+    line-height: 21px;
 }
 
-.categorySelect{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #E0E0E0;
-
+.recipeDescriptionInput.error{
+    border-bottom: 1px solid red;
 }
 
-.addRecipeFormButton {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #FAFAFA;
+// .selectLabel{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
 
-    width: 161px;
-    height: 70px;
-    border-radius: 24px 44px;
-    border: 1px solid #F0F0F0;
-    background: #22252A;
+// .addRecipeInput {
+//     border: none;
+//     border-bottom: 1px solid #E0E0E0;
+//     outline: none;
+//     height: 52px;
 
-    &:hover {
-        background: #8BAA36;
-    }
-}
+// }
 
-.addRecipeFormTypography {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 24px;
-    color: "#3E4462"
-}
+// .addRecipeInput::placeholder {
+//     font-family: 'Poppins';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 14px;
+// }
 
-.wrapper {
-    outline: 1px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+// .categorySelect{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     border-bottom: 1px solid #E0E0E0;
+
+// }
+
+// .addRecipeFormButton {
+//     font-family: 'Poppins';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 16px;
+//     line-height: 24px;
+//     color: #FAFAFA;
+
+//     width: 161px;
+//     height: 70px;
+//     border-radius: 24px 44px;
+//     border: 1px solid #F0F0F0;
+//     background: #22252A;
+
+//     &:hover {
+//         background: #8BAA36;
+//     }
+// }
+
+// .addRecipeFormTypography {
+//     font-family: 'Poppins';
+//     font-style: normal;
+//     font-weight: 600;
+//     font-size: 24px;
+//     line-height: 24px;
+//     color: "#3E4462"
+// }
+
+// .wrapper {
+//     outline: 1px solid red;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
 
 
 
