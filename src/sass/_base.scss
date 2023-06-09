@@ -15,7 +15,6 @@ html {
   }
 }
 
-
 body {
   position: relative;
   display: flex;
@@ -27,8 +26,6 @@ body {
   align-items: center;
   font-weight: 400;
 }
-
-
 
 h1,
 h2,
@@ -183,4 +180,9 @@ button {
 .trashBtn:hover .trashBtn--icon,
 .trashBtn:focus .trashBtn--icon {
   fill: $mainBgColorWhite;
+}
+
+a.active {
+  color: $mainAccentColor;
+  font-weight: 600;
 }
