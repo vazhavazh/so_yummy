@@ -1,3 +1,4 @@
-// export const selectIsLoading = state => state.shoppingIngredients.isLoading;
-// export const selectShoppingListIngredients = state =>
-//   state.shoppingIngredients.shoppingIngredients;
+export const selectFavoriteReceipts = state =>
+  state.favoriteReceipt.favoriteReceipts;
+export const selectIsLoading = state => state.favoriteReceipt.isLoading;
+export const selectError = state => state.favoriteReceipt.error;

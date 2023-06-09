@@ -1,5 +1,6 @@
 @import '../../main.scss';
 
+
 .favorites-container {
   max-width: 375px;
   min-width: 375px;
@@ -187,5 +188,21 @@
   @include desktop {
     left: 1040px;
     top: 310px;
+  }
+}
+
+
+.base-link-leaf--mod {
+
+  background-color: var(--mainAccentColor);
+  
+
+  &:hover,
+  &:focus {
+    background: var(--darkToWhite);
+
+  .base-link-leaf--mod--span {
+    color: var(--secondaryBgColorWhite);
+  }
   }
 }
