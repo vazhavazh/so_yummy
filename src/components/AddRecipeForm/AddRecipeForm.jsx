@@ -159,12 +159,14 @@ const initialValues = {
   title: '',
   about: '',
   category: '',
+  cookingTime: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
+  cookingTime: Yup.string().required('Cooking time is required'),
 });
 
 const customStyles = {
@@ -275,6 +277,37 @@ export const AddRecipeForm = () => {
                       )
                 }
                 onChange={value => setFieldValue('category', value.value)}
+              />
+              <ErrorMessage
+                name="category"
+                component="div"
+                className={styles.errorMessage}
+              />
+            </div>
+            <div
+              className={`${styles.inputWrapperCategory} ${
+                errors.category && touched.category ? styles.error : ''
+              }`}
+            >
+              <label className={styles.categoryLabel} htmlFor="category">
+                Cooking time
+              </label>
+
+              <ReactSelect
+                id="cookingTime"
+                name="cookingTime"
+                options={cookingTime}
+                styles={customStyles}
+                isSearchable={false}
+                // onChange={value => setFieldValue('category', value.value)}
+                value={
+                  isSubmitted
+                    ? ''
+                    : cookingTime.find(
+                        option => option.value === values.cookingTime
+                      )
+                }
+                onChange={value => setFieldValue('cookingTime', value.value)}
               />
               <ErrorMessage
                 name="category"
