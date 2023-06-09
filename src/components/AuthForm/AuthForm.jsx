@@ -268,7 +268,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                     </button>
                     <a
                       className={styles.auth_link}
-                      href="https://www.google.com/"
+                      href="https://so-yummy-mg49.onrender.com/api/auth/google"
                     >
                       <div className={styles.google_wrap}>
                         <p className={styles.google_text}>Continue with</p>

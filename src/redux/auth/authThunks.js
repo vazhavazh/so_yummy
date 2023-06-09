@@ -72,3 +72,15 @@ export const logoutUser = createAsyncThunk(
     }
   }
 );
+
+export const google = createAsyncThunk(
+  'auth/google',
+  async ({ rejectWithValue, ...data }) => {
+    try {
+      setAuthHeader(data.token);
+      return { user: data.user, token: data.token };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
