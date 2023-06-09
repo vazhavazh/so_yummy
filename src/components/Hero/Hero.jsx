@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import { HeroTitle } from 'components/HeroTitle/HeroTitle';
 import { HeroWrapper } from 'components/HeroWrapper/HeroWrapper';
@@ -10,6 +11,7 @@ import style from '../Hero/Hero.module.scss';
 export const Hero = () => {
   return (
     <div className={style.hero}>
+      <ToastContainer/>
       <HeroTitle />
       <HeroWrapper>
         <СhooseYourBreakfast />

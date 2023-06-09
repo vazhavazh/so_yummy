@@ -1,13 +1,41 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-import { Button } from '../Button/Button';
-import style from 'components/Search/Search.module.scss';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import style from '../Search/Search.module.scss';
 
 export const Search = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleChange = e => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!searchQuery) {
+      return toast.warn('Enter your query');
+    }
+    if (searchQuery) {
+      navigate(`/search?query=${searchQuery}`);
+    }
+  };
+
   return (
-    <label className={style.searchBox}>
-      <input className={style.searchInput} />
-      <Button className={style.searchBtn} text="Search" to="/search" />
-    </label>
+    
+    <form className={style.searchBox} onSubmit={handleSubmit}>
+      
+      <input
+        className={style.searchInput}
+        value={searchQuery}
+        onChange={handleChange}
+      />
+      <button className={style.searchBtn} type="submit">
+        Search
+      </button>
+    </form>
   );
 };
