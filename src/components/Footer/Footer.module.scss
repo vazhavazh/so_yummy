@@ -15,6 +15,23 @@
   @include tablet {
     padding: 50px 94px 24px 32px;
   }
+
+  @include desktop {
+    padding: 64px 100px 50px 100px;
+  }
+}
+
+.navAdvSubWrapper {
+  @include tablet {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @include desktop {
+    flex-wrap: nowrap;
+    margin-bottom: 41px;
+  }
 }
 
 .navAdvWrapper {
@@ -24,14 +41,32 @@
     display: flex;
     margin-bottom: 72px;
   }
+
+  @include desktop {
+    margin-bottom: 0;
+    justify-content: start;
+  }
+}
+
+.nav {
+  @include desktop {
+    margin-right: 159px;
+  }
 }
 
 .mainLink {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 32px;
   @include tablet {
+    justify-content: start;
+
     margin-bottom: 24px;
+  }
+
+  @include desktop {
+    margin-bottom: 40px;
   }
 }
 
@@ -60,10 +95,12 @@
 .advantagesList {
   @include lessTablet {
     display: none;
-    margin-left: -24px;
   }
   @include tablet {
     padding-left: 22px;
+  }
+  @include desktop {
+    width: 418px;
   }
 }
 
@@ -78,12 +115,21 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  @include desktop {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .navList {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include tablet {
+    align-items: start;
+  }
 }
 
 .navItem {
@@ -99,6 +145,10 @@
       margin-bottom: 0px;
     }
   }
+
+  @include desktop {
+    margin-bottom: 24px;
+  }
 }
 
 .navLink {
@@ -111,9 +161,41 @@
 
 .subscribeWrapper {
   @include tablet {
+    width: 100%;
     display: flex;
     margin-bottom: 38px;
+    justify-content: center;
   }
+
+  @include desktop {
+    width: 339px;
+
+    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: start;
+  }
+}
+
+.subscribeText {
+  @include lessDesktop {
+    display: none;
+  }
+  margin-bottom: 28px;
+}
+
+.subscribeTitle {
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $mainBgColorWhite;
+}
+
+.subscribeDesc {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: $mainBgColorWhite;
 }
 
 .inputWrapper {
@@ -122,6 +204,10 @@
 
   @include tablet {
     margin-right: 12px;
+  }
+  @include desktop {
+    margin-right: 0;
+    margin-bottom: 16px;
   }
 }
 
@@ -138,6 +224,11 @@
 
     width: 20px;
     height: 16px;
+  }
+
+  @include desktop {
+    top: 22px;
+    left: 16px;
   }
 }
 
@@ -173,6 +264,16 @@
       font-size: 14px;
     }
   }
+
+  @include desktop {
+    width: 338px;
+    height: 59px;
+    font-size: 18px;
+    padding-right: 15px;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
 }
 
 .subscribeBtn {
@@ -197,6 +298,11 @@
     font-size: 16px;
     line-height: 1.12;
     margin-bottom: 0;
+  }
+
+  @include desktop {
+    width: 339px;
+    height: 60px;
   }
 }
 
@@ -272,6 +378,17 @@
       background-image: url(../../assets/image/footer/footer-background-m.png);
     }
   }
+
+  @include desktop {
+    padding: 50px 0 50px;
+
+    ::before {
+      height: 391px;
+      width: 531px;
+
+      background-image: url(../../assets/image/footer/footer-background-l.png);
+    }
+  }
 }
 
 .copyrightText {
@@ -285,6 +402,10 @@
   opacity: 0.5;
   @include tablet {
     font-size: 14px;
+    margin-right: 28px;
+  }
+  @include desktop {
+    margin-right: 40px;
   }
 }
 

@@ -11,66 +11,77 @@ export const Footer = () => {
   return (
     <div>
       <section className={style.contactsSection}>
-        <div className={style.navAdvWrapper}>
-          <div>
-            <NavLink className={style.mainLink} to="/">
-              <img className={style.logo} src={logo} alt="logo" />
-              <p className={style.title}>So Yummy</p>
-            </NavLink>
-            <ul className={style.advantagesList}>
-              <li className={style.advantagesItem}>
-                Database of recipes that can be replenished
+        <div className={style.navAdvSubWrapper}>
+          <div className={style.navAdvWrapper}>
+            <div className={style.nav}>
+              <NavLink className={style.mainLink} to="/">
+                <img className={style.logo} src={logo} alt="logo" />
+                <p className={style.title}>So Yummy</p>
+              </NavLink>
+              <ul className={style.advantagesList}>
+                <li className={style.advantagesItem}>
+                  Database of recipes that can be replenished
+                </li>
+                <li className={style.advantagesItem}>
+                  Flexible search for desired and unwanted ingredients
+                </li>
+                <li className={style.advantagesItem}>
+                  Ability to add your own recipes with photos
+                </li>
+                <li className={style.advantagesItem}>
+                  Convenient and easy to use
+                </li>
+              </ul>
+            </div>
+            <ul className={style.navList}>
+              {/* <li className={style.navItem}>
+            <NavLink className={style.navLink} to="/">Add Ingredients</NavLink>
+          </li> */}
+              <li className={style.navItem}>Ingredients</li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/add">
+                  Add recipes
+                </NavLink>
               </li>
-              <li className={style.advantagesItem}>
-                Flexible search for desired and unwanted ingredients
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/my">
+                  My recipes
+                </NavLink>
               </li>
-              <li className={style.advantagesItem}>
-                Ability to add your own recipes with photos
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/favorite">
+                  Favorites
+                </NavLink>
               </li>
-              <li className={style.advantagesItem}>
-                Convenient and easy to use
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/shopping-list">
+                  Shopping list
+                </NavLink>
               </li>
             </ul>
           </div>
-          <ul className={style.navList}>
-            {/* <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/">Add Ingredients</NavLink>
-          </li> */}
-            <li className={style.navItem}>Ingredients</li>
-            <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/add">
-                Add recipes
-              </NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/my">
-                My recipes
-              </NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/favorite">
-                Favorites
-              </NavLink>
-            </li>
-            <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/shopping-list">
-                Shopping list
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-        <div className={style.subscribeWrapper}>
-          <div className={style.inputWrapper}>
-            <img className={style.mailIcon} src={mail} alt="" />
-            <input
-              className={style.input}
-              type="text"
-              placeholder="Enter your email address"
-            />
+          <div className={style.subscribeWrapper}>
+            <div className={style.subscribeText}>
+              <p className={style.subscribeTitle}>
+                Subscribe to our Newsletter
+              </p>
+              <p className={style.subscribeDesc}>
+                Subscribe up to our newsletter. Be in touch with latest news and
+                special offers, etc.
+              </p>
+            </div>
+            <div className={style.inputWrapper}>
+              <img className={style.mailIcon} src={mail} alt="" />
+              <input
+                className={style.input}
+                type="text"
+                placeholder="Enter your email address"
+              />
+            </div>
+            <button type="submit" className={style.subscribeBtn}>
+              Subscribe
+            </button>
           </div>
-          <button type="submit" className={style.subscribeBtn}>
-            Subscribe
-          </button>
         </div>
         <ul className={style.contactsList}>
           <li className={style.facebookItem}>

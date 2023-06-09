@@ -54,6 +54,12 @@
   }
 }
 
+@mixin lessDesktop {
+  @media screen and (max-width: 1439px) {
+    @content;
+  }
+}
+
 // З налаштуванням
 
 @mixin media($size) {

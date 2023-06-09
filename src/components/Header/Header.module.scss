@@ -48,7 +48,8 @@
   @include tablet {
     margin-right: 50px;
   }
-  @include tablet {
+
+  @include desktop {
     margin-right: 0px;
   }
 }
@@ -98,4 +99,7 @@
 }
 
 .toggle {
+  @include lessDesktop {
+    display: none;
+  }
 }
