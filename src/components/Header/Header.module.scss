@@ -9,8 +9,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: $mainBgColorWhite;
-  // @include desktop {
-  // }
 }
 
 .navWrapper {
@@ -21,10 +19,6 @@
   @include tablet {
     height: 44px;
     width: 44px;
-  }
-
-  @include desktop {
-    margin-right: 187px;
   }
 }
 

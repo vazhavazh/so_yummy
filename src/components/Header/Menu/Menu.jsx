@@ -54,16 +54,16 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
             </li>
             <li className={style.navItem}>
               <button className={style.searchBtn}>
-                <img
-                  className={style.searchIcon}
-                  src={search}
-                  alt="search icon"
-                />
                 <NavLink
                   className={`${style.navLink} ${style.searchLink}`}
                   to="/search"
                 >
-                  Search
+                  <img
+                    className={style.searchIcon}
+                    src={search}
+                    alt="search icon"
+                  />
+                  <p className={style.searchLinkText}>Search</p>
                 </NavLink>
               </button>
             </li>

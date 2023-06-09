@@ -60,7 +60,7 @@
     padding: 0;
     flex-direction: row;
     transform: translateX(0);
-    margin-left: 0;
+    margin-left: 187px;
 
     &::after {
       background-image: none;
@@ -142,8 +142,6 @@
 .searchBtn {
   border: 0;
   background-color: transparent;
-  display: flex;
-  justify-content: center;
   font-family: 'Poppins';
 }
 
@@ -162,6 +160,11 @@
 }
 
 .searchLink {
+  display: flex;
+  justify-content: center;
+}
+
+.searchLinkText {
   @include desktop {
     display: none;
   }
