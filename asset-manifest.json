@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so_yummy/static/css/main.e34ff6b3.css",
-    "main.js": "/so_yummy/static/js/main.a0d9a8b7.js",
+    "main.js": "/so_yummy/static/js/main.c6e0d6d0.js",
     "static/css/539.e42824ae.chunk.css": "/so_yummy/static/css/539.e42824ae.chunk.css",
     "static/js/539.c1a46ba1.chunk.js": "/so_yummy/static/js/539.c1a46ba1.chunk.js",
     "static/css/941.2e523e21.chunk.css": "/so_yummy/static/css/941.2e523e21.chunk.css",
@@ -34,7 +34,7 @@
     "static/js/918.4a87e0ab.chunk.js": "/so_yummy/static/js/918.4a87e0ab.chunk.js",
     "static/js/211.76bb528d.chunk.js": "/so_yummy/static/js/211.76bb528d.chunk.js",
     "static/js/464.5dfdc60a.chunk.js": "/so_yummy/static/js/464.5dfdc60a.chunk.js",
-    "static/js/602.c46655ca.chunk.js": "/so_yummy/static/js/602.c46655ca.chunk.js",
+    "static/js/602.61297024.chunk.js": "/so_yummy/static/js/602.61297024.chunk.js",
     "static/media/welcomePage@1x-tab.png": "/so_yummy/static/media/welcomePage@1x-tab.439c0fe961a05c52829c.png",
     "static/media/welcomePage@1x-desk.png": "/so_yummy/static/media/welcomePage@1x-desk.d13214dc4a08569781ae.png",
     "static/media/background.jpg": "/so_yummy/static/media/background.9ba730398fc8d30e7b8b.jpg",
@@ -92,7 +92,7 @@
     "static/media/burger.svg": "/so_yummy/static/media/burger.0e7a3ceba8d1c2ac98513490254e232d.svg",
     "static/media/dropDownIcon.svg": "/so_yummy/static/media/dropDownIcon.bfa89af93715e17c4b279c05d6a17e4d.svg",
     "main.e34ff6b3.css.map": "/so_yummy/static/css/main.e34ff6b3.css.map",
-    "main.a0d9a8b7.js.map": "/so_yummy/static/js/main.a0d9a8b7.js.map",
+    "main.c6e0d6d0.js.map": "/so_yummy/static/js/main.c6e0d6d0.js.map",
     "539.e42824ae.chunk.css.map": "/so_yummy/static/css/539.e42824ae.chunk.css.map",
     "539.c1a46ba1.chunk.js.map": "/so_yummy/static/js/539.c1a46ba1.chunk.js.map",
     "941.2e523e21.chunk.css.map": "/so_yummy/static/css/941.2e523e21.chunk.css.map",
@@ -124,10 +124,10 @@
     "483.6f7221f9.chunk.js.map": "/so_yummy/static/js/483.6f7221f9.chunk.js.map",
     "918.4a87e0ab.chunk.js.map": "/so_yummy/static/js/918.4a87e0ab.chunk.js.map",
     "211.76bb528d.chunk.js.map": "/so_yummy/static/js/211.76bb528d.chunk.js.map",
-    "602.c46655ca.chunk.js.map": "/so_yummy/static/js/602.c46655ca.chunk.js.map"
+    "602.61297024.chunk.js.map": "/so_yummy/static/js/602.61297024.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e34ff6b3.css",
-    "static/js/main.a0d9a8b7.js"
+    "static/js/main.c6e0d6d0.js"
   ]
 }
