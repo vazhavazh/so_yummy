@@ -15,6 +15,8 @@ import {
   fetchUpdateFavoriteReceipts,
 } from 'redux/favoriteReceipts/favoriteReceiptsThunks';
 
+import Loader from 'components/Loader/Loader'
+
 export const FavoriteReceipts = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavoriteReceipts);
@@ -27,11 +29,11 @@ export const FavoriteReceipts = () => {
 
 const handleUpdateFavoriteReceipt = receiptId => {
   dispatch(fetchUpdateFavoriteReceipts(receiptId));
-  console.log()
+  
 };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
