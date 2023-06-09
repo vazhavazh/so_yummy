@@ -10,7 +10,8 @@
     display: flex;
     flex-direction: column;
     background-color: $secondaryBgColorWhite;
-    padding: 16px;
+    padding: 0px 16px;
+    margin-top: 72px;
 }
 
 .inputWrapper {
@@ -78,7 +79,6 @@
     justify-content: center;
     margin-bottom: 3px;
     min-width: 100%;
-    outline: 1px solid red;
 }
 
 .errorMessageFile{

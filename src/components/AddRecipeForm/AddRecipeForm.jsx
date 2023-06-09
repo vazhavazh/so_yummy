@@ -252,7 +252,7 @@ export const AddRecipeForm = () => {
         validationSchema={FORM_VALIDATION}
         onSubmit={handleSubmit}
       >
-        {({ values, errors, touched, isSubmitting, setFieldValue }) => (
+        {({ values, errors, touched, setFieldValue }) => (
           <Form className={styles.addRecipeForm}>
             <div className={styles.inputWrapperFile}>
               <FileInputField name="file" reset={isSubmitted} />
@@ -338,7 +338,6 @@ export const AddRecipeForm = () => {
                 options={cookingTime}
                 styles={customStyles}
                 isSearchable={false}
-                // onChange={value => setFieldValue('category', value.value)}
                 value={
                   isSubmitted
                     ? ''
