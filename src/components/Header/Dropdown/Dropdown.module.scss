@@ -36,6 +36,14 @@
     width: 177px;
     border: 0;
   }
+
+  @include desktop {
+    right: 211px;
+
+    height: 134px;
+    width: 177px;
+    border: 0;
+  }
 }
 
 .editBtn {
@@ -47,6 +55,7 @@
   border: 0;
 
   font-weight: 500;
+  font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.57;
   color: $dropdownTextColor;
@@ -76,10 +85,13 @@
   height: 43px;
   width: 125px;
 
+  font-family: 'Poppins';
   color: $mainBgColorWhite;
   background-color: $mainAccentColor;
   border: 0;
   border-radius: 24px 44px;
+  font-size: 14px;
+  line-height: 1.5;
 
   @include tablet {
     height: 43px;
