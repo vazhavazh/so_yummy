@@ -15,33 +15,37 @@ export const Header = () => {
 
   return (
     <header className={`${style.header} ${style.container}`}>
-      <NavLink to="/">
-        <img src={logo} alt="logo" />
-      </NavLink>
-      <div className={style.userNavWrapper}>
+      <div className={style.navWrapper}>
+        <NavLink to="/">
+          <img className={style.logo} src={logo} alt="logo" />
+        </NavLink>
+        <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
+      </div>
+      <div className={style.userWrapper}>
         <div
           onClick={() => setIsDropdownActive(!isDropdownActive)}
           className={style.userInfoWrapper}
         >
           <img className={style.avatar} src={avatarPlaceholder} alt="avatar" />
           <p className={style.username}>Name</p>
+          <div className={style.toggle}>
+            <ToggleTheme />
+          </div>
         </div>
         <Dropdown
           isDropdownActive={isDropdownActive}
           setIsDropdownActive={setIsDropdownActive}
-        ></Dropdown>
+        />
         <div className={style.burgerWrapper}>
           <button
-            className={style.burger}
+            className={style.burgerBtn}
             type="button"
             onClick={() => setIsMenuActive(true)}
           >
-            <img src={burger} alt="" />
+            <img className={style.burger} src={burger} alt="" />
           </button>
-          <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
-      <ToggleTheme />
     </header>
   );
 };
