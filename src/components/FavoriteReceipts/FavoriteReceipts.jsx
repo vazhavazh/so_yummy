@@ -1,17 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from 'api/fakeApi/fakeFavoriteDBcopy.json';
+
 import './FavoriteReceipts.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectFavoriteReceipts,
+  selectIsLoading,
+  selectError,
+} from 'redux/favoriteReceipts/favoriteReceiptsSelector';
+import { useEffect } from 'react';
+import {
+  fetchAllFavoriteReceipts,
+  fetchUpdateFavoriteReceipts,
+} from 'redux/favoriteReceipts/favoriteReceiptsThunks';
 
 export const FavoriteReceipts = () => {
-  const favorites = data;
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavoriteReceipts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(fetchAllFavoriteReceipts());
+  }, [dispatch]);
+
+const handleUpdateFavoriteReceipt = receiptId => {
+  dispatch(fetchUpdateFavoriteReceipts(receiptId));
+  console.log()
+};
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div className="flexWrapper">
       <div className="favorites-container">
         <ul className="favorites-list">
           {favorites.map(favorite => (
-            <li key={favorite._id.$oid} className="favorite-item">
+            <li key={favorite._id} className="favorite-item">
               <div className="favorite-img-wrapper">
                 <img
                   src={favorite.preview}
@@ -23,7 +55,7 @@ export const FavoriteReceipts = () => {
               <button
                 className="favorite-delete-btn trashBtn"
                 type="button"
-                // onClick={() => handleDelete(favorite._id.$oid)}
+                onClick={() => handleUpdateFavoriteReceipt(favorite._id)}
               >
                 <TrashIcon className="trashBtn--icon" />
               </button>
@@ -36,10 +68,10 @@ export const FavoriteReceipts = () => {
                 <span className="favorite-time">{favorite.time} min</span>
               </div>
               <Link
-                className="base-link-leaf favorite-link"
-                to={`/recipe/${favorite._id.$oid}`}
+                className="base-link-leaf favorite-link base-link-leaf--mod"
+                to={`/recipe/${favorite._id}`}
               >
-                <span>See recipe</span>
+                <span className="base-link-leaf--mod--span">See recipe</span>
               </Link>
             </li>
           ))}

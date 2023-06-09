@@ -190,3 +190,19 @@
     top: 310px;
   }
 }
+
+
+.base-link-leaf--mod {
+
+  background-color: var(--mainAccentColor);
+  
+
+  &:hover,
+  &:focus {
+    background: var(--darkToWhite);
+
+  .base-link-leaf--mod--span {
+    color: var(--secondaryBgColorWhite);
+  }
+  }
+}
