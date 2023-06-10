@@ -18,8 +18,8 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: {
-      id: '',
-      username: '',
+      name: '',
+      avatarURL: '',
       email: '',
     },
     token: null,
@@ -58,7 +58,7 @@ const authSlice = createSlice({
     [getCurrentUser.fulfilled]: (state, { payload }) => {
       return {
         ...state,
-        user: payload,
+        ...payload,
         error: null,
         isRefreshing: false,
       };
