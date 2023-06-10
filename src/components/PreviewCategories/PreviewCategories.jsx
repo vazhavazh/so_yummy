@@ -12,7 +12,7 @@ import style from '../PreviewCategories/PreviewCategories.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchMainPageRecipe,
-  clearRecipeMainPageState,
+  // clearRecipeMainPageState,
 } from '../../redux/recipes/recipeThunks';
 
 export const PreviewCategories = () => {
