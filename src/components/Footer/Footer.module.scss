@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: $secondaryAccentColor;
+  background-color: var(--darkToAccent);
 
   @include tablet {
     padding: 50px 94px 24px 32px;
