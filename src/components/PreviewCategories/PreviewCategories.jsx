@@ -31,9 +31,7 @@ export const PreviewCategories = () => {
     if (screenWidthTablet) {
       return recipesByCategories.slice(0, 2);
     }
-    if (window.innerWidth >= 1440) {
-      return recipesByCategories.slice(0, 4);
-    }
+
     return recipesByCategories;
   };
 
@@ -43,7 +41,6 @@ export const PreviewCategories = () => {
 console.log(recipesByCategories[0].recipes);
 
   return (
-    
     <>
       <div className={style.previewCategoriesBox}>
         <ul className={style.previewCategoriesList}>
@@ -58,8 +55,7 @@ console.log(recipesByCategories[0].recipes);
                       <RecipeCard recipe={recipe} key={recipe._id} />
                     ))}
                   </ul>
-           
-                <Button className={style.seeAllBtn} text="See All" />
+                <Button className={style.seeAllBtn} text="See All" to={`/categories/${category}`} />
               </li>
             ))}
         </ul>
