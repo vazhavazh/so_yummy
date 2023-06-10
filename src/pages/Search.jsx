@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/Search/SearchBar/SearchBar';
-import SearchedRecipesList from '../components/Search/SearchedRecipesList/SearchedRecipesList';
+import SearchedRecipesList from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import scss from '../components/Search/SearchBar/SearchBar.module.scss';
-import img from '../assets/image/searchPage/kisspng-vegetable.webp';
-import {TestComponent} from 'components/Search/TestComponent'
+// import img from '../assets/image/searchPage/kisspng-vegetable.webp';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -32,19 +31,10 @@ const Search = () => {
         onChange={handleSearchInputChange}
         onSearch={handleSearch}
       />
-      {searchSubmitted && submittedSearchValue !== '' ? (
         <SearchedRecipesList
           searchValue={submittedSearchValue}
           key={submittedSearchValue}
         />
-      ) : (
-        <div className={scss.searchLookingWrapper}>
-          <img src={img} alt="images" />
-          <p>Try looking for something else...</p>
-        </div>
-      )}
-
-      <TestComponent />
     </div>
   );
 };
