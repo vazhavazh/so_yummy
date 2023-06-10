@@ -61,7 +61,7 @@ const SearchedRecipesList = ({ searchValue }) => {
           <p>Try looking for something else...</p>
         </div>}
        {searchData && (
-          <div className={style.previewCategoriesBox}>
+          <div style={{backgroundColor: 'var(--secondaryBgColorWhite)',}} className={style.previewCategoriesBox}>
           <ul className={style.previewCategoriesList}>
             <li className={style.previewCategoriesListEll}>
               <ul className={style.recipeListSearch}>

@@ -30,7 +30,7 @@ const customStyles = {
     ...provided,
     height: 34,
     width: 143,
-    background: '#D9D9D9',
+    background: 'var(--greyToBlack)',
     borderRadius: 6,
     borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
     boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Зміна тіні рамки при наведенні
