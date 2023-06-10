@@ -15,7 +15,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
         onClick={() => setIsEditModalOpen(false)}
         className={style.crossBtn}
       >
-        <img src={cross} alt="cross" />
+        <img className={style.cross} src={cross} alt="cross" />
       </button>
       <button className={style.avatarBtn}>
         <img className={style.grayUser} src={grayUser} alt="gray user" />

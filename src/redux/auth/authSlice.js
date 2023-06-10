@@ -5,6 +5,7 @@ import {
   loginUser,
   logoutUser,
   registerUser,
+  google,
 } from './authThunks';
 const handlePending = state => {
   state.isLoading = true;
@@ -33,13 +34,23 @@ const authSlice = createSlice({
     [loginUser.pending]: handlePending,
     [getCurrentUser.pending]: handlePending,
     [logoutUser.pending]: handlePending,
+    [google.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
     [loginUser.rejected]: handleRejected,
     [getCurrentUser.rejected]: handleRejected,
     [logoutUser.rejected]: handleRejected,
+    [google.rejected]: handleRejected,
 
     [registerUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        ...payload,
+        isLoading: false,
+        error: null,
+      };
+    },
+    [google.fulfilled]: (state, { payload }) => {
       return {
         ...state,
         ...payload,
