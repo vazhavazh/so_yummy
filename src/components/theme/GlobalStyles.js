@@ -19,6 +19,7 @@ export const GlobalStyles = createGlobalStyle`
     --darkGreytoWhite: #001833;
     --greyToGrey: #F0F0F0;
     --inputColor: #BDBDBD;
+    --darkToAccent: #22252A;
   }
 
 .dark-mode {
@@ -39,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
   --darkGreytoWhite: #fafafa;
   --greyToGrey: #fafafa;
   --inputColor: #fafafa;
+  --darkToAccent: #8baa36;
 }
 
 `;

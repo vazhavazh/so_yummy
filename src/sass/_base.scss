@@ -184,3 +184,8 @@ button {
 .trashBtn:focus .trashBtn--icon {
   fill: $mainBgColorWhite;
 }
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
