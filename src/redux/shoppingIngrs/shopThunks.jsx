@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { setAuthHeader } from '../../api';
+
 
 export const fetchAllShoppingIngredients = createAsyncThunk(
   'shoppingIngredients/fetchAll',
@@ -10,7 +8,6 @@ export const fetchAllShoppingIngredients = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.token;
       if (token) {
-        // setAuthHeader(token);
         const response = await axios.get('/api/shopping-list');
 
         return response.data;
@@ -29,8 +26,6 @@ export const fetchDeleteShoppingIngredient = createAsyncThunk(
         data: { _id: ingredient._id },
       });
       if (response.status === 204) {
-        toast.success('Ingredient deleted successfully!', {
-        });
         return ingredient._id;
       } else {
         return;

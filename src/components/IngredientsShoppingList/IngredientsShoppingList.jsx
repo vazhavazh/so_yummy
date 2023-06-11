@@ -26,7 +26,7 @@ export const IngredientsShoppingList = () => {
   const handleDeleteIngredient = async ingredient => {
     try {
       await dispatch(fetchDeleteShoppingIngredient(ingredient));
-      dispatch(fetchAllShoppingIngredients()); // Update the list of ingredients after successful deletion
+      dispatch(fetchAllShoppingIngredients()); 
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +43,7 @@ export const IngredientsShoppingList = () => {
     return (
       <div className={scss.searchLookingWrapper}>
         <img src={img} alt="images" />
-        <p>Your shopping list still empty...</p>
+        <p className="emptyName">Your shopping list still empty...</p>
       </div>
     );
   }
