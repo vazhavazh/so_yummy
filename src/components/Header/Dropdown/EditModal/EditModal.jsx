@@ -53,6 +53,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
             type="text"
             placeholder={name}
             onChange={e => setNewName(e.target.value)}
+            required
           />
           <img className={style.blackUser} src={blackUser} alt="gray user" />
           <img className={style.editIcon} src={edit} alt="pencil" />
