@@ -22,7 +22,7 @@ export const PreviewCategories = () => {
   const screenWidthMobile = useChangeScreen(767.9);
   const screenWidthTablet = useChangeScreen(1439.9);
 
-  console.log(recipesByCategories);
+
 
   const numberOfRecipes = recipesByCategories => {
     if (screenWidthMobile) {
