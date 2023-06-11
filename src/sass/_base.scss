@@ -70,7 +70,7 @@ button {
 .remove-btnX--icon {
   width: 14px;
   height: 14px;
-  stroke: #333333;
+  stroke: var(--dartToLightForRemove);
   transition: stroke $hoverAnimation;
 
   @include tablet {
