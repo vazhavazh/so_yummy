@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/so_yummy/static/css/main.d81ecf6e.css",
-    "main.js": "/so_yummy/static/js/main.c1684931.js",
+    "main.js": "/so_yummy/static/js/main.083189aa.js",
     "static/css/539.6764431d.chunk.css": "/so_yummy/static/css/539.6764431d.chunk.css",
     "static/js/539.27c40807.chunk.js": "/so_yummy/static/js/539.27c40807.chunk.js",
     "static/css/941.7504d863.chunk.css": "/so_yummy/static/css/941.7504d863.chunk.css",
-    "static/js/941.a29029b5.chunk.js": "/so_yummy/static/js/941.a29029b5.chunk.js",
+    "static/js/941.d404102b.chunk.js": "/so_yummy/static/js/941.d404102b.chunk.js",
     "static/css/490.81bfa8a0.chunk.css": "/so_yummy/static/css/490.81bfa8a0.chunk.css",
     "static/js/490.7d3cd990.chunk.js": "/so_yummy/static/js/490.7d3cd990.chunk.js",
     "static/css/241.0b9a6acb.chunk.css": "/so_yummy/static/css/241.0b9a6acb.chunk.css",
@@ -94,11 +94,11 @@
     "static/media/icon-arrow-rigth.svg": "/so_yummy/static/media/icon-arrow-rigth.b5645e9fc75fdefd74034a45ce4e288d.svg",
     "static/media/dropDownIcon.svg": "/so_yummy/static/media/dropDownIcon.bfa89af93715e17c4b279c05d6a17e4d.svg",
     "main.d81ecf6e.css.map": "/so_yummy/static/css/main.d81ecf6e.css.map",
-    "main.c1684931.js.map": "/so_yummy/static/js/main.c1684931.js.map",
+    "main.083189aa.js.map": "/so_yummy/static/js/main.083189aa.js.map",
     "539.6764431d.chunk.css.map": "/so_yummy/static/css/539.6764431d.chunk.css.map",
     "539.27c40807.chunk.js.map": "/so_yummy/static/js/539.27c40807.chunk.js.map",
     "941.7504d863.chunk.css.map": "/so_yummy/static/css/941.7504d863.chunk.css.map",
-    "941.a29029b5.chunk.js.map": "/so_yummy/static/js/941.a29029b5.chunk.js.map",
+    "941.d404102b.chunk.js.map": "/so_yummy/static/js/941.d404102b.chunk.js.map",
     "490.81bfa8a0.chunk.css.map": "/so_yummy/static/css/490.81bfa8a0.chunk.css.map",
     "490.7d3cd990.chunk.js.map": "/so_yummy/static/js/490.7d3cd990.chunk.js.map",
     "241.0b9a6acb.chunk.css.map": "/so_yummy/static/css/241.0b9a6acb.chunk.css.map",
@@ -132,6 +132,6 @@
   },
   "entrypoints": [
     "static/css/main.d81ecf6e.css",
-    "static/js/main.c1684931.js"
+    "static/js/main.083189aa.js"
   ]
 }
