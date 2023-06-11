@@ -198,6 +198,15 @@
   color: $mainBgColorWhite;
 }
 
+.form {
+  @include tablet {
+    display: flex;
+  }
+  @include desktop {
+    display: block;
+  }
+}
+
 .inputWrapper {
   position: relative;
   margin-bottom: 8px;
