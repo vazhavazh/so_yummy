@@ -38,7 +38,6 @@ export const PreviewCategories = () => {
   useEffect(() => {
     dispatch(fetchMainPageRecipe());
   }, [dispatch]);
-console.log(recipesByCategories[0].recipes);
 
   return (
     <>
