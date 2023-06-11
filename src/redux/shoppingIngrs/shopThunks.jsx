@@ -10,8 +10,8 @@ export const fetchAllShoppingIngredients = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.token;
       if (token) {
-        setAuthHeader(token);
-        const response = await axios.get('/api/shopping-lit');
+        // setAuthHeader(token);
+        const response = await axios.get('/api/shopping-list');
 
         return response.data;
       }
@@ -21,29 +21,17 @@ export const fetchAllShoppingIngredients = createAsyncThunk(
   }
 );
 
-export const fetchAddShoppingIngredients = createAsyncThunk(
-  'shoppingIngredients/fetchAdd',
-  async (credentials, { thunkAPI, dispatch }) => {
+export const fetchDeleteShoppingIngredient = createAsyncThunk(
+  'shoppingIngredient/fetchDelete',
+  async (ingredient, thunkAPI) => {
     try {
-      const response = await axios.post('/api/shopping-lit', credentials);
-    
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const fetchDeleteShoppingIngredients = createAsyncThunk(
-  'shoppingIngredients/fetchDelete',
-  async (ingredientId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/api/shopping-list/${ingredientId}`);
+      const response = await axios.delete('/api/shopping-list', {
+        data: { _id: ingredient._id },
+      });
       if (response.status === 204) {
         toast.success('Ingredient deleted successfully!', {
-          className: 'custom-toast',
         });
-        return ingredientId;
+        return ingredient._id;
       } else {
         return;
       }
@@ -58,20 +46,5 @@ export const fetchDeleteShoppingIngredients = createAsyncThunk(
         return false;
       }
     },
-  }
-);
-
-export const fetchUpdateShoppingIngredients = createAsyncThunk(
-  'shoppingIngredients/fetchUpdate',
-  async ({ ingredientId, credentials }, thunkAPI) => {
-    try {
-      const response = await axios.patch(
-        `/api/shopping-list/${ingredientId}`,
-        credentials
-      );
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
   }
 );

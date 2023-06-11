@@ -19,6 +19,7 @@ import { categoriesReducer } from './categories/categoriesSlice';
 import searchReducer from './search/searchSlice'
 import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice'
 
+
 const authPersistConfig = {
   key: 'auth',
   storage,

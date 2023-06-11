@@ -1,3 +1,4 @@
-export const selectIsLoading = state => state.shoppingIngredients.isLoading;
+export const selectIsLoading = state => state.shoppingListIngredients.isLoading;
 export const selectShoppingListIngredients = state =>
-  state.shoppingIngredients.shoppingIngredients;
+  state.shoppingListIngredients.shoppingIngredients.shoppingList;
+;
