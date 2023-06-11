@@ -14,8 +14,8 @@ export const Footer = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log({ email });
-    console.log(e);
   };
+
   return (
     <div>
       <section className={style.contactsSection}>
