@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/so_yummy/static/css/main.d81ecf6e.css",
-    "main.js": "/so_yummy/static/js/main.693b5fc3.js",
+    "main.js": "/so_yummy/static/js/main.51790a93.js",
     "static/css/539.e42824ae.chunk.css": "/so_yummy/static/css/539.e42824ae.chunk.css",
     "static/js/539.c1a46ba1.chunk.js": "/so_yummy/static/js/539.c1a46ba1.chunk.js",
     "static/css/941.e1c833a4.chunk.css": "/so_yummy/static/css/941.e1c833a4.chunk.css",
     "static/js/941.7f215c10.chunk.js": "/so_yummy/static/js/941.7f215c10.chunk.js",
-    "static/css/490.619d2069.chunk.css": "/so_yummy/static/css/490.619d2069.chunk.css",
-    "static/js/490.f565fde5.chunk.js": "/so_yummy/static/js/490.f565fde5.chunk.js",
+    "static/css/490.cb75c7b9.chunk.css": "/so_yummy/static/css/490.cb75c7b9.chunk.css",
+    "static/js/490.36808ce7.chunk.js": "/so_yummy/static/js/490.36808ce7.chunk.js",
     "static/css/241.0b9a6acb.chunk.css": "/so_yummy/static/css/241.0b9a6acb.chunk.css",
     "static/js/241.270e46b5.chunk.js": "/so_yummy/static/js/241.270e46b5.chunk.js",
     "static/css/572.eac2ecf2.chunk.css": "/so_yummy/static/css/572.eac2ecf2.chunk.css",
@@ -19,7 +19,7 @@
     "static/css/735.1825490d.chunk.css": "/so_yummy/static/css/735.1825490d.chunk.css",
     "static/js/735.4c4b014a.chunk.js": "/so_yummy/static/js/735.4c4b014a.chunk.js",
     "static/css/847.af31da32.chunk.css": "/so_yummy/static/css/847.af31da32.chunk.css",
-    "static/js/847.c485b8f2.chunk.js": "/so_yummy/static/js/847.c485b8f2.chunk.js",
+    "static/js/847.48e0b8ee.chunk.js": "/so_yummy/static/js/847.48e0b8ee.chunk.js",
     "static/css/508.6fecd217.chunk.css": "/so_yummy/static/css/508.6fecd217.chunk.css",
     "static/js/508.47226076.chunk.js": "/so_yummy/static/js/508.47226076.chunk.js",
     "static/css/901.a1f59848.chunk.css": "/so_yummy/static/css/901.a1f59848.chunk.css",
@@ -94,13 +94,13 @@
     "static/media/icon-arrow-rigth.svg": "/so_yummy/static/media/icon-arrow-rigth.b5645e9fc75fdefd74034a45ce4e288d.svg",
     "static/media/dropDownIcon.svg": "/so_yummy/static/media/dropDownIcon.bfa89af93715e17c4b279c05d6a17e4d.svg",
     "main.d81ecf6e.css.map": "/so_yummy/static/css/main.d81ecf6e.css.map",
-    "main.693b5fc3.js.map": "/so_yummy/static/js/main.693b5fc3.js.map",
+    "main.51790a93.js.map": "/so_yummy/static/js/main.51790a93.js.map",
     "539.e42824ae.chunk.css.map": "/so_yummy/static/css/539.e42824ae.chunk.css.map",
     "539.c1a46ba1.chunk.js.map": "/so_yummy/static/js/539.c1a46ba1.chunk.js.map",
     "941.e1c833a4.chunk.css.map": "/so_yummy/static/css/941.e1c833a4.chunk.css.map",
     "941.7f215c10.chunk.js.map": "/so_yummy/static/js/941.7f215c10.chunk.js.map",
-    "490.619d2069.chunk.css.map": "/so_yummy/static/css/490.619d2069.chunk.css.map",
-    "490.f565fde5.chunk.js.map": "/so_yummy/static/js/490.f565fde5.chunk.js.map",
+    "490.cb75c7b9.chunk.css.map": "/so_yummy/static/css/490.cb75c7b9.chunk.css.map",
+    "490.36808ce7.chunk.js.map": "/so_yummy/static/js/490.36808ce7.chunk.js.map",
     "241.0b9a6acb.chunk.css.map": "/so_yummy/static/css/241.0b9a6acb.chunk.css.map",
     "241.270e46b5.chunk.js.map": "/so_yummy/static/js/241.270e46b5.chunk.js.map",
     "572.eac2ecf2.chunk.css.map": "/so_yummy/static/css/572.eac2ecf2.chunk.css.map",
@@ -112,7 +112,7 @@
     "735.1825490d.chunk.css.map": "/so_yummy/static/css/735.1825490d.chunk.css.map",
     "735.4c4b014a.chunk.js.map": "/so_yummy/static/js/735.4c4b014a.chunk.js.map",
     "847.af31da32.chunk.css.map": "/so_yummy/static/css/847.af31da32.chunk.css.map",
-    "847.c485b8f2.chunk.js.map": "/so_yummy/static/js/847.c485b8f2.chunk.js.map",
+    "847.48e0b8ee.chunk.js.map": "/so_yummy/static/js/847.48e0b8ee.chunk.js.map",
     "508.6fecd217.chunk.css.map": "/so_yummy/static/css/508.6fecd217.chunk.css.map",
     "508.47226076.chunk.js.map": "/so_yummy/static/js/508.47226076.chunk.js.map",
     "901.a1f59848.chunk.css.map": "/so_yummy/static/css/901.a1f59848.chunk.css.map",
@@ -131,6 +131,6 @@
   },
   "entrypoints": [
     "static/css/main.d81ecf6e.css",
-    "static/js/main.693b5fc3.js"
+    "static/js/main.51790a93.js"
   ]
 }
