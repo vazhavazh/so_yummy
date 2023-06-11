@@ -112,7 +112,7 @@ export const Categories = () => {
           <ul className="categories-cards">
             {dishData ? (
               dishData.recipes.map(recipe => {
-                console.log(recipe);
+                
                 return <RecipeCard key={recipe._id} recipe={recipe} />;
               })
             ) : (
