@@ -50,7 +50,7 @@ export const Categories = () => {
 
   return (
     <div className="categories">
-      <h2 className="categories-title">Categorises</h2>
+      {/* <h2 className="categories-title">Categorises</h2> */}
       <TabContext value={value}>
         <div className="categories-switcher">
           <TabList
