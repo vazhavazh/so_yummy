@@ -16,6 +16,9 @@ import {
 
 import Loader from 'components/Loader/Loader';
 
+import img from 'assets/image/searchPage/kisspng-vegetable.webp';
+import scss from 'components/Search/SearchBar/SearchBar.module.scss';
+
 export const FavoriteReceipts = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavoriteReceipts);
@@ -26,11 +29,25 @@ export const FavoriteReceipts = () => {
   }, [dispatch]);
 
   const handleUpdateFavoriteReceipt = async receiptId => {
-    dispatch(fetchUpdateFavoriteReceipts(receiptId));
+    try {
+     await dispatch(fetchUpdateFavoriteReceipts(receiptId));
+      dispatch(fetchAllFavoriteReceipts());
+    } catch (error) {
+      console.log(error);
+    }
   };
   if (isLoading) {
     return <Loader />;
   }
+
+   if (!favorites || !Array.isArray(favorites) || favorites.length === 0) {
+     return (
+       <div className={scss.searchLookingWrapper}>
+         <img src={img} alt="images" />
+         <p className="emptyName">Your favorite recipes list still empty...</p>
+       </div>
+     );
+   }
 
   return (
     <div className="flexWrapper">

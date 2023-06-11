@@ -17,7 +17,6 @@ import Loader from 'components/Loader/Loader';
 import img from 'assets/image/searchPage/kisspng-vegetable.webp';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
-
 export const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
   const ingredients = useSelector(selectShoppingListIngredients);
@@ -25,8 +24,8 @@ export const IngredientsShoppingList = () => {
 
   const handleDeleteIngredient = async ingredient => {
     try {
-      await dispatch(fetchDeleteShoppingIngredient(ingredient));
-      dispatch(fetchAllShoppingIngredients()); 
+      dispatch(fetchDeleteShoppingIngredient(ingredient));
+      dispatch(fetchAllShoppingIngredients());
     } catch (error) {
       console.log(error);
     }
