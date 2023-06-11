@@ -73,6 +73,18 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
+export const editUser = createAsyncThunk(
+  'auth/edit',
+  async (userData, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch(`/api/auth/edit`, userData);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const google = createAsyncThunk(
   'auth/google',
   async ({ rejectWithValue, ...data }) => {
