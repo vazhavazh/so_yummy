@@ -5,7 +5,6 @@ import { ReactComponent as IconTime } from '../../assets/svg/mainPage/icon-time.
 
 export const RecipeCard = ({ recipe }) => {
   const { title, preview, _id, time, description } = recipe;
-  console.log(_id);
   return (
     <li className={style.recipeEll}>
       <a href={`/recipe/${_id}`}>
@@ -16,7 +15,6 @@ export const RecipeCard = ({ recipe }) => {
             <IconTime className={style.recipeClock} />
             {`${time} min`}
           </p>
-
           <p className={style.recipeText}>{description}</p>
         </div>
       </a>

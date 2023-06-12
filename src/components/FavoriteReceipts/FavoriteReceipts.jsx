@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './FavoriteReceipts.scss';
@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteReceipts,
   selectIsLoading,
-  
 } from 'redux/favoriteReceipts/favoriteReceiptsSelector';
-import { useEffect } from 'react';
 import {
   fetchAllFavoriteReceipts,
   fetchUpdateFavoriteReceipts,
@@ -17,6 +15,8 @@ import {
 
 import Loader from 'components/Loader/Loader';
 
+import img from 'assets/image/searchPage/asdd.png';
+import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
 export const FavoriteReceipts = () => {
   const dispatch = useDispatch();
@@ -28,11 +28,25 @@ export const FavoriteReceipts = () => {
   }, [dispatch]);
 
   const handleUpdateFavoriteReceipt = async receiptId => {
-     dispatch(fetchUpdateFavoriteReceipts(receiptId));
+    try {
+     await dispatch(fetchUpdateFavoriteReceipts(receiptId));
+      dispatch(fetchAllFavoriteReceipts());
+    } catch (error) {
+      console.log(error);
+    }
   };
   if (isLoading) {
     return <Loader />;
   }
+
+   if (!favorites || !Array.isArray(favorites) || favorites.length === 0) {
+     return (
+       <div className={scss.searchLookingWrapper}>
+         <img src={img} alt="images" />
+         <p className="emptyName">Your favorite recipes list still empty...</p>
+       </div>
+     );
+   }
 
   return (
     <div className="flexWrapper">

@@ -4,7 +4,7 @@
   align-items: baseline;
   gap: 30px;
 
-  margin-bottom: 50px;
+  margin-bottom: 90px;
   margin-top: 30px;
 }
 .cont_type_select > label {
@@ -16,7 +16,7 @@
 
   letter-spacing: -0.24px;
 
-  color: #001833;
+  color: var(--mainTextColor);
 
   flex: none;
   order: 0;
