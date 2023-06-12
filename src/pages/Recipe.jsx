@@ -8,10 +8,10 @@ import { useEffect } from 'react';
 import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
 import {
   selectIngredients,
-  selectIsLoading,
+  // selectIsLoading,
   selectRecipes,
 } from 'redux/simpleReceipt/simpleReceiptSelector';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 import { RecipeIngredientsList } from 'components/RecipeMain/RecipeIngredientsList';
 
 const Recipe = () => {
