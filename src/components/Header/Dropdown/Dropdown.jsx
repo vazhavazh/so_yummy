@@ -5,10 +5,29 @@ import { useState } from 'react';
 import EditModal from './EditModal/EditModal';
 import LogOutModal from './LogOutModal/LogOutModal';
 import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
 
 const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
+
+  const KEY_NAME_ESC = 'Escape';
+  const KEY_EVENT_TYPE = 'keyup';
+
+  useEffect(() => {
+    document.addEventListener(KEY_EVENT_TYPE, handleClose, false);
+
+    return () => {
+      document.removeEventListener(KEY_EVENT_TYPE, handleClose, false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleClose(e) {
+    if (e.key === KEY_NAME_ESC) {
+      setIsDropdownActive(false);
+    }
+  }
 
   return (
     <div

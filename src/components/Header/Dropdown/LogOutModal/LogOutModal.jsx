@@ -2,6 +2,7 @@ import style from './LogOutModal.module.scss';
 import { ReactComponent as Cross } from '../../../../assets/svg/header/cross-2.svg';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from 'redux/auth/authThunks';
+import { useEffect } from 'react';
 
 const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
   const dispatch = useDispatch();
@@ -9,6 +10,24 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
   const handleLogout = () => {
     dispatch(logoutUser());
   };
+
+  const KEY_NAME_ESC = 'Escape';
+  const KEY_EVENT_TYPE = 'keyup';
+
+  useEffect(() => {
+    document.addEventListener(KEY_EVENT_TYPE, handleClose, false);
+
+    return () => {
+      document.removeEventListener(KEY_EVENT_TYPE, handleClose, false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleClose(e) {
+    if (e.key === KEY_NAME_ESC) {
+      setIsLogOutModalOpen(false);
+    }
+  }
 
   return (
     <div

@@ -4,7 +4,7 @@ import { ReactComponent as BlackUser } from '../../../../assets/svg/header/black
 import grayUser from '../../../../assets/svg/header/gray-user.svg';
 import plus from '../../../../assets/svg/header/plus.svg';
 import edit from '../../../../assets/svg/header/edit.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
 import { getUserName } from 'redux/auth/authSelectors';
@@ -20,6 +20,24 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
     e.preventDefault();
     dispatch(editUser({ name: newName, avatar: newAvatar }));
   };
+
+  const KEY_NAME_ESC = 'Escape';
+  const KEY_EVENT_TYPE = 'keyup';
+
+  useEffect(() => {
+    document.addEventListener(KEY_EVENT_TYPE, handleClose, false);
+
+    return () => {
+      document.removeEventListener(KEY_EVENT_TYPE, handleClose, false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleClose(e) {
+    if (e.key === KEY_NAME_ESC) {
+      setIsEditModalOpen(false);
+    }
+  }
 
   return (
     <div
