@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 export const fetchAllMyOwnRecipes = createAsyncThunk(
   'fetchAllMyOwnRecipes',
@@ -24,5 +25,32 @@ export const addMyOwnRecipe = createAsyncThunk(
     } catch (error) {
       throw new Error(error.response.data.message);
     }
+  }
+);
+
+export const deleteMyOwnRecipe = createAsyncThunk(
+  'ownRecipe/Delete',
+  async (ownRecipeId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/api/ownRecipes/${ownRecipeId}`);
+      if (response.status === 204) {
+        toast.success('Recipe deleted successfully!', {
+         
+        });
+        return ownRecipeId;
+      } else {
+        return;
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const isLoading = getState().isLoading;
+      if (isLoading) {
+        return false;
+      }
+    },
   }
 );
