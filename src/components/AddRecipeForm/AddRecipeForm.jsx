@@ -186,14 +186,12 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
-  ingredients: Yup.array()
-    .of(
-      Yup.object().shape({
-        name: Yup.string().required(),
-        dose: Yup.string().required(),
-      })
-    )
-    .required('At least one ingredient with dose is required'),
+  ingredients: Yup.array().of(
+    Yup.object().shape({
+      name: Yup.string().required('Enter ingredient'),
+      dose: Yup.string().required('Enter dose'),
+    })
+  ),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -413,19 +411,19 @@ export const AddRecipeForm = () => {
                                   )
                                 }
                               />
+                              <ErrorMessage
+                                name={`ingredients[${index}].name`}
+                                className={styles.errorMessage}
+                                component="div"
+                              />
                               <Field
                                 name={`ingredients[${index}].dose`}
                                 placeholder="Enter dose"
                               />
                               <ErrorMessage
-                                name={`ingredients[${index}].name`}
-                                component="div"
-                                className={styles.errorMessage}
-                              />
-                              <ErrorMessage
                                 name={`ingredients[${index}].dose`}
-                                component="div"
                                 className={styles.errorMessage}
+                                component="div"
                               />
 
                               {values.ingredients.length > 1 && (
