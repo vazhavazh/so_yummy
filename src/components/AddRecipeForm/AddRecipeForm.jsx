@@ -83,15 +83,15 @@
 //   }
 // };
 
-//   const handleIncrement = () => {
-//     setCounter(prevCounter => prevCounter + 1);
-//   };
+// const handleIncrement = () => {
+//   setCounter(prevCounter => prevCounter + 1);
+// };
 
-//   const handleDecrement = () => {
-//     if (counter > 1) {
-//       setCounter(prevCounter => prevCounter - 1);
-//     }
-//   };
+// const handleDecrement = () => {
+//   if (counter > 1) {
+//     setCounter(prevCounter => prevCounter - 1);
+//   }
+// };
 
 //   const validateFile = file => {
 //     if (!file) {
@@ -151,6 +151,9 @@ import ReactSelect from 'react-select';
 import styles from './AddRecipeForm.module.scss';
 import Button from './AddRecipeButton';
 import { FileInputField } from './FileInputField';
+import { ReactComponent as DeleteIcon } from '../AddRecipeForm/images/ingredientsDeleteIcon.svg';
+import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.svg';
+import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
 import categories from './data/categories.json';
 import cookingTime from './data/cookingTime.json';
 import ingredients from './data/ingredients.json';
@@ -185,11 +188,11 @@ const FORM_VALIDATION = Yup.object().shape({
   ingredients: Yup.array()
     .of(
       Yup.object().shape({
-        name: Yup.string().required('Ingredient is required'),
-        dose: Yup.string().required('Dose is required'),
+        name: Yup.string().required(),
+        dose: Yup.string().required(),
       })
     )
-    .required('Ingredients are required'),
+    .required('At least one ingredient with dose is required'),
   file: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -246,6 +249,7 @@ const customStyles = {
 
 export const AddRecipeForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [counter, setCounter] = useState(1);
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
@@ -254,6 +258,16 @@ export const AddRecipeForm = () => {
   };
 
   // ingredients logic:
+
+  const handleIncrement = () => {
+    setCounter(prevCounter => prevCounter + 1);
+  };
+
+  const handleDecrement = () => {
+    if (counter > 1) {
+      setCounter(prevCounter => prevCounter - 1);
+    }
+  };
 
   return (
     <div className={styles.addRecipeFormWrapper}>
@@ -313,8 +327,8 @@ export const AddRecipeForm = () => {
                 </label>
 
                 <ReactSelect
-                  id="category"
-                  name="category"
+                  id="ingredient"
+                  name="ingredient"
                   options={categories}
                   styles={customStyles}
                   isSearchable={false}
@@ -339,7 +353,7 @@ export const AddRecipeForm = () => {
                   errors.cookingTime && touched.cookingTime ? styles.error : ''
                 }`}
               >
-                <label className={styles.categoryLabel} htmlFor="category">
+                <label className={styles.categoryLabel} htmlFor="cookingTime">
                   Cooking time
                 </label>
 
@@ -371,35 +385,91 @@ export const AddRecipeForm = () => {
               </div>
               <div className={styles.ingredientsInputWrapper}>
                 <FieldArray name="ingredients">
-                  {({ push, remove, form }) => (
-                    <div>
-                      {form.values.ingredients.map((ingredient, index) => (
-                        <div
-                          key={index}
-                          className={styles.ingredientItemWrapper}
-                        >
-                          <ReactSelect
-                            id="ingredient"
-                            name={`ingredients[${index}].name`}
-                            options={ingredients}
-                            isSearchable={true}
+                  {({ push, remove, form }) => {
+                    console.log(form.values.ingredients);
+                    return (
+                      <div>
+                        {form.values.ingredients.map((ingredient, index) => (
+                          <div
+                            key={index}
+                            className={styles.ingredientItemWrapper}
+                          >
+                            <ReactSelect
+                              id={`ingredients[${index}].name`}
+                              name={`ingredients[${index}].name`}
+                              options={ingredients}
+                              isSearchable={true}
+                            />
+                            <Field
+                              className={styles.ingredientDose}
+                              type="text"
+                              name={`ingredients[${index}].dose`}
+                              placeholder="Enter dose"
+                            />
+                            <ErrorMessage
+                              name="ingredients"
+                              component="div"
+                              className={styles.errorMessage}
+                            />
+                            {index}
+                          </div>
+                          // <div
+                          //   key={index}
+                          //   className={styles.ingredientItemWrapper}
+                          // >
+                          // <ReactSelect
+                          //   id={`ingredients[${index}].name`}
+                          //   name={`ingredients[${index}].name`}
+                          //   options={ingredients}
+                          //   isSearchable={true}
+                          // />
+                          // <Field
+                          //   className={styles.ingredientDose}
+                          //   type="text"
+                          //   name={`ingredients[${index}].dose`}
+                          //   placeholder="Enter dose"
+                          // />
+                          // <ErrorMessage
+                          //   name="ingredients"
+                          //   component="div"
+                          //   className={styles.errorMessage}
+                          // />
+                          //   <DeleteIcon
+                          //     width="18px"
+                          //     height="18px"
+                          //     cursor="pointer"
+                          //     // className={styles.deleteIcon}
+                          //     onClick={() => {
+                          //       console.log('this is delete button');
+                          //       // remove(index);
+                          //       // delete values.ingredients[index];
+                          //       // handleDecrement();
+                          //     }}
+                          //   />
+                          // </div>
+                        ))}
+                        <Box className={styles.addRemoveCounter}>
+                          {counter > 1 && (
+                            <DecrementIcon
+                              onClick={() => {
+                                remove(counter - 1);
+                                handleDecrement();
+                              }}
+                              className={styles.counterIcon}
+                            />
+                          )}
+                          <span>{counter}</span>
+                          <IncrementIcon
+                            onClick={() => {
+                              push({ name: '', dose: '' });
+                              handleIncrement();
+                            }}
+                            className={styles.counterIcon}
                           />
-                          <Field
-                            className={styles.ingredientDose}
-                            type="text"
-                            name={`ingredients[${index}].dose`}
-                            placeholder="Enter dose"
-                          />
-
-                          <ErrorMessage
-                            name="category"
-                            component="div"
-                            className={styles.errorMessage}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                        </Box>
+                      </div>
+                    );
+                  }}
                 </FieldArray>
               </div>
             </div>
