@@ -21,7 +21,7 @@ export const AddRecipeForm = () => {
     formData.append('description', description);
     formData.append('category', category);
     formData.append('time', time);
-    // formData.append('ingredients', JSON.stringify(ingredients));
+    formData.append('ingredients', JSON.stringify(ingredients));
     formData.append('instructions', instructions);
     formData.append('preview', previewImage);
 

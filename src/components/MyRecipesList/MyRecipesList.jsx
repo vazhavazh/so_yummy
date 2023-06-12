@@ -10,7 +10,7 @@ import {
 import { fetchAllMyOwnRecipes } from 'redux/myRecipes/myRecipesThunk';
 import Loader from 'components/Loader/Loader';
 
-import img from 'assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
 export const MyRecipesList = () => {

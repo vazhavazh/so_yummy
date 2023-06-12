@@ -3,7 +3,7 @@ import recipes from '..//..//..//api/fakeApi/fakeFavoriteDBcopy';
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
 import scss from '..//..//Search/SearchBar/SearchBar.module.scss';
-import img from '..//..//..//assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '..//..//Loader/Loader';

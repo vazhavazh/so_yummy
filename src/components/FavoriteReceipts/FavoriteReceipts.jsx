@@ -15,7 +15,7 @@ import {
 
 import Loader from 'components/Loader/Loader';
 
-import img from 'assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
 export const FavoriteReceipts = () => {
@@ -26,7 +26,7 @@ export const FavoriteReceipts = () => {
   useEffect(() => {
     dispatch(fetchAllFavoriteReceipts());
   }, [dispatch]);
-
+const ray = 1;
   const handleUpdateFavoriteReceipt = async receiptId => {
     try {
      await dispatch(fetchUpdateFavoriteReceipts(receiptId));

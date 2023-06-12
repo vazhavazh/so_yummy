@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/Search/SearchBar/SearchBar';
 import SearchedRecipesList from '../components/Search/SearchedRecipesList/SearchedRecipesList';
 import scss from '../components/Search/SearchBar/SearchBar.module.scss';
-import img from '../assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import {TestComponent} from 'components/Search/TestComponent'
 import { PageTitle } from 'components/PageTitle/PageTitle';
 
