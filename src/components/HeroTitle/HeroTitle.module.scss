@@ -40,25 +40,24 @@
 .heroTitleGreen {
   font-weight: 400;
   font-size: 60px;
-  line-height: 60px;
+  line-height: 1;
   letter-spacing: -0.005em;
 
   color: $mainAccentColor;
 
   @include tablet {
     font-size: 72px;
-    line-height: 72px;
+    line-height: 1;
   }
 
   @include desktop {
     font-size: 100px;
-    line-height: 100px;
+    line-height: 1;
   }
 }
 
 .heroTitle {
-  color: var(--secondaryAccentColor);
-  
+  color: var(--darkToWhite);
 }
 
 .heroDiscription {
@@ -68,8 +67,9 @@
 
   font-weight: 400;
   font-size: 14px;
-  line-height: 18px;
+  line-height: calc(18 / 14);
   letter-spacing: -0.02em;
+  color: var(--mainTextColor);
 
   @include tablet {
     max-width: 362px;
@@ -80,6 +80,6 @@
   @include desktop {
     max-width: 465px;
     font-size: 18px;
-    line-height: 24px;
+    line-height: calc(24 / 18);
   }
 }

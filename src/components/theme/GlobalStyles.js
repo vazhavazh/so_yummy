@@ -15,12 +15,13 @@ export const GlobalStyles = createGlobalStyle`
     --whiteToWhite: #fafafa;
     --darkToWhite: #22252a;
     --greyImageToDarkGrey: #ebf3d4;
-<<<<<<< HEAD
-    --greyToBlack: #D9D9D9;
-    --blackTextToWhite: #000000;
-=======
+    --darkToGreen: #22252a;
+    --darkGreytoWhite: #001833;
+    --greyToGrey: #F0F0F0;
+    --inputColor: #BDBDBD;
     --darkToAccent: #22252A;
->>>>>>> 843ae728888757838f366a1c30132caa99730910
+    --dartToLightForRemove: #1F242E;
+    --whiteSearchToDark: #ffffff;
   }
 
 .dark-mode {
@@ -37,13 +38,14 @@ export const GlobalStyles = createGlobalStyle`
   --whiteToWhite: #fafafa;
   --darkToWhite: #fafafa;
   --greyImageToDarkGrey: #2A2C36;
-<<<<<<< HEAD
-  --greyToBlack: #1E1F28;
-  --blackTextToWhite: #FAFAFA;
-
-=======
+  --darkToGreen: #8baa36;
+  --darkGreytoWhite: #fafafa;
+  --greyToGrey: #fafafa;
+  --inputColor: #fafafa;
   --darkToAccent: #8baa36;
->>>>>>> 843ae728888757838f366a1c30132caa99730910
+  --dartToLightForRemove: #fafafa;
+  --whiteSearchToDark: #1E1F28;
+
 }
 
 `;

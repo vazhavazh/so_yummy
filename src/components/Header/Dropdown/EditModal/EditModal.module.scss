@@ -58,7 +58,13 @@
   }
 }
 
-.avatarBtn {
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
   position: relative;
   height: 88px;
   width: 88px;
@@ -66,8 +72,8 @@
 
   background-color: $ellipseColor;
   border-radius: 50%;
-
   border: 0;
+  cursor: pointer;
 
   @include tablet {
     width: 103px;
@@ -96,6 +102,10 @@
   position: absolute;
   right: 13px;
   bottom: -6px;
+}
+
+.fileInput {
+  display: none;
 }
 
 .modalHidden {

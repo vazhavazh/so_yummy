@@ -15,20 +15,21 @@
   background-color: transparent;
   color: #f0f0f0;
   border-radius: 24px 44px;
-  background: $secondaryBgColorWhite;
+  background-color: var(--secondaryBgColorWhite);
 
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--greyToGrey);
   box-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
 
   font-weight: 400;
   font-size: 12px;
-  line-height: 18px;
+  line-height: calc(18/12);
 
-  color: #bdbdbd;
+  color: var(--inputGreyColor);
 
   &:focus {
     outline: none;
     border: 1px solid $mainAccentColor;
+    color: var(--mainTextColor);
   }
 
   @include tablet {
@@ -36,7 +37,7 @@
     padding: 18px 38px;
 
     font-size: 16px;
-    line-height: 24px;
+    line-height: calc(24/16);
   }
 
   @include desktop {
@@ -46,7 +47,7 @@
 }
 
 .searchBtn:hover {
-  background: #8baa36;
+  background: var(--darkToGreen);
 }
 
 .searchBtn {
@@ -55,13 +56,14 @@
   transform: translateY(-50%);
 
   right: 0;
+  height: 100%;
   padding: 16px 32px;
 
   font-weight: 400;
   font-size: 14px;
-  line-height: 21px;
+  line-height: calc(14/21);
 
-  background-color: $secondaryAccentColor;
+  background-color: var(--darkToGreen);
   color: $mainBgColorWhite;
   border-radius: 24px 44px;
   border: none;
@@ -76,7 +78,7 @@
     padding: 18px 52px;
 
     font-size: 16px;
-    line-height: 24px;
+    line-height: calc(24/16);
   }
 
   @include desktop {

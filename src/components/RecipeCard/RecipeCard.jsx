@@ -15,7 +15,6 @@ export const RecipeCard = ({ recipe }) => {
             <IconTime className={style.recipeClock} />
             {`${time} min`}
           </p>
-
           <p className={style.recipeText}>{description}</p>
         </div>
       </a>

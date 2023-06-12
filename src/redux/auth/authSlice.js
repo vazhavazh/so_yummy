@@ -6,6 +6,7 @@ import {
   logoutUser,
   registerUser,
   google,
+  editUser,
 } from './authThunks';
 const handlePending = state => {
   state.isLoading = true;
@@ -19,8 +20,8 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: {
-      id: '',
-      username: '',
+      name: '',
+      avatarURL: '',
       email: '',
     },
     token: null,
@@ -35,12 +36,14 @@ const authSlice = createSlice({
     [getCurrentUser.pending]: handlePending,
     [logoutUser.pending]: handlePending,
     [google.pending]: handlePending,
+    [editUser.pending]: handlePending,
 
     [registerUser.rejected]: handleRejected,
     [loginUser.rejected]: handleRejected,
     [getCurrentUser.rejected]: handleRejected,
     [logoutUser.rejected]: handleRejected,
     [google.rejected]: handleRejected,
+    [editUser.rejected]: handleRejected,
 
     [registerUser.fulfilled]: (state, { payload }) => {
       return {
@@ -69,7 +72,7 @@ const authSlice = createSlice({
     [getCurrentUser.fulfilled]: (state, { payload }) => {
       return {
         ...state,
-        user: payload,
+        ...payload,
         error: null,
         isRefreshing: false,
       };
@@ -99,6 +102,16 @@ const authSlice = createSlice({
         error: null,
         isRefreshing: false,
         token: null,
+      };
+    },
+    [editUser.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        user: {
+          ...payload.data,
+        },
+        isLoading: false,
+        error: null,
       };
     },
   },

@@ -9,18 +9,22 @@ import img from '..//..//..//assets/image/searchPage/kisspng-vegetable.webp';
 import Loader from '..//..//Loader/Loader';
 
 const SearchedRecipesList = ({ searchValue }) => {
+  // eslint-disable-next-line
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [prevSearchValue, setPrevSearchValue] = useState('');
+  // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(true);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const searchData = useSelector(selectSearchData);
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line
   const handleSearchByTitle = title => {
      dispatch(fetchAllSearchedTitle(title));
    };
 
+  // eslint-disable-next-line
    const handleSearchByIngredient = ingredient => {
      dispatch(fetchAllSearchedIngredient(ingredient));
    };
@@ -61,7 +65,7 @@ const SearchedRecipesList = ({ searchValue }) => {
           <p>Try looking for something else...</p>
         </div>}
        {searchData && (
-          <div style={{backgroundColor: 'var(--secondaryBgColorWhite)',}} className={style.previewCategoriesBox}>
+          <div style={{backgroundColor: 'var(--whiteSearchToDark)',}} className={style.previewCategoriesBox}>
           <ul className={style.previewCategoriesList}>
             <li className={style.previewCategoriesListEll}>
               <ul className={style.recipeListSearch}>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/Search/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import scss from '../components/Search/SearchBar/SearchBar.module.scss';
-// import img from '../assets/image/searchPage/kisspng-vegetable.webp';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -25,7 +25,7 @@ const Search = () => {
 
   return (
     <div className={scss.search_wrapper}>
-      <h1>Search</h1>
+      <PageTitle />
       <SearchBar
         value={searchValue}
         onChange={handleSearchInputChange}
