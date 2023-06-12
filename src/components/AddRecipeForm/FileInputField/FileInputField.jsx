@@ -17,7 +17,7 @@ function isValidFileType(fileName, fileType) {
 
 export const FileInputField = ({ name, reset }) => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [, meta, helpers] = useField(name);
+  const [, , helpers] = useField(name);
   const fileInputRef = useRef(null);
 
   const validateFile = file => {

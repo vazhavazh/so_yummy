@@ -143,12 +143,11 @@
 //   );
 // };
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import * as Yup from 'yup';
 import ReactSelect from 'react-select';
-import { nanoid } from 'nanoid';
 import styles from './AddRecipeForm.module.scss';
 import Button from './AddRecipeButton';
 import { FileInputField } from './FileInputField';
@@ -438,7 +437,6 @@ export const AddRecipeForm = () => {
                     return (
                       <div>
                         {form.values.ingredients.map((ingredient, index) => {
-                          const ingredientId = nanoid();
                           return (
                             <div
                               key={index}
