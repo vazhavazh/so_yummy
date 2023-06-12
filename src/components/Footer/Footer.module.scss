@@ -299,6 +299,13 @@
   border: 0;
   background-color: var(--greenToGrey);
   border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: $mainBgColorWhite;
+    color: $secondaryAccentColor;
+  }
 
   @include tablet {
     width: 187px;

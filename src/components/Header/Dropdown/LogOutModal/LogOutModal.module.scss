@@ -78,14 +78,21 @@
   width: 137px;
   height: 49px;
 
-  border: 0;
-  background-color: $mainAccentColor;
-  border-radius: 6px;
-
   font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.29;
   color: $mainBgColorWhite;
+
+  border: 0;
+  background-color: $mainAccentColor;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--darkToWhite);
+    color: var(--secondaryBgColorWhite);
+  }
 
   @include tablet {
     height: 59px;

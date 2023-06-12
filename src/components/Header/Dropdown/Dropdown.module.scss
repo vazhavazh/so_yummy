@@ -93,6 +93,14 @@
   font-size: 14px;
   line-height: 1.5;
 
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--darkToWhite);
+    color: var(--secondaryBgColorWhite);
+  }
+
   @include tablet {
     height: 43px;
     width: 141px;
