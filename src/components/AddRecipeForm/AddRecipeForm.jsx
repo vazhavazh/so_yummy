@@ -320,7 +320,7 @@ export const AddRecipeForm = () => {
       >
         {({ values, errors, touched, setFieldValue }) => (
           <Form className={styles.addRecipeForm}>
-            <div className="RecipeDescriptionFields">
+            <div className={styles.descriptionWrapper}>
               <div className={styles.inputWrapperFile}>
                 <FileInputField name="file" reset={isSubmitted} />
                 <ErrorMessage
@@ -329,94 +329,100 @@ export const AddRecipeForm = () => {
                   component="div"
                 />
               </div>
-              <div className={styles.inputWrapper}>
-                <Field
-                  className={`${styles.recipeDescriptionInput} ${
-                    errors.title && touched.title ? styles.error : ''
+              <div className={styles.minWidthTabletContainer}>
+                <div className={styles.inputWrapper}>
+                  <Field
+                    className={`${styles.recipeDescriptionInput} ${
+                      errors.title && touched.title ? styles.error : ''
+                    }`}
+                    type="text"
+                    name="title"
+                    placeholder="Enter item title"
+                  />
+                  <ErrorMessage
+                    className={styles.errorMessage}
+                    name="title"
+                    component="div"
+                  />
+                </div>
+                <div className={styles.inputWrapper}>
+                  <Field
+                    className={`${styles.recipeDescriptionInput} ${
+                      errors.about && touched.about ? styles.error : ''
+                    }`}
+                    type="text"
+                    name="about"
+                    placeholder="Enter about recipe"
+                  />
+                  <ErrorMessage
+                    name="about"
+                    component="div"
+                    className={styles.errorMessage}
+                  />
+                </div>
+                <div
+                  className={`${styles.inputWrapperCategory} ${
+                    errors.category && touched.category ? styles.error : ''
                   }`}
-                  type="text"
-                  name="title"
-                  placeholder="Enter item title"
-                />
-                <ErrorMessage
-                  className={styles.errorMessage}
-                  name="title"
-                  component="div"
-                />
-              </div>
-              <div className={styles.inputWrapper}>
-                <Field
-                  className={`${styles.recipeDescriptionInput} ${
-                    errors.about && touched.about ? styles.error : ''
+                >
+                  <label className={styles.categoryLabel} htmlFor="category">
+                    Category
+                  </label>
+
+                  <ReactSelect
+                    name="category"
+                    options={categories}
+                    styles={customStyles}
+                    isSearchable={false}
+                    // onChange={value => setFieldValue('category', value.value)}
+                    value={
+                      isSubmitted
+                        ? ''
+                        : categories.find(
+                            option => option.value === values.category
+                          )
+                    }
+                    onChange={value => setFieldValue('category', value.value)}
+                  />
+                  <ErrorMessage
+                    name="category"
+                    component="div"
+                    className={styles.errorMessage}
+                  />
+                </div>
+                <div
+                  className={`${styles.inputWrapperCategory} ${
+                    errors.cookingTime && touched.cookingTime
+                      ? styles.error
+                      : ''
                   }`}
-                  type="text"
-                  name="about"
-                  placeholder="Enter about recipe"
-                />
-                <ErrorMessage
-                  name="about"
-                  component="div"
-                  className={styles.errorMessage}
-                />
-              </div>
-              <div
-                className={`${styles.inputWrapperCategory} ${
-                  errors.category && touched.category ? styles.error : ''
-                }`}
-              >
-                <label className={styles.categoryLabel} htmlFor="category">
-                  Category
-                </label>
+                >
+                  <label className={styles.categoryLabel} htmlFor="cookingTime">
+                    Cooking time
+                  </label>
 
-                <ReactSelect
-                  name="category"
-                  options={categories}
-                  styles={customStyles}
-                  isSearchable={false}
-                  // onChange={value => setFieldValue('category', value.value)}
-                  value={
-                    isSubmitted
-                      ? ''
-                      : categories.find(
-                          option => option.value === values.category
-                        )
-                  }
-                  onChange={value => setFieldValue('category', value.value)}
-                />
-                <ErrorMessage
-                  name="category"
-                  component="div"
-                  className={styles.errorMessage}
-                />
-              </div>
-              <div
-                className={`${styles.inputWrapperCategory} ${
-                  errors.cookingTime && touched.cookingTime ? styles.error : ''
-                }`}
-              >
-                <label className={styles.categoryLabel} htmlFor="cookingTime">
-                  Cooking time
-                </label>
-
-                <ReactSelect
-                  name="cookingTime"
-                  options={cookingTime}
-                  styles={customStyles}
-                  isSearchable={false}
-                  value={
-                    isSubmitted
-                      ? ''
-                      : cookingTime.find(
-                          option => option.value === values.cookingTime
-                        )
-                  }
-                  onChange={value => setFieldValue('cookingTime', value.value)}
-                />
-                <ErrorMessage
-                  name="cookingTime"
-                  component="div"
-                  className={styles.errorMessage}
-                />
+                  <ReactSelect
+                    name="cookingTime"
+                    options={cookingTime}
+                    styles={customStyles}
+                    isSearchable={false}
+                    value={
+                      isSubmitted
+                        ? ''
+                        : cookingTime.find(
+                            option => option.value === values.cookingTime
+                          )
+                    }
+                    onChange={value =>
+                      setFieldValue('cookingTime', value.value)
+                    }
+                  />
+                  <ErrorMessage
+                    name="cookingTime"
+                    component="div"
+                    className={styles.errorMessage}
+                  />
+                </div>
               </div>
             </div>
             <div className={styles.ingredientsWrapper}>

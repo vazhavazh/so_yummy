@@ -17,6 +17,26 @@
 
 //////RecipeDesctiptionStyles/////
 
+
+.descriptionWrapper{
+    @media screen and (min-width: $breakpoint-tablet) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.minWidthTabletContainer{
+    @media screen and (min-width: $breakpoint-tablet) {
+        width: 100%;
+        outline: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 32px;
+    }
+}
+
 .inputWrapper {
     position: relative;
     display: flex;
@@ -76,12 +96,17 @@
 }
 
 .inputWrapperFile {
+    outline: 1px solid red;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 3px;
     min-width: 100%;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        min-width: 279px;
+    }
 }
 
 .errorMessageFile{
