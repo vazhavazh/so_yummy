@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './FavoriteReceipts.scss';
@@ -8,7 +8,6 @@ import {
   selectFavoriteReceipts,
   selectIsLoading,
 } from 'redux/favoriteReceipts/favoriteReceiptsSelector';
-import { useEffect } from 'react';
 import {
   fetchAllFavoriteReceipts,
   fetchUpdateFavoriteReceipts,
