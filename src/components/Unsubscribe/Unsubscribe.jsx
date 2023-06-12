@@ -15,15 +15,17 @@ export const Unsubscribe = () => {
   return (
     <div className={style.wrapper}>
       <div>
-        <h3>SoYummy newsletter!</h3>
-        <p>
+        <h3 className={style.unsub_title}>SoYummy newsletter!</h3>
+        <p className={style.unsub_text}>
           You see this page, if you were redirected from link in email message.
         </p>
-        <p>
+        <p className={style.unsub_text}>
           If you don't want to recived our newsletter emails, click the button
           below
         </p>
-        <button onClick={clickHandler}>Don't recieve news</button>
+        <button className={style.unsub_button} onClick={clickHandler}>
+          Don't recieve news
+        </button>
       </div>
     </div>
   );

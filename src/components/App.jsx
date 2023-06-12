@@ -124,9 +124,9 @@ export const App = () => {
           <Route
             path="/unsubscription"
             element={
-              // <PrivateRoute>
-              <Unsubscribe />
-              // </PrivateRoute>
+              <PrivateRoute>
+                <Unsubscribe />
+              </PrivateRoute>
             }
           />
           <Route path="/error" element={<ErrorPage />} />
