@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/authThunks';
 import { PrivateRoute } from '../hoc/PrivateRoute';
 import { PublicRoute } from '../hoc/PublicRoute';
+import { Unsubscribe } from './Unsubscribe/Unsubscribe';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
 const Categories = lazy(() => import('../pages/CategoriesPage'));
@@ -118,6 +119,14 @@ export const App = () => {
               <PrivateRoute>
                 <ShoppingList />
               </PrivateRoute>
+            }
+          />
+          <Route
+            path="/unsubscription"
+            element={
+              // <PrivateRoute>
+              <Unsubscribe />
+              // </PrivateRoute>
             }
           />
           <Route path="/error" element={<ErrorPage />} />
