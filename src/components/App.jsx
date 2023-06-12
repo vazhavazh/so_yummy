@@ -122,7 +122,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/unsubscription"
+            path="/unsubscription/:id"
             element={
               <PrivateRoute>
                 <Unsubscribe />
