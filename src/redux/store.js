@@ -18,10 +18,10 @@ import themeReducer from './theme/themeSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
 
 import { recipeReducer } from './recipes/recipeSlice';
+import { popularReducer } from './popularRecipe/popularSlice';
 
-import searchReducer from './search/searchSlice'
-import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice'
-
+import searchReducer from './search/searchSlice';
+import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -37,9 +37,12 @@ const themePersistConfig = {
 const recipePersistConfig = {
   key: 'recipe',
   storage,
-}
+};
 
-
+const popularPersistConfig = {
+  key: 'popular',
+  storage,
+};
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -57,9 +60,8 @@ export const store = configureStore({
     categoriesStore: categoriesReducer,
     search: searchReducer,
     recipeMain: persistReducer(recipePersistConfig, recipeReducer),
-    favoriteReceipt: favoriteReducer
-
-    
+    favoriteReceipt: favoriteReducer,
+    popularRecipe: persistReducer(popularPersistConfig, popularReducer),
   },
   middleware,
 });

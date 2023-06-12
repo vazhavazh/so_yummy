@@ -12,9 +12,8 @@ export const СhooseYourBreakfast = () => {
       <div className={style.chooseBox}>
         <p className={style.chooseDiscrirtion}>
           <span className={style.chooseDiscrirtionGreen}>
-            Delicious and healthy
-          </span>
-          <span> </span>
+            Delicious and healthy&nbsp;
+          </span> 
           <span>
           way to enjoy a variety of fresh ingredients in one satisfying meal
           </span>
