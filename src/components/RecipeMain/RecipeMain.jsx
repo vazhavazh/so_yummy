@@ -3,6 +3,7 @@ import MySVGComponent from './MySVGComponent';
 import style from '../RecipeMain/RecipeMain.module.scss';
 import data from 'api/fakeApi/fakeIngredientsDB.json';
 import meta from 'api/fakeApi/fakePrepDB.json';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 export const RecipeMain = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -26,7 +27,8 @@ export const RecipeMain = () => {
   return (
     <div className={style.body}>
       <div className={style.hero}>
-        <h1 className={style.hero__title}>Salmon Avacado Salad</h1>
+        {/* <h1 className={style.hero__title}>Salmon Avacado Salad</h1> */}
+        <PageTitle recipeTitle={`Salmon Avacado Salad`} />
         <p className={style.hero__text}>
           Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
           pan seared salmon is layered on top of spinach, avocado, tomatoes, and
