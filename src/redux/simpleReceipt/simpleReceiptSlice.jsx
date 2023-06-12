@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchSimpleRecipe } from './simpleReceiptThunk';
+import { fetchRecipe } from './simpleReceiptThunk';
 
 const initialState = {
-  simpleRecipe: null,
+  simpleRecipe: [],
   isLoading: true,
   error: null,
 };
@@ -13,8 +13,8 @@ const simpleRecipeSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchSimpleRecipe.fulfilled, (state, action) => {
-        state.favoriteReceipts = action.payload;
+      .addCase(fetchRecipe.fulfilled, (state, action) => {
+        state.simpleRecipe = action.payload;
         state.isLoading = false;
         state.error = null;
       })

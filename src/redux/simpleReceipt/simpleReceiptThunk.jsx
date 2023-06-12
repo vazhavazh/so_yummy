@@ -5,10 +5,11 @@ export const fetchRecipe = createAsyncThunk(
   'favoriteReceipt/fetchRecipe',
   async (recipeId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/api/recipes/${recipeId}`); // Вызов функции API для получения рецепта по идентификатору
+      const response = await axios.get(`/api/recipes/${recipeId}`); 
+
       return response.data; 
     } catch (error) {
-      return rejectWithValue(error.message); // Возвращаем сообщение об ошибке в случае неудачи
+      return rejectWithValue(error.message); 
     }
   }
 );
