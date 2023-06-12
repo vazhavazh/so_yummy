@@ -4,6 +4,7 @@ import arrow from '../../../assets/svg/header/arrow.svg';
 import { useState } from 'react';
 import EditModal from './EditModal/EditModal';
 import LogOutModal from './LogOutModal/LogOutModal';
+import { createPortal } from 'react-dom';
 
 const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -24,6 +25,7 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
         <button
           onClick={() => {
             setIsLogOutModalOpen(false);
+            setIsDropdownActive(false);
             setIsEditModalOpen(true);
           }}
           className={style.editBtn}
@@ -35,6 +37,7 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
           onClick={() => {
             setIsLogOutModalOpen(true);
             setIsEditModalOpen(false);
+            setIsDropdownActive(false);
           }}
           className={style.logOutBtn}
         >
@@ -42,14 +45,20 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
           <img className={style.arrowIcon} src={arrow} alt="arrow" />
         </button>
       </div>
-      <EditModal
-        isEditModalOpen={isEditModalOpen}
-        setIsEditModalOpen={setIsEditModalOpen}
-      />
-      <LogOutModal
-        setIsLogOutModalOpen={setIsLogOutModalOpen}
-        isLogOutModalOpen={isLogOutModalOpen}
-      />
+      {createPortal(
+        <EditModal
+          isEditModalOpen={isEditModalOpen}
+          setIsEditModalOpen={setIsEditModalOpen}
+        />,
+        document.querySelector('#portal')
+      )}
+      {createPortal(
+        <LogOutModal
+          setIsLogOutModalOpen={setIsLogOutModalOpen}
+          isLogOutModalOpen={isLogOutModalOpen}
+        />,
+        document.querySelector('#portal')
+      )}
     </div>
   );
 };

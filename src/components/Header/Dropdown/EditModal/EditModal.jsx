@@ -23,49 +23,56 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
 
   return (
     <div
-      onClick={e => e.stopPropagation()}
-      className={`${style.modal} ${isEditModalOpen ? '' : style.modalHidden}`}
+      onClick={() => setIsEditModalOpen(false)}
+      className={`${style.backdrop} ${
+        isEditModalOpen ? '' : style.backdropHidden
+      }`}
     >
-      <button
-        onClick={() => setIsEditModalOpen(false)}
-        className={style.crossBtn}
+      <div
+        onClick={e => e.stopPropagation()}
+        className={`${style.modal} ${isEditModalOpen ? '' : style.modalHidden}`}
       >
-        <Cross className={style.cross} />
-      </button>
-      <form className={style.form}>
-        <label htmlFor="avatar" className={style.label}>
-          <img className={style.grayUser} src={grayUser} alt="gray user" />
-          <img className={style.plusIcon} src={plus} alt="plus" />
-        </label>
-        <input
-          type="file"
-          className={style.fileInput}
-          name="avatar"
-          id="avatar"
-          accept="image/png, image/jpeg"
-          placeholder=""
-          onChange={e => setNewAvatar(e.target.value)}
-        />
-
-        <div className={style.inputWrapper}>
-          <input
-            className={style.input}
-            type="text"
-            placeholder={name}
-            onChange={e => setNewName(e.target.value)}
-            required
-          />
-          <BlackUser className={style.blackUser} />
-          <img className={style.editIcon} src={edit} alt="pencil" />
-        </div>
         <button
-          type="submit"
-          onClick={handleSubmit}
-          className={style.submitBtn}
+          onClick={() => setIsEditModalOpen(false)}
+          className={style.crossBtn}
         >
-          Save changes
+          <Cross className={style.cross} />
         </button>
-      </form>
+        <form className={style.form}>
+          <label htmlFor="avatar" className={style.label}>
+            <img className={style.grayUser} src={grayUser} alt="gray user" />
+            <img className={style.plusIcon} src={plus} alt="plus" />
+          </label>
+          <input
+            type="file"
+            className={style.fileInput}
+            name="avatar"
+            id="avatar"
+            accept="image/png, image/jpeg"
+            placeholder=""
+            onChange={e => setNewAvatar(e.target.value)}
+          />
+
+          <div className={style.inputWrapper}>
+            <input
+              className={style.input}
+              type="text"
+              placeholder={name}
+              onChange={e => setNewName(e.target.value)}
+              required
+            />
+            <BlackUser className={style.blackUser} />
+            <img className={style.editIcon} src={edit} alt="pencil" />
+          </div>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className={style.submitBtn}
+          >
+            Save changes
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
