@@ -41,6 +41,8 @@
   }
 }
 .favorite-item {
+  max-width:  343px;
+  min-width:  343px;
   min-height: 152px;
   max-height: 152px;
 
@@ -58,12 +60,16 @@
     max-height: 288px;
     padding: 28px 130px 28px 24px;
     gap: 24px;
+    max-width:  704px;
+  min-width:  704px;
   }
   @include desktop {
     min-height: 404px;
     max-height: 404px;
     padding: 40px 163px 40px 40px;
     gap: 50px;
+    max-width:  1240px;
+  min-width:  1240px;
   }
 }
 
@@ -192,4 +198,8 @@
       color: var(--secondaryBgColorWhite);
     }
   }
+}
+
+.emptyName {
+  color: var(--mainTextColor) !important;
 }
