@@ -17,10 +17,11 @@ export const Unsubscribe = () => {
       <div>
         <h3 className={style.unsub_title}>SoYummy newsletter!</h3>
         <p className={style.unsub_text}>
-          You see this page, if you were redirected from link in email message.
+          You see this page, if you were redirected from link in an email
+          message.
         </p>
         <p className={style.unsub_text}>
-          If you don't want to recived our newsletter emails, click the button
+          If you don't want to recive our newsletter emails, click the button
           below
         </p>
         <button className={style.unsub_button} onClick={clickHandler}>
