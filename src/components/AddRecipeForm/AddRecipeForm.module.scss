@@ -29,7 +29,7 @@
 .minWidthTabletContainer{
     @media screen and (min-width: $breakpoint-tablet) {
         width: 100%;
-        outline: 1px solid red;
+        // outline: 1px solid red;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -64,6 +64,10 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        height: 70px;
+    }
 }
 
 .recipeDescriptionInput.error{
@@ -96,7 +100,7 @@
 }
 
 .inputWrapperFile {
-    outline: 1px solid red;
+    // outline: 1px solid red;
     position: relative;
     display: flex;
     align-items: center;
