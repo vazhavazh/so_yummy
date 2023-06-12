@@ -104,7 +104,7 @@ export const FileInputField = ({ name, reset }) => {
           onChange={handleFileInputChange}
         />
       </div>
-      {meta.touched && meta.error ? (
+      {/* {meta.touched && meta.error ? (
         <div
           style={{
             color: '#d32f2f',
@@ -118,7 +118,7 @@ export const FileInputField = ({ name, reset }) => {
         >
           {meta.error}
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

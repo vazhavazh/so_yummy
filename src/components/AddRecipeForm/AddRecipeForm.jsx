@@ -271,7 +271,7 @@ const customInredientStyles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
     height: '53px',
-    width: '194px',
+    width: '100%',
     border: 'none',
     outline: 'none',
     backgroundColor: '#f5f5f5',
@@ -374,6 +374,7 @@ export const AddRecipeForm = () => {
                     options={categories}
                     styles={customStyles}
                     isSearchable={false}
+                    className={styles.ingredientCategoryInput}
                     // onChange={value => setFieldValue('category', value.value)}
                     value={
                       isSubmitted
@@ -432,7 +433,7 @@ export const AddRecipeForm = () => {
               <div className={styles.ingredientsInputWrapper}>
                 <FieldArray name="ingredients">
                   {({ push, remove, form }) => {
-                    console.log(form.values.ingredients);
+                    // console.log(form.values.ingredients);
                     return (
                       <div>
                         {form.values.ingredients.map((ingredient, index) => {
@@ -442,24 +443,26 @@ export const AddRecipeForm = () => {
                               key={index}
                               className={styles.ingredientItemWrapper}
                             >
-                              <ReactSelect
-                                name={`ingredients[${index}].name`}
-                                options={ingredients}
-                                isSearchable={true}
-                                styles={customInredientStyles}
-                                placeholder="Select ingredient"
-                                value={ingredients.find(
-                                  option =>
-                                    option.value ===
-                                    values.ingredients[index].name
-                                )}
-                                onChange={selectedOption =>
-                                  setFieldValue(
-                                    `ingredients[${index}].name`,
-                                    selectedOption.value
-                                  )
-                                }
-                              />
+                              <div className={styles.ingredientInputWtapper}>
+                                <ReactSelect
+                                  name={`ingredients[${index}].name`}
+                                  options={ingredients}
+                                  isSearchable={true}
+                                  styles={customInredientStyles}
+                                  placeholder="Select ingredient"
+                                  value={ingredients.find(
+                                    option =>
+                                      option.value ===
+                                      values.ingredients[index].name
+                                  )}
+                                  onChange={selectedOption =>
+                                    setFieldValue(
+                                      `ingredients[${index}].name`,
+                                      selectedOption.value
+                                    )
+                                  }
+                                />
+                              </div>
                               <ErrorMessage
                                 name={`ingredients[${index}].name`}
                                 className={styles.errorMessage}
@@ -535,9 +538,9 @@ export const AddRecipeForm = () => {
                 />
               </div>
             </div>
-            <Box marginTop="18px" width="100%">
+            <div className={styles.buttonWrapper}>
               <Button type="submit">Add</Button>
-            </Box>
+            </div>
 
             {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
             <pre>{JSON.stringify(values, null, 4)}</pre> */}
