@@ -9,6 +9,7 @@ export const Unsubscribe = () => {
     e.preventDefault();
     const urlParams = new URLSearchParams(window.location.search);
     const _id = urlParams.get('_id');
+    console.log(_id);
     dispatch(unSubscribe(_id));
   };
 
