@@ -42,6 +42,8 @@
   }
 }
 .favorite-item {
+  max-width:  343px;
+  min-width:  343px;
   min-height: 152px;
   max-height: 152px;
 
@@ -59,12 +61,16 @@
     max-height: 288px;
     padding: 28px 130px 28px 24px;
     gap: 24px;
+    max-width:  704px;
+  min-width:  704px;
   }
   @include desktop {
     min-height: 404px;
     max-height: 404px;
     padding: 40px 163px 40px 40px;
     gap: 50px;
+    max-width:  1240px;
+  min-width:  1240px;
   }
 }
 .mod {
@@ -112,7 +118,7 @@
   margin-bottom: 14px;
 
   font-family: 'Poppins';
-  font-style: normal;
+ 
   font-weight: 500;
   font-size: 14px;
 
@@ -154,7 +160,7 @@
 }
 .favorite-description {
   font-family: 'Poppins';
-  font-style: normal;
+ 
   font-weight: 400;
   font-size: 8px;
   line-height: calc(10 / 8);
@@ -173,7 +179,7 @@
 
 .favorite-time {
   font-family: 'Poppins';
-  font-style: normal;
+ 
   font-weight: 500;
   font-size: 10px;
   line-height: calc(14 / 10);
@@ -218,4 +224,8 @@
     color: var(--secondaryBgColorWhite);
   }
   }
+}
+
+.emptyName {
+  color: var(--mainTextColor) !important;
 }

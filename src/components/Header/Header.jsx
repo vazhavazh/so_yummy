@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/svg/header/logo.svg';
-import burger from '../../assets/svg/header/burger.svg';
+import { ReactComponent as Burger } from '../../assets/svg/header/burger.svg';
 import style from './Header.module.scss';
 import Menu from './Menu/Menu';
 import Dropdown from './Dropdown/Dropdown';
@@ -47,7 +47,7 @@ export const Header = () => {
             type="button"
             onClick={() => setIsMenuActive(true)}
           >
-            <img className={style.burger} src={burger} alt="" />
+            <Burger className={style.burger} />
           </button>
         </div>
       </div>

@@ -1,17 +1,13 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
 export const fetchAllShoppingIngredients = createAsyncThunk(
   'shoppingIngredients/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token;
-      if (token) {
-        const response = await axios.get('/api/shopping-list');
+      const response = await axios.get('/api/shopping-list');
 
-        return response.data;
-      }
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

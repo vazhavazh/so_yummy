@@ -14,7 +14,7 @@ import { ReactComponent as RemoveIcon } from 'assets/svg/shoppingListPage/x.svg'
 
 import './IngredientsShoppingList.scss';
 import Loader from 'components/Loader/Loader';
-import img from 'assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
 export const IngredientsShoppingList = () => {

@@ -5,7 +5,7 @@ import { fetchAllSearchedIngredient, fetchAllSearchedTitle } from 'redux/search/
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
 import scss from '..//..//Search/SearchBar/SearchBar.module.scss';
-import img from '..//..//..//assets/image/searchPage/kisspng-vegetable.webp';
+import img from '..//..//..//assets/image/searchPage/asdd.png';
 import Loader from '..//..//Loader/Loader';
 
 const SearchedRecipesList = ({ searchValue }) => {

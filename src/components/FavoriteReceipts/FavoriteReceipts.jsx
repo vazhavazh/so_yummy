@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './FavoriteReceipts.scss';
@@ -8,7 +8,6 @@ import {
   selectFavoriteReceipts,
   selectIsLoading,
 } from 'redux/favoriteReceipts/favoriteReceiptsSelector';
-import { useEffect } from 'react';
 import {
   fetchAllFavoriteReceipts,
   fetchUpdateFavoriteReceipts,
@@ -16,7 +15,7 @@ import {
 
 import Loader from 'components/Loader/Loader';
 
-import img from 'assets/image/searchPage/kisspng-vegetable.webp';
+import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 
 export const FavoriteReceipts = () => {

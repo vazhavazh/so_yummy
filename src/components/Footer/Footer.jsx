@@ -2,10 +2,10 @@ import style from './Footer.module.scss';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/svg/footer/logo.svg';
 import mail from '../../assets/svg/footer/mail.svg';
-import facebook from '../../assets/svg/footer/facebook.svg';
-import youtube from '../../assets/svg/footer/youtube.svg';
-import twitter from '../../assets/svg/footer/twitter.svg';
-import instagram from '../../assets/svg/footer/instagram.svg';
+import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
+import { ReactComponent as Youtube } from '../../assets/svg/footer/youtube.svg';
+import { ReactComponent as Twitter } from '../../assets/svg/footer/twitter.svg';
+import { ReactComponent as Instagram } from '../../assets/svg/footer/instagram.svg';
 import { useState } from 'react';
 
 export const Footer = () => {
@@ -102,21 +102,17 @@ export const Footer = () => {
         <ul className={style.contactsList}>
           <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-              <img
-                className={style.facebookIcon}
-                src={facebook}
-                alt="facebook"
-              />
+              <Facebook className={style.facebookIcon} />
             </a>
           </li>
           <li className={style.youtubeItem}>
             <a target="_blank" rel="noreferrer" href="https://www.youtube.com">
-              <img className={style.youtubeIcon} src={youtube} alt="youtube" />
+              <Youtube className={style.youtubeIcon} />
             </a>
           </li>
           <li className={style.twitterItem}>
             <a target="_blank" rel="noreferrer" href="https://twitter.com">
-              <img className={style.twitterIcon} src={twitter} alt="twitter" />
+              <Twitter className={style.twitterIcon} />
             </a>
           </li>
           <li className={style.instagramItem}>
@@ -125,11 +121,7 @@ export const Footer = () => {
               rel="noreferrer"
               href="https://www.instagram.com"
             >
-              <img
-                className={style.instagramIcon}
-                src={instagram}
-                alt="instagram"
-              />
+              <Instagram className={style.instagramIcon} />
             </a>
           </li>
         </ul>
