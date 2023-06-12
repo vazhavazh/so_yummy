@@ -26,7 +26,7 @@ export const FavoriteReceipts = () => {
   useEffect(() => {
     dispatch(fetchAllFavoriteReceipts());
   }, [dispatch]);
-const ray = 1;
+
   const handleUpdateFavoriteReceipt = async receiptId => {
     try {
      await dispatch(fetchUpdateFavoriteReceipts(receiptId));

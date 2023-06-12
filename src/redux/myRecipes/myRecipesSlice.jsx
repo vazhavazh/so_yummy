@@ -14,7 +14,7 @@ const myOwnRecipesSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAllMyOwnRecipes.fulfilled, (state, action) => {
-        state.favoriteReceipts = action.payload;
+        state.myOwnRecipes = action.payload;
         state.isLoading = false;
         state.error = null;
       })
