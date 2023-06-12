@@ -7,14 +7,15 @@ import edit from '../../../../assets/svg/header/edit.svg';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
-import { getUserName } from 'redux/auth/authSelectors';
+import { getUserName, getIsEditModalOpen } from 'redux/auth/authSelectors';
+import { toggleEditModal } from 'redux/auth/authSlice';
 
-const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
+const EditModal = () => {
   const dispatch = useDispatch();
   const [newName, setNewName] = useState('');
   const [newAvatar, setNewAvatar] = useState(null);
 
-  let { name } = useSelector(getUserName);
+  const { name } = useSelector(getUserName);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -35,13 +36,15 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
 
   function handleClose(e) {
     if (e.key === KEY_NAME_ESC) {
-      setIsEditModalOpen(false);
+      dispatch(toggleEditModal(false));
     }
   }
 
+  const isEditModalOpen = useSelector(getIsEditModalOpen);
+
   return (
     <div
-      onClick={() => setIsEditModalOpen(false)}
+      onClick={() => dispatch(toggleEditModal(false))}
       className={`${style.backdrop} ${
         isEditModalOpen ? '' : style.backdropHidden
       }`}
@@ -51,7 +54,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
         className={`${style.modal} ${isEditModalOpen ? '' : style.modalHidden}`}
       >
         <button
-          onClick={() => setIsEditModalOpen(false)}
+          onClick={() => dispatch(toggleEditModal(false))}
           className={style.crossBtn}
         >
           <Cross className={style.cross} />
