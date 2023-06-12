@@ -296,6 +296,7 @@ export const AddRecipeForm = () => {
     };
     console.log(updatedValues);
     setIsSubmitted(true);
+    setCounter(1);
     resetForm();
   };
 

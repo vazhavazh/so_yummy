@@ -2,8 +2,12 @@
 //////FormStyles/////
 
 .addRecipeFormWrapper {
-    outline: 1px solid red;
+    // outline: 1px solid red;
     background-color: $inputBackgroundColor;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        max-width: 800px;
+    }
 }
 
 .addRecipeForm {
@@ -13,6 +17,10 @@
     background-color: $secondaryBgColorWhite;
     padding: 0px 16px;
     margin-top: 72px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+            margin-top: 100px;
+        }
 }
 
 .buttonWrapper{
@@ -24,6 +32,8 @@
     }
 }
 
+
+
 //////RecipeDesctiptionStyles/////
 
 
@@ -32,6 +42,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        align-items: start;
     }
 }
 
@@ -43,6 +57,9 @@
         flex-direction: column;
         justify-content: space-between;
         margin-left: 32px;
+    }
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin-left: 50px;
     }
 }
 
@@ -77,6 +94,10 @@
     @media screen and (min-width: $breakpoint-tablet) {
         height: 70px;
     }
+    
+    @media screen and (min-width: $breakpoint-desktop) {
+        height: 75px;
+    }
 }
 
 .recipeDescriptionInput.error{
@@ -92,7 +113,15 @@
     margin-bottom: 3px;
     min-width: 343px;
     height: 59px;
-    border-bottom: 1px solid $shadowColor;  
+    border-bottom: 1px solid $shadowColor;
+    
+    @media screen and (min-width: $breakpoint-tablet) {
+        height: 70px;
+    }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        height: 75px;
+    }
 }
 
 .inputWrapperCategory.error{
@@ -120,13 +149,18 @@
     @media screen and (min-width: $breakpoint-tablet) {
         min-width: 279px;
     }
+    @media screen and (min-width: $breakpoint-desktop) {
+        min-width: 357px;
+    }
 }
 
 .errorMessageFile{
     position: absolute;
     bottom: -0px;
-    left: 0;
+    left: 32px;
     color: red;
+    background-color: #d0dcaf;
+    border-bottom-left-radius: 6px;
     font-size: small;
 }
 
@@ -137,6 +171,14 @@
     position: relative;
     width: 100%;
     margin-top: 67px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin-top: 100px;
+    }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        width: 609px;
+    }
 }
 
 .ingredientsTitle{
@@ -211,6 +253,10 @@
 
 .ingredientItemWrapper:not(:last-child){
     margin-bottom: 18px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin-bottom: 24px;
+    }
 }
 
 .ingredientInputWtapper{
@@ -239,8 +285,11 @@
     line-height: '12px';
 
     @media screen and (min-width: $breakpoint-tablet) {
-            width: 97px;
-        }
+        width: 97px;
+    }
+    @media screen and (min-width: $breakpoint-tablet) {
+        width: 99px;
+    }
 }
 
 .deleteIcon {
@@ -267,7 +316,10 @@
 .preparationWrapper{
     width: 100%;
     margin-top: 44px;
-    // outline: 1px solid red;
+    
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin-top: 100px;
+    }
 }
 
 .preparationHeaderWrapper {

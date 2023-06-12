@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useField } from 'formik';
 import { ReactComponent as FileInputImage } from '../images/fileInputImage.svg';
+import styles from './FileInputField.module.scss';
 
 const validFileExtensions = {
   image: ['jpg', 'png', 'jpeg', 'webp'],
@@ -74,16 +75,17 @@ export const FileInputField = ({ name, reset }) => {
   return (
     <div style={{ position: 'relative' }}>
       <div
-        style={{
-          width: '279px',
-          height: '268px',
-          backgroundColor: '#8BAA36',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '8px',
-        }}
+        // style={{
+        //   width: '279px',
+        //   height: '268px',
+        //   backgroundColor: '#8BAA36',
+        //   cursor: 'pointer',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   borderRadius: '8px',
+        // }}
+        className={styles.fileInput}
         onClick={handleClick}
       >
         {imageUrl ? (

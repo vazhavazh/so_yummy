@@ -1,0 +1,17 @@
+@import '../../../main.scss';
+
+.fileInput {
+    width: 279px;
+    height: 268px;
+    background-color: #8baa36;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        width: 357px;
+        height: 344px;
+    }
+}
