@@ -28,13 +28,12 @@
   flex-direction: column;
 
   background-color: var(--mainBgColorWhite);
-  border: $mainAccentColor 1px solid;
+  border: 1px solid $mainAccentColor;
   border-radius: 8px;
 
   @include tablet {
     height: 134px;
     width: 177px;
-    border: 0;
   }
 
   @include desktop {
@@ -42,7 +41,6 @@
 
     height: 134px;
     width: 177px;
-    border: 0;
   }
 }
 

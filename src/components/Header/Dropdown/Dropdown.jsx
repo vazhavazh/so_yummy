@@ -4,17 +4,40 @@ import arrow from '../../../assets/svg/header/arrow.svg';
 import { useState } from 'react';
 import EditModal from './EditModal/EditModal';
 import LogOutModal from './LogOutModal/LogOutModal';
+import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleEditModal } from 'redux/auth/authSlice';
 
 const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
+
+  const KEY_NAME_ESC = 'Escape';
+  const KEY_EVENT_TYPE = 'keyup';
+
+  useEffect(() => {
+    document.addEventListener(KEY_EVENT_TYPE, handleClose, false);
+
+    return () => {
+      document.removeEventListener(KEY_EVENT_TYPE, handleClose, false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleClose(e) {
+    if (e.key === KEY_NAME_ESC) {
+      setIsDropdownActive(false);
+    }
+  }
 
   return (
     <div
       onClick={() => {
         setIsDropdownActive(false);
         setIsLogOutModalOpen(false);
-        setIsEditModalOpen(false);
+        dispatch(toggleEditModal(false));
       }}
       className={`${style.dropdown} ${
         isDropdownActive ? '' : style.dropdownHidden
@@ -24,7 +47,8 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
         <button
           onClick={() => {
             setIsLogOutModalOpen(false);
-            setIsEditModalOpen(true);
+            setIsDropdownActive(false);
+            dispatch(toggleEditModal(true));
           }}
           className={style.editBtn}
         >
@@ -34,7 +58,8 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
         <button
           onClick={() => {
             setIsLogOutModalOpen(true);
-            setIsEditModalOpen(false);
+            dispatch(toggleEditModal(false));
+            setIsDropdownActive(false);
           }}
           className={style.logOutBtn}
         >
@@ -42,14 +67,14 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
           <img className={style.arrowIcon} src={arrow} alt="arrow" />
         </button>
       </div>
-      <EditModal
-        isEditModalOpen={isEditModalOpen}
-        setIsEditModalOpen={setIsEditModalOpen}
-      />
-      <LogOutModal
-        setIsLogOutModalOpen={setIsLogOutModalOpen}
-        isLogOutModalOpen={isLogOutModalOpen}
-      />
+      {createPortal(<EditModal />, document.querySelector('#portal'))}
+      {createPortal(
+        <LogOutModal
+          setIsLogOutModalOpen={setIsLogOutModalOpen}
+          isLogOutModalOpen={isLogOutModalOpen}
+        />,
+        document.querySelector('#portal')
+      )}
     </div>
   );
 };
