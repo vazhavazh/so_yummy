@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import MySVGComponent from './MySVGComponent';
+import React from 'react';
+// import MySVGComponent from './MySVGComponent';
 import style from '../RecipeMain/RecipeMain.module.scss';
-import data from 'api/fakeApi/fakeIngredientsDB.json';
-import meta from 'api/fakeApi/fakePrepDB.json';
-import { PageTitle } from 'components/PageTitle/PageTitle';
-import { selectRecipe } from 'redux/simpleReceipt/simpleReceiptSelector';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
+// import data from 'api/fakeApi/fakeIngredientsDB.json';
+// import meta from 'api/fakeApi/fakePrepDB.json';
+// import { PageTitle } from 'components/PageTitle/PageTitle';
+// import { selectRecipe } from 'redux/simpleReceipt/simpleReceiptSelector';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
 
 export const RecipeMain = () => {
   // const [isChecked, setIsChecked] = useState(false);
