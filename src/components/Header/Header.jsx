@@ -2,16 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/svg/header/logo.svg';
 import burger from '../../assets/svg/header/burger.svg';
-import avatarPlaceholder from '../../assets/svg/header/avatar-placeholder.jpg';
 import style from './Header.module.scss';
 import Menu from './Menu/Menu';
 import Dropdown from './Dropdown/Dropdown';
 import { NavLink } from 'react-router-dom';
 import ToggleTheme from 'components/theme/ToggleTheme';
+import { useSelector } from 'react-redux';
+import { getUserName } from 'redux/auth/authSelectors';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+
+  let { avatarURL, name } = useSelector(getUserName);
 
   return (
     <header className={`${style.header} ${style.container}`}>
@@ -26,8 +29,10 @@ export const Header = () => {
           onClick={() => setIsDropdownActive(!isDropdownActive)}
           className={style.userInfoWrapper}
         >
-          <img className={style.avatar} src={avatarPlaceholder} alt="avatar" />
-          <p className={style.username}>Name</p>
+          {avatarURL && (
+            <img className={style.avatar} src={avatarURL} alt="avatar" />
+          )}
+          <p className={style.username}>{name}</p>
           <div className={style.toggle}>
             <ToggleTheme />
           </div>

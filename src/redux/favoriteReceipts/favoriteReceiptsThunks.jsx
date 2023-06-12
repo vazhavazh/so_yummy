@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import { setAuthHeader } from '../../api';
 
 export const fetchAllFavoriteReceipts = createAsyncThunk(
   'shoppingIngredients/fetchAll',
@@ -8,7 +8,7 @@ export const fetchAllFavoriteReceipts = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.token;
       if (token) {
-
+        setAuthHeader(token);
         const response = await axios.get('/api/favorites');
 
         return response.data;
@@ -18,8 +18,6 @@ export const fetchAllFavoriteReceipts = createAsyncThunk(
     }
   }
 );
-
-
 
 export const fetchUpdateFavoriteReceipts = createAsyncThunk(
   'favoriteReceipts/fetchUpdate',

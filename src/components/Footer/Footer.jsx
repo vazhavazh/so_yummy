@@ -6,12 +6,19 @@ import facebook from '../../assets/svg/footer/facebook.svg';
 import youtube from '../../assets/svg/footer/youtube.svg';
 import twitter from '../../assets/svg/footer/twitter.svg';
 import instagram from '../../assets/svg/footer/instagram.svg';
+import { useState } from 'react';
 
 export const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log({ email });
+  };
+
   return (
     <div>
       <section className={style.contactsSection}>
- 
         <div className={style.navAdvSubWrapper}>
           <div className={style.navAdvWrapper}>
             <div className={style.nav}>
@@ -35,10 +42,11 @@ export const Footer = () => {
               </ul>
             </div>
             <ul className={style.navList}>
-              {/* <li className={style.navItem}>
-            <NavLink className={style.navLink} to="/">Add Ingredients</NavLink>
-          </li> */}
-              <li className={style.navItem}>Ingredients</li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/search">
+                  Ingredients
+                </NavLink>
+              </li>
               <li className={style.navItem}>
                 <NavLink className={style.navLink} to="/add">
                   Add recipes
@@ -71,17 +79,24 @@ export const Footer = () => {
                 special offers, etc.
               </p>
             </div>
-            <div className={style.inputWrapper}>
-              <img className={style.mailIcon} src={mail} alt="" />
-              <input
-                className={style.input}
-                type="text"
-                placeholder="Enter your email address"
-              />
-            </div>
-            <button type="submit" className={style.subscribeBtn}>
-              Subscribe
-            </button>
+            <form className={style.form}>
+              <div className={style.inputWrapper}>
+                <img className={style.mailIcon} src={mail} alt="" />
+                <input
+                  className={style.input}
+                  type="email"
+                  placeholder="Enter your email address"
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className={style.subscribeBtn}
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
         <ul className={style.contactsList}>

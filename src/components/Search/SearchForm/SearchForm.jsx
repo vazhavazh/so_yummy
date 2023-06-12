@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Button } from '..//..//Button/Button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '..//Search.module.scss';
@@ -53,8 +52,7 @@ const SearchForm = () => {
         name="searchInput"
         onChange={handleInputChange}
       />
-      {/* <Button className={style.searchBtn} text="Search" type="submit" /> */}
-      <button type='submit'>NEW SEARCH</button>
+      <button className={style.searchBtn} type='submit'>Search</button>
     </form>
   );
 };
