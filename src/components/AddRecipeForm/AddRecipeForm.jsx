@@ -179,6 +179,7 @@ const initialValues = {
   category: '',
   cookingTime: '',
   ingredients: [{ name: '', dose: '' }],
+  preparation: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -186,6 +187,7 @@ const FORM_VALIDATION = Yup.object().shape({
   about: Yup.string().required('About is required'),
   category: Yup.string().required('Category is required'),
   cookingTime: Yup.string().required('Cooking time is required'),
+  preparation: Yup.string().required('Recipe preparation is required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
       name: Yup.string().required('Select ingredient'),
@@ -227,11 +229,11 @@ const customStyles = {
     ...baseStyles,
     color: '#8baa36',
   }),
-  // menu: baseStyles => ({
-  //   ...baseStyles,
-  //   maxHeight: '144px', // Specify the desired height
-  //   overflowY: 'auto',
-  // }),
+  menu: baseStyles => ({
+    ...baseStyles,
+    maxHeight: '170px', // Specify the desired height
+    overflowY: 'auto',
+  }),
   control: (baseStyles, state) => ({
     ...baseStyles,
     height: 34,
@@ -285,7 +287,14 @@ export const AddRecipeForm = () => {
   const [counter, setCounter] = useState(1);
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const preparationArray = values.preparation
+      .split('\n')
+      .filter(line => line.trim() !== '');
+    const updatedValues = {
+      ...values,
+      preparation: preparationArray,
+    };
+    console.log(updatedValues);
     setIsSubmitted(true);
     resetForm();
   };
@@ -360,8 +369,7 @@ export const AddRecipeForm = () => {
                 </label>
 
                 <ReactSelect
-                  id="ingredient"
-                  name="ingredient"
+                  name="category"
                   options={categories}
                   styles={customStyles}
                   isSearchable={false}
@@ -391,7 +399,6 @@ export const AddRecipeForm = () => {
                 </label>
 
                 <ReactSelect
-                  id="cookingTime"
                   name="cookingTime"
                   options={cookingTime}
                   styles={customStyles}
@@ -504,12 +511,30 @@ export const AddRecipeForm = () => {
                 </FieldArray>
               </div>
             </div>
+            <div className={styles.preparationWrapper}>
+              <div className={styles.preparationHeaderWrapper}>
+                <p className={styles.ingredientsTitle}>Recipe Preparation</p>
+              </div>
+              <div className={styles.preparationInputWrapper}>
+                <Field
+                  as="textarea"
+                  name="preparation"
+                  className={styles.preparationInput}
+                  placeholder="Enter recipe"
+                />
+                <ErrorMessage
+                  name="preparation"
+                  component="div"
+                  className={styles.prepatationError}
+                />
+              </div>
+            </div>
             <Box marginTop="18px" width="100%">
               <Button type="submit">Add</Button>
             </Box>
 
-            <pre>{JSON.stringify(errors, null, 4)}</pre>
-            <pre>{JSON.stringify(values, null, 4)}</pre>
+            {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
+            <pre>{JSON.stringify(values, null, 4)}</pre> */}
           </Form>
         )}
       </Formik>
