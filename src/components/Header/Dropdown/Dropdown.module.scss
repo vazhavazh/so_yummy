@@ -27,7 +27,7 @@
   justify-content: space-between;
   flex-direction: column;
 
-  background-color: $mainBgColorWhite;
+  background-color: var(--mainBgColorWhite);
   border: $mainAccentColor 1px solid;
   border-radius: 8px;
 
@@ -58,7 +58,7 @@
   font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.57;
-  color: $dropdownTextColor;
+  color: var(--dropdownTextColor);
 
   @include tablet {
     line-height: 1.6;
@@ -68,6 +68,7 @@
 .editIcon {
   width: 14px;
   height: 14px;
+  stroke: var(--darkToWhite);
 }
 
 .arrowIcon {
@@ -92,6 +93,14 @@
   border-radius: 24px 44px;
   font-size: 14px;
   line-height: 1.5;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--darkToWhite);
+    color: var(--secondaryBgColorWhite);
+  }
 
   @include tablet {
     height: 43px;

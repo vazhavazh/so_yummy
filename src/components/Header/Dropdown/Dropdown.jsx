@@ -1,5 +1,5 @@
 import style from './Dropdown.module.scss';
-import edit from '../../../assets/svg/header/edit.svg';
+import { ReactComponent as Edit } from '../../../assets/svg/header/edit.svg';
 import arrow from '../../../assets/svg/header/arrow.svg';
 import { useState } from 'react';
 import EditModal from './EditModal/EditModal';
@@ -29,7 +29,7 @@ const Dropdown = ({ isDropdownActive, setIsDropdownActive }) => {
           className={style.editBtn}
         >
           Edit profile
-          <img className={style.editIcon} src={edit} alt="pencil" />
+          <Edit className={style.editIcon} />
         </button>
         <button
           onClick={() => {

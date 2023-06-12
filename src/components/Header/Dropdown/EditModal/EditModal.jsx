@@ -1,7 +1,7 @@
 import style from './EditModal.module.scss';
-import cross from '../../../../assets/svg/header/cross-2.svg';
+import { ReactComponent as Cross } from '../../../../assets/svg/header/cross-2.svg';
+import { ReactComponent as BlackUser } from '../../../../assets/svg/header/black-user.svg';
 import grayUser from '../../../../assets/svg/header/gray-user.svg';
-import blackUser from '../../../../assets/svg/header/black-user.svg';
 import plus from '../../../../assets/svg/header/plus.svg';
 import edit from '../../../../assets/svg/header/edit.svg';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
         onClick={() => setIsEditModalOpen(false)}
         className={style.crossBtn}
       >
-        <img className={style.cross} src={cross} alt="cross" />
+        <Cross className={style.cross} />
       </button>
       <form className={style.form}>
         <label htmlFor="avatar" className={style.label}>
@@ -55,7 +55,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
             onChange={e => setNewName(e.target.value)}
             required
           />
-          <img className={style.blackUser} src={blackUser} alt="gray user" />
+          <BlackUser className={style.blackUser} />
           <img className={style.editIcon} src={edit} alt="pencil" />
         </div>
         <button
