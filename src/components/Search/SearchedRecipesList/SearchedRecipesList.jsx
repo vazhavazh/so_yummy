@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import recipes from '..//..//..//api/fakeApi/fakeFavoriteDBcopy';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectError, selectLoading, selectSearchData } from 'redux/search/searchSelector';
+import { fetchAllSearchedIngredient, fetchAllSearchedTitle } from 'redux/search/searchThunks';
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
 import scss from '..//..//Search/SearchBar/SearchBar.module.scss';
-import img from 'assets/image/searchPage/asdd.png';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import img from '..//..//..//assets/image/searchPage/kisspng-vegetable.webp';
 import Loader from '..//..//Loader/Loader';
-import ReactPaginate from 'react-paginate';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { useMediaQuery } from 'react-responsive';
 
 const SearchedRecipesList = ({ searchValue }) => {
+  // eslint-disable-next-line
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [prevSearchValue, setPrevSearchValue] = useState('');
+  // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(0);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+  const searchData = useSelector(selectSearchData);
+  const dispatch = useDispatch();
 
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+  // eslint-disable-next-line
+  const handleSearchByTitle = title => {
+     dispatch(fetchAllSearchedTitle(title));
+   };
+
+  // eslint-disable-next-line
+   const handleSearchByIngredient = ingredient => {
+     dispatch(fetchAllSearchedIngredient(ingredient));
+   };
+
 
   useEffect(() => {
     if (prevSearchValue === searchValue) {
@@ -33,8 +44,8 @@ const SearchedRecipesList = ({ searchValue }) => {
     setIsLoading(true);
 
     const delayTimer = setTimeout(() => {
-      const filtered = recipes.filter(recipe =>
-        recipe.title.toLowerCase().includes(searchValue.toLowerCase())
+      const filtered = searchData.filter(search =>
+        search.title.toLowerCase().includes(searchValue.toLowerCase())
       );
       setFilteredRecipes(filtered);
       setPrevSearchValue(searchValue);
@@ -45,56 +56,29 @@ const SearchedRecipesList = ({ searchValue }) => {
     // eslint-disable-next-line
   }, [searchValue]);
 
-  const handlePageClick = (data) => {
-    const selectedPage = data.selected;
-    setCurrentPage(selectedPage);
-  };
-
-  const recipesPerPage = isMobileOrTablet ? 6 : filteredRecipes.length;
-  const offset = currentPage * recipesPerPage;
-  const paginatedRecipes = filteredRecipes.slice(offset, offset + recipesPerPage);
-  const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
-
   return (
-    <>
-      <ToastContainer />
-      {isLoading ? (
-        <Loader />
-      ) : paginatedRecipes.length > 0 ? (
-        <div className={style.previewCategoriesBox}>
+    <div>
+       {loading && <Loader/>}
+      {error &&
+        <div className={scss.searchLookingWrapper}>
+          <img src={img} alt="images" />
+          <p>Try looking for something else...</p>
+        </div>}
+       {searchData && (
+          <div style={{backgroundColor: 'var(--whiteSearchToDark)',}} className={style.previewCategoriesBox}>
           <ul className={style.previewCategoriesList}>
             <li className={style.previewCategoriesListEll}>
               <ul className={style.recipeListSearch}>
-                {paginatedRecipes.map((recipe) => (
-                  <RecipeCard key={recipe._id.$oid} recipe={recipe} />
+                {searchData.map((recipe) => (
+                  <RecipeCard key={recipe._id} recipe={recipe} />
                 ))}
               </ul>
             </li>
           </ul>
-          {filteredRecipes.length > recipesPerPage && isMobileOrTablet ? (
-            <ReactPaginate
-              className={scss.pagination}
-              previousLabel={<BsChevronLeft />}
-              nextLabel={<BsChevronRight />}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
-              pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageClick}
-              containerClassName={style.pagination}
-              subContainerClassName={`${style.pages} ${style.pagination}`}
-              activeClassName={scss.activePage}
-            />
-          ) : null}
         </div>
-      ) : (
-        <div className={scss.searchLookingWrapper}>
-          <img src={img} alt="images" />
-          <p>Try looking for something else...</p>
-        </div>
-      )}
-    </>
+       )}
+
+     </div>
   );
 };
 

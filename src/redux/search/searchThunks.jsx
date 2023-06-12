@@ -8,7 +8,7 @@ export const fetchAllSearchedTitle = createAsyncThunk(
   async (title, thunkAPI) => {
     try {
       const response = await axios.get(`api/search?title=${encodeURIComponent(title)}`);
-      console.log(response.data)
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
