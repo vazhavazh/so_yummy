@@ -148,6 +148,7 @@ import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import { Box, Typography } from '@mui/material';
 import * as Yup from 'yup';
 import ReactSelect from 'react-select';
+import { nanoid } from 'nanoid';
 import styles from './AddRecipeForm.module.scss';
 import Button from './AddRecipeButton';
 import { FileInputField } from './FileInputField';
@@ -188,8 +189,8 @@ const FORM_VALIDATION = Yup.object().shape({
   ingredients: Yup.array()
     .of(
       Yup.object().shape({
+        id: Yup.string().required(),
         name: Yup.string().required(),
-        dose: Yup.string().required(),
       })
     )
     .required('At least one ingredient with dose is required'),
@@ -387,67 +388,48 @@ export const AddRecipeForm = () => {
                 <FieldArray name="ingredients">
                   {({ push, remove, form }) => {
                     console.log(form.values.ingredients);
+
                     return (
                       <div>
-                        {form.values.ingredients.map((ingredient, index) => (
-                          <div
-                            key={index}
-                            className={styles.ingredientItemWrapper}
-                          >
-                            <ReactSelect
-                              id={`ingredients[${index}].name`}
-                              name={`ingredients[${index}].name`}
-                              options={ingredients}
-                              isSearchable={true}
-                            />
-                            <Field
-                              className={styles.ingredientDose}
-                              type="text"
-                              name={`ingredients[${index}].dose`}
-                              placeholder="Enter dose"
-                            />
-                            <ErrorMessage
-                              name="ingredients"
-                              component="div"
-                              className={styles.errorMessage}
-                            />
-                            {index}
-                          </div>
-                          // <div
-                          //   key={index}
-                          //   className={styles.ingredientItemWrapper}
-                          // >
-                          // <ReactSelect
-                          //   id={`ingredients[${index}].name`}
-                          //   name={`ingredients[${index}].name`}
-                          //   options={ingredients}
-                          //   isSearchable={true}
-                          // />
-                          // <Field
-                          //   className={styles.ingredientDose}
-                          //   type="text"
-                          //   name={`ingredients[${index}].dose`}
-                          //   placeholder="Enter dose"
-                          // />
-                          // <ErrorMessage
-                          //   name="ingredients"
-                          //   component="div"
-                          //   className={styles.errorMessage}
-                          // />
-                          //   <DeleteIcon
-                          //     width="18px"
-                          //     height="18px"
-                          //     cursor="pointer"
-                          //     // className={styles.deleteIcon}
-                          //     onClick={() => {
-                          //       console.log('this is delete button');
-                          //       // remove(index);
-                          //       // delete values.ingredients[index];
-                          //       // handleDecrement();
-                          //     }}
-                          //   />
-                          // </div>
-                        ))}
+                        {form.values.ingredients.map((ingredient, index) => {
+                          const ingredientId = nanoid();
+                          return (
+                            <div
+                              key={index}
+                              className={styles.ingredientItemWrapper}
+                            >
+                              <ReactSelect
+                                name={`ingredients[${index}].name`}
+                                options={ingredients}
+                                isSearchable={true}
+                              />
+                              <Field
+                                name={`ingredients[${index}].dose`}
+                                placeholder="Enter dose"
+                              />
+                              <ErrorMessage
+                                name={`ingredients[${index}].name`}
+                                component="div"
+                                className={styles.errorMessage}
+                              />
+                              <ErrorMessage
+                                name={`ingredients[${index}].dose`}
+                                component="div"
+                                className={styles.errorMessage}
+                              />
+
+                              <DeleteIcon
+                                width="18px"
+                                height="18px"
+                                cursor="pointer"
+                                // className={styles.deleteIcon}
+                                onClick={() =>
+                                  console.log('This is delete button')
+                                }
+                              />
+                            </div>
+                          );
+                        })}
                         <Box className={styles.addRemoveCounter}>
                           {counter > 1 && (
                             <DecrementIcon
@@ -461,7 +443,10 @@ export const AddRecipeForm = () => {
                           <span>{counter}</span>
                           <IncrementIcon
                             onClick={() => {
-                              push({ name: '', dose: '' });
+                              push({
+                                name: '',
+                                dose: '',
+                              });
                               handleIncrement();
                             }}
                             className={styles.counterIcon}
