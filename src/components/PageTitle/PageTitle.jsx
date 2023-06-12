@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './PageTitle.scss';
 
-export const PageTitle = () => {
+export const PageTitle = ({ recipeTitle }) => {
   const [pageTitle, setPageTitle] = useState('');
   const location = useLocation();
 
@@ -33,13 +33,19 @@ export const PageTitle = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="mainTitle-container">
-        <h1 className="mainTitle">{pageTitle}</h1>
-        <div className="mainTitle-decorator1"></div>
-        <div className="mainTitle-decorator2"></div>
-        <div className="mainTitle-decorator3"></div>
-      </div>
-    </div>
+    <>
+      {recipeTitle ? (
+        <h1 className="recipeName">{recipeTitle}</h1>
+      ) : (
+        <div className="page-wrapper">
+          <div className="mainTitle-container">
+            <h1 className="mainTitle">{pageTitle}</h1>
+            <div className="mainTitle-decorator1"></div>
+            <div className="mainTitle-decorator2"></div>
+            <div className="mainTitle-decorator3"></div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
