@@ -341,6 +341,7 @@
 .youtubeIcon,
 .twitterIcon {
   width: 20px;
+  fill: var(--greenToWhite);
 }
 
 .facebookIcon {
@@ -358,6 +359,7 @@
 .instagramIcon {
   width: 17px;
   height: 17px;
+  fill: var(--greenToWhite);
   @include tablet {
     width: 20px;
     height: 20px;

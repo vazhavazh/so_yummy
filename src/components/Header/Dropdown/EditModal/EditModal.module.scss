@@ -51,6 +51,7 @@
 .cross {
   height: 20px;
   width: 20px;
+  stroke: var(--darkToWhite);
 
   @include tablet {
     width: 24px;
@@ -168,6 +169,7 @@
   left: 14px;
   height: 18px;
   width: 18px;
+  stroke: var(--darkToWhite);
 
   @include tablet {
     top: 18px;

@@ -87,18 +87,11 @@
 .burger {
   width: 28px;
   height: 28px;
-  // fill: var(--darkToWhite);
-  fill: currentColor;
+  stroke: var(--darkToWhite);
   @include tablet {
     width: 32px;
     height: 32px;
   }
-  // & > use {
-  //   width: 28px;
-  //   height: 28px;
-
-  //   color: black;
-  // }
 }
 
 .toggle {
