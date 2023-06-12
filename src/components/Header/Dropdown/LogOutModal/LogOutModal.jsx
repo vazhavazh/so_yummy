@@ -9,6 +9,7 @@ const LogOutModal = ({ isLogOutModalOpen, setIsLogOutModalOpen }) => {
   const handleLogout = () => {
     dispatch(logoutUser());
   };
+
   return (
     <div
       onClick={e => e.stopPropagation()}

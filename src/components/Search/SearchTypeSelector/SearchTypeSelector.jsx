@@ -7,38 +7,43 @@ import { setSelectedTypes } from 'redux/search/searchSlice';
 const typesList = [{ searchType: 'query' }, { searchType: 'ingredients' }];
 
 const customStyles = {
+  singleValue: provided => ({
+    ...provided,
+    color: 'var(--mainTextColor)', // Цвет текста для выбранного значения
+  }),
   menu: provided => ({
     ...provided,
-    background: 'transparent',
+    background: 'transparent', // Фон выпадающего меню
   }),
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isFocused ? '#D9D9D9' : 'white',
-    color: state.isFocused ? 'white' : 'black',
+    backgroundColor: state.isFocused ? '#8BAA36' : 'white', // Фон опций в зависимости от состояния фокуса
+    color: state.isFocused ? 'white' : 'black', // Цвет текста опций в зависимости от состояния фокуса
   }),
   input: provided => ({
     ...provided,
-    color: '#8BAA36',
+    color: '#8BAA36', // Цвет текста ввода
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
     border: 'none',
     boxShadow: 'none',
-    color: '#8BAA36', // Зміна коліру стрілки при наведенні
+    color: '#8BAA36', // Цвет стрелки выпадающего меню при наведении
   }),
   control: (provided, state) => ({
     ...provided,
     height: 34,
     width: 143,
-    background: '#D9D9D9',
+    background: 'var(--greyToBlack)', // Фон контейнера селектора
     borderRadius: 6,
-    borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
-    boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Зміна тіні рамки при наведенні
+    borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Цвет границы контейнера при наведении
+    boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Тень границы контейнера при наведении
     '&:hover': {
-      borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
+      borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Цвет границы контейнера при наведении
     },
   }),
 };
+
 
 const SearchTypeSelector = () => {
   // eslint-disable-next-line
@@ -63,7 +68,9 @@ const SearchTypeSelector = () => {
         getOptionValue={option => option.searchType}
         isSearchable={false}
         onChange={handleTypeChange}
+        defaultValue={typesList.find(option => option.searchType === 'query')}
       />
+
     </div>
   );
 };
