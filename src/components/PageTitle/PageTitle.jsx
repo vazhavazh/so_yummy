@@ -13,6 +13,7 @@ export const PageTitle = () => {
 
   const getPageName = pathname => {
     const page = pathname.substring(1);
+ 
 
     switch (page) {
       case 'categories':

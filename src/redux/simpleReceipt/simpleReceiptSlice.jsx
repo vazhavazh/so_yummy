@@ -1,32 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchAllFavoriteReceipts,
-  fetchUpdateFavoriteReceipts,
-} from './favoriteReceiptsThunks';
+import { fetchSimpleRecipe } from './simpleReceiptThunk';
 
 const initialState = {
-  favoriteReceipts: [],
-  isLoading: false,
+  simpleRecipe: null,
+  isLoading: true,
   error: null,
 };
 
-const favoriteReceiptSlice = createSlice({
-  name: 'favoriteReceipt',
+const simpleRecipeSlice = createSlice({
+  name: 'simpleRecipe',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchAllFavoriteReceipts.fulfilled, (state, action) => {
+      .addCase(fetchSimpleRecipe.fulfilled, (state, action) => {
         state.favoriteReceipts = action.payload;
         state.isLoading = false;
         state.error = null;
-      })
-      .addCase(fetchUpdateFavoriteReceipts.fulfilled, (state, action) => {
-        const updatedReceiptId = action.payload._id;
-
-        state.favoriteReceipts = state.favoriteReceipts.filter(
-          receipt => receipt._id !== updatedReceiptId
-        );
       })
 
       .addMatcher(
@@ -53,4 +43,4 @@ const favoriteReceiptSlice = createSlice({
   },
 });
 
-export default favoriteReceiptSlice.reducer;
+export default simpleRecipeSlice.reducer;
