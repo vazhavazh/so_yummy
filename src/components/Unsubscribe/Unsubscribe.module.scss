@@ -1,0 +1,43 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.unsub_title {
+  font-size: 36px;
+  color: var(--darkToWhite);
+}
+
+.unsub_text {
+  font-size: 20px;
+  color: var(--mainTextColor);
+}
+
+.unsub_button {
+  margin: 0 auto;
+  margin-top: 20px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
+  display: block;
+  font-family: inherit;
+  padding: 12px 100px;
+  height: 45px;
+  color: $mainBgColorWhite;
+  background: $mainAccentColor;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $secondaryAccentColor;
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: 59px;
+  }
+}
+
+.wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}

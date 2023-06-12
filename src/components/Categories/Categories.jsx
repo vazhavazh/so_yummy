@@ -50,7 +50,7 @@ export const Categories = () => {
 
   return (
     <div className="categories">
-      <h2 className="categories-title">Categorises</h2>
+      {/* <h2 className="categories-title">Categorises</h2> */}
       <TabContext value={value}>
         <div className="categories-switcher">
           <TabList
@@ -112,7 +112,7 @@ export const Categories = () => {
           <ul className="categories-cards">
             {dishData ? (
               dishData.recipes.map(recipe => {
-                console.log(recipe);
+                
                 return <RecipeCard key={recipe._id} recipe={recipe} />;
               })
             ) : (

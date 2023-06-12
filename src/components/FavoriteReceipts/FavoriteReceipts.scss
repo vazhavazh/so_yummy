@@ -1,6 +1,5 @@
 @import '../../main.scss';
 
-
 .favorites-container {
   max-width: 375px;
   min-width: 375px;
@@ -12,7 +11,6 @@
   justify-content: center;
 
   background-color: var(--mainBgColorWhite);
-
 
   @include tablet {
     max-width: 768px;
@@ -43,6 +41,8 @@
   }
 }
 .favorite-item {
+  max-width:  343px;
+  min-width:  343px;
   min-height: 152px;
   max-height: 152px;
 
@@ -60,12 +60,16 @@
     max-height: 288px;
     padding: 28px 130px 28px 24px;
     gap: 24px;
+    max-width:  704px;
+  min-width:  704px;
   }
   @include desktop {
     min-height: 404px;
     max-height: 404px;
     padding: 40px 163px 40px 40px;
     gap: 50px;
+    max-width:  1240px;
+  min-width:  1240px;
   }
 }
 
@@ -98,12 +102,9 @@
 .favorite-title {
   margin-bottom: 14px;
 
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
 
-  letter-spacing: -0.24px;
   color: var(--mainTextColor);
   line-height: 1;
 
@@ -140,8 +141,6 @@
   flex-wrap: wrap;
 }
 .favorite-description {
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 8px;
   line-height: calc(10 / 8);
@@ -159,8 +158,6 @@
 }
 
 .favorite-time {
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: calc(14 / 10);
@@ -171,7 +168,6 @@
 
   @include tablet {
     font-size: 14px;
-    
   }
 }
 
@@ -191,18 +187,19 @@
   }
 }
 
-
 .base-link-leaf--mod {
-
   background-color: var(--mainAccentColor);
-  
 
   &:hover,
   &:focus {
     background: var(--darkToWhite);
 
-  .base-link-leaf--mod--span {
-    color: var(--secondaryBgColorWhite);
+    .base-link-leaf--mod--span {
+      color: var(--secondaryBgColorWhite);
+    }
   }
-  }
+}
+
+.emptyName {
+  color: var(--mainTextColor) !important;
 }
