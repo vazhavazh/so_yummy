@@ -15,8 +15,12 @@ export const GlobalStyles = createGlobalStyle`
     --whiteToWhite: #fafafa;
     --darkToWhite: #22252a;
     --greyImageToDarkGrey: #ebf3d4;
+<<<<<<< HEAD
     --greyToBlack: #D9D9D9;
     --blackTextToWhite: #000000;
+=======
+    --darkToAccent: #22252A;
+>>>>>>> 843ae728888757838f366a1c30132caa99730910
   }
 
 .dark-mode {
@@ -33,9 +37,13 @@ export const GlobalStyles = createGlobalStyle`
   --whiteToWhite: #fafafa;
   --darkToWhite: #fafafa;
   --greyImageToDarkGrey: #2A2C36;
+<<<<<<< HEAD
   --greyToBlack: #1E1F28;
   --blackTextToWhite: #FAFAFA;
 
+=======
+  --darkToAccent: #8baa36;
+>>>>>>> 843ae728888757838f366a1c30132caa99730910
 }
 
 `;

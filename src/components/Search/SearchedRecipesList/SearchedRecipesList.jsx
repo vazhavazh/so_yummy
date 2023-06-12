@@ -66,7 +66,7 @@ const SearchedRecipesList = ({ searchValue }) => {
             <li className={style.previewCategoriesListEll}>
               <ul className={style.recipeListSearch}>
                 {searchData.map((recipe) => (
-                  <RecipeCard key={recipe._id.$oid} recipe={recipe} />
+                  <RecipeCard key={recipe._id} recipe={recipe} />
                 ))}
               </ul>
             </li>
