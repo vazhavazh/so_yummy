@@ -189,8 +189,8 @@ const FORM_VALIDATION = Yup.object().shape({
   ingredients: Yup.array()
     .of(
       Yup.object().shape({
-        id: Yup.string().required(),
         name: Yup.string().required(),
+        dose: Yup.string().required(),
       })
     )
     .required('At least one ingredient with dose is required'),
@@ -388,7 +388,6 @@ export const AddRecipeForm = () => {
                 <FieldArray name="ingredients">
                   {({ push, remove, form }) => {
                     console.log(form.values.ingredients);
-
                     return (
                       <div>
                         {form.values.ingredients.map((ingredient, index) => {
@@ -418,15 +417,19 @@ export const AddRecipeForm = () => {
                                 className={styles.errorMessage}
                               />
 
-                              <DeleteIcon
-                                width="18px"
-                                height="18px"
-                                cursor="pointer"
-                                // className={styles.deleteIcon}
-                                onClick={() =>
-                                  console.log('This is delete button')
-                                }
-                              />
+                              {values.ingredients.length > 1 && (
+                                <DeleteIcon
+                                  width="18px"
+                                  height="18px"
+                                  cursor="pointer"
+                                  // className={styles.deleteIcon}
+                                  onClick={() => {
+                                    console.log('This is delete button');
+                                    remove(index);
+                                    handleDecrement();
+                                  }}
+                                />
+                              )}
                             </div>
                           );
                         })}
