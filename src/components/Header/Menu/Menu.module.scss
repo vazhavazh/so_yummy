@@ -15,7 +15,7 @@
 }
 
 .backdrop {
-  z-index: 2;
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -27,12 +27,12 @@
   height: 100%;
   padding-top: 18px;
 
-  background-color: $wrapperBgGrey;
+  background-color: var(--wrapperBgGrey);
   overflow: hidden;
   transform: translateX(-100%);
   transition: transform 200ms linear;
   &::after {
-    z-index: -1;
+    z-index: 1;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -63,7 +63,7 @@
     margin-left: 187px;
 
     &::after {
-      background-image: none;
+      display: none;
     }
   }
 }
@@ -101,6 +101,7 @@
   flex-direction: column;
   text-align: center;
   @include desktop {
+    z-index: 3;
     margin-top: 0px;
     flex-direction: row;
     align-items: center;
@@ -129,7 +130,7 @@
   font-size: 18px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: $secondaryAccentColor;
+  color: var(--darkToWhite);
   @include tablet {
     font-size: 24px;
   }

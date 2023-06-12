@@ -27,7 +27,7 @@
   justify-content: space-between;
   flex-direction: column;
 
-  background-color: $mainBgColorWhite;
+  background-color: var(--mainBgColorWhite);
   border: $mainAccentColor 1px solid;
   border-radius: 8px;
 
@@ -58,7 +58,7 @@
   font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.57;
-  color: $dropdownTextColor;
+  color: var(--dropdownTextColor);
 
   @include tablet {
     line-height: 1.6;

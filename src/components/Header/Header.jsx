@@ -47,7 +47,10 @@ export const Header = () => {
             type="button"
             onClick={() => setIsMenuActive(true)}
           >
-            <img className={style.burger} src={burger} alt="" />
+            <img className={style.burger} src={burger} alt="burger button" />
+            {/* <svg className={style.burger}>
+              <use className={style.burger} href={burger}></use>
+            </svg> */}
           </button>
         </div>
       </div>

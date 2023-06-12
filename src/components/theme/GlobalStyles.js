@@ -16,6 +16,8 @@ export const GlobalStyles = createGlobalStyle`
     --darkToWhite: #22252a;
     --greyImageToDarkGrey: #ebf3d4;
     --darkToAccent: #22252A;
+    --dropdownTextColor: #23262a;
+    --inputBorderColor:rgba(35, 38, 42, 0.3);
   }
 
 .dark-mode {
@@ -33,6 +35,8 @@ export const GlobalStyles = createGlobalStyle`
   --darkToWhite: #fafafa;
   --greyImageToDarkGrey: #2A2C36;
   --darkToAccent: #8baa36;
+  --dropdownTextColor: #fafafa;
+  --inputBorderColor:rgba(250, 250, 250, 0.3);
 }
 
 `;
