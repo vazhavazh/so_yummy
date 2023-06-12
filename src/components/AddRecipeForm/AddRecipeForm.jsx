@@ -401,6 +401,17 @@ export const AddRecipeForm = () => {
                                 name={`ingredients[${index}].name`}
                                 options={ingredients}
                                 isSearchable={true}
+                                value={ingredients.find(
+                                  option =>
+                                    option.value ===
+                                    values.ingredients[index].name
+                                )}
+                                onChange={selectedOption =>
+                                  setFieldValue(
+                                    `ingredients[${index}].name`,
+                                    selectedOption.value
+                                  )
+                                }
                               />
                               <Field
                                 name={`ingredients[${index}].dose`}
