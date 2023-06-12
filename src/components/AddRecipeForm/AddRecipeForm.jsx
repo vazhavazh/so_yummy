@@ -246,6 +246,40 @@ const customStyles = {
   }),
 };
 
+const customInredientStyles = {
+  container: (baseStyles, state) => ({
+    ...baseStyles,
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '12px',
+    border: state.isFocused ? 'none' : 'none',
+    outline: state.isFocused ? 'none' : 'none',
+  }),
+  dropdownIndicator: baseStyles => ({
+    ...baseStyles,
+    color: '#8baa36',
+  }),
+  menu: baseStyles => ({
+    ...baseStyles,
+    maxHeight: '170px', // Specify the desired height
+    overflowY: 'auto',
+  }),
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    height: '53px',
+    width: '194px',
+    border: 'none',
+    outline: 'none',
+    backgroundColor: '#d9d9d9',
+  }),
+  indicatorSeparator: baseStyles => ({
+    ...baseStyles,
+    display: 'none',
+  }),
+};
+
 export const AddRecipeForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
@@ -399,6 +433,7 @@ export const AddRecipeForm = () => {
                                 name={`ingredients[${index}].name`}
                                 options={ingredients}
                                 isSearchable={true}
+                                styles={customInredientStyles}
                                 value={ingredients.find(
                                   option =>
                                     option.value ===
