@@ -188,8 +188,8 @@ const FORM_VALIDATION = Yup.object().shape({
   cookingTime: Yup.string().required('Cooking time is required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
-      name: Yup.string().required('Enter ingredient'),
-      dose: Yup.string().required('Enter dose'),
+      name: Yup.string().required('Select ingredient'),
+      dose: Yup.string().required('Type dose'),
     })
   ),
   file: Yup.mixed()
@@ -272,7 +272,7 @@ const customInredientStyles = {
     width: '194px',
     border: 'none',
     outline: 'none',
-    backgroundColor: '#d9d9d9',
+    backgroundColor: '#f5f5f5',
   }),
   indicatorSeparator: baseStyles => ({
     ...baseStyles,
@@ -434,6 +434,7 @@ export const AddRecipeForm = () => {
                                 options={ingredients}
                                 isSearchable={true}
                                 styles={customInredientStyles}
+                                placeholder="Select ingredient"
                                 value={ingredients.find(
                                   option =>
                                     option.value ===
@@ -453,20 +454,18 @@ export const AddRecipeForm = () => {
                               />
                               <Field
                                 name={`ingredients[${index}].dose`}
-                                placeholder="Enter dose"
+                                placeholder="Dose"
+                                className={styles.ingredientDose}
                               />
                               <ErrorMessage
                                 name={`ingredients[${index}].dose`}
-                                className={styles.errorMessage}
+                                className={styles.doseErrorMessage}
                                 component="div"
                               />
 
                               {values.ingredients.length > 1 && (
                                 <DeleteIcon
-                                  width="18px"
-                                  height="18px"
-                                  cursor="pointer"
-                                  // className={styles.deleteIcon}
+                                  className={styles.deleteIcon}
                                   onClick={() => {
                                     console.log('This is delete button');
                                     remove(index);
