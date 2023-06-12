@@ -34,9 +34,10 @@ export const MyRecipesList = () => {
          <p className="emptyName">You didn't create your own recipes...</p>
        </div>
      );
+
    }
   return (
-    // <div className="flexWrapper">
+    <div className="flexWrapper">
       <div className="favorites-container">
         <ul className="favorites-list">
           {myOwnRecipes.map(favorite => (
@@ -50,11 +51,11 @@ export const MyRecipesList = () => {
               </div>
 
               <button
-                className="favorite-delete-btn trashBtn mod"
+                className="favorite-delete-btn trashBtn"
                 type="button"
-                // onClick={() => handleDelete(favorite._id.$oid)}
+                // onClick={() => handleUpdateFavoriteReceipt(favorite._id)}
               >
-                <TrashIcon className="trashBtn--icon mod--icon" />
+                <TrashIcon className="trashBtn--icon" />
               </button>
 
               <div className="favorite-description-wrapper">
@@ -66,7 +67,7 @@ export const MyRecipesList = () => {
               </div>
               <Link
                 className="base-link-leaf favorite-link base-link-leaf--mod"
-                to={`/recipe/${favorite._id.$oid}`}
+                to={`/recipe/${favorite._id}`}
               >
                 <span className="base-link-leaf--mod--span">See recipe</span>
               </Link>
@@ -74,6 +75,47 @@ export const MyRecipesList = () => {
           ))}
         </ul>
       </div>
-    // </div>
+    </div>
   );
 };
+
+
+    // <div className="flexWrapper">
+    //   <div className="favorites-container">
+    //     <ul className="favorites-list">
+    //       {myOwnRecipes.map(favorite => (
+    //         <li key={favorite._id} className="favorite-item">
+    //           <div className="favorite-img-wrapper">
+    //             <img
+    //               src={favorite.preview}
+    //               alt="food"
+    //               className="favorite-img again"
+    //             />
+    //           </div>
+
+    //           <button
+    //             className="favorite-delete-btn trashBtn mod"
+    //             type="button"
+    //             // onClick={() => handleDelete(favorite._id.$oid)}
+    //           >
+    //             <TrashIcon className="trashBtn--icon mod--icon" />
+    //           </button>
+
+    //           <div className="favorite-description-wrapper">
+    //             <div>
+    //               <h2 className="favorite-title">{favorite.title}</h2>
+    //               <p className="favorite-description">{favorite.description}</p>
+    //             </div>
+    //             <span className="favorite-time">{favorite.time} min</span>
+    //           </div>
+    //           <Link
+    //             className="base-link-leaf favorite-link base-link-leaf--mod"
+    //             to={`/recipe/${favorite._id.$oid}`}
+    //           >
+    //             <span className="base-link-leaf--mod--span">See recipe</span>
+    //           </Link>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div>
+    // </div>
