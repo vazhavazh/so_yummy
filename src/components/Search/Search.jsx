@@ -32,6 +32,7 @@ export const Search = () => {
         className={style.searchInput}
         value={searchQuery}
         onChange={handleChange}
+        placeholder="Search recipe..."
       />
       <button className={style.searchBtn} type="submit">
         Search

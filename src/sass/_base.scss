@@ -15,10 +15,9 @@ html {
   }
 }
 
-
 body {
   position: relative;
-  
+
   min-height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -27,8 +26,6 @@ body {
   font-weight: 400;
   width: 100%;
 }
-
-
 
 h1,
 h2,
@@ -73,7 +70,7 @@ button {
 .remove-btnX--icon {
   width: 14px;
   height: 14px;
-  stroke: #333333;
+  stroke: var(--dartToLightForRemove);
   transition: stroke $hoverAnimation;
 
   @include tablet {
@@ -183,4 +180,14 @@ button {
 .trashBtn:hover .trashBtn--icon,
 .trashBtn:focus .trashBtn--icon {
   fill: $mainBgColorWhite;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: $mainAccentColor;
+  font-weight: 600;
 }

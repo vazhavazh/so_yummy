@@ -15,6 +15,15 @@ export const GlobalStyles = createGlobalStyle`
     --whiteToWhite: #fafafa;
     --darkToWhite: #22252a;
     --greyImageToDarkGrey: #ebf3d4;
+    --darkToGreen: #22252a;
+    --darkGreytoWhite: #001833;
+    --greyToGrey: #F0F0F0;
+    --inputColor: #BDBDBD;
+    --darkToAccent: #22252A;
+
+    --dropdownTextColor: #23262a;
+    --inputBorderColor:rgba(35, 38, 42, 0.3);
+
   }
 
 .dark-mode {
@@ -31,6 +40,15 @@ export const GlobalStyles = createGlobalStyle`
   --whiteToWhite: #fafafa;
   --darkToWhite: #fafafa;
   --greyImageToDarkGrey: #2A2C36;
+  --darkToGreen: #8baa36;
+  --darkGreytoWhite: #fafafa;
+  --greyToGrey: #fafafa;
+  --inputColor: #fafafa;
+  --darkToAccent: #8baa36;
+
+  --dropdownTextColor: #fafafa;
+  --inputBorderColor:rgba(250, 250, 250, 0.3);
+
 }
 
 `;

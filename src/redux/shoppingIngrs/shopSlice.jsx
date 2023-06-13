@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchUpdateShoppingIngredients,
+  // fetchUpdateShoppingIngredients,
   fetchAllShoppingIngredients,
-  fetchAddShoppingIngredients,
-  fetchDeleteShoppingIngredients,
+  // fetchAddShoppingIngredients,
+  // fetchDeleteShoppingIngredients,
 } from './shopThunks';
 
 const initialState = {
@@ -27,25 +27,25 @@ const shoppingIngredientsSlice = createSlice({
         state.shoppingIngredients = action.payload;
       })
 
-      .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
-        state.shoppingIngredients.push(action.payload);
-      })
+      // .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
+      //   state.shoppingIngredients.push(action.payload);
+      // })
 
-      .addCase(fetchDeleteShoppingIngredients.fulfilled, (state, action) => {
-        const index = state.shoppingIngredients.findIndex(
-          transaction => transaction.id === action.payload
-        );
-        state.shoppingIngredients.splice(index, 1);
-      })
+      // .addCase(fetchDeleteShoppingIngredients.fulfilled, (state, action) => {
+      //   const index = state.shoppingIngredients.findIndex(
+      //     transaction => transaction.id === action.payload
+      //   );
+      //   state.shoppingIngredients.splice(index, 1);
+      // })
 
-      .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
-        const index = state.shoppingIngredients.findIndex(
-          transaction => transaction.id === action.payload.id
-        );
-        if (index >= 0) {
-          state.shoppingIngredients[index] = action.payload;
-        }
-      })
+      // .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
+      //   const index = state.shoppingIngredients.findIndex(
+      //     transaction => transaction.id === action.payload.id
+      //   );
+      //   if (index >= 0) {
+      //     state.shoppingIngredients[index] = action.payload;
+      //   }
+      // })
 
       .addMatcher(
         action => action.type.endsWith('/pending'),
@@ -72,6 +72,5 @@ const shoppingIngredientsSlice = createSlice({
   },
 });
 
-export const { clearShoppingIngredientsState } =
-  shoppingIngredientsSlice.actions;
+
 export default shoppingIngredientsSlice.reducer;
