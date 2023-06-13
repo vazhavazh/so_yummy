@@ -1,0 +1,108 @@
+@import '../../main.scss';
+
+.popularBox {
+  width: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include tablet {
+    justify-content: space-between;
+    width: 704px;
+    gap: 40px;
+  }
+
+  @include desktop {
+    width: 319px;
+  }
+}
+
+.popularTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+
+  letter-spacing: -0.24px;
+  color: var(--mainTextColor);
+}
+
+.popularList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  @include desktop {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.popularListEll {
+  width: 100%;
+
+  @include tablet {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+}
+
+.popularEll {
+  display: flex;
+  padding-right: 14px;
+  padding-bottom: 13px;
+  gap: 12px;
+
+  border-bottom: 1px solid #70707036;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include desktop {
+    gap: 11px;
+  }
+}
+
+.populaImg {
+  width: 104px;
+  height: 85px;
+
+  border-radius: 8px;
+
+  @include tablet {
+    width: 102px;
+  }
+
+  @include desktop {
+    width: 97px;
+  }
+}
+
+.popularTextBox {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  letter-spacing: -0.24px;
+}
+
+.popularTitleRecipe {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  color: var(--mainTextColor);
+}
+
+.popularDiscrRecipe {
+  height: 50px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #7e7e7e;
+  overflow: hidden;
+}
