@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import {
   selectError,
   selectLoading,
   selectSearchData,
 } from 'redux/search/searchSelector';
 import {
-  fetchAllSearchedIngredient,
-  fetchAllSearchedTitle,
+  // fetchAllSearchedIngredient,
+  // fetchAllSearchedTitle,
 } from 'redux/search/searchThunks';
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
@@ -16,23 +16,25 @@ import img from '..//..//..//assets/image/searchPage/asdd.png';
 import Loader from '..//..//Loader/Loader';
 
 const SearchedRecipesList = ({ searchValue }) => {
+  // eslint-disable-next-line
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [prevSearchValue, setPrevSearchValue] = useState('');
+  // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(true);
 
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const searchData = useSelector(selectSearchData);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleSearchByTitle = title => {
-    dispatch(fetchAllSearchedTitle(title));
-  };
+  // // const handleSearchByTitle = title => {
+  // //   dispatch(fetchAllSearchedTitle(title));
+  // // };
 
-  const handleSearchByIngredient = ingredient => {
-    dispatch(fetchAllSearchedIngredient(ingredient));
-  };
+  // // const handleSearchByIngredient = ingredient => {
+  // //   dispatch(fetchAllSearchedIngredient(ingredient));
+  // // };
 
   useEffect(() => {
     if (prevSearchValue === searchValue) {
@@ -57,6 +59,7 @@ const SearchedRecipesList = ({ searchValue }) => {
     }, 500);
 
     return () => clearTimeout(delayTimer);
+    // eslint-disable-next-line
   }, [searchValue]);
 
   return (

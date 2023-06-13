@@ -1,7 +1,6 @@
 import style from './Footer.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setSelectedTypes } from 'redux/search/searchSlice';
 import logo from '../../assets/svg/footer/logo.svg';
 import mail from '../../assets/svg/footer/mail.svg';
 import facebook from '../../assets/svg/footer/facebook.svg';
@@ -9,11 +8,11 @@ import youtube from '../../assets/svg/footer/youtube.svg';
 import twitter from '../../assets/svg/footer/twitter.svg';
 import instagram from '../../assets/svg/footer/instagram.svg';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import { setFromFooterState } from 'redux/search/searchThunks';
 
 export const Footer = () => {
-  const location = useLocation();
+
   const dispatch = useDispatch();
 
   //  const handleIngredientClick = () => {
