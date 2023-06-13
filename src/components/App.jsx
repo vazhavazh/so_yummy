@@ -66,7 +66,7 @@ export const App = () => {
           />
 
           <Route
-            path="/categories"
+            path="/categories/:categoriesName"
             element={
               <PrivateRoute>
                 <Categories />

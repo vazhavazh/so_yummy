@@ -4,23 +4,28 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-///temp
-// import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
-//
+
 import { useEffect, useState } from 'react';
-// import { nanoid } from '@reduxjs/toolkit';
+
 import { RecipeCard } from 'components/RecipeCard/RecipeCard';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import {
   fetchCategories,
   fetchCurrentCategory,
 } from 'redux/categories/categoriesThanks';
+
 import Loader from 'components/Loader/Loader';
 
 export const Categories = () => {
+  const { categoriesName } = useParams();
+
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
-  const [value, setValue] = useState('Beef');
+  const [value, setValue] = useState(categoriesName);
   const [dishData, setDishData] = useState(null);
 
   const { currentCategories } = useSelector(
@@ -44,13 +49,11 @@ export const Categories = () => {
   const handleChange = (event, newValue) => {
     const categoryTitle = event.target.textContent;
     setValue(categoryTitle);
-
-    // setDishData(currentCategories[0]);
+    navigate(`/categories/${categoryTitle}`, { replace: true });
   };
 
   return (
     <div className="categories">
-      {/* <h2 className="categories-title">Categorises</h2> */}
       <TabContext value={value}>
         <div className="categories-switcher">
           <TabList
@@ -112,7 +115,6 @@ export const Categories = () => {
           <ul className="categories-cards">
             {dishData ? (
               dishData.recipes.map(recipe => {
-                
                 return <RecipeCard key={recipe._id} recipe={recipe} />;
               })
             ) : (
