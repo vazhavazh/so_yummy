@@ -6,7 +6,10 @@ import scss from '../components/Search/SearchBar/SearchBar.module.scss';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 
 const Search = () => {
+
   const location = useLocation();
+
+
   const [searchValue, setSearchValue] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState(false);
   const [submittedSearchValue, setSubmittedSearchValue] = useState('');

@@ -10,14 +10,21 @@ import twitter from '../../assets/svg/footer/twitter.svg';
 import instagram from '../../assets/svg/footer/instagram.svg';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { setFromFooterState } from 'redux/search/searchThunks';
 
 export const Footer = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-   const handleIngredientClick = () => {
-    dispatch(setSelectedTypes('ingredients', location));
+  //  const handleIngredientClick = () => {
+  //   dispatch(setSelectedTypes('ingredients', location));
+  // };
+
+  const handleIngredientClick = () => {
+    dispatch(setFromFooterState(true));
   };
+
+
 
   const [email, setEmail] = useState('');
 
@@ -53,7 +60,11 @@ export const Footer = () => {
             </div>
             <ul className={style.navList}>
               <li className={style.navItem}>
-                <NavLink className={style.navLink} to="/search" onClick={handleIngredientClick}>
+                <NavLink
+                  className={style.navLink}
+                  to="/search"
+                  onClick={handleIngredientClick}
+                >
                   Ingredients
                 </NavLink>
               </li>
