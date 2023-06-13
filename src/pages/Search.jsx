@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SearchBar from '../components/Search/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import scss from '../components/Search/SearchBar/SearchBar.module.scss';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 
 const Search = () => {
+  const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState(false);
   const [submittedSearchValue, setSubmittedSearchValue] = useState('');
@@ -16,6 +18,12 @@ const Search = () => {
   const handleSearch = () => {
     setSearchSubmitted(true);
   };
+
+  useEffect(() => {
+    if (location.state === 'footer') {
+      setSubmittedSearchValue('ingredients');
+    }
+  }, [location.state]);
 
   useEffect(() => {
     if (searchSubmitted) {

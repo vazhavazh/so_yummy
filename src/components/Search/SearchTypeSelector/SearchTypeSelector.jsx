@@ -70,7 +70,6 @@ const SearchTypeSelector = () => {
         onChange={handleTypeChange}
         defaultValue={typesList.find(option => option.searchType === 'query')}
       />
-
     </div>
   );
 };

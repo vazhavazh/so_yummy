@@ -1,5 +1,7 @@
 import style from './Footer.module.scss';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setSelectedTypes } from 'redux/search/searchSlice';
 import logo from '../../assets/svg/footer/logo.svg';
 import mail from '../../assets/svg/footer/mail.svg';
 import facebook from '../../assets/svg/footer/facebook.svg';
@@ -9,6 +11,11 @@ import instagram from '../../assets/svg/footer/instagram.svg';
 import { useState } from 'react';
 
 export const Footer = () => {
+  const dispatch = useDispatch();
+
+  const handleIngredientClick = () => {
+    dispatch(setSelectedTypes('ingredients'));
+  };
   const [email, setEmail] = useState('');
 
   const handleSubmit = e => {
@@ -43,7 +50,7 @@ export const Footer = () => {
             </div>
             <ul className={style.navList}>
               <li className={style.navItem}>
-                <NavLink className={style.navLink} to="/search">
+                <NavLink className={style.navLink} to="/search" onClick={handleIngredientClick}>
                   Ingredients
                 </NavLink>
               </li>
