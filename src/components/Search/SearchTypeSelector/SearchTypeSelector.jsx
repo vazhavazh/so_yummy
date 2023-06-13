@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
 import styles from './SearchTypeSelector.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedTypes } from 'redux/search/searchSlice';
+import { selectFromFooter } from 'redux/search/searchSelector';
 
-const typesList = [{ searchType: 'query' }, { searchType: 'ingredients' }];
+
+const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
 
 const customStyles = {
   singleValue: provided => ({
@@ -44,18 +46,20 @@ const customStyles = {
   }),
 };
 
-
 const SearchTypeSelector = () => {
-  // eslint-disable-next-line
-  const [selectedType, setSelectedType] = useState('query');
   const dispatch = useDispatch();
+
+
+  const fromFooter = useSelector(selectFromFooter);
+
+  // eslint-disable-next-line
+  const [selectedType, setSelectedType] = useState('');
 
   const handleTypeChange = selectedOption => {
     setSelectedType(selectedOption.searchType);
 
     dispatch(setSelectedTypes(selectedOption.searchType));
   };
-
   return (
     <div className={styles.cont_type_select}>
       <label htmlFor="select">Search by:</label>
@@ -68,9 +72,13 @@ const SearchTypeSelector = () => {
         getOptionValue={option => option.searchType}
         isSearchable={false}
         onChange={handleTypeChange}
-        defaultValue={typesList.find(option => option.searchType === 'query')}
+        // defaultInputValue={fromFooter ? 'ingredients' : 'title'}
+        defaultValue={
+          fromFooter
+            ? typesList.find(option => option.searchType === 'ingredients')
+            : typesList.find(option => option.searchType === 'title')
+        }
       />
-
     </div>
   );
 };

@@ -1,14 +1,31 @@
 import style from './Footer.module.scss';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setSelectedTypes } from 'redux/search/searchSlice';
 import logo from '../../assets/svg/footer/logo.svg';
 import mail from '../../assets/svg/footer/mail.svg';
-import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
-import { ReactComponent as Youtube } from '../../assets/svg/footer/youtube.svg';
-import { ReactComponent as Twitter } from '../../assets/svg/footer/twitter.svg';
-import { ReactComponent as Instagram } from '../../assets/svg/footer/instagram.svg';
+import facebook from '../../assets/svg/footer/facebook.svg';
+import youtube from '../../assets/svg/footer/youtube.svg';
+import twitter from '../../assets/svg/footer/twitter.svg';
+import instagram from '../../assets/svg/footer/instagram.svg';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { setFromFooterState } from 'redux/search/searchThunks';
 
 export const Footer = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  //  const handleIngredientClick = () => {
+  //   dispatch(setSelectedTypes('ingredients', location));
+  // };
+
+  const handleIngredientClick = () => {
+    dispatch(setFromFooterState(true));
+  };
+
+
+
   const [email, setEmail] = useState('');
 
   const handleSubmit = e => {
@@ -43,7 +60,11 @@ export const Footer = () => {
             </div>
             <ul className={style.navList}>
               <li className={style.navItem}>
-                <NavLink className={style.navLink} to="/search">
+                <NavLink
+                  className={style.navLink}
+                  to="/search"
+                  onClick={handleIngredientClick}
+                >
                   Ingredients
                 </NavLink>
               </li>
@@ -102,17 +123,21 @@ export const Footer = () => {
         <ul className={style.contactsList}>
           <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-              <Facebook className={style.facebookIcon} />
+              <img
+                className={style.facebookIcon}
+                src={facebook}
+                alt="facebook"
+              />
             </a>
           </li>
           <li className={style.youtubeItem}>
             <a target="_blank" rel="noreferrer" href="https://www.youtube.com">
-              <Youtube className={style.youtubeIcon} />
+              <img className={style.youtubeIcon} src={youtube} alt="youtube" />
             </a>
           </li>
           <li className={style.twitterItem}>
             <a target="_blank" rel="noreferrer" href="https://twitter.com">
-              <Twitter className={style.twitterIcon} />
+              <img className={style.twitterIcon} src={twitter} alt="twitter" />
             </a>
           </li>
           <li className={style.instagramItem}>
@@ -121,7 +146,11 @@ export const Footer = () => {
               rel="noreferrer"
               href="https://www.instagram.com"
             >
-              <Instagram className={style.instagramIcon} />
+              <img
+                className={style.instagramIcon}
+                src={instagram}
+                alt="instagram"
+              />
             </a>
           </li>
         </ul>

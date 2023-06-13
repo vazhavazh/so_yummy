@@ -5,6 +5,7 @@ import {
 } from './favoriteReceiptsThunks';
 
 const initialState = {
+  totalPages: null,
   favoriteReceipts: [],
   isLoading: false,
   error: null,
@@ -17,12 +18,14 @@ const favoriteReceiptSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAllFavoriteReceipts.fulfilled, (state, action) => {
-        state.favoriteReceipts = action.payload;
+        state.favoriteReceipts = action.payload.data;
         state.isLoading = false;
         state.error = null;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(fetchUpdateFavoriteReceipts.fulfilled, (state, action) => {
         const updatedReceiptId = action.payload._id;
+        
 
         state.favoriteReceipts = state.favoriteReceipts.filter(
           receipt => receipt._id !== updatedReceiptId
@@ -34,6 +37,7 @@ const favoriteReceiptSlice = createSlice({
         (state, action) => {
           state.isLoading = true;
           state.error = null;
+          state.totalPages = null;
         }
       )
       .addMatcher(
