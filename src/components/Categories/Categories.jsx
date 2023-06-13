@@ -34,7 +34,8 @@ export const Categories = () => {
 
   useEffect(() => {
     setDishData(currentCategories[0]);
-  }, [currentCategories]);
+    setValue(categoriesName);
+  }, [categoriesName, currentCategories]);
 
   useEffect(() => {
     dispatch(fetchCategories());

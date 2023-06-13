@@ -16,10 +16,10 @@ export const СhooseYourBreakfast = () => {
           </span>
           <span> </span>
           <span>
-          way to enjoy a variety of fresh ingredients in one satisfying meal
+            way to enjoy a variety of fresh ingredients in one satisfying meal
           </span>
         </p>
-        <Link className={style.chooseBtn} to="/categories/breakfast">
+        <Link className={style.chooseBtn} to="/categories/Breakfast">
           See recipes
           <IconArrow className={style.chooseSvg} />
         </Link>
