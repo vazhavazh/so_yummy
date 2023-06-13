@@ -29,6 +29,10 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
       '&:hover': {
         background: '#8BAA36',
       },
+      '@media screen and (min-width: 768px)': {
+        width: '161px',
+        height: '52px',
+      },
     },
   };
 
