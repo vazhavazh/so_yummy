@@ -17,7 +17,7 @@ function isValidFileType(fileName, fileType) {
 
 export const FileInputField = ({ name, reset }) => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [, , helpers] = useField(name);
+  const [, meta, helpers] = useField(name);
   const fileInputRef = useRef(null);
 
   const validateFile = file => {
@@ -109,7 +109,7 @@ export const FileInputField = ({ name, reset }) => {
       {/* {meta.touched && meta.error ? (
         <div
           style={{
-            color: '#d32f2f',
+            color: 'red',
             fontSize: '0.75rem',
             fontWeight: '400',
             lineHeight: '1.66',
