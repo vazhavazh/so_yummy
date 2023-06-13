@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import style from 'components/RecipeMain/RecipeMain.module.scss';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 import MySVGComponent from './MySVGComponent';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { fetchUpdateFavoriteReceipts } from 'redux/favoriteReceipts/favoriteReceiptsThunks';
-import { selectUserId } from 'redux/auth/authSelectors';
-import { listOfFavorites } from 'redux/simpleReceipt/simpleReceiptSelector';
 
 export const RecipePageHero = ({ recipes }) => {
   const dispatch = useDispatch();
-  const userId = useSelector(selectUserId);
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(true);
 
   const handleUpdateFavoriteReceipt = async receiptId => {
     try {
@@ -25,7 +22,6 @@ export const RecipePageHero = ({ recipes }) => {
     <>
       {recipes &&
         recipes.map(recipe => {
-          const isFavorite = recipe.favorites.includes(userId);
 
           return (
             <div className={style.hero} key={recipe._id}>
@@ -36,7 +32,7 @@ export const RecipePageHero = ({ recipes }) => {
                 type="button"
                 onClick={() => handleUpdateFavoriteReceipt(recipe._id)}
               >
-                {isFavorite
+                {favorite
                   ? 'Delete from favorite recipes'
                   : 'Add to favorite recipes'}
               </button>
@@ -47,9 +43,7 @@ export const RecipePageHero = ({ recipes }) => {
               </div>
             </div>
           );
-        })}
-
-    
+        })}   
     </>
   );
 };
