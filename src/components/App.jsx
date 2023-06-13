@@ -98,7 +98,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/recipe"
+            path="/recipe/:recipeId"
             element={
               <PrivateRoute>
                 <Recipe />
@@ -122,7 +122,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/unsubscription"
+            path="/unsubscription/:id"
             element={
               <PrivateRoute>
                 <Unsubscribe />

@@ -21,6 +21,7 @@ import { popularReducer } from './popularRecipe/popularSlice';
 import searchReducer from './search/searchSlice'
 import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice'
 import myOwnRecipeReducer from './myRecipes/myRecipesSlice'
+import simpleRecipeReducer from './simpleReceipt/simpleReceiptSlice'
 
 
 const authPersistConfig = {
@@ -62,7 +63,8 @@ export const store = configureStore({
     recipeMain: persistReducer(recipePersistConfig, recipeReducer),
     favoriteReceipt: favoriteReducer,
     popularRecipe: persistReducer(popularPersistConfig, popularReducer),
-    myOwnRecipes: myOwnRecipeReducer
+    myOwnRecipes: myOwnRecipeReducer,
+    simpleRecipe: simpleRecipeReducer,
   },
   middleware,
 });
