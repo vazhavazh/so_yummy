@@ -15,6 +15,7 @@ export const PrivateRoute = ({ children }) => {
       name: urlParams.get('name'),
       email: urlParams.get('email'),
       avatarURL: urlParams.get('avatarURL'),
+      _id: urlParams.get('_id'),
     };
     if (token) {
       dispatch(google({ user, token }));

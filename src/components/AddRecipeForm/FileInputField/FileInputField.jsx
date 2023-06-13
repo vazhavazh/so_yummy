@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useField } from 'formik';
 import { ReactComponent as FileInputImage } from '../images/fileInputImage.svg';
+import styles from './FileInputField.module.scss';
 
 const validFileExtensions = {
   image: ['jpg', 'png', 'jpeg', 'webp'],
@@ -16,7 +17,7 @@ function isValidFileType(fileName, fileType) {
 
 export const FileInputField = ({ name, reset }) => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [, meta, helpers] = useField(name);
+  const [, , helpers] = useField(name);
   const fileInputRef = useRef(null);
 
   const validateFile = file => {
@@ -74,16 +75,17 @@ export const FileInputField = ({ name, reset }) => {
   return (
     <div style={{ position: 'relative' }}>
       <div
-        style={{
-          width: '279px',
-          height: '268px',
-          backgroundColor: '#8BAA36',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '8px',
-        }}
+        // style={{
+        //   width: '279px',
+        //   height: '268px',
+        //   backgroundColor: '#8BAA36',
+        //   cursor: 'pointer',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   borderRadius: '8px',
+        // }}
+        className={styles.fileInput}
         onClick={handleClick}
       >
         {imageUrl ? (
@@ -104,10 +106,10 @@ export const FileInputField = ({ name, reset }) => {
           onChange={handleFileInputChange}
         />
       </div>
-      {meta.touched && meta.error ? (
+      {/* {meta.touched && meta.error ? (
         <div
           style={{
-            color: '#d32f2f',
+            color: 'red',
             fontSize: '0.75rem',
             fontWeight: '400',
             lineHeight: '1.66',
@@ -118,7 +120,7 @@ export const FileInputField = ({ name, reset }) => {
         >
           {meta.error}
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

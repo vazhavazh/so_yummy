@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
 import {
   selectIngredients,
-  // selectIsLoading,
   selectRecipes,
 } from 'redux/simpleReceipt/simpleReceiptSelector';
 // import Loader from 'components/Loader/Loader';
@@ -25,7 +24,11 @@ const Recipe = () => {
   const recipes = useSelector(selectRecipes);
   const ingredients = useSelector(selectIngredients);
   console.log(recipes);
-// console.log(ingredients);
+
+
+
+
+  
   return (
     <>
       <div className={style.body}>

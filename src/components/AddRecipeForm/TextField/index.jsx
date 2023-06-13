@@ -19,6 +19,7 @@ const AddRecipeTextField = styled(TextField)(({ theme, error }) => ({
   '& .MuiFormHelperText-root': {
     position: 'absolute',
     bottom: '-20px',
+    marginLeft: '0px',
   },
   '& .MuiPopover-paper': {
     width: '122px',

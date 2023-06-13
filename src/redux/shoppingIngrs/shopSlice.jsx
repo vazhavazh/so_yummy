@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   // fetchUpdateShoppingIngredients,
-  fetchAllShoppingIngredients,
+  fetchAllShoppingIngredients, fetchDeleteShoppingIngredient,
   // fetchAddShoppingIngredients,
   // fetchDeleteShoppingIngredients,
 } from './shopThunks';
 
 const initialState = {
+  totalPages: null,
   shoppingIngredients: [],
   isLoading: true,
   error: null,
@@ -24,19 +25,20 @@ const shoppingIngredientsSlice = createSlice({
     builder
 
       .addCase(fetchAllShoppingIngredients.fulfilled, (state, action) => {
-        state.shoppingIngredients = action.payload;
+        state.shoppingIngredients = action.payload.data;
+        state.totalPages = action.payload.totalPages;
       })
 
       // .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
       //   state.shoppingIngredients.push(action.payload);
       // })
 
-      // .addCase(fetchDeleteShoppingIngredients.fulfilled, (state, action) => {
-      //   const index = state.shoppingIngredients.findIndex(
-      //     transaction => transaction.id === action.payload
-      //   );
-      //   state.shoppingIngredients.splice(index, 1);
-      // })
+      .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {
+        const index = state.shoppingIngredients.findIndex(
+          shoppingIngredients => shoppingIngredients._id === action.payload
+        );
+        state.shoppingIngredients.splice(index, 1);
+      })
 
       // .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
       //   const index = state.shoppingIngredients.findIndex(
@@ -52,6 +54,7 @@ const shoppingIngredientsSlice = createSlice({
         (state, action) => {
           state.isLoading = true;
           state.error = null;
+          state.totalPages = null;
         }
       )
 
