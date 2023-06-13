@@ -15,6 +15,7 @@ import Loader from 'components/Loader/Loader';
 
 import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
+import { Pagination } from '../Pagination/Pagination';
 
 export const MyRecipesList = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ export const MyRecipesList = () => {
 
   const handleDeleteRecipe = async receiptId => {
     try {
-    await dispatch(deleteMyOwnRecipe(receiptId));
-       dispatch(fetchAllMyOwnRecipes());
+      await dispatch(deleteMyOwnRecipe(receiptId));
+      dispatch(fetchAllMyOwnRecipes());
     } catch (error) {
       console.log(error);
     }
@@ -87,6 +88,7 @@ export const MyRecipesList = () => {
               </Link>
             </li>
           ))}
+          <Pagination totalPages={3} currentPage={1} />
         </ul>
       </div>
     </div>
