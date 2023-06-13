@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchUpdateShoppingIngredients,
-  fetchAllShoppingIngredients,
-  fetchAddShoppingIngredients,
-  fetchDeleteShoppingIngredients,
+  // fetchUpdateShoppingIngredients,
+  fetchAllShoppingIngredients, fetchDeleteShoppingIngredient,
+  // fetchAddShoppingIngredients,
+  // fetchDeleteShoppingIngredients,
 } from './shopThunks';
 
 const initialState = {
+  totalPages: null,
   shoppingIngredients: [],
   isLoading: true,
   error: null,
@@ -24,34 +25,36 @@ const shoppingIngredientsSlice = createSlice({
     builder
 
       .addCase(fetchAllShoppingIngredients.fulfilled, (state, action) => {
-        state.shoppingIngredients = action.payload;
+        state.shoppingIngredients = action.payload.data;
+        state.totalPages = action.payload.totalPages;
       })
 
-      .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
-        state.shoppingIngredients.push(action.payload);
-      })
+      // .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
+      //   state.shoppingIngredients.push(action.payload);
+      // })
 
-      .addCase(fetchDeleteShoppingIngredients.fulfilled, (state, action) => {
+      .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {
         const index = state.shoppingIngredients.findIndex(
-          transaction => transaction.id === action.payload
+          shoppingIngredients => shoppingIngredients._id === action.payload
         );
         state.shoppingIngredients.splice(index, 1);
       })
 
-      .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
-        const index = state.shoppingIngredients.findIndex(
-          transaction => transaction.id === action.payload.id
-        );
-        if (index >= 0) {
-          state.shoppingIngredients[index] = action.payload;
-        }
-      })
+      // .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
+      //   const index = state.shoppingIngredients.findIndex(
+      //     transaction => transaction.id === action.payload.id
+      //   );
+      //   if (index >= 0) {
+      //     state.shoppingIngredients[index] = action.payload;
+      //   }
+      // })
 
       .addMatcher(
         action => action.type.endsWith('/pending'),
         (state, action) => {
           state.isLoading = true;
           state.error = null;
+          state.totalPages = null;
         }
       )
 
@@ -72,6 +75,5 @@ const shoppingIngredientsSlice = createSlice({
   },
 });
 
-export const { clearShoppingIngredientsState } =
-  shoppingIngredientsSlice.actions;
+
 export default shoppingIngredientsSlice.reducer;

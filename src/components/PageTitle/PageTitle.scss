@@ -1,0 +1,155 @@
+@import '../../main.scss';
+.page-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include tablet {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @include desktop {
+    padding-left: 100px;
+    padding-right: 172px;
+  }
+}
+.mainTitle-container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  min-height: 74px;
+  max-height: 74px;
+
+  padding-bottom: 8px;
+margin-bottom: 43px;
+margin-top: 12px;
+
+
+  @include tablet {
+    min-height: 86px;
+    max-height: 86px;
+    padding-bottom: 3px;
+    margin-bottom: 97px;
+    margin-top: 21px;
+  }
+
+  @include desktop {
+    min-height: 99px;
+    max-height: 99px;
+    padding-bottom: 8px;
+    margin-bottom: 92px;
+    margin-top: 53px;
+  }
+}
+
+.mainTitle {
+  color: var(--darkGreytoWhite);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+
+  letter-spacing: -0.02em;
+  font-feature-settings: 'liga' off;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 44px;
+  }
+}
+
+.mainTitle-decorator1 {
+  position: absolute;
+  left: 30.26%;
+  right: 67.41%;
+  top: 4.6%;
+  bottom: 84.5%;
+
+  background: var(--mainAccentColor);
+  border-radius: 3px;
+  transform: rotate(-25deg);
+
+  @include tablet {
+    left: 26.24%;
+    right: 71.79%;
+    top: 6.88%;
+    bottom: 76.83%;
+  }
+
+  @include desktop {
+    left: 19.51%;
+    right: 79.29%;
+    top: 5.98%;
+    bottom: 79.87%;
+  }
+}
+.mainTitle-decorator2 {
+    
+  position: absolute;
+  left: 67.22%;
+  right: 31.03%;
+  top: 92.6%;
+  bottom: -0.77%;
+
+  background: var(--darkToWhite);
+  border-radius: 3px;
+  transform: rotate(-25deg);
+
+  @include tablet {
+    left: 56.83%;
+    right: 41.48%;
+    top: 87.35%;
+    bottom: -1.31%;
+  }
+
+  @include desktop {
+    left: 60.5%;
+    right: 38.47%;
+    top: 89.01%;
+    bottom: -1.14%;
+  }
+}
+.mainTitle-decorator3 {
+  position: absolute;
+  left: 96.91%;
+  right: 0.77%;
+  top: 48.81%;
+  bottom: 40.3%;
+
+  background: var(--mainAccentColor);
+  border-radius: 3px;
+  transform: rotate(-25deg);
+
+  @include tablet {
+    left: 97.39%;
+    right: 0.65%;
+    top: 22.01%;
+    bottom: 61.7%;
+  }
+
+  @include desktop {
+    left: 98.41%;
+    right: 0.39%;
+    top: 19.12%;
+    bottom: 66.73%;
+  }
+}
+
+
+.recipeName{
+font-family: 'Poppins';
+font-weight: 600;
+font-size: 24px;
+line-height: calc(24/24);
+letter-spacing: -0.02em;
+
+color: #8BAA36;
+
+@include tablet {
+    font-size: 44px;
+line-height: calc(44/44)
+}
+}

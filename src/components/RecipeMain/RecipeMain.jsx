@@ -6,22 +6,22 @@ import Loader from 'components/Loader/Loader';
 
 
 export const RecipeMain = () => {
+  // const [isChecked, setIsChecked] = useState(false);
+  // // const [cartItems, setCartItems] = useState([]);
 
-    const [isChecked, setIsChecked] = useState(false);
-    // const [cartItems, setCartItems] = useState([]);
+  // const handleCheckboxChange = ev => {
+  //   setIsChecked(!isChecked);
+  //   console.log(ev);
+  //   // if (!isChecked) {
+  //   //   // Добавление в корзину
+  //   //     setCartItems([...cartItems, item]);
+  //   // } else {
+  //   //   // Удаление из корзины
+  //   //     const updatedCartItems = cartItems.filter(item => item.id !== itemToRemove.id);
+  //   //     setCartItems(updatedCartItems);
+  //   // }
+  // };
 
-    const handleCheckboxChange = (ev) => {
-        setIsChecked(!isChecked);
-        console.log(ev)
-    // if (!isChecked) {
-    //   // Добавление в корзину
-    //     setCartItems([...cartItems, item]);
-    // } else {
-    //   // Удаление из корзины
-    //     const updatedCartItems = cartItems.filter(item => item.id !== itemToRemove.id);
-    //     setCartItems(updatedCartItems);
-    // }
-    };
 
     const [recipe, setRecipe] = useState(null)
 
@@ -61,11 +61,6 @@ const stepsArray = recipe.instructions.split('.');
             <p className={style.hero__text}>{recipe.description}</p>
         <button className={style.hero__button}>Add to favorite recipes</button>
     
-        <div className={style.hero__clock}>
-                <MySVGComponent className={style.svg} />    
-            <p className={style.hero__time}>20 min</p>
-        </div>
-    </div>
 
     <div className={style.list}>
         <div className={style.list__head}> 

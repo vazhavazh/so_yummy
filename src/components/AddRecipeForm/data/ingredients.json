@@ -1,0 +1,12 @@
+[
+  { "value": "chicken", "label": "Chicken" },
+  { "value": "beef", "label": "Beef" },
+  { "value": "apple cider vinegar", "label": "Apple Cider Vinegar" },
+  { "value": "asparagus", "label": "Asparagus" },
+  { "value": "aubergine", "label": "Aubergine" },
+  { "value": "baby plum tomatoes", "label": "Baby Plum Tomatoes" },
+  { "value": "bacon", "label": "Bacon" },
+  { "value": "egg", "label": "Egg" },
+  { "value": "cucumber", "label": "Cucumber" },
+  { "value": "salmon", "label": "Salmon" }
+]

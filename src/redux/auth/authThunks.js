@@ -72,3 +72,30 @@ export const logoutUser = createAsyncThunk(
     }
   }
 );
+
+export const editUser = createAsyncThunk(
+  'auth/edit',
+  async (userData, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch(`/api/auth/edit`, userData);
+      return data;
+    } catch (error) {
+      if (error.response.data.message === '"name" is not allowed to be empty') {
+        Notify.failure('Please enter the name');
+      }
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const google = createAsyncThunk(
+  'auth/google',
+  async ({ rejectWithValue, ...data }) => {
+    try {
+      setAuthHeader(data.token);
+      return { user: data.user, token: data.token };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

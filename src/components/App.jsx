@@ -1,10 +1,12 @@
 import { lazy, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/authThunks';
 import { PrivateRoute } from '../hoc/PrivateRoute';
 import { PublicRoute } from '../hoc/PublicRoute';
+import { Unsubscribe } from './Unsubscribe/Unsubscribe';
+import { setFromFooterState } from 'redux/search/searchThunks';
 
 const AddRecipe = lazy(() => import('../pages/AddRecipe'));
 const Categories = lazy(() => import('../pages/CategoriesPage'));
@@ -21,11 +23,19 @@ const ErrorPage = lazy(() => import('../pages/Error'));
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  const location = useLocation();
   useEffect(() => {
     dispatch(getCurrentUser());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    if (currentPath !== '/search') {
+      dispatch(setFromFooterState(false));
+    }
+  }, [location.pathname, dispatch]);
+
   return (
     <>
       <Routes>
@@ -65,7 +75,7 @@ export const App = () => {
           />
 
           <Route
-            path="/categories"
+            path="/categories/:categoriesName"
             element={
               <PrivateRoute>
                 <Categories />
@@ -97,7 +107,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/recipe/:id"
+            path="/recipe/:recipeId"
             element={
               <PrivateRoute>
                 <Recipe />
@@ -117,6 +127,14 @@ export const App = () => {
             element={
               <PrivateRoute>
                 <ShoppingList />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/unsubscription/:id"
+            element={
+              <PrivateRoute>
+                <Unsubscribe />
               </PrivateRoute>
             }
           />

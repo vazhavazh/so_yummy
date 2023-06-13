@@ -11,7 +11,7 @@
   height: 92px;
   padding: 8px;
 
-  background-color: $secondaryBgColorWhite;
+  background-color: var(--secondaryBgColorWhite);
   border-radius: 8px;
 
   @include tablet {
@@ -32,24 +32,24 @@
 .chooseDiscrirtion {
   font-weight: 500;
   font-size: 12px;
-  line-height: 18px;
+  line-height: calc(18 / 12);
 
   letter-spacing: -0.24px;
-  color: $mainTextColor;
+  color: var(--mainTextColor);
 
   @include tablet {
     font-size: 14px;
-    line-height: 18px;
+    line-height: calc(18 / 14);
   }
 
   @include desktop {
     font-size: 14px;
-    line-height: 20px;
+    line-height: calc(20 / 14);
   }
 }
 
 .chooseDiscrirtionGreen {
-  color: $mainAccentColor;
+  color: var(--mainAccentColor);
 }
 
 .chooseBtn {
@@ -62,13 +62,18 @@
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
-  line-height: 12px;
+  line-height: calc(12 / 10);
 
   letter-spacing: 0.2px;
 
-  color: $mainTextColor;
+  color: var(--mainTextColor);
   background-color: transparent;
   border: none;
+}
+
+.chooseSvg {
+  fill: var(--mainTextColor);
+  stroke: var(--mainTextColor);
 }
 
 .chooseImg {

@@ -1,52 +1,65 @@
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
 import styles from './SearchTypeSelector.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedTypes } from 'redux/search/searchSlice';
+import { selectFromFooter } from 'redux/search/searchSelector';
 
-const typesList = [{ searchType: 'query' }, { searchType: 'ingredients' }];
+
+const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
 
 const customStyles = {
-  menu: (provided) => ({
+  singleValue: provided => ({
     ...provided,
-    background: "transparent",
+    color: 'var(--mainTextColor)', // Цвет текста для выбранного значения
   }),
-  option: (provided, state) => ({ 
+  menu: provided => ({
     ...provided,
-    backgroundColor: state.isFocused ? '#D9D9D9' : 'white',
-    color: state.isFocused ? 'white' : 'black',
+    background: 'transparent', // Фон выпадающего меню
   }),
-  input: (provided) => ({
+  option: (provided, state) => ({
     ...provided,
-    color: '#8BAA36',
+    backgroundColor: state.isFocused ? '#8BAA36' : 'white', // Фон опций в зависимости от состояния фокуса
+    color: state.isFocused ? 'white' : 'black', // Цвет текста опций в зависимости от состояния фокуса
+  }),
+  input: provided => ({
+    ...provided,
+    color: '#8BAA36', // Цвет текста ввода
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
     border: 'none',
     boxShadow: 'none',
-    color: '#8BAA36', // Зміна коліру стрілки при наведенні
+    color: '#8BAA36', // Цвет стрелки выпадающего меню при наведении
   }),
   control: (provided, state) => ({
     ...provided,
     height: 34,
     width: 143,
-    background: "#D9D9D9",
+    background: 'var(--greyToBlack)', // Фон контейнера селектора
     borderRadius: 6,
-    borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
-    boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Зміна тіні рамки при наведенні
+    borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Цвет границы контейнера при наведении
+    boxShadow: state.isFocused ? '0 0 0 2px #8BAA36' : 'none', // Тень границы контейнера при наведении
     '&:hover': {
-      borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Зміна коліру рамки при наведенні
+      borderColor: state.isFocused ? '#8BAA36' : '#CED4DA', // Цвет границы контейнера при наведении
     },
-    
   }),
 };
 
 const SearchTypeSelector = () => {
+  const dispatch = useDispatch();
+
+
+  const fromFooter = useSelector(selectFromFooter);
+
   // eslint-disable-next-line
-  const [selectedType, setSelectedType] = useState('query');
+  const [selectedType, setSelectedType] = useState('');
 
-  const handleTypeChange = (selectedOption) => {
+  const handleTypeChange = selectedOption => {
     setSelectedType(selectedOption.searchType);
-  };
 
+    dispatch(setSelectedTypes(selectedOption.searchType));
+  };
   return (
     <div className={styles.cont_type_select}>
       <label htmlFor="select">Search by:</label>
@@ -55,10 +68,16 @@ const SearchTypeSelector = () => {
         name="select"
         options={typesList}
         styles={customStyles}
-        getOptionLabel={(option) => option.searchType}
-        getOptionValue={(option) => option.searchType}
+        getOptionLabel={option => option.searchType}
+        getOptionValue={option => option.searchType}
         isSearchable={false}
         onChange={handleTypeChange}
+        // defaultInputValue={fromFooter ? 'ingredients' : 'title'}
+        defaultValue={
+          fromFooter
+            ? typesList.find(option => option.searchType === 'ingredients')
+            : typesList.find(option => option.searchType === 'title')
+        }
       />
     </div>
   );
