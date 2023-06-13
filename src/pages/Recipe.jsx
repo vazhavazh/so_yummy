@@ -25,6 +25,10 @@ const Recipe = () => {
   const ingredients = useSelector(selectIngredients);
   console.log(recipes);
 
+
+
+
+  
   return (
     <>
       <div className={style.body}>
