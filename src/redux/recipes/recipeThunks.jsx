@@ -5,8 +5,7 @@ export const fetchMainPageRecipe = createAsyncThunk(
   'recipe/recipeMainPage',
   async (category, thunkAPI) => {
     try {
-        const res = await axios.get(`api/recipes/main-page`);
-
+      const res = await axios.get(`api/recipes/main-page`);
       return { data: res.data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -14,4 +13,6 @@ export const fetchMainPageRecipe = createAsyncThunk(
   }
 );
 
-export const clearRecipeMainPageState = createAction('recipe/clear-recipe-main-page')
+export const clearRecipeMainPageState = createAction(
+  'recipe/clear-recipe-main-page'
+);

@@ -7,6 +7,10 @@ export const subscribe = createAsyncThunk(
   async (email, { rejectWithValue }) => {
     try {
       const data = await axios.post(`/api/subscribe/`, email);
+      console.log(data);
+      if (data.status === 201) {
+        Notify.success('Subscribed');
+      }
       return data;
     } catch (error) {
       if (error.response.status === 404) {
