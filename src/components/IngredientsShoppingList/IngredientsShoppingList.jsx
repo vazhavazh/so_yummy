@@ -25,7 +25,7 @@ export const IngredientsShoppingList = () => {
   const handleDeleteIngredient = async ingredient => {
     try {
       dispatch(fetchDeleteShoppingIngredient(ingredient));
-      dispatch(fetchAllShoppingIngredients());
+     
     } catch (error) {
       console.log(error);
     }
