@@ -1,0 +1,37 @@
+@import '../../main.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fafafa;
+  //   box-shadow: 2px 33px 5px 17px rgba(169, 169, 169, 0.57);
+  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+  border-radius: 26px;
+  padding: 20px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.pageDigit {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  font-feature-settings: 'ss04' on;
+
+  color: #656565;
+}
+
+.activePage {
+  background: #ebf3d4;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+}

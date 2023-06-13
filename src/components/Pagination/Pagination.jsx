@@ -1,33 +1,35 @@
 // import styled from 'styled-components';
 import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 
-export const Pagination = ({ onChangePage, totalPages, currentPage }) => {
+import style from './Pagination.module.scss';
+
+export const Pagination = ({ onChangePage, totalPages, currentpage }) => {
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
 
   function handlePaginationDisplay() {
-    const pageNeighboursLeft = [currentPage - 2, currentPage - 1];
-    const pageNeighboursRight = [currentPage + 1, currentPage + 2];
+    const pageNeighboursLeft = [currentpage - 2, currentpage - 1];
+    const pageNeighboursRight = [currentpage + 1, currentpage + 2];
 
     let rangeToDisplay = [];
     if (totalPages > 8) {
-      if (currentPage < 6) {
+      if (currentpage < 6) {
         rangeToDisplay = [1, 2, 3, 4, 5, 6, '...', totalPages];
       }
-      if (currentPage >= 6) {
+      if (currentpage >= 6) {
         rangeToDisplay = [
           1,
           '...',
           ...pageNeighboursLeft,
-          currentPage,
+          currentpage,
           ...pageNeighboursRight,
           '...',
           totalPages,
         ];
       }
-      if (currentPage > totalPages - 5) {
+      if (currentpage > totalPages - 5) {
         rangeToDisplay = [
           1,
           '...',
@@ -46,25 +48,26 @@ export const Pagination = ({ onChangePage, totalPages, currentPage }) => {
   }
 
   return (
-    <div>
+    <div className={style.pagination}>
       <button
-        disabled={currentPage === 1}
-        onClick={() => onChangePage(currentPage - 1)}
+        disabled={currentpage === 1}
+        onClick={() => onChangePage(currentpage - 1)}
       >
         <AiOutlineLeft />
       </button>
       {handlePaginationDisplay().map((page, index) => (
         <span
+          className={style.pageDigit}
           key={index}
-          currentPage={currentPage}
+          currentpage={currentpage}
           onClick={e => onChangePage(e.target.innerText)}
         >
           {page}
         </span>
       ))}
       <button
-        disabled={currentPage === totalPages}
-        onClick={() => onChangePage(currentPage + 1)}
+        disabled={currentpage === totalPages}
+        onClick={() => onChangePage(currentpage + 1)}
       >
         <AiOutlineRight />
       </button>

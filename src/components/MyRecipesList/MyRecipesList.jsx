@@ -4,6 +4,7 @@ import './MyRecipesList.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectTotalPages,
   selectMyOwnRecipes,
   selectIsLoading,
 } from 'redux/myRecipes/myRecipesSelector';
@@ -21,8 +22,10 @@ export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(4);
   const dispatch = useDispatch();
+  const totalPages = useSelector(selectTotalPages);
   const myOwnRecipes = useSelector(selectMyOwnRecipes);
   const isLoading = useSelector(selectIsLoading);
+
   let query = {
     page,
     limit,
@@ -30,7 +33,20 @@ export const MyRecipesList = () => {
 
   useEffect(() => {
     dispatch(fetchAllMyOwnRecipes(query));
-  }, [dispatch]);
+  }, [page]);
+
+  const onChangePage = currentPage => {
+    if (currentPage !== '...') {
+      const number = Number(currentPage);
+
+      const element = document.getElementById('ahcnor1');
+      if (element) {
+        element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }
+
+      setPage(number);
+    }
+  };
 
   const handleDeleteRecipe = async receiptId => {
     try {
@@ -94,9 +110,13 @@ export const MyRecipesList = () => {
               </Link>
             </li>
           ))}
-          <Pagination totalPages={3} currentPage={1} />
         </ul>
       </div>
+      {/* <Pagination
+        totalPages={totalPages}
+        currentpage={page}
+        onChangePage={onChangePage}
+      /> */}
     </div>
   );
 };
