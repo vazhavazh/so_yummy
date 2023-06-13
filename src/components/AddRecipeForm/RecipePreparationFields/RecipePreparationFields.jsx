@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, TextareaAutosize } from '@mui/material';
 import { Field } from 'formik';
 
 export const RecipePreparationFields = () => {
@@ -25,12 +25,11 @@ export const RecipePreparationFields = () => {
           marginTop: '28px',
         }}
       >
-        <Field
+        <TextareaAutosize
           name="preparation"
           placeholder="enter preparation here"
           variant="outlined"
-          as="textarea"
-        ></Field>
+        ></TextareaAutosize>
       </div>
     </Box>
   );

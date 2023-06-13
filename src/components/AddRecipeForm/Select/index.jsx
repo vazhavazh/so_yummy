@@ -12,6 +12,7 @@ const AddRecipeSelect = styled(Select)(({ theme, error }) => ({
   '&::before': {
     content: '""',
     left: '-183px',
+    left: '-120%',
     opacity: '0.3',
   },
 }));

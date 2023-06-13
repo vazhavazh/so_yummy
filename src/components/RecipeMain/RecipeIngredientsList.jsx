@@ -1,7 +1,18 @@
 import React from 'react'
 import style from 'components/RecipeMain/RecipeMain.module.scss';
+// import { useDispatch } from 'react-redux';
+// import { fetchDeleteShoppingIngredient } from 'redux/shoppingIngrs/shopThunks';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
+  //  const dispatch = useDispatch();
+
+  //  const handleCheckboxChange = (ingredientId, isChecked) => {
+  //    if (isChecked) {
+  //      dispatch(fetchPostShoppingIngredient(ingredient));
+  //    } else {
+  //      dispatch(fetchDeleteShoppingIngredient(ingredient));
+  //    }
+  //  };
   return (
     <>
       <div className={style.list}>
