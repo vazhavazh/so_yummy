@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, useFormControl, Select, styled } from '@mui/material';
+import { TextField, styled } from '@mui/material';
 import { useField } from 'formik';
 
 const IngredientsTextField = styled(TextField)(({ theme, error }) => ({}));
