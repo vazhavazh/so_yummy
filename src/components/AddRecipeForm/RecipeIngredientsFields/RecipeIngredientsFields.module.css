@@ -59,3 +59,34 @@
 .deleteIcon{
     margin-left: 30px;
 }
+
+.ingredientsErrorField{
+    color: #d32f2f;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+}
+
+.ingredientsSelect{
+    &__menu {
+            margin: 0.125rem auto;
+        }
+    
+        &__option {
+            background-color: white;
+    
+            &--is-focused {
+                background-color: lightblue;
+            }
+        }
+    
+        &__group {
+            padding: 0;
+        }
+    
+        &__menu-portal {
+            border: 1px solid darkblue;
+        }
+}
