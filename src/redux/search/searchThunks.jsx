@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { setFromFooter } from './searchSlice';
 
 
 
@@ -23,9 +24,16 @@ export const fetchAllSearchedIngredient = createAsyncThunk(
       const response = await axios.get(
         `api/search?ingredient=${encodeURIComponent(ingredient)}`
       );
+      
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+
+
+export const setFromFooterState = fromFooter => dispatch => {
+  dispatch(setFromFooter(fromFooter));
+};
