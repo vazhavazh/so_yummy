@@ -20,7 +20,6 @@ import { Pagination } from '../Pagination/Pagination';
 
 export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(4);
   const dispatch = useDispatch();
   const totalPages = useSelector(selectTotalPages);
   const myOwnRecipes = useSelector(selectMyOwnRecipes);
@@ -28,11 +27,12 @@ export const MyRecipesList = () => {
 
   let query = {
     page,
-    limit,
+    limit: 4,
   };
 
   useEffect(() => {
     dispatch(fetchAllMyOwnRecipes(query));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const onChangePage = currentPage => {
@@ -111,12 +111,14 @@ export const MyRecipesList = () => {
             </li>
           ))}
         </ul>
+        {totalPages !== 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currentpage={page}
+            onChangePage={onChangePage}
+          />
+        )}
       </div>
-      {/* <Pagination
-        totalPages={totalPages}
-        currentpage={page}
-        onChangePage={onChangePage}
-      /> */}
     </div>
   );
 };
