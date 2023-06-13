@@ -28,7 +28,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
         <nav>
           <ul className={style.navList}>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/categories">
+              <NavLink className={style.navLink} to="/categories/Beef">
                 Categories
               </NavLink>
             </li>
