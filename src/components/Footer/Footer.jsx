@@ -2,68 +2,126 @@ import style from './Footer.module.scss';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/svg/footer/logo.svg';
 import mail from '../../assets/svg/footer/mail.svg';
-import facebook from '../../assets/svg/footer/facebook.svg';
-import youtube from '../../assets/svg/footer/youtube.svg';
-import twitter from '../../assets/svg/footer/twitter.svg';
-import instagram from '../../assets/svg/footer/instagram.svg';
+import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
+import { ReactComponent as Youtube } from '../../assets/svg/footer/youtube.svg';
+import { ReactComponent as Twitter } from '../../assets/svg/footer/twitter.svg';
+import { ReactComponent as Instagram } from '../../assets/svg/footer/instagram.svg';
+import { useState } from 'react';
 
 export const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log({ email });
+  };
+
   return (
     <div>
       <section className={style.contactsSection}>
-        <NavLink className={style.mainLink} to="/">
-          <img className={style.logo} src={logo} alt="logo" />
-          <p className={style.title}>So Yummy</p>
-        </NavLink>
-        <ul className={style.navList}>
-          <li className={style.navItem}>Ingredients</li>
-          <li className={style.navItem}>
-            <NavLink to="/add">Add recipes</NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink to="/my">My recipes</NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink to="/favorite">Favorites</NavLink>
-          </li>
-          <li className={style.navItem}>
-            <NavLink to="/shopping-list">Shopping list</NavLink>
-          </li>
-        </ul>
-        <div className={style.inputWrapper}>
-          <img className={style.mailIcon} src={mail} alt="" />
-          <input
-            className={style.input}
-            type="text"
-            placeholder="Enter your email address"
-          />
+        <div className={style.navAdvSubWrapper}>
+          <div className={style.navAdvWrapper}>
+            <div className={style.nav}>
+              <NavLink className={style.mainLink} to="/">
+                <img className={style.logo} src={logo} alt="logo" />
+                <p className={style.title}>So Yummy</p>
+              </NavLink>
+              <ul className={style.advantagesList}>
+                <li className={style.advantagesItem}>
+                  Database of recipes that can be replenished
+                </li>
+                <li className={style.advantagesItem}>
+                  Flexible search for desired and unwanted ingredients
+                </li>
+                <li className={style.advantagesItem}>
+                  Ability to add your own recipes with photos
+                </li>
+                <li className={style.advantagesItem}>
+                  Convenient and easy to use
+                </li>
+              </ul>
+            </div>
+            <ul className={style.navList}>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/search">
+                  Ingredients
+                </NavLink>
+              </li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/add">
+                  Add recipes
+                </NavLink>
+              </li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/my">
+                  My recipes
+                </NavLink>
+              </li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/favorite">
+                  Favorites
+                </NavLink>
+              </li>
+              <li className={style.navItem}>
+                <NavLink className={style.navLink} to="/shopping-list">
+                  Shopping list
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className={style.subscribeWrapper}>
+            <div className={style.subscribeText}>
+              <p className={style.subscribeTitle}>
+                Subscribe to our Newsletter
+              </p>
+              <p className={style.subscribeDesc}>
+                Subscribe up to our newsletter. Be in touch with latest news and
+                special offers, etc.
+              </p>
+            </div>
+            <form className={style.form}>
+              <div className={style.inputWrapper}>
+                <img className={style.mailIcon} src={mail} alt="" />
+                <input
+                  className={style.input}
+                  type="email"
+                  placeholder="Enter your email address"
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className={style.subscribeBtn}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
         </div>
-        <button type="submit" className={style.subscribeBtn}>
-          Subscribe
-        </button>
         <ul className={style.contactsList}>
-          <li className={style.facebookIcon}>
+          <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-              <img src={facebook} alt="facebook" />
+              <Facebook className={style.facebookIcon} />
             </a>
           </li>
-          <li className={style.youtubeIcon}>
+          <li className={style.youtubeItem}>
             <a target="_blank" rel="noreferrer" href="https://www.youtube.com">
-              <img src={youtube} alt="youtube" />
+              <Youtube className={style.youtubeIcon} />
             </a>
           </li>
-          <li className={style.twitterIcon}>
+          <li className={style.twitterItem}>
             <a target="_blank" rel="noreferrer" href="https://twitter.com">
-              <img src={twitter} alt="twitter" />
+              <Twitter className={style.twitterIcon} />
             </a>
           </li>
-          <li className={style.instagramIcon}>
+          <li className={style.instagramItem}>
             <a
               target="_blank"
               rel="noreferrer"
               href="https://www.instagram.com"
             >
-              <img src={instagram} alt="instagram" />
+              <Instagram className={style.instagramIcon} />
             </a>
           </li>
         </ul>

@@ -150,7 +150,7 @@
 }
 .ingredient-name {
   font-style: normal;
-  color: $mainTextColor;
+  color: var(--mainTextColor);
   font-weight: 500;
   font-size: 10px;
   line-height: calc(12 / 10);
@@ -206,5 +206,7 @@
   }
 }
 
-.x-btn {
+.emptyName {
+  color: var(--mainTextColor) !important;
 }
+

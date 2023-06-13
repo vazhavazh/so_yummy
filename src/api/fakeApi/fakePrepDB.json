@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3651"
+  },
+  "step": "Season the salmon, then rub with oil."
+},{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3652"
+  },
+  "step": "Mix the dressing ingredients together. "
+},{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3653"
+  },
+  "step": "Halve, stone, peel and slice the avocados. Halve and quarter the cucumber lengthways, then cut into slices."
+},{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3654"
+  },
+  "step": "Divide salad, avocado and cucumber between four plates, then drizzle with half the dressing."
+},{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3655"
+  },
+  "step": "Heat a non-stick pan. Add the salmon and fry for 3-4 mins on each side until crisp but still moist inside. "
+},{
+  "_id": {
+    "$oid": "640c2dd963a319ea671e3656"
+  },
+  "step": "Put a salmon fillet on top of each salad and drizzle over the remaining dressing. Serve warm."
+}
+]

@@ -42,5 +42,5 @@ export const LoginSchema = Yup.object().shape({
     .trim()
     .required('Please enter your password')
     .min(6, 'Your password is too short')
-    .max(16, 'Password cannot be longer than 20 characters'),
+    .max(16, 'Password cannot be longer than 16 characters'),
 });

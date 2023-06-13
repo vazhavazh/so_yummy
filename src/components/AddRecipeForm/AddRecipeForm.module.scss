@@ -3,7 +3,7 @@
 
 .addRecipeFormWrapper {
     // outline: 1px solid red;
-    background-color: $inputBackgroundColor;
+    background-color: $mainBgColorWhite;
 
     @media screen and (min-width: $breakpoint-desktop) {
         max-width: 800px;

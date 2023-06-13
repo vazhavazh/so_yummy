@@ -1,47 +1,56 @@
 import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/svg/header/logo.svg';
-import burger from '../../assets/svg/header/burger.svg';
-import avatarPlaceholder from '../../assets/svg/header/avatar-placeholder.jpg';
+import { ReactComponent as Burger } from '../../assets/svg/header/burger.svg';
 import style from './Header.module.scss';
 import Menu from './Menu/Menu';
 import Dropdown from './Dropdown/Dropdown';
 import { NavLink } from 'react-router-dom';
 import ToggleTheme from 'components/theme/ToggleTheme';
+import { useSelector } from 'react-redux';
+import { getUserName } from 'redux/auth/authSelectors';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
 
+  let { avatarURL, name } = useSelector(getUserName);
+
   return (
     <header className={`${style.header} ${style.container}`}>
-      <NavLink to="/">
-        <img src={logo} alt="logo" />
-      </NavLink>
-      <div className={style.userNavWrapper}>
+      <div className={style.navWrapper}>
+        <NavLink to="/">
+          <img className={style.logo} src={logo} alt="logo" />
+        </NavLink>
+        <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
+      </div>
+      <div className={style.userWrapper}>
         <div
           onClick={() => setIsDropdownActive(!isDropdownActive)}
           className={style.userInfoWrapper}
         >
-          <img className={style.avatar} src={avatarPlaceholder} alt="avatar" />
-          <p className={style.username}>Name</p>
+          {avatarURL && (
+            <img className={style.avatar} src={avatarURL} alt="avatar" />
+          )}
+          <p className={style.username}>{name}</p>
+          <div className={style.toggle}>
+            <ToggleTheme />
+          </div>
         </div>
         <Dropdown
           isDropdownActive={isDropdownActive}
           setIsDropdownActive={setIsDropdownActive}
-        ></Dropdown>
+        />
         <div className={style.burgerWrapper}>
           <button
-            className={style.burger}
+            className={style.burgerBtn}
             type="button"
             onClick={() => setIsMenuActive(true)}
           >
-            <img src={burger} alt="" />
+            <Burger className={style.burger} />
           </button>
-          <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         </div>
       </div>
-      <ToggleTheme />
     </header>
   );
 };
