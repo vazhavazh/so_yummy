@@ -20,8 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     --greyToGrey: #F0F0F0;
     --inputColor: #BDBDBD;
     --darkToAccent: #22252A;
-    --dartToLightForRemove: #1F242E;
-    --whiteSearchToDark: #ffffff;
+
+    --dropdownTextColor: #23262a;
+    --inputBorderColor:rgba(35, 38, 42, 0.3);
+
   }
 
 .dark-mode {
@@ -43,8 +45,9 @@ export const GlobalStyles = createGlobalStyle`
   --greyToGrey: #fafafa;
   --inputColor: #fafafa;
   --darkToAccent: #8baa36;
-  --dartToLightForRemove: #fafafa;
-  --whiteSearchToDark: #1E1F28;
+
+  --dropdownTextColor: #fafafa;
+  --inputBorderColor:rgba(250, 250, 250, 0.3);
 
 }
 

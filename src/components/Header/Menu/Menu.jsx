@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import cross from '../../../assets/svg/header/cross.svg';
 import logo from '../../../assets/svg/header/logo.svg';
-import search from '../../../assets/svg/header/search.svg';
+import { ReactComponent as Search } from '../../../assets/svg/header/search.svg';
+import { ReactComponent as Cross } from '../../../assets/svg/header/cross.svg';
 import style from './Menu.module.scss';
 import ToggleTheme from 'components/theme/ToggleTheme';
 
@@ -22,7 +22,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
             type="button"
             onClick={() => setIsMenuActive(false)}
           >
-            <img src={cross} alt="cross" />
+            <Cross />
           </button>
         </div>
         <nav>
@@ -58,11 +58,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
                   className={`${style.navLink} ${style.searchLink}`}
                   to="/search"
                 >
-                  <img
-                    className={style.searchIcon}
-                    src={search}
-                    alt="search icon"
-                  />
+                  <Search className={style.searchIcon} />
                   <p className={style.searchLinkText}>Search</p>
                 </NavLink>
               </button>

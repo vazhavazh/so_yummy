@@ -27,9 +27,14 @@ const authSlice = createSlice({
     token: null,
     isLoading: true,
     isRefreshing: false,
+    isEditModalOpen: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    toggleEditModal(state, action) {
+      return { ...state, isEditModalOpen: action.payload };
+    },
+  },
   extraReducers: {
     [registerUser.pending]: handlePending,
     [loginUser.pending]: handlePending,
@@ -111,10 +116,12 @@ const authSlice = createSlice({
           ...payload.data,
         },
         isLoading: false,
+        isEditModalOpen: false,
         error: null,
       };
     },
   },
 });
 
+export const { toggleEditModal } = authSlice.actions;
 export default authSlice.reducer;
