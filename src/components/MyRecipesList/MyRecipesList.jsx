@@ -111,7 +111,7 @@ export const MyRecipesList = () => {
             </li>
           ))}
         </ul>
-        {totalPages !== 1 && (
+        {totalPages !== 1 && totalPages && (
           <Pagination
             totalPages={totalPages}
             currentpage={page}
