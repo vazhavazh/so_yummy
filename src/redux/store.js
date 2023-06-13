@@ -18,10 +18,11 @@ import themeReducer from './theme/themeSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
 import { recipeReducer } from './recipes/recipeSlice';
 import { popularReducer } from './popularRecipe/popularSlice';
-import searchReducer from './search/searchSlice'
-import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice'
-import myOwnRecipeReducer from './myRecipes/myRecipesSlice'
-import simpleRecipeReducer from './simpleReceipt/simpleReceiptSlice'
+import searchReducer from './search/searchSlice';
+import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice';
+import myOwnRecipeReducer from './myRecipes/myRecipesSlice';
+import simpleRecipeReducer from './simpleReceipt/simpleReceiptSlice';
+
 
 
 const authPersistConfig = {

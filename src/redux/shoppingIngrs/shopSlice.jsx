@@ -7,6 +7,7 @@ import {
 } from './shopThunks';
 
 const initialState = {
+  totalPages: null,
   shoppingIngredients: [],
   isLoading: true,
   error: null,
@@ -24,7 +25,8 @@ const shoppingIngredientsSlice = createSlice({
     builder
 
       .addCase(fetchAllShoppingIngredients.fulfilled, (state, action) => {
-        state.shoppingIngredients = action.payload;
+        state.shoppingIngredients = action.payload.data;
+        state.totalPages = action.payload.totalPages;
       })
 
       // .addCase(fetchAddShoppingIngredients.fulfilled, (state, action) => {
@@ -52,6 +54,7 @@ const shoppingIngredientsSlice = createSlice({
         (state, action) => {
           state.isLoading = true;
           state.error = null;
+          state.totalPages = null;
         }
       )
 

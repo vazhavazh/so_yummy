@@ -15,7 +15,7 @@ export const СhooseYourBreakfast = () => {
             Delicious and healthy&nbsp;
           </span> 
           <span>
-          way to enjoy a variety of fresh ingredients in one satisfying meal
+            way to enjoy a variety of fresh ingredients in one satisfying meal
           </span>
         </p>
         <Link className={style.chooseBtn} to="/categories/Breakfast">
