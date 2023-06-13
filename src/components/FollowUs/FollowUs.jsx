@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 
 import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
