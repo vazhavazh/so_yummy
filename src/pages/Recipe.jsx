@@ -8,10 +8,12 @@ import { useEffect } from 'react';
 import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
 import {
   selectIngredients,
+  selectInstructions,
   selectRecipes,
 } from 'redux/simpleReceipt/simpleReceiptSelector';
 // import Loader from 'components/Loader/Loader';
 import { RecipeIngredientsList } from 'components/RecipeMain/RecipeIngredientsList';
+import { RecipePreparation } from 'components/RecipeMain/RecipePreparation';
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -23,7 +25,10 @@ const Recipe = () => {
 
   const recipes = useSelector(selectRecipes);
   const ingredients = useSelector(selectIngredients);
-  console.log(recipes);
+  const instructions = useSelector(selectInstructions);
+ 
+  // console.log(instructions)
+  // console.log(recipes);
 
 
 
@@ -34,6 +39,7 @@ const Recipe = () => {
       <div className={style.body}>
         <RecipePageHero recipes={recipes} />
         <RecipeIngredientsList ingredients={ingredients} />
+        <RecipePreparation instructions={instructions} />
         <RecipeMain></RecipeMain>
       </div>
     </>
