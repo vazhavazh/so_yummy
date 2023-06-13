@@ -26,6 +26,7 @@ const Recipe = () => {
   const recipes = useSelector(selectRecipes);
   const ingredients = useSelector(selectIngredients);
   const instructions = useSelector(selectInstructions);
+ 
   // console.log(instructions)
   // console.log(recipes);
 
