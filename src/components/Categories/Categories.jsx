@@ -8,7 +8,7 @@ import TabPanel from '@mui/lab/TabPanel';
 // import dishes from '../../api/fakeApi/fakeFavoriteDB.json';
 //
 import { useEffect, useState } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
+// import { nanoid } from '@reduxjs/toolkit';
 import { RecipeCard } from 'components/RecipeCard/RecipeCard';
 import { useDispatch, useSelector } from 'react-redux';
 import {

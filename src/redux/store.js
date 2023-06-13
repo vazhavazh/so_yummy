@@ -16,6 +16,7 @@ import authReducer from './auth/authSlice';
 import shoppingListIngredientsReducer from './shoppingIngrs/shopSlice';
 import themeReducer from './theme/themeSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
+import searchReducer from './search/searchSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -42,6 +43,7 @@ export const store = configureStore({
     shoppingListIngredients: shoppingListIngredientsReducer,
     theme: persistReducer(themePersistConfig, themeReducer),
     categoriesStore: categoriesReducer,
+    search: searchReducer,
   },
   middleware,
 });
