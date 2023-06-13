@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './MyRecipesList.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
@@ -18,12 +18,18 @@ import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 import { Pagination } from '../Pagination/Pagination';
 
 export const MyRecipesList = () => {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(4);
   const dispatch = useDispatch();
   const myOwnRecipes = useSelector(selectMyOwnRecipes);
   const isLoading = useSelector(selectIsLoading);
+  let query = {
+    page,
+    limit,
+  };
 
   useEffect(() => {
-    dispatch(fetchAllMyOwnRecipes());
+    dispatch(fetchAllMyOwnRecipes(query));
   }, [dispatch]);
 
   const handleDeleteRecipe = async receiptId => {
