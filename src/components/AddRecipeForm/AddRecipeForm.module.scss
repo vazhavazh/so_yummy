@@ -92,7 +92,7 @@
     line-height: 21px;
 
     @media screen and (min-width: $breakpoint-tablet) {
-        height: 70px;
+        height: 65px;
     }
     
     @media screen and (min-width: $breakpoint-desktop) {
@@ -116,7 +116,7 @@
     border-bottom: 1px solid $shadowColor;
     
     @media screen and (min-width: $breakpoint-tablet) {
-        height: 70px;
+        height: 65px;
     }
 
     @media screen and (min-width: $breakpoint-desktop) {
@@ -162,6 +162,10 @@
     background-color: #d0dcaf;
     border-bottom-left-radius: 6px;
     font-size: small;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        left: 0;
+    }
 }
 
 
@@ -341,6 +345,7 @@
     border-radius: 6px;
     resize: none;
     border: none;
+    outline: none;
 
     background-color: #f5f5f5;
     
