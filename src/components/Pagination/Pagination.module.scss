@@ -1,0 +1,46 @@
+@import '../../main.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+  border-radius: 26px;
+  padding: 10px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.pageDigit {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 12px;
+  padding-right: 15px;
+  padding-left: 15px;
+  line-height: 18px;
+  display: flex;
+  text-align: center;
+
+  color: #656565;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ebf3d4;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.arrowBtn {
+  margin-right: 20px;
+  margin-left: 20px;
+  color: #a9a9a9;
+  display: block;
+  background-color: transparent;
+  border: none;
+}

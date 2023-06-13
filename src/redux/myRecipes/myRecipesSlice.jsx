@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchAllMyOwnRecipes, addMyOwnRecipe } from './myRecipesThunk';
 
 const initialState = {
+  totalPages: null,
   myOwnRecipes: [],
   isLoading: true,
   error: null,
@@ -14,8 +15,8 @@ const myOwnRecipesSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAllMyOwnRecipes.fulfilled, (state, action) => {
-        state.myOwnRecipes = action.payload;
-        state.isLoading = false;
+        state.totalPages = action.payload.totalPages;
+        state.myOwnRecipes = action.payload.data;
         state.error = null;
       })
 
