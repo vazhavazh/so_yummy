@@ -1,6 +1,5 @@
 import React from 'react';
 // import MySVGComponent from './MySVGComponent';
-import style from '../RecipeMain/RecipeMain.module.scss';
 // import data from 'api/fakeApi/fakeIngredientsDB.json';
 // import meta from 'api/fakeApi/fakePrepDB.json';
 // import { PageTitle } from 'components/PageTitle/PageTitle';
@@ -45,27 +44,7 @@ export const RecipeMain = () => {
     <>
     
 
-     
-
-      <div className={style.prep__container}>
-        <div className={style.prep__box}>
-          <h3 className={style.prep__title}>Recipe Preparation</h3>
-          <ol className={style.prep__list}>
-            {/* {steps.map(step => (
-              <li className={style.prep__item} key={step._id.$oid}>
-                <p className={style.prep__step}>{step.step}</p>
-              </li>
-            ))} */}
-          </ol>
-        </div>
-        <div>
-          <img
-            className={style.prep__img}
-            src="./static/media/salad.07661521d67a51570636.jpg"
-            alt="dish"
-          />
-        </div>
-      </div>
+  
     </>
   );
 };

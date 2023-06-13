@@ -9,3 +9,8 @@ export const listOfFavorites = state => {
   const recipes = state.simpleRecipe.simpleRecipe;
   return recipes.length > 0 ? recipes[0].favorites : [];
 };
+
+export const selectInstructions = state => {
+  const recipes = state.simpleRecipe.simpleRecipe;
+  return recipes.length > 0 ? recipes[0].instructions : '';
+};
