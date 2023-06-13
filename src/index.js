@@ -10,7 +10,7 @@ import { ThemeProvider } from './components/theme/ThemeProvider'
 import './main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
+  <Provider store={store} >
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <ThemeProvider>
