@@ -55,7 +55,6 @@ const SearchTypeSelector = () => {
 
     dispatch(setSelectedTypes(selectedOption.searchType));
   };
-
   return (
     <div className={styles.cont_type_select}>
       <label htmlFor="select">Search by:</label>

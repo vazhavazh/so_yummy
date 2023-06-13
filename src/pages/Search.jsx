@@ -39,10 +39,10 @@ const Search = () => {
         onChange={handleSearchInputChange}
         onSearch={handleSearch}
       />
-        <SearchedRecipesList
-          searchValue={submittedSearchValue}
-          key={submittedSearchValue}
-        />
+      <SearchedRecipesList
+        searchValue={submittedSearchValue}
+        key={submittedSearchValue}
+      />
     </div>
   );
 };
