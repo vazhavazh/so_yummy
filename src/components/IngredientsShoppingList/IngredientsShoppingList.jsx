@@ -49,49 +49,51 @@ export const IngredientsShoppingList = () => {
 
   return (
     <>
-      <div className="shopping-list-container">
-        <div className="shopping-list-categories">
-          <span className="shopping-list-categories--name">Product</span>
-          <div className="name-wrapper">
-            <span className="shopping-list-categories--name">Number</span>
-            <span className="shopping-list-categories--name">Remove</span>
+     <div className='flexWrapper'>
+        <div className="shopping-list-container">
+          <div className="shopping-list-categories">
+            <span className="shopping-list-categories--name">Product</span>
+            <div className="name-wrapper">
+              <span className="shopping-list-categories--name">Number</span>
+              <span className="shopping-list-categories--name">Remove</span>
+            </div>
           </div>
+          <ul className="ingredient-list">
+            {ingredients.map(ingredient => (
+              <li className="ingredient-item" key={ingredient._id}>
+                <div className="ingredient-wrapper">
+                  <div className="ingredient-img-wrapper">
+                    <img
+                      className="ingredient-img"
+                      src={ingredient.thb}
+                      alt={ingredient.ttl}
+                    />
+                  </div>
+                  <h2 className="ingredient-name">{ingredient.ttl}</h2>
+                </div>
+  
+                <div className="quantity-remove-wrapper">
+                  <div className="ingredient-quantity-wrapper">
+                    {' '}
+                    <span className="ingredient-quantity">
+                      {ingredient.measure}
+                    </span>
+                  </div>
+                  <button
+                    className="remove-btnX x-btn"
+                    type="button"
+                    onClick={() => {
+                      handleDeleteIngredient(ingredient);
+                    }}
+                  >
+                    <RemoveIcon className="remove-btnX--icon" />
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="ingredient-list">
-          {ingredients.map(ingredient => (
-            <li className="ingredient-item" key={ingredient._id}>
-              <div className="ingredient-wrapper">
-                <div className="ingredient-img-wrapper">
-                  <img
-                    className="ingredient-img"
-                    src={ingredient.thb}
-                    alt={ingredient.ttl}
-                  />
-                </div>
-                <h2 className="ingredient-name">{ingredient.ttl}</h2>
-              </div>
-
-              <div className="quantity-remove-wrapper">
-                <div className="ingredient-quantity-wrapper">
-                  {' '}
-                  <span className="ingredient-quantity">
-                    {ingredient.measure}
-                  </span>
-                </div>
-                <button
-                  className="remove-btnX x-btn"
-                  type="button"
-                  onClick={() => {
-                    handleDeleteIngredient(ingredient);
-                  }}
-                >
-                  <RemoveIcon className="remove-btnX--icon" />
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+     </div>
     </>
   );
 };

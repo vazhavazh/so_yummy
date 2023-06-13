@@ -71,7 +71,7 @@ button {
 .remove-btnX--icon {
   width: 14px;
   height: 14px;
-  stroke: var(--dartToLightForRemove);
+  stroke: var(--darkToWhite);
   transition: stroke $hoverAnimation;
 
   @include tablet {
@@ -81,7 +81,7 @@ button {
 }
 
 .remove-btnX:hover .remove-btnX--icon {
-  stroke: $mainAccentColor;
+  stroke: var(--mainAccentColor);
 }
 
 .base-link-leaf {
