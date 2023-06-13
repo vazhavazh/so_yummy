@@ -25,7 +25,7 @@ const Recipe = () => {
   const recipes = useSelector(selectRecipes);
   const ingredients = useSelector(selectIngredients);
   console.log(recipes);
-console.log(ingredients);
+// console.log(ingredients);
   return (
     <>
       <div className={style.body}>
