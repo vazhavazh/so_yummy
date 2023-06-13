@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   // fetchUpdateShoppingIngredients,
-  fetchAllShoppingIngredients,
+  fetchAllShoppingIngredients, fetchDeleteShoppingIngredient,
   // fetchAddShoppingIngredients,
   // fetchDeleteShoppingIngredients,
 } from './shopThunks';
@@ -31,12 +31,12 @@ const shoppingIngredientsSlice = createSlice({
       //   state.shoppingIngredients.push(action.payload);
       // })
 
-      // .addCase(fetchDeleteShoppingIngredients.fulfilled, (state, action) => {
-      //   const index = state.shoppingIngredients.findIndex(
-      //     transaction => transaction.id === action.payload
-      //   );
-      //   state.shoppingIngredients.splice(index, 1);
-      // })
+      .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {
+        const index = state.shoppingIngredients.findIndex(
+          shoppingIngredients => shoppingIngredients._id === action.payload
+        );
+        state.shoppingIngredients.splice(index, 1);
+      })
 
       // .addCase(fetchUpdateShoppingIngredients.fulfilled, (state, action) => {
       //   const index = state.shoppingIngredients.findIndex(
