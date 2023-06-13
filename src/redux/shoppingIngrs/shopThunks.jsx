@@ -42,7 +42,7 @@ export const fetchDeleteShoppingIngredient = createAsyncThunk(
 
 
 export const fetchPostShoppingIngredient = createAsyncThunk(
-  'shoppingIngredient/fetchDelete',
+  'shoppingIngredient/fetchPost',
   async (ingredient, thunkAPI) => {
     try {
       const { _id, measure, ttl, thb } = ingredient;
