@@ -38,8 +38,8 @@
   line-height: calc(20 / 16);
   letter-spacing: -0.24px;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
 
   color: var(--mainTextColor);
   background: var(--secondaryBgColorWhite);
@@ -96,7 +96,6 @@
   margin-bottom: auto;
 
   text-overflow: ellipsis;
-  
 }
 
 @keyframes rotateClockwise {
