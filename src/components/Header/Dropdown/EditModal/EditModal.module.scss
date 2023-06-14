@@ -84,6 +84,7 @@
   margin-bottom: 54px;
 
   background-color: $ellipseColor;
+
   border-radius: 50%;
   border: 0;
   cursor: pointer;
@@ -104,7 +105,9 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-
+  width: 101%;
+  height: 101%;
+  border-radius: 50%;
   @include tablet {
     width: 47px;
     height: 47px;
