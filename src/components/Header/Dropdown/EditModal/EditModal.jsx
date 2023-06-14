@@ -1,7 +1,7 @@
 import style from './EditModal.module.scss';
 import { ReactComponent as Cross } from '../../../../assets/svg/header/cross-2.svg';
 import { ReactComponent as BlackUser } from '../../../../assets/svg/header/black-user.svg';
-import grayUser from '../../../../assets/svg/header/gray-user.svg';
+// import grayUser from '../../../../assets/svg/header/gray-user.svg';
 import plus from '../../../../assets/svg/header/plus.svg';
 import edit from '../../../../assets/svg/header/edit.svg';
 import { useState, useEffect } from 'react';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
 import { getUserName, getIsEditModalOpen } from 'redux/auth/authSelectors';
 import { toggleEditModal } from 'redux/auth/authSlice';
+// import { FileInputField } from 'components/AddRecipeForm/FileInputField';
 
 const EditModal = () => {
   const { avatarURL, name } = useSelector(getUserName);
