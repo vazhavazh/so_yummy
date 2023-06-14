@@ -21,7 +21,7 @@ export const addMyOwnRecipe = createAsyncThunk(
   'myOwnRecipe/addRecipe',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('api/ownRecipes', formData, {
+      const response = await axios.post('/api/ownRecipes', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

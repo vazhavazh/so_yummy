@@ -180,9 +180,8 @@ const initialValues = {
   description: 'test',
   category: '',
   time: '',
-  // ingredients: [{ id: '', measure: '' }],
-  ingredients: [],
-  preparation: '',
+  ingredients: [{ id: 'ingredient1', measure: '100g' }],
+  instructions: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -190,13 +189,13 @@ const FORM_VALIDATION = Yup.object().shape({
   description: Yup.string().required('Description is required'),
   category: Yup.string().required('Category is required'),
   time: Yup.string().required('Cooking time is required'),
-  preparation: Yup.string().required('Recipe preparation is required'),
-  // ingredients: Yup.array().of(
-  //   Yup.object().shape({
-  //     id: Yup.string().required('Select ingredient'),
-  //     measure: Yup.string().required('Type dose'),
-  //   })
-  // ),
+  instructions: Yup.string().required('Recipe preparation is required'),
+  ingredients: Yup.array().of(
+    Yup.object().shape({
+      id: Yup.string().required('Select ingredient'),
+      measure: Yup.string().required('Type dose'),
+    })
+  ),
   preview: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
@@ -306,9 +305,16 @@ export const AddRecipeForm = () => {
   // };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const formData = new FormData();
+    formData.append('preview', values.preview);
+    formData.append('title', values.title);
+    formData.append('description', values.description);
+    formData.append('category', values.category);
+    formData.append('time', values.time);
+    formData.append('ingredients', JSON.stringify(values.ingredients));
+    formData.append('instructions', values.instructions);
 
-    dispatch(addMyOwnRecipe(values))
+    dispatch(addMyOwnRecipe(formData))
       .then(() => {
         setIsSubmitted(true);
         setCounter(1);
@@ -542,12 +548,12 @@ export const AddRecipeForm = () => {
               <div className={styles.preparationInputWrapper}>
                 <Field
                   as="textarea"
-                  name="preparation"
+                  name="instructions"
                   className={styles.preparationInput}
                   placeholder="Enter recipe"
                 />
                 <ErrorMessage
-                  name="preparation"
+                  name="instructionss"
                   component="div"
                   className={styles.prepatationError}
                 />
