@@ -1,25 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {fetchRecipe } from './simpleReceiptThunk';
+import { fetchMyOwnRecipe } from './pipkaThunk';
 
 const initialState = {
- 
-  simpleRecipe: [],
+  pipka: {},
   isLoading: true,
   error: null,
 };
 
-const simpleRecipeSlice = createSlice({
-  name: 'simpleRecipe',
+const pipka = createSlice({
+  name: 'pipka',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchRecipe.fulfilled, (state, action) => {
-        state.simpleRecipe = action.payload;
+
+      .addCase(fetchMyOwnRecipe.fulfilled, (state, action) => {
+        state.pipka = action.payload;
+
         state.isLoading = false;
         state.error = null;
       })
-
 
       .addMatcher(
         action => action.type.endsWith('/pending'),
@@ -45,4 +45,4 @@ const simpleRecipeSlice = createSlice({
   },
 });
 
-export default simpleRecipeSlice.reducer;
+export default pipka.reducer;
