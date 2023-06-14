@@ -9,11 +9,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
 import { getUserName, getIsEditModalOpen } from 'redux/auth/authSelectors';
 import { toggleEditModal } from 'redux/auth/authSlice';
-import { FileInputField } from 'components/AddRecipeForm/FileInputField';
 
 const EditModal = () => {
   const { avatarURL, name } = useSelector(getUserName);
-
   const dispatch = useDispatch();
 
   const [newName, setNewName] = useState('');
@@ -36,7 +34,6 @@ const EditModal = () => {
         setAvatarImg(reader.result);
       };
       reader.readAsDataURL(file);
-      //
     }
   };
 
@@ -47,11 +44,8 @@ const EditModal = () => {
     setNewName(name);
 
     document.addEventListener(KEY_EVENT_TYPE, keyboardClose, false);
-    console.log('useEffect before return');
 
     return () => {
-      console.log('useEffect after return');
-
       document.removeEventListener(KEY_EVENT_TYPE, keyboardClose, false);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,7 +62,7 @@ const EditModal = () => {
   const setDefaultValues = () => {
     dispatch(toggleEditModal(false));
     setNewName(name);
-    setAvatarImg('');
+    setAvatarImg(null);
   };
   return (
     <div
@@ -117,7 +111,7 @@ const EditModal = () => {
             id="avatar"
             accept="image/png, image/jpeg"
             placeholder=""
-            onChange={e => changeImageAvatar(e)}
+            onChange={changeImageAvatar}
           />
 
           <div className={style.inputWrapper}>
