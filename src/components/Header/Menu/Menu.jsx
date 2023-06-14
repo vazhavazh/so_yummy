@@ -14,7 +14,7 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
     >
       <div className={style.navWrapper}>
         <div className={style.logoCrossWrapper}>
-          <NavLink to="/">
+          <NavLink onClick={() => setIsMenuActive(false)} to="/">
             <img className={style.logo} src={logo} alt="logo" />
           </NavLink>
           <button
@@ -28,33 +28,54 @@ const Menu = ({ setIsMenuActive, isMenuActive }) => {
         <nav>
           <ul className={style.navList}>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/categories/Beef">
+              <NavLink
+                onClick={() => setIsMenuActive(false)}
+                className={style.navLink}
+                to="/categories/Beef"
+              >
                 Categories
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/add">
+              <NavLink
+                onClick={() => setIsMenuActive(false)}
+                className={style.navLink}
+                to="/add"
+              >
                 Add recipes
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/my">
+              <NavLink
+                onClick={() => setIsMenuActive(false)}
+                className={style.navLink}
+                to="/my"
+              >
                 My recipes
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/favorite">
+              <NavLink
+                onClick={() => setIsMenuActive(false)}
+                className={style.navLink}
+                to="/favorite"
+              >
                 Favorites
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <NavLink className={style.navLink} to="/shopping-list">
+              <NavLink
+                onClick={() => setIsMenuActive(false)}
+                className={style.navLink}
+                to="/shopping-list"
+              >
                 Shopping list
               </NavLink>
             </li>
             <li className={style.navItem}>
               <button className={style.searchBtn}>
                 <NavLink
+                  onClick={() => setIsMenuActive(false)}
                   className={`${style.navLink} ${style.searchLink}`}
                   to="/search"
                 >
