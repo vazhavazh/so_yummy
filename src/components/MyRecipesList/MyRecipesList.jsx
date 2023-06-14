@@ -107,7 +107,7 @@ export const MyRecipesList = () => {
               </div>
               <Link
                 className="base-link-leaf favorite-link base-link-leaf--mod"
-                to={`/recipe/${favorite._id.$oid}`}
+                to={`/recipe/${favorite._id}`}
               >
                 <span className="base-link-leaf--mod--span">See recipe</span>
               </Link>
