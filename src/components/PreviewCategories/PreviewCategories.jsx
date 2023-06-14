@@ -60,7 +60,7 @@ export const PreviewCategories = () => {
         <Button
           className={style.otherCategoriesBtn}
           text="Other categories"
-          to="/categories"
+          to="/categories/Beef"
         />
       </div>
     </>
