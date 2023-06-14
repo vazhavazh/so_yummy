@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '..//Search.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useLocation } from 'react-router-dom';
 
 import { selectedQuery } from 'redux/search/searchSelector';
 
@@ -11,7 +13,6 @@ import {
   fetchAllSearchedIngredient,
   fetchAllSearchedTitle,
 } from 'redux/search/searchThunks';
-import { useState } from 'react';
 
 const SearchForm = ({ page, limit }) => {
   const [wordQuery, setWordQuery] = useState('');
@@ -35,6 +36,8 @@ const SearchForm = ({ page, limit }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, limit, wordQuery]);
 
+  const location = useLocation();
+
   const fetchSearchData = () => {
     if (query === 'query') {
       dispatch(fetchAllSearchedTitle(params));
@@ -42,6 +45,19 @@ const SearchForm = ({ page, limit }) => {
       dispatch(fetchAllSearchedIngredient(params));
     }
   };
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const queryFromURL = searchParams.get('query');
+    setWordQuery(queryFromURL || '');
+  }, [location.search]);
+
+  useEffect(() => {
+    if (wordQuery.trim() !== '') {
+      fetchSearchData();
+    }
+  // eslint-disable-next-line 
+  }, [wordQuery]);
 
   const handleSubmit = e => {
     e.preventDefault();
