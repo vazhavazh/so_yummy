@@ -4,11 +4,7 @@ import style from '../RecipeMain/RecipeMain.module.scss';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import { useDispatch, useSelector} from 'react-redux';
-import {
-  fetchPostShoppingIngredient,
-  fetchDeleteShoppingIngredient,
-  fetchAllShoppingIngredients,
-} from 'redux/shoppingIngrs/shopThunks';
+import { fetchPostShoppingIngredient, fetchDeleteShoppingIngredient, fetchAllShoppingIngredients} from 'redux/shoppingIngrs/shopThunks';
 import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
 
 
