@@ -24,3 +24,7 @@ export const selectImg = state => {
   const recipes = state.simpleRecipe.simpleRecipe;
   return recipes.length > 0 ? recipes[0].preview : '';
 };
+
+
+
+

@@ -2,13 +2,15 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setFromFooter } from './searchSlice';
 
-
-
 export const fetchAllSearchedTitle = createAsyncThunk(
   'recipeByTittle/get',
-  async (title, thunkAPI) => {
+  async ({ wordQuery, page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get(`api/search?title=${encodeURIComponent(title)}`);
+      const response = await axios.get(
+        `api/search?title=${encodeURIComponent(
+          wordQuery
+        )}&page=${page}&limit=${limit}`
+      );
 
       return response.data;
     } catch (error) {
@@ -19,20 +21,20 @@ export const fetchAllSearchedTitle = createAsyncThunk(
 
 export const fetchAllSearchedIngredient = createAsyncThunk(
   'recipeByIngredient/get',
-  async (ingredient, thunkAPI) => {
+  async ({ wordQuery, page, limit }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `api/search?ingredient=${encodeURIComponent(ingredient)}`
+        `api/search?ingredient=${encodeURIComponent(
+          wordQuery
+        )}&page=${page}&limit=${limit}`
       );
-      
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-
 
 export const setFromFooterState = fromFooter => dispatch => {
   dispatch(setFromFooter(fromFooter));

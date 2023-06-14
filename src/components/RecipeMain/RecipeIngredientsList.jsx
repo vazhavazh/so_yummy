@@ -6,40 +6,71 @@ import {
   fetchAllShoppingIngredients,
 } from 'redux/shoppingIngrs/shopThunks';
 import style from './RecipeMain.module.scss';
-import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
+import { selectIsId} from 'redux/shoppingIngrs/shopSelectors';
 
 export const RecipeIngredientsList = ({ ingredients}) => {
-  const ingredientsRedux = useSelector(selectShoppingListIngredients);
+  // const ingredientsRedux = useSelector(selectShoppingListIngredients);
+  const newId = useSelector(selectIsId);
+
 
   const dispatch = useDispatch();
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  // const [newId1, setNewId] = useState(null);
+  
+
   useEffect(() => {
     dispatch(fetchAllShoppingIngredients());
   }, [dispatch]);
-  const handleCheckboxChange = (ingredient, isChecked) => {
-    if (isChecked) {
-      setCheckedIngredients(prevCheckedIngredients => [
-        ...prevCheckedIngredients,
-        ingredient,
-      ]);
-      dispatch(
-        fetchPostShoppingIngredient({
-          _id: ingredient._id,
-          measure: ingredient.measure,
-          ttl: ingredient.ttl,
-          thb: ingredient.thb,
-        })
-      );
-    } else {
-      setCheckedIngredients(prevCheckedIngredients =>
-        prevCheckedIngredients.filter(ing => ing._id !== ingredient._id)
-      );
-      const ingredientObj = ingredientsRedux.find(
-        ing => ing._id === ingredient._id
-      );
+  const handleCheckboxChange = async (ingredient, isChecked) => {
+    // if (isChecked) {
+    //   setCheckedIngredients(prevCheckedIngredients => [
+    //     ...prevCheckedIngredients,
+    //     ingredient,
+    //   ]);
+    //  const data = await  dispatch(
+    //     fetchPostShoppingIngredient({
+    //       _id: ingredient._id,
+    //       measure: ingredient.measure,
+    //       ttl: ingredient.ttl,
+    //       thb: ingredient.thb,
+    //     })
+    //   );
+    //   // console.log(data.payload._id)
+    //   console.log(`before`, ingredient);
+    //   ingredient = { ...ingredient, _id: data.payload._id };
+    //   console.log(`after`, ingredient);
+    // } else {
+     
 
-      dispatch(fetchDeleteShoppingIngredient(ingredientObj));
-    }
+    //   dispatch(fetchDeleteShoppingIngredient({ ...ingredient, _id: newId }));
+      
+    //   //   const index = checkedIngredients.findIndex(el => el._id === ingredient._id);
+    //   // setCheckedIngredients(checkedIngredients.splice(index, 1));
+      
+      
+    // }
+
+if (isChecked) {
+  setCheckedIngredients(prevCheckedIngredients => [
+    ...prevCheckedIngredients,
+    ingredient,
+  ]);
+  const data = await dispatch(
+    fetchPostShoppingIngredient({
+      _id: ingredient._id,
+      measure: ingredient.measure,
+      ttl: ingredient.ttl,
+      thb: ingredient.thb,
+    })
+  );
+  ingredient = { ...ingredient, _id: data.payload._id };
+} else {
+  dispatch(fetchDeleteShoppingIngredient({ ...ingredient, _id: newId }));
+  setCheckedIngredients(prevCheckedIngredients =>
+    prevCheckedIngredients.filter(ing => ing._id !== ingredient._id)
+  );
+}
+
   };
   // 640c2dd963a319ea671e37c6
   // 640c2dd963a319ea671e37c6
@@ -57,7 +88,7 @@ export const RecipeIngredientsList = ({ ingredients}) => {
         </div>
 
         <ul className={style.ingred__list}>
-          {ingredients.map(ingredient => {
+          {ingredients && ingredients.map(ingredient => {
             const isChecked = checkedIngredients.some(
               ing => ing._id === ingredient._id
             );
