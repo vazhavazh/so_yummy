@@ -18,16 +18,15 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState(false);
   const [submittedSearchValue, setSubmittedSearchValue] = useState('');
+  const mediaQuery = window.matchMedia('(max-width: 1440px)');
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 1440px)');
-
     // Проверяем разрешение экрана и устанавливаем дефолтное значение состояния
-    setLimit(mediaQuery.matches ? 12 : 6);
+    setLimit(mediaQuery.matches ? 6 : 12);
 
     // Слушаем изменения разрешения экрана и обновляем состояние при необходимости
     const handleResize = () => {
-      setLimit(mediaQuery.matches ? 12 : 6);
+      setLimit(mediaQuery.matches ? 6 : 12);
     };
 
     window.addEventListener('resize', handleResize);
@@ -35,7 +34,7 @@ const Search = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [mediaQuery]);
 
   const onChangePage = currentPage => {
     if (currentPage !== '...') {

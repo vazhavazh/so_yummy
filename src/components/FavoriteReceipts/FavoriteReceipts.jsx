@@ -35,13 +35,9 @@ export const FavoriteReceipts = () => {
 
   useEffect(() => {
     dispatch(fetchAllFavoriteReceipts(query));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
-
-  // useEffect(() => {
-  //   setPage(1);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [totalPages]);
 
   const onChangePage = currentPage => {
     if (currentPage !== '...') {
@@ -59,12 +55,10 @@ export const FavoriteReceipts = () => {
   const handleUpdateFavoriteReceipt = async receiptId => {
     try {
       await dispatch(fetchUpdateFavoriteReceipts(receiptId));
-
-      dispatch(fetchAllFavoriteReceipts(query));
-      if (page > totalPages) {
-        console.log('hello', page, totalPages);
-        setPage(totalPages);
+      if (favorites.length === 1 && page > 2) {
+        setPage(page - 1);
       }
+      dispatch(fetchAllFavoriteReceipts(query));
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +68,7 @@ export const FavoriteReceipts = () => {
     return <Loader />;
   }
 
-  if (!favorites || !Array.isArray(favorites) || favorites.length === 0) {
+  if (!favorites || !Array.isArray(favorites) || totalPages === 0) {
     return (
       <div className={scss.searchLookingWrapper}>
         <img src={img} alt="images" />

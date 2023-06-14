@@ -25,7 +25,6 @@ const favoriteReceiptSlice = createSlice({
       })
       .addCase(fetchUpdateFavoriteReceipts.fulfilled, (state, action) => {
         const updatedReceiptId = action.payload._id;
-        
 
         state.favoriteReceipts = state.favoriteReceipts.filter(
           receipt => receipt._id !== updatedReceiptId
@@ -37,7 +36,7 @@ const favoriteReceiptSlice = createSlice({
         (state, action) => {
           state.isLoading = true;
           state.error = null;
-          state.totalPages = null;
+          // state.totalPages = null;
         }
       )
       .addMatcher(
