@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchRecipe } from 'redux/simpleReceipt/simpleReceiptThunk';
 import {
+  selectImg,
   selectIngredients,
   selectInstructions,
   selectRecipes,
@@ -23,11 +24,9 @@ const Recipe = () => {
   }, [dispatch, recipeId]);
 
   const recipes = useSelector(selectRecipes);
-  const sIngredients = useSelector(selectIngredients);
+  const ingredients = useSelector(selectIngredients);
   const instructions = useSelector(selectInstructions);
-//  console.log(sIngredients);
-  // console.log(instructions)
-  // console.log(recipes);
+  const img = useSelector(selectImg);
 
 
 
@@ -37,8 +36,8 @@ const Recipe = () => {
     <>
       <div className={style.body}>
         <RecipePageHero recipes={recipes} />
-        <RecipeIngredientsList ingredients={sIngredients} />
-        <RecipePreparation instructions={instructions} />
+        <RecipeIngredientsList ingredients={ingredients} />
+        <RecipePreparation instructions={instructions} img={img} />
         {/* <RecipeMain></RecipeMain> */}
       </div>
     </>

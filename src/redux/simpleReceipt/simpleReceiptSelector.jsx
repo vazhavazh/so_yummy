@@ -17,3 +17,8 @@ export const selectInstructions = state => {
   const recipes = state.simpleRecipe.simpleRecipe;
   return recipes.length > 0 ? recipes[0].instructions : '';
 };
+
+export const selectImg = state => {
+  const recipes = state.simpleRecipe.simpleRecipe;
+  return recipes.length > 0 ? recipes[0].preview : '';
+};
