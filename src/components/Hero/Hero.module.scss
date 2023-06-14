@@ -11,12 +11,29 @@
   height: 777px;
   background-color: var(--mainBgColorWhite);
 
-  background-image: url('../../assets/image/mainPage/m-spinach-top.png'),
-    url('../../assets/image/mainPage/m-spinach-bottom.png'),
-    url('../../assets/image/mainPage/m-bg-green.png');
-  background-size: auto, auto, auto;
-  background-repeat: no-repeat;
-  background-position: top 35px left, right top 25px, right top 148px;
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    width: 375px;
+    height: 814px;
+    background-image: url('../../assets/image/mainPage/m-spinach-bottom.png'),
+      url('../../assets/image/mainPage/m-bg-green.png');
+    background-position: top 35px left, right top 25px, right top 148px;
+    background-repeat: no-repeat;
+  }
+
+  &::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: '';
+    width: 48px;
+    height: 202px;
+    background-image: url('../../assets/image/mainPage/m-spinach-top.png');
+    background-repeat: no-repeat;
+  }
 
   @include tablet {
     display: flex;
@@ -24,22 +41,57 @@
     height: 640px;
     gap: 18px;
 
-    background-image: url('../../assets/image/mainPage/t-spinach-top.png'),
-      url('../../assets/image/mainPage/t-bg-green.png');
-    background-size: auto, auto;
-    background-repeat: no-repeat;
-    background-position: top left, right top;
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: '';
+      width: 583px;
+      height: 640px;
+      background-image: url('../../assets/image/mainPage/t-spinach-bottom.png'),
+        url('../../assets/image/mainPage/t-bg-green.png');
+      background-position: right top, right top;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 67px;
+      height: 323px;
+      background-image: url('../../assets/image/mainPage/t-spinach-top.png');
+      background-repeat: no-repeat;
+    }
   }
 
   @include desktop {
     min-width: 1440px;
     height: 800px;
 
-    background-image: url('../../assets/image/mainPage/d-spinach-top.png'),
-      url('../../assets/image/mainPage/d-spinach-bottom.png'),
-      url('../../assets/image/mainPage/d-bg-green.png');
-    background-size: auto 474px, contain, auto;
-    background-repeat: no-repeat;
-    background-position: top left, right center, right top;
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: '';
+      width: 913px;
+      height: 800px;
+      background-image: url('../../assets/image/mainPage/d-spinach-bottom.png'),
+        url('../../assets/image/mainPage/d-bg-green.png');
+      background-position: right top, right top;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 116px;
+      height: 398px;
+      background-image: url('../../assets/image/mainPage/d-spinach-top.png');
+      background-repeat: no-repeat;
+    }
   }
 }
