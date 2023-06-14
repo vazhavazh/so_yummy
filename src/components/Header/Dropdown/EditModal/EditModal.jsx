@@ -1,7 +1,6 @@
 import style from './EditModal.module.scss';
 import { ReactComponent as Cross } from '../../../../assets/svg/header/cross-2.svg';
 import { ReactComponent as BlackUser } from '../../../../assets/svg/header/black-user.svg';
-// import grayUser from '../../../../assets/svg/header/gray-user.svg';
 import plus from '../../../../assets/svg/header/plus.svg';
 import edit from '../../../../assets/svg/header/edit.svg';
 import { useState, useEffect } from 'react';
@@ -9,7 +8,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
 import { getUserName, getIsEditModalOpen } from 'redux/auth/authSelectors';
 import { toggleEditModal } from 'redux/auth/authSlice';
-// import { FileInputField } from 'components/AddRecipeForm/FileInputField';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  newName: Yup.string()
+    .max(16, 'Name must be at most 16 characters long.')
+    .matches(
+      /^[a-zA-Zа-яА-ЯїЇіІ0-9 ]*$/,
+      'Name can only contain letters, numbers, and spaces.'
+    )
+    .required('Please enter a name.'),
+});
 
 const EditModal = () => {
   const { avatarURL, name } = useSelector(getUserName);
@@ -22,7 +33,15 @@ const EditModal = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(editUser({ name: newName, avatar: newAvatar }));
+
+    validationSchema
+      .validate({ newName })
+      .then(() => {
+        dispatch(editUser({ name: newName, avatar: newAvatar }));
+      })
+      .catch(error => {
+        Notify.failure(error.message);
+      });
   };
 
   const changeImageAvatar = e => {
@@ -47,11 +66,8 @@ const EditModal = () => {
     setNewName(name);
 
     document.addEventListener(KEY_EVENT_TYPE, keyboardClose, false);
-    console.log('useEffect before return');
 
     return () => {
-      console.log('useEffect after return');
-
       document.removeEventListener(KEY_EVENT_TYPE, keyboardClose, false);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,7 +140,6 @@ const EditModal = () => {
             <input
               className={style.input}
               type="text"
-              // placeholder={name}
               value={newName}
               onChange={e => setNewName(e.target.value)}
               required
