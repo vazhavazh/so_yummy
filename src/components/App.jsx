@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route,  useLocation } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/authThunks';
