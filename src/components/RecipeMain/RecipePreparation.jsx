@@ -1,16 +1,14 @@
-import React from 'react'
+import React from 'react';
 import style from 'components/RecipeMain/RecipeMain.module.scss';
 
+export const RecipePreparation = ({ instructions, img }) => {
+  console.log(img)
+  if (!instructions) {
+    return null;
+  }
 
-export const RecipePreparation = ({ instructions }) => {
-if (!instructions) {
-    return null
-    }
-   
-    const newInstructions = instructions
-        .split('.')
-    
-      
+  const newInstructions = instructions.split('.');
+
   return (
     <>
       <div className={style.prep__container}>
@@ -25,15 +23,9 @@ if (!instructions) {
           </ol>
         </div>
         <div>
-          <img
-            className={style.prep__img}
-            src="./static/media/salad.07661521d67a51570636.jpg"
-            alt="dish"
-          />
+          <img className={style.prep__img} src={img} alt="dish" />
         </div>
       </div>
     </>
   );
 };
-
-

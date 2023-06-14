@@ -49,7 +49,7 @@ export const PopularRecipes = () => {
         {numberOfRecipes(popularRecipe).map(
           ({ description, preview, title, _id }) => (
             <li className={style.popularListEll} key={_id}>
-              <a className={style.popularEll} href={`/recipe/${_id}`}>
+              <a className={style.popularEll} href={`/so_yummy/recipe/${_id}`}>
                 <img className={style.populaImg} src={preview} alt="title" />
                 <div className={style.popularTextBox}>
                   <p className={style.popularTitleRecipe}>{title}</p>

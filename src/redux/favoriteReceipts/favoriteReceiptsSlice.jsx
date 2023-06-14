@@ -24,6 +24,7 @@ const favoriteReceiptSlice = createSlice({
         state.totalPages = action.payload.totalPages;
       })
       .addCase(fetchUpdateFavoriteReceipts.fulfilled, (state, action) => {
+        console.log(state)
         const updatedReceiptId = action.payload._id;
 
         state.favoriteReceipts = state.favoriteReceipts.filter(

@@ -1,29 +1,48 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import {
   fetchPostShoppingIngredient,
   fetchDeleteShoppingIngredient,
+  fetchAllShoppingIngredients,
 } from 'redux/shoppingIngrs/shopThunks';
 import style from './RecipeMain.module.scss';
+import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
 
-export const RecipeIngredientsList = ({ ingredients }) => {
+export const RecipeIngredientsList = ({ ingredients}) => {
+  const ingredientsRedux = useSelector(selectShoppingListIngredients);
+
   const dispatch = useDispatch();
   const [checkedIngredients, setCheckedIngredients] = useState([]);
-
+  useEffect(() => {
+    dispatch(fetchAllShoppingIngredients());
+  }, [dispatch]);
   const handleCheckboxChange = (ingredient, isChecked) => {
     if (isChecked) {
       setCheckedIngredients(prevCheckedIngredients => [
         ...prevCheckedIngredients,
         ingredient,
       ]);
-      dispatch(fetchPostShoppingIngredient(ingredient));
+      dispatch(
+        fetchPostShoppingIngredient({
+          _id: ingredient._id,
+          measure: ingredient.measure,
+          ttl: ingredient.ttl,
+          thb: ingredient.thb,
+        })
+      );
     } else {
       setCheckedIngredients(prevCheckedIngredients =>
         prevCheckedIngredients.filter(ing => ing._id !== ingredient._id)
       );
-      dispatch(fetchDeleteShoppingIngredient(ingredient));
+      const ingredientObj = ingredientsRedux.find(
+        ing => ing._id === ingredient._id
+      );
+
+      dispatch(fetchDeleteShoppingIngredient(ingredientObj));
     }
   };
+  // 640c2dd963a319ea671e37c6
+  // 640c2dd963a319ea671e37c6
 
   return (
     <>
@@ -39,7 +58,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
 
         <ul className={style.ingred__list}>
           {ingredients.map(ingredient => {
-            // console.log(ingredient)
             const isChecked = checkedIngredients.some(
               ing => ing._id === ingredient._id
             );
