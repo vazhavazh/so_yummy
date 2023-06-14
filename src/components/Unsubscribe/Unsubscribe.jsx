@@ -7,9 +7,10 @@ export const Unsubscribe = () => {
 
   const clickHandler = e => {
     e.preventDefault();
-    const urlParams = new URLSearchParams(window.location.search);
-    const _id = urlParams.get('_id');
-    console.log(_id);
+    const url = window.location.href;
+
+    const _id = url.split('/').pop();
+
     dispatch(unSubscribe(_id));
   };
 

@@ -25,7 +25,7 @@ export const unSubscribe = createAsyncThunk(
 
   async (_id, { rejectWithValue }) => {
     try {
-      await axios.delete(`/api/subscribe/${_id}`);
+      await axios.delete(`http://localhost:3001/api/subscribe/${_id}`);
       return Notify.info('You are not subscribed anymore');
     } catch (error) {
       if (error.response.status === 404) {
