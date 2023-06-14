@@ -8,7 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--mainBgColorWhite);
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.headerNotMain {
+  position: static;
 }
 
 .navWrapper {
@@ -64,6 +71,13 @@
   }
   @include desktop {
     margin-right: 50px;
+    color: $secondaryAccentColor;
+  }
+}
+
+.usernameNotMain {
+  @include desktop {
+    color: var(--darkToWhite);
   }
 }
 
@@ -89,8 +103,16 @@
   height: 28px;
   stroke: var(--darkToWhite);
   @include tablet {
+    stroke: $secondaryAccentColor;
+
     width: 32px;
     height: 32px;
+  }
+}
+
+.burgerNotMain {
+  @include tablet {
+    stroke: var(--darkToWhite);
   }
 }
 

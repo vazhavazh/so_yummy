@@ -77,7 +77,11 @@ export const editUser = createAsyncThunk(
   'auth/edit',
   async (userData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch(`/api/auth/edit`, userData);
+      const { data } = await axios.patch(`/api/auth/edit`, userData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       return data;
     } catch (error) {
       if (error.response.data.message === '"name" is not allowed to be empty') {

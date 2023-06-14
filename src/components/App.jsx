@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route,  useLocation } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/authThunks';
@@ -150,7 +150,7 @@ export const App = () => {
             }
           />
           <Route path="/error" element={<ErrorPage />} />
-          <Route path="*" element={<Navigate to="/error" />} />
+          {/* <Route path="*" element={<Navigate to="/error" />} /> */}
         </Route>
       </Routes>
     </>
