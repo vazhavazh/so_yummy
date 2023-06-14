@@ -28,7 +28,7 @@ const shoppingIngredientsSlice = createSlice({
       })
 
       .addCase(fetchPostShoppingIngredient.fulfilled, (state, action) => {
-        state.shoppingIngredients.push(action.payload);
+        state.shoppingIngredients.shoppingList.push(action.payload);
       })
 
         .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {

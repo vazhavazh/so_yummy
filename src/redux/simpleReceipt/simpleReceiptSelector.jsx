@@ -1,4 +1,7 @@
-export const selectRecipes = state => state.simpleRecipe.simpleRecipe;
+export const selectRecipes = state => {
+  console.log(state.simpleRecipe.simpleRecipe); // Проверка выбранных данных
+  return state.simpleRecipe.simpleRecipe;
+};
 export const selectIsLoading = state => state.simpleRecipe.isLoading;
 export const selectError = state => state.simpleRecipe.error;
 export const selectIngredients = state => {

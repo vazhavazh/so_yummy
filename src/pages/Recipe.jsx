@@ -1,4 +1,3 @@
-import { RecipeMain } from 'components/RecipeMain/RecipeMain';
 import React from 'react';
 import style from 'components/RecipeMain/RecipeMain.module.scss';
 import { RecipePageHero } from 'components/RecipeMain/RecipePageHero';
@@ -24,9 +23,9 @@ const Recipe = () => {
   }, [dispatch, recipeId]);
 
   const recipes = useSelector(selectRecipes);
-  const ingredients = useSelector(selectIngredients);
+  const sIngredients = useSelector(selectIngredients);
   const instructions = useSelector(selectInstructions);
- 
+ console.log(sIngredients);
   // console.log(instructions)
   // console.log(recipes);
 
@@ -38,9 +37,9 @@ const Recipe = () => {
     <>
       <div className={style.body}>
         <RecipePageHero recipes={recipes} />
-        <RecipeIngredientsList ingredients={ingredients} />
+        <RecipeIngredientsList ingredients={sIngredients} />
         <RecipePreparation instructions={instructions} />
-        <RecipeMain></RecipeMain>
+        {/* <RecipeMain></RecipeMain> */}
       </div>
     </>
   );
