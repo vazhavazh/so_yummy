@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch} from 'react-redux';
 import {
   fetchPostShoppingIngredient,
   fetchDeleteShoppingIngredient,
+  fetchAllShoppingIngredients,
 } from 'redux/shoppingIngrs/shopThunks';
 import style from './RecipeMain.module.scss';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
+ 
+
   const dispatch = useDispatch();
   const [checkedIngredients, setCheckedIngredients] = useState([]);
-
+  useEffect(() => {
+    dispatch(fetchAllShoppingIngredients());
+  }, [dispatch]);
   const handleCheckboxChange = (ingredient, isChecked) => {
     if (isChecked) {
       setCheckedIngredients(prevCheckedIngredients => [
@@ -39,7 +44,7 @@ export const RecipeIngredientsList = ({ ingredients }) => {
 
         <ul className={style.ingred__list}>
           {ingredients.map(ingredient => {
-            // console.log(ingredient)
+            
             const isChecked = checkedIngredients.some(
               ing => ing._id === ingredient._id
             );

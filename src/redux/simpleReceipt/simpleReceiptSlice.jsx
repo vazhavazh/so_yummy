@@ -14,7 +14,7 @@ const simpleRecipeSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchRecipe.fulfilled, (state, action) => {
-          console.log(action.payload);
+        
         state.simpleRecipe = action.payload;
         state.isLoading = false;
         state.error = null;
