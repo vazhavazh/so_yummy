@@ -9,42 +9,72 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editUser } from 'redux/auth/authThunks';
 import { getUserName, getIsEditModalOpen } from 'redux/auth/authSelectors';
 import { toggleEditModal } from 'redux/auth/authSlice';
+import { FileInputField } from 'components/AddRecipeForm/FileInputField';
 
 const EditModal = () => {
+  const { avatarURL, name } = useSelector(getUserName);
+
   const dispatch = useDispatch();
+
   const [newName, setNewName] = useState('');
   const [newAvatar, setNewAvatar] = useState(null);
-
-  const { name } = useSelector(getUserName);
+  const [avatarImg, setAvatarImg] = useState(null);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(editUser({ name: newName, avatar: newAvatar }));
   };
 
+  const changeImageAvatar = e => {
+    const file = e.target.files[0];
+
+    setNewAvatar(file);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatarImg(reader.result);
+      };
+      reader.readAsDataURL(file);
+      //
+    }
+  };
+
   const KEY_NAME_ESC = 'Escape';
   const KEY_EVENT_TYPE = 'keyup';
 
   useEffect(() => {
-    document.addEventListener(KEY_EVENT_TYPE, handleClose, false);
+    setNewName(name);
+
+    document.addEventListener(KEY_EVENT_TYPE, keyboardClose, false);
+    console.log('useEffect before return');
 
     return () => {
-      document.removeEventListener(KEY_EVENT_TYPE, handleClose, false);
+      console.log('useEffect after return');
+
+      document.removeEventListener(KEY_EVENT_TYPE, keyboardClose, false);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [name]);
 
-  function handleClose(e) {
+  function keyboardClose(e) {
     if (e.key === KEY_NAME_ESC) {
-      dispatch(toggleEditModal(false));
+      setDefaultValues();
     }
   }
 
   const isEditModalOpen = useSelector(getIsEditModalOpen);
 
+  const setDefaultValues = () => {
+    dispatch(toggleEditModal(false));
+    setNewName(name);
+    setAvatarImg('');
+  };
   return (
     <div
-      onClick={() => dispatch(toggleEditModal(false))}
+      onClick={() => {
+        setDefaultValues();
+      }}
       className={`${style.backdrop} ${
         isEditModalOpen ? '' : style.backdropHidden
       }`}
@@ -54,14 +84,30 @@ const EditModal = () => {
         className={`${style.modal} ${isEditModalOpen ? '' : style.modalHidden}`}
       >
         <button
-          onClick={() => dispatch(toggleEditModal(false))}
+          onClick={() => {
+            setDefaultValues();
+          }}
           className={style.crossBtn}
         >
           <Cross className={style.cross} />
         </button>
         <form className={style.form}>
           <label htmlFor="avatar" className={style.label}>
-            <img className={style.grayUser} src={grayUser} alt="gray user" />
+            {avatarImg ? (
+              <img
+                src={avatarImg}
+                alt="Avatar Preview"
+                className={style.grayUser}
+              />
+            ) : (
+              <>
+                <img
+                  className={style.grayUser}
+                  src={avatarURL}
+                  alt="gray user"
+                />
+              </>
+            )}
             <img className={style.plusIcon} src={plus} alt="plus" />
           </label>
           <input
@@ -71,14 +117,15 @@ const EditModal = () => {
             id="avatar"
             accept="image/png, image/jpeg"
             placeholder=""
-            onChange={e => setNewAvatar(e.target.value)}
+            onChange={e => changeImageAvatar(e)}
           />
 
           <div className={style.inputWrapper}>
             <input
               className={style.input}
               type="text"
-              placeholder={name}
+              // placeholder={name}
+              value={newName}
               onChange={e => setNewName(e.target.value)}
               required
             />
