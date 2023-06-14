@@ -1,29 +1,56 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import {
   fetchPostShoppingIngredient,
   fetchDeleteShoppingIngredient,
+  fetchAllShoppingIngredients,
 } from 'redux/shoppingIngrs/shopThunks';
 import style from './RecipeMain.module.scss';
+import { selectIsId} from 'redux/shoppingIngrs/shopSelectors';
 
-export const RecipeIngredientsList = ({ ingredients }) => {
+export const RecipeIngredientsList = ({ ingredients}) => {
+  // const ingredientsRedux = useSelector(selectShoppingListIngredients);
+  const newId = useSelector(selectIsId);
+
+
   const dispatch = useDispatch();
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  // const [newId1, setNewId] = useState(null);
 
-  const handleCheckboxChange = (ingredient, isChecked) => {
+  useEffect(() => {
+    dispatch(fetchAllShoppingIngredients());
+  }, [dispatch]);
+  const handleCheckboxChange = async (ingredient, isChecked) => {
     if (isChecked) {
       setCheckedIngredients(prevCheckedIngredients => [
         ...prevCheckedIngredients,
         ingredient,
       ]);
-      dispatch(fetchPostShoppingIngredient(ingredient));
-    } else {
-      setCheckedIngredients(prevCheckedIngredients =>
-        prevCheckedIngredients.filter(ing => ing._id !== ingredient._id)
+     const data = await  dispatch(
+        fetchPostShoppingIngredient({
+          _id: ingredient._id,
+          measure: ingredient.measure,
+          ttl: ingredient.ttl,
+          thb: ingredient.thb,
+        })
       );
-      dispatch(fetchDeleteShoppingIngredient(ingredient));
+      // console.log(data.payload._id)
+      console.log(`before`, ingredient);
+      ingredient = { ...ingredient, _id: data.payload._id };
+      console.log(`after`, ingredient);
+    } else {
+     
+
+      dispatch(fetchDeleteShoppingIngredient({ ...ingredient, _id: newId }));
+     
+      //   const index = checkedIngredients.findIndex(el => el._id === ingredient._id);
+      // setCheckedIngredients(checkedIngredients.splice(index, 1));
+      
+      
     }
   };
+  // 640c2dd963a319ea671e37c6
+  // 640c2dd963a319ea671e37c6
 
   return (
     <>
@@ -39,7 +66,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
 
         <ul className={style.ingred__list}>
           {ingredients.map(ingredient => {
-            // console.log(ingredient)
             const isChecked = checkedIngredients.some(
               ing => ing._id === ingredient._id
             );
