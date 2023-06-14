@@ -1,9 +1,12 @@
 import React from 'react';
 import style from 'components/RecipeMain/RecipeMain.module.scss';
+// import { RecipePageHero } from 'components/RecipeMain/RecipePageHero';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+import {} from 'redux/simpleReceipt/simpleReceiptSelector';
+// import Loader from 'components/Loader/Loader';
 import { RecipeIngredientsList } from 'components/RecipeMain/RecipeIngredientsList';
 import { RecipePreparation } from 'components/RecipeMain/RecipePreparation';
 import { fetchMyOwnRecipe } from 'redux/pipka/pipkaThunk';
