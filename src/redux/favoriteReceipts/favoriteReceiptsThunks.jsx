@@ -3,9 +3,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchAllFavoriteReceipts = createAsyncThunk(
   'shoppingIngredients/fetchAll',
-  async (_, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get('/api/favorites');
+      const response = await axios.get('/api/favorites', {
+        params: { page, limit },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

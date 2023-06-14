@@ -1,4 +1,3 @@
-import { RecipeMain } from 'components/RecipeMain/RecipeMain';
 import React from 'react';
 
 

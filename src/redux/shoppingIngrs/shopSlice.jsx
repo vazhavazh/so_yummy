@@ -11,6 +11,7 @@ const initialState = {
   shoppingIngredients: [],
   isLoading: false,
   error: null,
+  newVariable: null,
 };
 
 const shoppingIngredientsSlice = createSlice({

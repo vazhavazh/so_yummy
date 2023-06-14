@@ -12,23 +12,23 @@ export const PageTitle = ({ recipeTitle }) => {
   }, [location]);
 
   const getPageName = pathname => {
-    const page = pathname.substring(1);
-
-    switch (page) {
-      case 'categories':
-        return 'Categories';
-      case 'favorite':
-        return 'Favorites';
-      case 'add':
-        return 'Add recipe';
-      case 'my':
-        return 'My recipes';
-      case 'search':
-        return 'Search';
-      case 'shopping-list':
-        return 'Shopping list';
-      default:
-        return 'Page Title';
+    if (pathname.includes('categories')) {
+      return 'Category';
+    } else {
+      switch (pathname) {
+        case '/favorite':
+          return 'Favorites';
+        case '/add':
+          return 'Add recipe';
+        case '/my':
+          return 'My recipes';
+        case '/search':
+          return 'Search';
+        case '/shopping-list':
+          return 'Shopping list';
+        default:
+          return 'Page Title';
+      }
     }
   };
 
