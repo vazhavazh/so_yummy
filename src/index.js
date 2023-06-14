@@ -12,7 +12,7 @@ import './main.scss';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store} >
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
+      <BrowserRouter basename="/so_yummy">
         <ThemeProvider>
           <App />
         </ThemeProvider>
@@ -20,5 +20,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </PersistGate>
   </Provider>
 );
-
-// basename="/so_yummy"

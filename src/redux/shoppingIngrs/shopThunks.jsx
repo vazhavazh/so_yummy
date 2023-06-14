@@ -42,24 +42,14 @@ export const fetchDeleteShoppingIngredient = createAsyncThunk(
 
 
 export const fetchPostShoppingIngredient = createAsyncThunk(
-  'shoppingIngredient/fetchDelete',
-  async (ingredient, thunkAPI) => {
+  'shoppingIngrs/fetchPostShoppingIngredient',
+  async ({ _id, measure, ttl, thb }, { rejectWithValue }) => {
     try {
-      const { _id, measure, ttl, thb } = ingredient;
-      const response = await axios.post('/api/shopping-list', {
-        data: { _id, measure, ttl, thb },
-      });
+      const ingredient = { _id, measure, ttl, thb };
+      const response = await axios.post('/api/shopping-list', ingredient);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
-  },
-  {
-    condition: (_, { getState }) => {
-      const isLoading = getState().isLoading;
-      if (isLoading) {
-        return false;
-      }
-    },
   }
 );
