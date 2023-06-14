@@ -51,7 +51,10 @@ export const MyRecipesList = () => {
   const handleDeleteRecipe = async receiptId => {
     try {
       await dispatch(deleteMyOwnRecipe(receiptId));
-      dispatch(fetchAllMyOwnRecipes());
+      if (myOwnRecipes.length === 1 && page > 2) {
+        setPage(page - 1);
+      }
+      dispatch(fetchAllMyOwnRecipes(query));
     } catch (error) {
       console.log(error);
     }
@@ -111,7 +114,7 @@ export const MyRecipesList = () => {
             </li>
           ))}
         </ul>
-        {totalPages !== 1 && (
+        {totalPages !== 1 && totalPages && (
           <Pagination
             totalPages={totalPages}
             currentpage={page}
