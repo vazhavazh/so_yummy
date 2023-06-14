@@ -154,9 +154,12 @@ import { FileInputField } from './FileInputField';
 import { ReactComponent as DeleteIcon } from '../AddRecipeForm/images/ingredientsDeleteIcon.svg';
 import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.svg';
 import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
+import { PopularRecipes } from 'components/PopularRecipes/PopularRecipes';
 import categories from './data/categories.json';
-import cookingTime from './data/cookingTime.json';
+import time from './data/cookingTime.json';
 import ingredients from './data/ingredients.json';
+import { useDispatch } from 'react-redux';
+import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -172,28 +175,29 @@ function isValidFileType(fileName, fileType) {
 }
 
 const initialValues = {
-  file: '',
+  preview: '',
   title: '',
-  about: '',
+  description: 'test',
   category: '',
-  cookingTime: '',
-  ingredients: [{ name: '', dose: '' }],
+  time: '',
+  // ingredients: [{ id: '', measure: '' }],
+  ingredients: [],
   preparation: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
   title: Yup.string().required('Title is required'),
-  about: Yup.string().required('About is required'),
+  description: Yup.string().required('Description is required'),
   category: Yup.string().required('Category is required'),
-  cookingTime: Yup.string().required('Cooking time is required'),
+  time: Yup.string().required('Cooking time is required'),
   preparation: Yup.string().required('Recipe preparation is required'),
-  ingredients: Yup.array().of(
-    Yup.object().shape({
-      name: Yup.string().required('Select ingredient'),
-      dose: Yup.string().required('Type dose'),
-    })
-  ),
-  file: Yup.mixed()
+  // ingredients: Yup.array().of(
+  //   Yup.object().shape({
+  //     id: Yup.string().required('Select ingredient'),
+  //     measure: Yup.string().required('Type dose'),
+  //   })
+  // ),
+  preview: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
         return true;
@@ -282,21 +286,37 @@ const customInredientStyles = {
 };
 
 export const AddRecipeForm = () => {
+  const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
 
+  // const handleSubmit = (values, { resetForm }) => {
+  //   // const preparationArray = values.preparation
+  //   //   .split('\n')
+  //   //   .filter(line => line.trim() !== '');
+  //   // const updatedValues = {
+  //   //   ...values,
+  //   //   preparation: preparationArray,
+  //   // };
+  //   // console.log(values);
+  //   dispatch(addMyOwnRecipe(values));
+  //   setIsSubmitted(true);
+  //   setCounter(1);
+  //   resetForm();
+  // };
+
   const handleSubmit = (values, { resetForm }) => {
-    const preparationArray = values.preparation
-      .split('\n')
-      .filter(line => line.trim() !== '');
-    const updatedValues = {
-      ...values,
-      preparation: preparationArray,
-    };
-    console.log(updatedValues);
-    setIsSubmitted(true);
-    setCounter(1);
-    resetForm();
+    console.log(values);
+
+    dispatch(addMyOwnRecipe(values))
+      .then(() => {
+        setIsSubmitted(true);
+        setCounter(1);
+        // resetForm();
+      })
+      .catch(() => {
+        // Handle error if needed
+      });
   };
 
   // ingredients logic:
@@ -322,10 +342,10 @@ export const AddRecipeForm = () => {
           <Form className={styles.addRecipeForm}>
             <div className={styles.descriptionWrapper}>
               <div className={styles.inputWrapperFile}>
-                <FileInputField name="file" reset={isSubmitted} />
+                <FileInputField name="preview" reset={isSubmitted} />
                 <ErrorMessage
                   className={styles.errorMessageFile}
-                  name="file"
+                  name="preview"
                   component="div"
                 />
               </div>
@@ -348,14 +368,16 @@ export const AddRecipeForm = () => {
                 <div className={styles.inputWrapper}>
                   <Field
                     className={`${styles.recipeDescriptionInput} ${
-                      errors.about && touched.about ? styles.error : ''
+                      errors.description && touched.description
+                        ? styles.error
+                        : ''
                     }`}
                     type="text"
-                    name="about"
-                    placeholder="Enter about recipe"
+                    name="description"
+                    placeholder="Enter description"
                   />
                   <ErrorMessage
-                    name="about"
+                    name="description"
                     component="div"
                     className={styles.errorMessage}
                   />
@@ -393,33 +415,27 @@ export const AddRecipeForm = () => {
                 </div>
                 <div
                   className={`${styles.inputWrapperCategory} ${
-                    errors.cookingTime && touched.cookingTime
-                      ? styles.error
-                      : ''
+                    errors.time && touched.time ? styles.error : ''
                   }`}
                 >
-                  <label className={styles.categoryLabel} htmlFor="cookingTime">
+                  <label className={styles.categoryLabel} htmlFor="time">
                     Cooking time
                   </label>
 
                   <ReactSelect
-                    name="cookingTime"
-                    options={cookingTime}
+                    name="time"
+                    options={time}
                     styles={customStyles}
                     isSearchable={false}
                     value={
                       isSubmitted
                         ? ''
-                        : cookingTime.find(
-                            option => option.value === values.cookingTime
-                          )
+                        : time.find(option => option.value === values.time)
                     }
-                    onChange={value =>
-                      setFieldValue('cookingTime', value.value)
-                    }
+                    onChange={value => setFieldValue('time', value.value)}
                   />
                   <ErrorMessage
-                    name="cookingTime"
+                    name="time"
                     component="div"
                     className={styles.errorMessage}
                   />
@@ -444,7 +460,7 @@ export const AddRecipeForm = () => {
                             >
                               <div className={styles.ingredientInputWtapper}>
                                 <ReactSelect
-                                  name={`ingredients[${index}].name`}
+                                  name={`ingredients[${index}].id`}
                                   options={ingredients}
                                   isSearchable={true}
                                   styles={customInredientStyles}
@@ -452,28 +468,28 @@ export const AddRecipeForm = () => {
                                   value={ingredients.find(
                                     option =>
                                       option.value ===
-                                      values.ingredients[index].name
+                                      values.ingredients[index].id
                                   )}
                                   onChange={selectedOption =>
                                     setFieldValue(
-                                      `ingredients[${index}].name`,
+                                      `ingredients[${index}].id`,
                                       selectedOption.value
                                     )
                                   }
                                 />
                               </div>
                               <ErrorMessage
-                                name={`ingredients[${index}].name`}
+                                name={`ingredients[${index}].id`}
                                 className={styles.errorMessage}
                                 component="div"
                               />
                               <Field
-                                name={`ingredients[${index}].dose`}
+                                name={`ingredients[${index}].measure`}
                                 placeholder="Dose"
                                 className={styles.ingredientDose}
                               />
                               <ErrorMessage
-                                name={`ingredients[${index}].dose`}
+                                name={`ingredients[${index}].measure`}
                                 className={styles.doseErrorMessage}
                                 component="div"
                               />
@@ -505,8 +521,8 @@ export const AddRecipeForm = () => {
                           <IncrementIcon
                             onClick={() => {
                               push({
-                                name: '',
-                                dose: '',
+                                id: '',
+                                measure: '',
                               });
                               handleIncrement();
                             }}

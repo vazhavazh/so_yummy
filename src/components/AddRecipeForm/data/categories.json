@@ -1,6 +1,6 @@
 [
   { "value": "breakfast", "label": "Breakfast" },
-  { "value": "dessert", "label": "Dessert" },
+  { "value": "Dessert", "label": "Dessert" },
   { "value": "miscellaneous", "label": "Miscellaneous" },
   { "value": "dinner", "label": "Dinner" },
   { "value": "super", "label": "Supper" },
