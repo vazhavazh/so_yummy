@@ -11,6 +11,7 @@ const initialState = {
   shoppingIngredients: [],
   isLoading: false,
   error: null,
+  newVariable: null,
 };
 
 const shoppingIngredientsSlice = createSlice({
@@ -28,7 +29,7 @@ const shoppingIngredientsSlice = createSlice({
       })
 
       .addCase(fetchPostShoppingIngredient.fulfilled, (state, action) => {
-        state.shoppingIngredients.shoppingList.push(action.payload);
+        state.newVariable = action.payload._id;
       })
 
         .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {

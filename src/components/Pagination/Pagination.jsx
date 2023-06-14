@@ -1,9 +1,7 @@
-// import styled from 'styled-components';
 import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
-// import { TiChevronLeft, TiChevronRight } from 'react-icons/ti';
 
 import style from './Pagination.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Pagination = ({ onChangePage, totalPages, currentpage }) => {
   const [isActive, setIsActive] = useState(currentpage);
@@ -12,14 +10,11 @@ export const Pagination = ({ onChangePage, totalPages, currentpage }) => {
     pages.push(i);
   }
 
+  useEffect(() => {}, [isActive]);
+
   const onClick = e => {
-    console.log(e.target.innerText);
     setIsActive(Number(e.target.innerText));
   };
-
-  // const containerClasses = `${style.pageDigit} ${
-  //   activePage ? style.active : ''
-  // }`;
 
   function handlePaginationDisplay() {
     const pageNeighboursLeft = [currentpage - 2, currentpage - 1];
@@ -70,7 +65,6 @@ export const Pagination = ({ onChangePage, totalPages, currentpage }) => {
       </button>
       {handlePaginationDisplay().map((page, index) => (
         <p
-          // className={style.pageDigit}
           className={`${style.pageDigit} ${
             isActive === page ? style.active : ''
           }`}
@@ -94,49 +88,3 @@ export const Pagination = ({ onChangePage, totalPages, currentpage }) => {
     </div>
   );
 };
-
-// const Pages = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   gap: 15px;
-//   font-size: 1.2rem;
-//   padding: 20px 0;
-//   overflow: hidden;
-// `;
-// const Page = styled.span`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 50px;
-
-//   background-color: ${props =>
-//     props.currentPage === props.children && '#fd6a02'};
-//   border: 2px solid #fd6a02;
-//   border-radius: 5px;
-//   cursor: pointer;
-
-//   transition: all 250ms linear;
-//   &:hover {
-//     scale: 1.2;
-//     background-color: #ffbf00;
-//   }
-// `;
-
-// const Button = styled.button`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 50px;
-
-//   background-color: #fd6a02;
-//   border: 2px solid #fd6a02;
-//   border-radius: 5px;
-//   cursor: pointer;
-
-//   transition: all 250ms linear;
-
-//   &:hover {
-//     scale: 1.2;
-//     background-color: #ffbf00;
-//   }
-// `;

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   selectError,
   selectLoading,
   selectSearchData,
 } from 'redux/search/searchSelector';
-import {
-  // fetchAllSearchedIngredient,
-  // fetchAllSearchedTitle,
-} from 'redux/search/searchThunks';
+import // fetchAllSearchedIngredient,
+// fetchAllSearchedTitle,
+'redux/search/searchThunks';
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
 import scss from '..//..//Search/SearchBar/SearchBar.module.scss';

@@ -6,23 +6,27 @@ import {
   fetchAllShoppingIngredients,
 } from 'redux/shoppingIngrs/shopThunks';
 import style from './RecipeMain.module.scss';
-import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
+import { selectIsId} from 'redux/shoppingIngrs/shopSelectors';
 
 export const RecipeIngredientsList = ({ ingredients}) => {
-  const ingredientsRedux = useSelector(selectShoppingListIngredients);
+  // const ingredientsRedux = useSelector(selectShoppingListIngredients);
+  const newId = useSelector(selectIsId);
+
 
   const dispatch = useDispatch();
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  // const [newId1, setNewId] = useState(null);
+
   useEffect(() => {
     dispatch(fetchAllShoppingIngredients());
   }, [dispatch]);
-  const handleCheckboxChange = (ingredient, isChecked) => {
+  const handleCheckboxChange = async (ingredient, isChecked) => {
     if (isChecked) {
       setCheckedIngredients(prevCheckedIngredients => [
         ...prevCheckedIngredients,
         ingredient,
       ]);
-      dispatch(
+     const data = await  dispatch(
         fetchPostShoppingIngredient({
           _id: ingredient._id,
           measure: ingredient.measure,
@@ -30,15 +34,19 @@ export const RecipeIngredientsList = ({ ingredients}) => {
           thb: ingredient.thb,
         })
       );
+      // console.log(data.payload._id)
+      console.log(`before`, ingredient);
+      ingredient = { ...ingredient, _id: data.payload._id };
+      console.log(`after`, ingredient);
     } else {
-      setCheckedIngredients(prevCheckedIngredients =>
-        prevCheckedIngredients.filter(ing => ing._id !== ingredient._id)
-      );
-      const ingredientObj = ingredientsRedux.find(
-        ing => ing._id === ingredient._id
-      );
+     
 
-      dispatch(fetchDeleteShoppingIngredient(ingredientObj));
+      dispatch(fetchDeleteShoppingIngredient({ ...ingredient, _id: newId }));
+     
+      //   const index = checkedIngredients.findIndex(el => el._id === ingredient._id);
+      // setCheckedIngredients(checkedIngredients.splice(index, 1));
+      
+      
     }
   };
   // 640c2dd963a319ea671e37c6
