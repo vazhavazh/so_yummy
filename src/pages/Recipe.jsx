@@ -16,6 +16,7 @@ import { selectFavoriteReceipts } from 'redux/favoriteReceipts/favoriteReceiptsS
 import { RecipeIngredientsList } from 'components/RecipeMain/RecipeIngredientsList';
 import { RecipePreparation } from 'components/RecipeMain/RecipePreparation';
 import { fetchAllFavoriteReceipts } from 'redux/favoriteReceipts/favoriteReceiptsThunks';
+import Leaf from 'components/Leaf/Leaf';
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -46,6 +47,8 @@ const Recipe = () => {
         <RecipePageHero recipes={recipes} isFavorite={isFavorite} />
         <RecipeIngredientsList ingredients={ingredients} />
         <RecipePreparation instructions={instructions} img={img} />
+        {/* <RecipeMain></RecipeMain> */}
+        <Leaf/>
       </div>
     </>
   );
