@@ -237,6 +237,28 @@ border-radius: 8px;
     padding: 1px 108px 1px 32px;
   }
 }
+
+.ingred__item_dark {
+  position: relative;
+  padding: 10.5px 60px 10.5px 10px ;
+
+  background: #2A2C36;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @include tablet {
+    padding: 16px 100px 16px 24px ;
+  }
+
+  @include desktop {
+    padding: 1px 108px 1px 32px;
+  }
+}
+
 .ingred__wrapper {
   display: flex;
   gap: 8px;
@@ -395,6 +417,17 @@ letter-spacing: -0.02em;
 color: #3E4462;
 }
 
+.prep__title_dark{
+font-family: 'Poppins';
+font-weight: 600;
+font-size: 24px;
+line-height: calc(24/24);
+
+letter-spacing: -0.02em;
+
+color: #FAFAFA;
+}
+
 .prep__list{
   display: flex;
   flex-direction: column;
@@ -443,6 +476,26 @@ line-height: calc(14/12);
 letter-spacing: -0.02em;
 
 color: rgba(0, 0, 0, 0.8);
+@include tablet {
+max-width: 645px;
+font-size: 14px;
+line-height: calc(18/14);
+}
+@include desktop {
+  max-width: 720px;
+}
+}
+
+.prep__step_dark{
+  max-width: 306px;
+display: block;
+font-family: 'Poppins';
+font-size: 12px;
+line-height: calc(14/12);
+
+letter-spacing: -0.02em;
+
+color: #FAFAFA;
 @include tablet {
 max-width: 645px;
 font-size: 14px;

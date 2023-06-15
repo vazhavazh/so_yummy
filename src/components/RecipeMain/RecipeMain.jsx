@@ -8,8 +8,10 @@ import { fetchPostShoppingIngredient, fetchDeleteShoppingIngredient, fetchAllSho
 import { selectShoppingListIngredients } from 'redux/shoppingIngrs/shopSelectors';
 import { fetchAllFavoriteReceipts, fetchUpdateFavoriteReceipts } from 'redux/favoriteReceipts/favoriteReceiptsThunks';
 import { selectFavoriteReceipts } from 'redux/favoriteReceipts/favoriteReceiptsSelector';
+import { selectDarkMode } from 'redux/theme/themeSelector';
 
 export const RecipeMain = () => {
+  const darkMode = useSelector(selectDarkMode);
   const favorites = useSelector(selectFavoriteReceipts);
   const ingredientsRedux = useSelector(selectShoppingListIngredients);
   const dispatch = useDispatch();
@@ -102,6 +104,10 @@ export const RecipeMain = () => {
   }
 
   const stepsArray = recipe.instructions.split('.');
+  const ingredItem = darkMode ? style.ingred__item_dark : style.ingred__item;
+  const ingredCheck = darkMode ? style.prep__step_dark : style.prep__step;
+  const stepsTitleClass = darkMode ? style.prep__title_dark : style.prep__title;
+  const stepClass = darkMode ? style.prep__step_dark : style.prep__step;
 
   return (
     <div className={style.body}>
@@ -161,13 +167,13 @@ export const RecipeMain = () => {
 
       <div className={style.prep__container}>
         <div className={style.prep__box}>
-          <h3 className={style.prep__title}>Recipe Preparation</h3>
+          <h3 className={stepsTitleClass}>Recipe Preparation</h3>
           <ol className={style.prep__list}>
             {stepsArray.map((step, index) => {
               if (step.trim() !== '') {
                 return (
                   <li className={style.prep__item} key={index}>
-                    <p className={style.prep__step}>{step}</p>
+                    <p className={stepClass}>{step}</p>
                   </li>
                 );
               }
