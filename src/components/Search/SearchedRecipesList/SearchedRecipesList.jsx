@@ -5,9 +5,7 @@ import {
   selectLoading,
   selectSearchData,
 } from 'redux/search/searchSelector';
-import // fetchAllSearchedIngredient,
-// fetchAllSearchedTitle,
-'redux/search/searchThunks';
+import 'redux/search/searchThunks';
 import { RecipeCard } from '..//..//RecipeCard/RecipeCard';
 import style from '..//..//PreviewCategories/PreviewCategories.module.scss';
 import scss from '..//..//Search/SearchBar/SearchBar.module.scss';
@@ -24,16 +22,6 @@ const SearchedRecipesList = ({ searchValue }) => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const searchData = useSelector(selectSearchData);
-
-  // const dispatch = useDispatch();
-
-  // // const handleSearchByTitle = title => {
-  // //   dispatch(fetchAllSearchedTitle(title));
-  // // };
-
-  // // const handleSearchByIngredient = ingredient => {
-  // //   dispatch(fetchAllSearchedIngredient(ingredient));
-  // // };
 
   useEffect(() => {
     if (prevSearchValue === searchValue) {

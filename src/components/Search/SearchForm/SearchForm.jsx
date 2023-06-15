@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '..//Search.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
 
 import { selectedQuery } from 'redux/search/searchSelector';
