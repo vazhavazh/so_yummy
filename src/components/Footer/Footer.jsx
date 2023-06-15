@@ -28,7 +28,7 @@ export const Footer = () => {
 
   const initialValues = { email: '' };
   return (
-    <div>
+    <footer>
       <section className={style.contactsSection}>
         <div className={style.navAdvSubWrapper}>
           <div className={style.navAdvWrapper}>
@@ -214,6 +214,6 @@ export const Footer = () => {
           Terms of Service
         </a>
       </section>
-    </div>
+    </footer>
   );
 };

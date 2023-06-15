@@ -3,7 +3,6 @@
 
 .contactsSection {
   position: relative;
-  z-index: 1;
   padding: 28px 0 18px;
 
   display: flex;
@@ -385,19 +384,20 @@
     bottom: 0px;
     right: 0px;
 
-    height: 155px;
+    height: 66px;
     width: 179px;
 
     content: '';
     background-image: url(../../assets/image/footer/footer-background.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: bottom;
   }
 
   @include tablet {
     padding: 32px 0 32px;
     ::before {
-      height: 261px;
+      height: 78px;
       width: 341px;
 
       background-image: url(../../assets/image/footer/footer-background-m.png);
@@ -408,7 +408,7 @@
     padding: 50px 0 50px;
 
     ::before {
-      height: 391px;
+      height: 114px;
       width: 531px;
 
       background-image: url(../../assets/image/footer/footer-background-l.png);
