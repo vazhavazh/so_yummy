@@ -1,0 +1,15 @@
+@import '..//..//main.scss';
+
+.leaf_img {
+    position: absolute;
+    bottom: 230px;
+    z-index: -1;
+
+    @include tablet {
+        bottom: 50px;
+    }
+
+    @include desktop {
+        bottom: 10px;
+    }
+}
