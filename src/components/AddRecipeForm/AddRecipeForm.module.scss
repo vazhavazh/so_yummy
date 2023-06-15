@@ -21,6 +21,10 @@
     @media screen and (min-width: $breakpoint-tablet) {
             margin-top: 100px;
         }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        margin-top: 0;
+    }
 }
 
 .buttonWrapper{

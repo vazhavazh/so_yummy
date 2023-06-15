@@ -1,0 +1,24 @@
+@import '../../main.scss';
+
+.addRecipeContainer {
+    width: 100%;
+
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        padding: 0px 172px 0px 84px;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+}
+
+.popularAndFollowContainer {
+    position: relative;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin-left: 121px;
+    }
+}
