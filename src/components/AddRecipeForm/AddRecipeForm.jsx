@@ -14,6 +14,7 @@ import time from './data/cookingTime.json';
 import { useDispatch } from 'react-redux';
 import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
 import { useNavigate } from 'react-router-dom';
+import { Notify } from 'notiflix';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -39,11 +40,13 @@ const initialValues = {
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-  title: Yup.string().required('Title is required'),
-  description: Yup.string().required('Description is required'),
+  title: Yup.string().max(30).required('Title is required'),
+  description: Yup.string().max(70).required('Description is required'),
   category: Yup.string().required('Category is required'),
   time: Yup.string().required('Cooking time is required'),
-  instructions: Yup.string().required('Recipe preparation is required'),
+  instructions: Yup.string()
+    .max(400)
+    .required('Recipe preparation is required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
       id: Yup.string().required('Select ingredient'),
@@ -144,7 +147,7 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
   const [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
     formData.append('preview', values.preview);
     formData.append('title', values.title);
@@ -154,14 +157,15 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
     formData.append('ingredients', JSON.stringify(values.ingredients));
     formData.append('instructions', values.instructions);
 
-    dispatch(addMyOwnRecipe(formData))
+    await dispatch(addMyOwnRecipe(formData))
       .then(() => {
         setIsSubmitted(true);
         setCounter(1);
         resetForm();
         navigate('/my');
+        Notify.success('Hooray, you added recipe');
       })
-      .catch(() => {
+      .catch(error => {
         console.log(error);
       });
   };

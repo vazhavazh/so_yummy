@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
 import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
