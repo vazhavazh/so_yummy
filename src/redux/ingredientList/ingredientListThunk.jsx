@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchPopularRecipes = createAsyncThunk(
-  'recipe/popularRecipes',
+export const fetchAllIngredientList = createAsyncThunk(
+  'shoppingIngredients/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('/api/popular-recipes');
-        return { data: res.data };
+      const response = await axios.get('/api/ingredients/list');
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -22,8 +22,8 @@ import searchReducer from './search/searchSlice';
 import favoriteReducer from './favoriteReceipts/favoriteReceiptsSlice';
 import myOwnRecipeReducer from './myRecipes/myRecipesSlice';
 import simpleRecipeReducer from './simpleReceipt/simpleReceiptSlice';
-
-
+import pipkaReducer from './pipka/pipkaSlice'
+import ingredientListReducer from './ingredientList/ingredientListSlice'
 
 const authPersistConfig = {
   key: 'auth',
@@ -66,6 +66,8 @@ export const store = configureStore({
     popularRecipe: persistReducer(popularPersistConfig, popularReducer),
     myOwnRecipes: myOwnRecipeReducer,
     simpleRecipe: simpleRecipeReducer,
+    pipkaReducer: pipkaReducer,
+    ingredientList: ingredientListReducer,
   },
   middleware,
 });

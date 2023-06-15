@@ -1,11 +1,11 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export const fetchRecipe = createAsyncThunk(
-  'fetchSimpleRecipe/fetchRecipe',
+export const fetchMyOwnRecipe = createAsyncThunk(
+  'fetchPipkaRecipe/fetchRecipe',
   async (recipeId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/api/recipes/${recipeId}`);
+      const response = await axios.get(`/api/ownRecipes/${recipeId}`);
 
       return response.data;
     } catch (error) {

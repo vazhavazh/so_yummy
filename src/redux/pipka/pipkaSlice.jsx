@@ -1,34 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchAllFavoriteReceipts,
-  fetchUpdateFavoriteReceipts,
-} from './favoriteReceiptsThunks';
+import { fetchMyOwnRecipe } from './pipkaThunk';
 
 const initialState = {
-  totalPages: null,
-  favoriteReceipts: [],
-  isLoading: false,
+  pipka: {},
+  isLoading: true,
   error: null,
 };
 
-const favoriteReceiptSlice = createSlice({
-  name: 'favoriteReceipt',
+const pipka = createSlice({
+  name: 'pipka',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchAllFavoriteReceipts.fulfilled, (state, action) => {
-        state.favoriteReceipts = action.payload.data;
+
+      .addCase(fetchMyOwnRecipe.fulfilled, (state, action) => {
+        state.pipka = action.payload;
+
         state.isLoading = false;
         state.error = null;
-        state.totalPages = action.payload.totalPages;
-      })
-      .addCase(fetchUpdateFavoriteReceipts.fulfilled, (state, action) => {
-        const updatedReceiptId = action.payload._id;
-
-        state.favoriteReceipts = state.favoriteReceipts.filter(
-          receipt => receipt._id !== updatedReceiptId
-        );
       })
 
       .addMatcher(
@@ -36,7 +26,6 @@ const favoriteReceiptSlice = createSlice({
         (state, action) => {
           state.isLoading = true;
           state.error = null;
-          // state.totalPages = null;
         }
       )
       .addMatcher(
@@ -56,4 +45,4 @@ const favoriteReceiptSlice = createSlice({
   },
 });
 
-export default favoriteReceiptSlice.reducer;
+export default pipka.reducer;

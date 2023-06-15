@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchRecipe } from './simpleReceiptThunk';
+import {fetchRecipe } from './simpleReceiptThunk';
 
 const initialState = {
+ 
   simpleRecipe: [],
   isLoading: true,
   error: null,
@@ -14,11 +15,11 @@ const simpleRecipeSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchRecipe.fulfilled, (state, action) => {
-        
         state.simpleRecipe = action.payload;
         state.isLoading = false;
         state.error = null;
       })
+
 
       .addMatcher(
         action => action.type.endsWith('/pending'),
