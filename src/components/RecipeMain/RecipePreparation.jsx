@@ -2,7 +2,6 @@ import React from 'react';
 import style from 'components/RecipeMain/RecipeMain.module.scss';
 
 export const RecipePreparation = ({ instructions, img }) => {
-  console.log(img)
   if (!instructions) {
     return null;
   }
