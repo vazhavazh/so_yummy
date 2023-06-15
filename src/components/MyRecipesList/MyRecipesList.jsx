@@ -84,7 +84,7 @@ export const MyRecipesList = () => {
   return (
     <div className="recepiesConainer">
       <PageTitle />
-      <div>
+      <div className="my_recipes_wrapper">
         <ul className="favorites-list">
           {myOwnRecipes.map(favorite => (
             <li key={favorite._id} className="favorite-item">
