@@ -18,7 +18,6 @@ import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 import { Pagination } from '../Pagination/Pagination';
 import { PageTitle } from 'components/PageTitle/PageTitle';
-import { Container } from 'components/Container/Container';
 
 export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
@@ -82,9 +81,9 @@ export const MyRecipesList = () => {
     );
   }
   return (
-    <div className="flexWrapper">
+    <div className="recepiesConainer">
       <PageTitle />
-      <div className="favorites-container">
+      <div>
         <ul className="favorites-list">
           {myOwnRecipes.map(favorite => (
             <li key={favorite._id} className="favorite-item">
