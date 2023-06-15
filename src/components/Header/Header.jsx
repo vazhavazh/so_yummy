@@ -25,7 +25,7 @@ export const Header = () => {
       }`}
     >
       <div className={style.navWrapper}>
-        <NavLink to="/">
+        <NavLink id="ahcnor1" to="/">
           <img className={style.logo} src={logo} alt="logo" />
         </NavLink>
         <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />

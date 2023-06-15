@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './MyRecipesList.scss';
 import { ReactComponent as TrashIcon } from 'assets/svg/favoritePage/trash.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectTotalPages,
   selectMyOwnRecipes,
   selectIsLoading,
 } from 'redux/myRecipes/myRecipesSelector';
@@ -15,20 +16,45 @@ import Loader from 'components/Loader/Loader';
 
 import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
+import { Pagination } from '../Pagination/Pagination';
 
 export const MyRecipesList = () => {
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
+  const totalPages = useSelector(selectTotalPages);
   const myOwnRecipes = useSelector(selectMyOwnRecipes);
   const isLoading = useSelector(selectIsLoading);
 
+  let query = {
+    page,
+    limit: 4,
+  };
+
   useEffect(() => {
-    dispatch(fetchAllMyOwnRecipes());
-  }, [dispatch]);
+    dispatch(fetchAllMyOwnRecipes(query));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
+
+  const onChangePage = currentPage => {
+    if (currentPage !== '...') {
+      const number = Number(currentPage);
+
+      const element = document.getElementById('ahcnor1');
+      if (element) {
+        element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }
+
+      setPage(number);
+    }
+  };
 
   const handleDeleteRecipe = async receiptId => {
     try {
-    await dispatch(deleteMyOwnRecipe(receiptId));
-       dispatch(fetchAllMyOwnRecipes());
+      await dispatch(deleteMyOwnRecipe(receiptId));
+      if (myOwnRecipes.length === 1 && page > 2) {
+        setPage(page - 1);
+      }
+      dispatch(fetchAllMyOwnRecipes(query));
     } catch (error) {
       console.log(error);
     }
@@ -88,6 +114,13 @@ export const MyRecipesList = () => {
             </li>
           ))}
         </ul>
+        {totalPages !== 1 && totalPages && (
+          <Pagination
+            totalPages={totalPages}
+            currentpage={page}
+            onChangePage={onChangePage}
+          />
+        )}
       </div>
     </div>
   );
