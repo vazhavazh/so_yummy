@@ -156,6 +156,7 @@ export const RecipeMain = () => {
                         handleCheckboxChange(ingredient, event.target.checked)
                       }
                     />
+                     
                     <span className={style.ingred__checkbox_custom}></span>
                   </label>
                 </div>
