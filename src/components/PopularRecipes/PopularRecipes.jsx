@@ -43,25 +43,30 @@ export const PopularRecipes = () => {
   }, [dispatch]);
 
   return (
-    <div className={style.popularBox}>
-      <h2 className={style.popularTitle}>Popular recipe</h2>
-      <ul className={style.popularList}>
-        {numberOfRecipes(popularRecipe).map(
-          ({ description, preview, title, _id }) => (
-            <li className={style.popularListEll} key={_id}>
-              <a className={style.popularEll} href={`/so_yummy/recipe/${_id}`}>
-                <img className={style.populaImg} src={preview} alt="title" />
-                <div className={style.popularTextBox}>
-                  <p className={style.popularTitleRecipe}>{title}</p>
-                  <p className={style.popularDiscrRecipe}>
-                    {limitLength(description, 77)}
-                  </p>
-                </div>
-              </a>
-            </li>
-          )
-        )}
-      </ul>
+    <div className={style.popularContainer}>
+      <div className={style.popularBox}>
+        <h2 className={style.popularTitle}>Popular recipe</h2>
+        <ul className={style.popularList}>
+          {numberOfRecipes(popularRecipe).map(
+            ({ description, preview, title, _id }) => (
+              <li className={style.popularListEll} key={_id}>
+                <a
+                  className={style.popularEll}
+                  href={`/so_yummy/recipe/${_id}`}
+                >
+                  <img className={style.populaImg} src={preview} alt="title" />
+                  <div className={style.popularTextBox}>
+                    <p className={style.popularTitleRecipe}>{title}</p>
+                    <p className={style.popularDiscrRecipe}>
+                      {limitLength(description, 77)}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            )
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

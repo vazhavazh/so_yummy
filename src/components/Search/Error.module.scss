@@ -4,6 +4,8 @@
     display: flex;
     margin-left: 58px;
     margin-right: 58px;
+    margin-top: 200px;
+    justify-content: center;
     @include tablet {
         margin-left: 130px;
         margin-right: 130px;

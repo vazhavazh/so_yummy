@@ -1,0 +1,29 @@
+@import '../../main.scss';
+
+.addRecipeMainContainer{
+    background-color: $secondaryBgColorWhite;
+}
+
+.addRecipeContainer {
+    width: 100%;
+
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        padding: 0px 172px 0px 84px;
+        margin-bottom: 200px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.popularAndFollowContainer {
+    position: relative;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 121px;
+    }
+}
