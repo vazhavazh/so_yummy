@@ -8,6 +8,7 @@ import { PopularRecipes } from 'components/PopularRecipes/PopularRecipes';
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 
+import Leaf from 'components/Leaf/Leaf';
 import styles from './styles/AddRecipe.module.scss';
 
 const AddRecipe = () => {
@@ -43,6 +44,7 @@ const AddRecipe = () => {
           <PopularRecipes />
         </div>
       </div>
+      <Leaf/>
     </div>
   );
 };

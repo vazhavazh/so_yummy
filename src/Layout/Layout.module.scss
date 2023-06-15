@@ -3,13 +3,3 @@
 .content {
   min-height: 100vh;
 }
-.content_img{
-  position: absolute;
-  bottom: 230px;
-  @include tablet {
-    bottom: 50px;
-    }
-  @include desktop {
-    bottom: 10px;
-  }
-}
