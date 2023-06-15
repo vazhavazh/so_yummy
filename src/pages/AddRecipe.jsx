@@ -35,7 +35,7 @@ const AddRecipe = () => {
 
   return (
     <div className={styles.addRecipeMainContainer}>
-      <PageTitle className={styles.addRecipeTitle} />
+      <PageTitle />
       <div className={styles.addRecipeContainer}>
         {modifiedIngredients.length > 0 && (
           <AddRecipeForm modifiedIngredients={modifiedIngredients} />
