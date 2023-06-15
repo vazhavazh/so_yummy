@@ -1,29 +1,52 @@
 @import '../../main.scss';
 
-.addRecipeMainContainer{
-    background-color: $secondaryBgColorWhite;
+.addRecipeMainContainer {
+  max-width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // padding-top: 50px;
+  padding-bottom: 100px;
+  @include tablet {
+    // padding-top: 72px;
+    padding-bottom: 200px;
+    max-width: 768px;
+    min-width: 768px;
+
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include desktop {
+    max-width: 1440px;
+    min-width: 1440px;
+    // padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  background-color: transparent;
 }
 
 .addRecipeContainer {
-    width: 100%;
+  width: 100%;
 
-
-    @media screen and (min-width: $breakpoint-desktop) {
-        padding: 0px 172px 0px 84px;
-        margin-bottom: 200px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+  @media screen and (min-width: $breakpoint-desktop) {
+    // padding: 0px 172px 0px 84px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
 
 .popularAndFollowContainer {
-    position: relative;
+  position: relative;
 
-    @media screen and (min-width: $breakpoint-desktop) {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        margin-left: 121px;
-    }
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 121px;
+  }
 }

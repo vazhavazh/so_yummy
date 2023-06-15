@@ -2,375 +2,368 @@
 //////FormStyles/////
 
 .addRecipeFormWrapper {
-    // outline: 1px solid red;
-    background-color: $mainBgColorWhite;
+  // outline: 1px solid red;
+  // background-color: $mainBgColorWhite;
 
-    @media screen and (min-width: $breakpoint-desktop) {
-        max-width: 800px;
-    }
+  @media screen and (min-width: $breakpoint-desktop) {
+    max-width: 800px;
+  }
 }
 
 .addRecipeForm {
-    min-width: 375px;
-    display: flex;
-    flex-direction: column;
-    background-color: $secondaryBgColorWhite;
-    padding: 0px 16px;
-    margin-top: 72px;
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  //   background-color: $secondaryBgColorWhite;
+  padding: 0px 16px;
+  margin-top: 72px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-            margin-top: 100px;
-        }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 100px;
+  }
 
-    @media screen and (min-width: $breakpoint-desktop) {
-        margin-top: 0;
-    }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-top: 0;
+  }
 }
 
-.buttonWrapper{
-    margin-top: 18px;
-    width: 100%;
+.buttonWrapper {
+  margin-top: 18px;
+  width: 100%;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-top: 32px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 32px;
+  }
 }
-
-
 
 //////RecipeDesctiptionStyles/////
 
-
-.descriptionWrapper{
-    @media screen and (min-width: $breakpoint-tablet) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    @media screen and (min-width: $breakpoint-desktop) {
-        align-items: start;
-    }
-}
-
-.minWidthTabletContainer{
-    @media screen and (min-width: $breakpoint-tablet) {
-        width: 100%;
-        // outline: 1px solid red;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-left: 32px;
-    }
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-left: 50px;
-    }
-}
-
-.inputWrapper {
-    position: relative;
-    display: flex;
-    margin-bottom: 3px;
-    min-width: 343px;
-}
-
-.errorMessage {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: red;
-    font-size: small;
-}
-
-.recipeDescriptionInput {
-    min-width: 100%;
-    height: 60px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid $shadowColor;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-
-    @media screen and (min-width: $breakpoint-tablet) {
-        height: 65px;
-    }
-    
-    @media screen and (min-width: $breakpoint-desktop) {
-        height: 75px;
-    }
-}
-
-.recipeDescriptionInput.error{
-    border-bottom: 1px solid red;
-}
-
-.inputWrapperCategory {
-    // outline: 1px solid red;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 3px;
-    min-width: 343px;
-    height: 59px;
-    border-bottom: 1px solid $shadowColor;
-    
-    @media screen and (min-width: $breakpoint-tablet) {
-        height: 65px;
-    }
-
-    @media screen and (min-width: $breakpoint-desktop) {
-        height: 75px;
-    }
-}
-
-.inputWrapperCategory.error{
-    border-bottom: 1px solid red;
-}
-
-.categoryLabel {
-    color: #6A6A6A;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-}
-
-.inputWrapperFile {
-    // outline: 1px solid red;
-    position: relative;
+.descriptionWrapper {
+  @media screen and (min-width: $breakpoint-tablet) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    align-items: start;
+  }
+}
+
+.minWidthTabletContainer {
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 100%;
+    // outline: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 32px;
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-left: 50px;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 3px;
+  min-width: 343px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: red;
+  font-size: small;
+}
+
+.recipeDescriptionInput {
+  background-color: transparent;
+
+  min-width: 100%;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $shadowColor;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: 65px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    height: 75px;
+  }
+}
+
+.recipeDescriptionInput.error {
+  border-bottom: 1px solid red;
+}
+
+.inputWrapperCategory {
+  // outline: 1px solid red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  min-width: 343px;
+  height: 59px;
+  border-bottom: 1px solid $shadowColor;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: 65px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    height: 75px;
+  }
+}
+
+.inputWrapperCategory.error {
+  border-bottom: 1px solid red;
+}
+
+.categoryLabel {
+  color: #6a6a6a;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.inputWrapperFile {
+  // outline: 1px solid red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+  min-width: 279px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
     min-width: 279px;
-
-    @media screen and (min-width: $breakpoint-tablet) {
-        min-width: 279px;
-    }
-    @media screen and (min-width: $breakpoint-desktop) {
-        min-width: 357px;
-    }
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    min-width: 357px;
+  }
 }
 
-.errorMessageFile{
-    position: absolute;
-    bottom: -0px;
-    left: 32px;
-    color: red;
-    background-color: #d0dcaf;
-    border-bottom-left-radius: 6px;
-    font-size: small;
+.errorMessageFile {
+  position: absolute;
+  bottom: -0px;
+  left: 32px;
+  color: red;
+  background-color: #d0dcaf;
+  border-bottom-left-radius: 6px;
+  font-size: small;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        left: 0;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    left: 0;
+  }
 }
-
 
 //////RecipeIngredientsStyles/////
 
 .ingredientsWrapper {
-    position: relative;
-    width: 100%;
-    margin-top: 67px;
+  position: relative;
+  width: 100%;
+  margin-top: 67px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-top: 100px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 100px;
+  }
 
-    @media screen and (min-width: $breakpoint-desktop) {
-        width: 609px;
-    }
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 609px;
+  }
 }
 
-.ingredientsTitle{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 24px;
+.ingredientsTitle {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
 }
 
 .addRemoveCounter {
-    position: absolute;
-    top: -4px;
-    right: 0;
-    border: 1px solid rgba(51, 51, 51, 0.3);
-    border-radius: 18px;
-    padding: 16px 12px;
-    width: 92px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  position: absolute;
+  top: -4px;
+  right: 0;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  border-radius: 18px;
+  padding: 16px 12px;
+  width: 92px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        width: 110px;
-        height: 32px;
-
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 110px;
+    height: 32px;
+  }
 }
 
-.addRemoveCounter>span {
-    margin-right: 15px;
-    margin-left: 15px;
+.addRemoveCounter > span {
+  margin-right: 15px;
+  margin-left: 15px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-            margin-right: 21px;
-            margin-left: 21px;
-    
-        }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-right: 21px;
+    margin-left: 21px;
+  }
 }
 
 .counterIcon {
-    cursor: pointer;
-    text-align: end;
+  cursor: pointer;
+  text-align: end;
 }
 
 .ingredientsHeaderWrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .ingredientsInputWrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 28px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-top: 32px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 32px;
+  }
 }
 
-.ingredientItemWrapper{
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    // outline: 1px solid red;
+.ingredientItemWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // outline: 1px solid red;
 }
 
-.ingredientItemWrapper:not(:last-child){
-    margin-bottom: 18px;
+.ingredientItemWrapper:not(:last-child) {
+  margin-bottom: 18px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-bottom: 24px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-bottom: 24px;
+  }
 }
 
-.ingredientInputWtapper{
-    // outline: 1px solid red;
-    width: 194px;
-    height: 53px;
+.ingredientInputWtapper {
+  // outline: 1px solid red;
+  width: 194px;
+  height: 53px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        width: 398px;
-    };
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 398px;
+  }
 }
 
-.ingredientDose{
-    height: 53px;
-    width: 84px;
-    margin-left: 14px;
-    padding: 16px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    background-color: #f5f5f5;
+.ingredientDose {
+  height: 53px;
+  width: 84px;
+  margin-left: 14px;
+  padding: 16px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
 
-    font-family: 'Poppins';
-    font-weight: '400';
-    font-size: '12px';
-    line-height: '12px';
+  font-family: 'Poppins';
+  font-weight: '400';
+  font-size: '12px';
+  line-height: '12px';
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        width: 97px;
-    }
-    @media screen and (min-width: $breakpoint-tablet) {
-        width: 99px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 97px;
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 99px;
+  }
 }
 
 .deleteIcon {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    margin-left: auto;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .doseErrorMessage {
-    position: absolute;
-    bottom: 0;
-    left: 210px;
-    color: red;
-    font-size: small;
+  position: absolute;
+  bottom: 0;
+  left: 210px;
+  color: red;
+  font-size: small;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-        left: 413px;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    left: 413px;
+  }
 }
 
-
 //////RecipePreparationStyles/////
-.preparationWrapper{
-    width: 100%;
-    margin-top: 44px;
-    
-    @media screen and (min-width: $breakpoint-tablet) {
-        margin-top: 100px;
-    }
+.preparationWrapper {
+  width: 100%;
+  margin-top: 44px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 100px;
+  }
 }
 
 .preparationHeaderWrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .preparationInputWrapper {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .preparationInput {
-    width: 100%;
-    height: 154px;
-    margin-top: 24px;
-    padding: 16px 23px;
-    border-radius: 6px;
-    resize: none;
-    border: none;
-    outline: none;
+  width: 100%;
+  height: 154px;
+  margin-top: 24px;
+  padding: 16px 23px;
+  border-radius: 6px;
+  resize: none;
+  border: none;
+  outline: none;
 
-    background-color: #f5f5f5;
-    
-    font-family: 'Poppins';
-    font-weight: '400';
-    font-size: '12px';
-    line-height: '12px';
+  background-color: #f5f5f5;
 
-    @media screen and (min-width: $breakpoint-tablet) {
-            margin-top: 32px;
-            width: 505px;
-            height: 224px;
-        }
+  font-family: 'Poppins';
+  font-weight: '400';
+  font-size: '12px';
+  line-height: '12px';
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 32px;
+    width: 505px;
+    height: 224px;
+  }
 }
 
 .prepatationError {
-    position: absolute;
-    bottom: 5px;
-    left: 0px;
-    color: red;
-    font-size: small;
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  color: red;
+  font-size: small;
 }
-
-
