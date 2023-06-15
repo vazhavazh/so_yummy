@@ -1,13 +1,11 @@
 @import '../../../main.scss';
 
-
 .search_bar {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 .searchLookingWrapper {
     display: flex;
@@ -33,22 +31,3 @@
     height: 200px;
     margin-top: 50px;
 }
-
-// .pagination {
-//     display: flex;
-//     align-items: center;
-//     gap: 30px;
-//     background: #fafafa;
-//     box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
-//     border-radius: 26px;
-//     padding: 20px;
-//     cursor: pointer;
-// }
-
-// .activePage {
-//     background: #ebf3d4;
-//     width: 30px;
-//     height: 30px;
-//     border-radius: 50%;
-//     text-align: center;
-// }
