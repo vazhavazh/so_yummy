@@ -89,6 +89,7 @@ if (isChecked) {
 
         <ul className={style.ingred__list}>
           {ingredients && ingredients.map(ingredient => {
+            
             const isChecked = checkedIngredients.some(
               ing => ing._id === ingredient._id
             );
