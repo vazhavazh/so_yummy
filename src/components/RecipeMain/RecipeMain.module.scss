@@ -441,7 +441,7 @@ line-height: calc(14/12);
 
 letter-spacing: -0.02em;
 
-color: rgba(0, 0, 0, 0.8);
+color: var(--darkToWhite);
 @include tablet {
 max-width: 645px;
 font-size: 14px;
