@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/so_yummy/static/css/main.5ffc14ff.css",
-    "main.js": "/so_yummy/static/js/main.9aa5c253.js",
-    "static/css/327.a72c4d8c.chunk.css": "/so_yummy/static/css/327.a72c4d8c.chunk.css",
-    "static/js/327.b69a5f39.chunk.js": "/so_yummy/static/js/327.b69a5f39.chunk.js",
+    "main.js": "/so_yummy/static/js/main.2565d0b4.js",
+    "static/css/898.60f5550b.chunk.css": "/so_yummy/static/css/898.60f5550b.chunk.css",
+    "static/js/898.adab44fe.chunk.js": "/so_yummy/static/js/898.adab44fe.chunk.js",
     "static/css/941.d7138227.chunk.css": "/so_yummy/static/css/941.d7138227.chunk.css",
     "static/js/941.b14584fe.chunk.js": "/so_yummy/static/js/941.b14584fe.chunk.js",
     "static/css/490.38ea3e0c.chunk.css": "/so_yummy/static/css/490.38ea3e0c.chunk.css",
@@ -93,9 +93,9 @@
     "static/media/burger.svg": "/so_yummy/static/media/burger.ad2d6f185ba02a09996f801b576c8d03.svg",
     "static/media/icon-arrow-rigth.svg": "/so_yummy/static/media/icon-arrow-rigth.b5645e9fc75fdefd74034a45ce4e288d.svg",
     "main.5ffc14ff.css.map": "/so_yummy/static/css/main.5ffc14ff.css.map",
-    "main.9aa5c253.js.map": "/so_yummy/static/js/main.9aa5c253.js.map",
-    "327.a72c4d8c.chunk.css.map": "/so_yummy/static/css/327.a72c4d8c.chunk.css.map",
-    "327.b69a5f39.chunk.js.map": "/so_yummy/static/js/327.b69a5f39.chunk.js.map",
+    "main.2565d0b4.js.map": "/so_yummy/static/js/main.2565d0b4.js.map",
+    "898.60f5550b.chunk.css.map": "/so_yummy/static/css/898.60f5550b.chunk.css.map",
+    "898.adab44fe.chunk.js.map": "/so_yummy/static/js/898.adab44fe.chunk.js.map",
     "941.d7138227.chunk.css.map": "/so_yummy/static/css/941.d7138227.chunk.css.map",
     "941.b14584fe.chunk.js.map": "/so_yummy/static/js/941.b14584fe.chunk.js.map",
     "490.38ea3e0c.chunk.css.map": "/so_yummy/static/css/490.38ea3e0c.chunk.css.map",
@@ -130,6 +130,6 @@
   },
   "entrypoints": [
     "static/css/main.5ffc14ff.css",
-    "static/js/main.9aa5c253.js"
+    "static/js/main.2565d0b4.js"
   ]
 }
