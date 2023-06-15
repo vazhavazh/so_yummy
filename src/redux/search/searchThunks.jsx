@@ -21,10 +21,12 @@ export const fetchAllSearchedTitle = createAsyncThunk(
 
 export const fetchAllSearchedIngredient = createAsyncThunk(
   'recipeByIngredient/get',
-  async (ingredient, thunkAPI) => {
+  async ({ wordQuery, page, limit }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `api/search?ingredient=${encodeURIComponent(ingredient)}`
+        `api/search?ingredient=${encodeURIComponent(
+          wordQuery
+        )}&page=${page}&limit=${limit}`
       );
 
       return response.data;
