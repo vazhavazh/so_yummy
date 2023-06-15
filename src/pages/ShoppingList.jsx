@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IngredientsShoppingList } from 'components/IngredientsShoppingList/IngredientsShoppingList';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 import Leaf from 'components/Leaf/Leaf';
 const ShoppingList = () => {
+  useEffect(() => {
+    const element = document.getElementById('ahcnor1');
+    if (element) {
+      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  }, []);
   return (
     <>
       <PageTitle />
       <IngredientsShoppingList />
-      <Leaf/>
+      <Leaf />
     </>
   );
 };

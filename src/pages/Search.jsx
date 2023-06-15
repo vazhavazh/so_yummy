@@ -22,10 +22,12 @@ const Search = () => {
   const mediaQuery = window.matchMedia('(max-width: 1440px)');
 
   useEffect(() => {
-    // Проверяем разрешение экрана и устанавливаем дефолтное значение состояния
-    setLimit(mediaQuery.matches ? 6 : 12);
+    const element = document.getElementById('ahcnor1');
+    if (element) {
+      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
 
-    // Слушаем изменения разрешения экрана и обновляем состояние при необходимости
+    setLimit(mediaQuery.matches ? 6 : 12);
     const handleResize = () => {
       setLimit(mediaQuery.matches ? 6 : 12);
     };
@@ -99,7 +101,7 @@ const Search = () => {
           />
         </div>
       )}
-      <Leaf/>
+      <Leaf />
     </div>
   );
 };
