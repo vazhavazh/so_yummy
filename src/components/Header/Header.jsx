@@ -16,8 +16,13 @@ export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const path = useLocation().pathname;
+  console.log(path.slice(0, 7));
 
   let { avatarURL, name } = useSelector(getUserName);
+
+  const isHeaderAbs = path === '/' || path.slice(0, 7) === '/recipe';
+
+  console.log(isHeaderAbs);
 
   return (
     <header
