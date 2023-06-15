@@ -1,0 +1,236 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backdropHidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50vh;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 330px;
+  height: 327px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--mainBgColorWhite);
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 480px;
+    height: 402px;
+    padding: 50px 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .modal {
+    width: 500px;
+    height: 425px;
+    padding: 60px 50px;
+  }
+}
+
+.crossBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+@media screen and (min-width: 768px) {
+  .crossBtn {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.cross {
+  height: 20px;
+  width: 20px;
+  stroke: var(--darkToWhite);
+}
+@media screen and (min-width: 768px) {
+  .cross {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  position: relative;
+  height: 88px;
+  width: 88px;
+  margin-bottom: 54px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .label {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .label {
+    margin-bottom: 52px;
+  }
+}
+
+.grayUser {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 101%;
+  height: 101%;
+  border-radius: 50%;
+}
+
+.plusIcon {
+  position: absolute;
+  right: 13px;
+  bottom: -6px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.modalHidden {
+  display: none;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .inputWrapper {
+    margin-bottom: 32px;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 15px 36px 12px 40px;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 6px;
+  background-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--dropdownTextColor);
+}
+.input::placeholder {
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--dropdownTextColor);
+  opacity: 0.8;
+}
+@media screen and (min-width: 768px) {
+  .input {
+    padding: 17px 41px 14px 51px;
+    font-size: 18px;
+    height: 58px;
+  }
+  .input::placeholder {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .input {
+    height: 59px;
+  }
+}
+
+.blackUser {
+  position: absolute;
+  top: 17px;
+  left: 14px;
+  height: 18px;
+  width: 18px;
+  stroke: var(--darkToWhite);
+}
+@media screen and (min-width: 768px) {
+  .blackUser {
+    top: 18px;
+    left: 19px;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.editIcon {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  height: 17px;
+  width: 17px;
+}
+@media screen and (min-width: 768px) {
+  .editIcon {
+    top: 20px;
+    right: 19px;
+    height: 19px;
+    width: 19px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .editIcon {
+    right: 18px;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  height: 49px;
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 1.29;
+  color: #fafafa;
+  background-color: #8baa36;
+  border-radius: 6px;
+  border: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.submitBtn:hover, .submitBtn:focus {
+  background-color: var(--darkToWhite);
+  color: var(--secondaryBgColorWhite);
+}
+@media screen and (min-width: 768px) {
+  .submitBtn {
+    font-size: 16px;
+    line-height: 1.12;
+    height: 59px;
+  }
+}/*# sourceMappingURL=EditModal.module.css.map */

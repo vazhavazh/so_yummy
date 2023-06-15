@@ -2,10 +2,6 @@
   This mixin can be used to set the font-size and line-height in percents:
   @include font-size(fontSize, lineHeight);
 */
-/*
-  This mixin can be used to set the font-size and line-height in percents:
-  @include font-size(fontSize, lineHeight);
-*/
 html {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
@@ -23,61 +19,15 @@ html *::after {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  background-color: var(--mainBgColorWhite);
   min-height: 100vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
   align-items: center;
   font-weight: 400;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-}
-h1 a,
-h1 a:hover,
-h1 a:focus, h2 a,
-h2 a:hover,
-h2 a:focus, h3 a,
-h3 a:hover,
-h3 a:focus, h4 a,
-h4 a:hover,
-h4 a:focus, h5 a,
-h5 a:hover,
-h5 a:focus, h6 a,
-h6 a:hover,
-h6 a:focus, .h1 a,
-.h1 a:hover,
-.h1 a:focus, .h2 a,
-.h2 a:hover,
-.h2 a:focus, .h3 a,
-.h3 a:hover,
-.h3 a:focus, .h4 a,
-.h4 a:hover,
-.h4 a:focus, .h5 a,
-.h5 a:hover,
-.h5 a:focus, .h6 a,
-.h6 a:hover,
-.h6 a:focus {
-  text-decoration: none;
-}
-h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em, .h1 > em, .h2 > em, .h3 > em, .h4 > em, .h5 > em, .h6 > em {
-  font-style: normal;
-}
-
-#modal-root {
-  z-index: 10;
-}
-
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
+  width: 100%;
 }
 
 h1,
@@ -87,7 +37,8 @@ p {
   margin: 0;
 }
 
-ul {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -103,17 +54,183 @@ a {
   text-decoration: none;
 }
 
-.favorites-container {
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--darkToWhite);
+  transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: var(--mainAccentColor);
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--darkGreytoGreen);
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8baa36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--wrapperBgGrey);
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8baa36;
+}
+
+.trashBtn--icon {
+  fill: var(--secondaryAccentColor);
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.mainContainer {
+  margin-left: auto;
+  margin-right: auto;
   max-width: 375px;
   min-width: 375px;
   padding-left: 16px;
   padding-right: 16px;
-  display: flex;
-  justify-content: center;
-  background-color: #fafafa;
 }
 @media screen and (min-width: 768px) {
-  .favorites-container {
+  .mainContainer {
     max-width: 768px;
     min-width: 768px;
     padding-left: 32px;
@@ -121,12 +238,20 @@ a {
   }
 }
 @media screen and (min-width: 1440px) {
-  .favorites-container {
+  .mainContainer {
     max-width: 1440px;
     min-width: 1440px;
     padding-left: 100px;
     padding-right: 100px;
   }
+}
+
+.favorites-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--mainBgColorWhite);
 }
 
 .favorites-list {
@@ -147,13 +272,15 @@ a {
 }
 
 .favorite-item {
+  max-width: 343px;
+  min-width: 343px;
   min-height: 152px;
   max-height: 152px;
   position: relative;
   padding: 14px 43px 14px 9px;
   gap: 14px;
   display: flex;
-  background: #ffffff;
+  background: var(--secondaryBgColorWhite);
   border-radius: 8px;
 }
 @media screen and (min-width: 768px) {
@@ -162,6 +289,8 @@ a {
     max-height: 288px;
     padding: 28px 130px 28px 24px;
     gap: 24px;
+    max-width: 704px;
+    min-width: 704px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -170,6 +299,8 @@ a {
     max-height: 404px;
     padding: 40px 163px 40px 40px;
     gap: 50px;
+    max-width: 1240px;
+    min-width: 1240px;
   }
 }
 
@@ -204,18 +335,15 @@ a {
 
 .favorite-title {
   margin-bottom: 14px;
-  font-family: "Poppins";
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 14px;
-  letter-spacing: -0.24px;
-  color: #3e4462;
+  color: var(--mainTextColor);
+  line-height: 1;
+  letter-spacing: -0.0171428571px;
 }
 @media screen and (min-width: 768px) {
   .favorite-title {
     font-size: 24px;
-    line-height: 24px;
     margin-bottom: 28px;
   }
 }
@@ -229,41 +357,17 @@ a {
   position: absolute;
   left: 310px;
   top: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ebf3d4;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
 }
 @media screen and (min-width: 768px) {
   .favorite-delete-btn {
     left: 642px;
     top: 28px;
-    width: 38px;
-    height: 38px;
   }
 }
 @media screen and (min-width: 1440px) {
   .favorite-delete-btn {
-    width: 44px;
-    height: 44px;
     left: 1156px;
     top: 40px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .favorite-delete-btn--icon {
-    width: 22px;
-    height: 22px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .favorite-delete-btn--icon {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -275,42 +379,33 @@ a {
 }
 
 .favorite-description {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 8px;
-  line-height: 10px;
-  /* or 125% */
+  line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #23262a;
+  color: var(--secondaryAccentColor);
 }
 @media screen and (min-width: 768px) {
   .favorite-description {
     font-size: 14px;
-    line-height: 18px;
   }
 }
 @media screen and (min-width: 1440px) {
   .favorite-description {
     font-size: 18px;
-    line-height: 24px;
   }
 }
 
 .favorite-time {
-  font-family: "Poppins";
-  font-style: normal;
   font-weight: 500;
   font-size: 10px;
-  line-height: 14px;
-  /* identical to box height, or 140% */
-  letter-spacing: -0.24px;
-  color: #3e4462;
+  line-height: 1.4;
+  letter-spacing: -0.024px;
+  color: var(--mainTextColor);
 }
 @media screen and (min-width: 768px) {
   .favorite-time {
     font-size: 14px;
-    line-height: 20px;
   }
 }
 
@@ -318,44 +413,30 @@ a {
   position: absolute;
   left: 247px;
   top: 111px;
-  border-radius: 24px 44px;
-  max-width: 87px;
-  max-height: 27px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: #22252a;
-}
-.favorite-link span {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 15px;
-  color: #fafafa;
-}
-@media screen and (min-width: 768px) {
-  .favorite-link span {
-    font-size: 14px;
-    line-height: 21px;
-  }
 }
 @media screen and (min-width: 768px) {
   .favorite-link {
-    max-width: 138px;
-    max-height: 45px;
     left: 542px;
     top: 215px;
   }
 }
 @media screen and (min-width: 1440px) {
   .favorite-link {
-    max-width: 160px;
-    max-height: 54px;
     left: 1040px;
     top: 310px;
   }
+}
+
+.base-link-leaf--mod {
+  background-color: var(--mainAccentColor);
+}
+.base-link-leaf--mod:hover, .base-link-leaf--mod:focus {
+  background: var(--darkToWhite);
+}
+.base-link-leaf--mod:hover .base-link-leaf--mod--span, .base-link-leaf--mod:focus .base-link-leaf--mod--span {
+  color: var(--secondaryBgColorWhite);
+}
+
+.emptyName {
+  color: var(--mainTextColor) !important;
 }/*# sourceMappingURL=FavoriteReceipts.css.map */

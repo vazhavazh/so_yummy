@@ -1,0 +1,60 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+@media screen and (min-width: 1440px) {
+  .socialBox {
+    display: flex;
+    width: 163px;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.socialTitle {
+  display: none;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  color: red;
+  letter-spacing: -0.24px;
+  color: var(--mainTextColor);
+}
+@media screen and (min-width: 1440px) {
+  .socialTitle {
+    display: block;
+  }
+}
+
+.socialList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.facebookIcon,
+.youtubeIcon,
+.twitterIcon {
+  fill: var(--greenToWhite);
+}
+
+.facebookIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.youtubeIcon {
+  width: 28px;
+  height: 22px;
+}
+
+.twitterIcon {
+  width: 25px;
+  height: 22px;
+}
+
+.instagramIcon {
+  width: 24px;
+  height: 24px;
+  fill: var(--greenToWhite);
+}/*# sourceMappingURL=FollowUs.module.css.map */

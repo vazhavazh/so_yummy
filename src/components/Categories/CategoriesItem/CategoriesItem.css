@@ -2,10 +2,6 @@
   This mixin can be used to set the font-size and line-height in percents:
   @include font-size(fontSize, lineHeight);
 */
-/*
-  This mixin can be used to set the font-size and line-height in percents:
-  @include font-size(fontSize, lineHeight);
-*/
 html {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
@@ -23,14 +19,15 @@ html *::after {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  background-color: var(--mainBgColorWhite);
   min-height: 100vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
   align-items: center;
   font-weight: 400;
+  width: 100%;
 }
 
 h1,
@@ -40,7 +37,8 @@ p {
   margin: 0;
 }
 
-ul {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -56,21 +54,37 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
 .remove-btnX {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
+  display: flex;
 }
 
 .remove-btnX--icon {
   width: 14px;
   height: 14px;
-  stroke: #333333;
+  stroke: var(--darkToWhite);
   transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .remove-btnX:hover .remove-btnX--icon {
-  stroke: #8BAA36;
+  stroke: var(--mainAccentColor);
 }
 
 .base-link-leaf {
@@ -86,7 +100,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: #22252A;
+  background-color: var(--darkGreytoGreen);
   transition: background 0.2s ease;
 }
 .base-link-leaf span {
@@ -94,13 +108,13 @@ a {
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
-  line-height: 15px;
+  line-height: 1.5;
   color: #fafafa;
 }
 @media screen and (min-width: 768px) {
   .base-link-leaf span {
     font-size: 14px;
-    line-height: 21px;
+    line-height: 1.5;
   }
 }
 @media screen and (min-width: 768px) {
@@ -120,14 +134,14 @@ a {
   }
 }
 .base-link-leaf:hover, .base-link-leaf:focus {
-  background: #8BAA36;
+  background: #8baa36;
 }
 
 .trashBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ebf3d4;
+  background-color: var(--wrapperBgGrey);
   transition: background 0.2s ease;
   border: none;
   width: 24px;
@@ -160,17 +174,51 @@ a {
   }
 }
 .trashBtn:hover, .trashBtn:focus {
-  background-color: #8BAA36;
+  background-color: #8baa36;
 }
 
 .trashBtn--icon {
-  fill: #22252A;
+  fill: var(--secondaryAccentColor);
   transition: fill 0.2s ease;
 }
 
 .trashBtn:hover .trashBtn--icon,
 .trashBtn:focus .trashBtn--icon {
   fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
 
 .categories_item {

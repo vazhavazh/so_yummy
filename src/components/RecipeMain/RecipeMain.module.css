@@ -1,0 +1,721 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBgColorWhite);
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--darkToWhite);
+  transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: var(--mainAccentColor);
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--darkGreytoGreen);
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8baa36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--wrapperBgGrey);
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8baa36;
+}
+
+.trashBtn--icon {
+  fill: var(--secondaryAccentColor);
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.body {
+  padding-bottom: 100px;
+  background-position: 0% 116.5%;
+  background-image: url(./images/leafsMobile.png);
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .body {
+    padding-bottom: 200px;
+    background-image: url(./images/leafsTablet.png);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .body {
+    background-image: url(./images/leafsDesktop.png);
+    background-position: 0% 130%;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: 50% 100%;
+  background-image: url(./images/background.jpg);
+  background-size: cover;
+  padding-top: 144px;
+  background-repeat: no-repeat;
+  padding-bottom: 90px;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    background-position: 50% 50%;
+    padding-top: 136px;
+    padding-bottom: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 164px;
+  }
+}
+
+.hero__title {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #8BAA36;
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
+    font-size: 44px;
+    line-height: 1;
+  }
+}
+
+.hero__text {
+  text-align: center;
+  max-width: 299px;
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Poppins";
+  font-size: 12px;
+  line-height: 1.3333333333;
+  letter-spacing: -0.02em;
+  color: #23262A;
+}
+@media screen and (min-width: 768px) {
+  .hero__text {
+    max-width: 506px;
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.3333333333;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__text {
+    max-width: 655px;
+  }
+}
+
+.hero__button {
+  margin-top: 24px;
+  padding: 10px 18px;
+  background-color: transparent;
+  color: green;
+  border-radius: 24px 44px;
+  border: 1px solid green;
+  font-family: "Poppins";
+  font-size: 10px;
+  line-height: 1.5;
+  color: #23262A;
+}
+@media screen and (min-width: 768px) {
+  .hero__button {
+    margin-top: 30px;
+    padding: 18px 44px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.hero__clock {
+  margin-top: 42px;
+  display: flex;
+  gap: 4px;
+}
+@media screen and (min-width: 768px) {
+  .hero__clock {
+    margin-top: 60px;
+    gap: 8px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero__clock {
+    margin-top: 48px;
+  }
+}
+
+.svg {
+  width: 14px;
+  height: 14px;
+}
+@media screen and (min-width: 768px) {
+  .svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.hero__time {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: #23262A;
+}
+@media screen and (min-width: 768px) {
+  .hero__time {
+    font-size: 14px;
+    line-height: 1.4285714286;
+  }
+}
+
+.list {
+  margin-top: 32px;
+  padding: 0 16px;
+}
+@media screen and (min-width: 768px) {
+  .list {
+    margin-top: 50px;
+    padding: 0 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list {
+    padding: 0 100px;
+  }
+}
+
+.list__head {
+  max-width: 343px;
+  display: flex;
+  padding: 12px 14px;
+  justify-content: space-between;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  margin-left: auto;
+  margin-right: auto;
+  background: #8BAA36;
+  border-radius: 8px;
+  color: #FAFAFA;
+}
+@media screen and (min-width: 768px) {
+  .list__head {
+    max-width: 704px;
+    padding: 21px 32px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list__head {
+    max-width: 1240px;
+    padding: 21px 40px;
+  }
+}
+
+.list__second {
+  display: flex;
+  gap: 18px;
+}
+@media screen and (min-width: 768px) {
+  .list__second {
+    gap: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list__second {
+    gap: 109px;
+  }
+}
+
+.ingred__list {
+  max-width: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ingred__list {
+    max-width: 704px;
+    gap: 24px;
+    margin-top: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingred__list {
+    max-width: 1240px;
+  }
+}
+
+.ingred__item {
+  position: relative;
+  padding: 10.5px 60px 10.5px 10px;
+  background: #EBF3D4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .ingred__item {
+    padding: 16px 100px 16px 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingred__item {
+    padding: 1px 108px 1px 32px;
+  }
+}
+
+.ingred__wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .ingred__wrapper {
+    gap: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingred__wrapper {
+    gap: 40px;
+  }
+}
+
+.ingred__img {
+  width: 65px;
+  height: 65px;
+  background: #ebf3d4;
+  border-radius: 6px;
+}
+@media screen and (min-width: 768px) {
+  .ingred__img {
+    width: 144px;
+    height: 146px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingred__img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.ingred__name {
+  font-style: normal;
+  color: #3e4462;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.1666666667;
+}
+@media screen and (min-width: 768px) {
+  .ingred__name {
+    font-size: 24px;
+    line-height: 1;
+  }
+}
+
+.ingred__wrapper_second {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .ingred__wrapper_second {
+    gap: 78px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingred__wrapper_second {
+    gap: 151px;
+  }
+}
+
+.ingred__quantity {
+  display: block;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
+  padding: 4px 8px;
+  text-align: center;
+  background-color: #8BAA36;
+  border-radius: 6px;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .ingred__quantity {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+.checkbox__wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ingred__checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ingred__checkbox_custom {
+  display: inline-block;
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(126, 126, 126, 0.5);
+  border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .ingred__checkbox_custom {
+    width: 35px;
+    height: 35px;
+    top: -17px;
+    left: 10px;
+  }
+}
+
+.ingred__checkbox_custom::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 11px;
+  width: 10px;
+  height: 20px;
+  border: solid #8BAA36;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.ingred__checkbox:checked + .ingred__checkbox_custom::before {
+  opacity: 1;
+}
+
+.prep__container {
+  margin: 50px auto 0 auto;
+  max-width: 343px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .prep__container {
+    max-width: 704px;
+    margin: 96px auto 0 auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .prep__container {
+    max-width: 1240px;
+    margin: 100px auto 0 auto;
+    flex-direction: row;
+  }
+}
+
+.prep__title {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #3E4462;
+}
+
+.prep__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  counter-reset: myCounter;
+  gap: 14px;
+}
+@media screen and (min-width: 768px) {
+  .prep__list {
+    gap: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .prep__list {
+    gap: 18.5px;
+  }
+}
+
+.prep__item {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.prep__item:before {
+  align-self: flex-start;
+  counter-increment: myCounter;
+  content: counter(myCounter);
+  width: 21px;
+  height: 21px;
+  text-align: center;
+  background: #8BAA36;
+  border-radius: 100px;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  margin-right: 14px;
+}
+
+.prep__step {
+  max-width: 306px;
+  display: block;
+  font-family: "Poppins";
+  font-size: 12px;
+  line-height: 1.1666666667;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.8);
+}
+@media screen and (min-width: 768px) {
+  .prep__step {
+    max-width: 645px;
+    font-size: 14px;
+    line-height: 1.2857142857;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .prep__step {
+    max-width: 720px;
+  }
+}
+
+.prep__img {
+  margin-top: 40px;
+  border-radius: 8px;
+  width: 343px;
+  height: 250px;
+}
+@media screen and (min-width: 768px) {
+  .prep__img {
+    margin-top: 50px;
+    width: 433px;
+    height: 332px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .prep__img {
+    margin: 0 0 0 50px;
+  }
+}/*# sourceMappingURL=RecipeMain.module.css.map */

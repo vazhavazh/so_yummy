@@ -1,0 +1,600 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBgColorWhite);
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--darkToWhite);
+  transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: var(--mainAccentColor);
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--darkGreytoGreen);
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8baa36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--wrapperBgGrey);
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8baa36;
+}
+
+.trashBtn--icon {
+  fill: var(--secondaryAccentColor);
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.addRecipeFormWrapper {
+  background-color: #fafafa;
+}
+@media screen and (min-width: 1440px) {
+  .addRecipeFormWrapper {
+    max-width: 800px;
+  }
+}
+
+.addRecipeForm {
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 0px 16px;
+  margin-top: 72px;
+}
+@media screen and (min-width: 768px) {
+  .addRecipeForm {
+    margin-top: 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .addRecipeForm {
+    margin-top: 0;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 18px;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .buttonWrapper {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .descriptionWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .descriptionWrapper {
+    align-items: start;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .minWidthTabletContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .minWidthTabletContainer {
+    margin-left: 50px;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 3px;
+  min-width: 343px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: red;
+  font-size: small;
+}
+
+.recipeDescriptionInput {
+  min-width: 100%;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+@media screen and (min-width: 768px) {
+  .recipeDescriptionInput {
+    height: 65px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .recipeDescriptionInput {
+    height: 75px;
+  }
+}
+
+.recipeDescriptionInput.error {
+  border-bottom: 1px solid red;
+}
+
+.inputWrapperCategory {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  min-width: 343px;
+  height: 59px;
+  border-bottom: 1px solid #e0e0e0;
+}
+@media screen and (min-width: 768px) {
+  .inputWrapperCategory {
+    height: 65px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .inputWrapperCategory {
+    height: 75px;
+  }
+}
+
+.inputWrapperCategory.error {
+  border-bottom: 1px solid red;
+}
+
+.categoryLabel {
+  color: #6A6A6A;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.inputWrapperFile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+  min-width: 279px;
+}
+@media screen and (min-width: 768px) {
+  .inputWrapperFile {
+    min-width: 279px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .inputWrapperFile {
+    min-width: 357px;
+  }
+}
+
+.errorMessageFile {
+  position: absolute;
+  bottom: 0px;
+  left: 32px;
+  color: red;
+  background-color: #d0dcaf;
+  border-bottom-left-radius: 6px;
+  font-size: small;
+}
+@media screen and (min-width: 768px) {
+  .errorMessageFile {
+    left: 0;
+  }
+}
+
+.ingredientsWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 67px;
+}
+@media screen and (min-width: 768px) {
+  .ingredientsWrapper {
+    margin-top: 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingredientsWrapper {
+    width: 609px;
+  }
+}
+
+.ingredientsTitle {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.addRemoveCounter {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  border-radius: 18px;
+  padding: 16px 12px;
+  width: 92px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media screen and (min-width: 768px) {
+  .addRemoveCounter {
+    width: 110px;
+    height: 32px;
+  }
+}
+
+.addRemoveCounter > span {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+@media screen and (min-width: 768px) {
+  .addRemoveCounter > span {
+    margin-right: 21px;
+    margin-left: 21px;
+  }
+}
+
+.counterIcon {
+  cursor: pointer;
+  text-align: end;
+}
+
+.ingredientsHeaderWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ingredientsInputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 28px;
+}
+@media screen and (min-width: 768px) {
+  .ingredientsInputWrapper {
+    margin-top: 32px;
+  }
+}
+
+.ingredientItemWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ingredientItemWrapper:not(:last-child) {
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 768px) {
+  .ingredientItemWrapper:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.ingredientInputWtapper {
+  width: 194px;
+  height: 53px;
+}
+@media screen and (min-width: 768px) {
+  .ingredientInputWtapper {
+    width: 398px;
+  }
+}
+
+.ingredientDose {
+  height: 53px;
+  width: 84px;
+  margin-left: 14px;
+  padding: 16px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  font-family: "Poppins";
+  font-weight: "400";
+  font-size: "12px";
+  line-height: "12px";
+}
+@media screen and (min-width: 768px) {
+  .ingredientDose {
+    width: 97px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .ingredientDose {
+    width: 99px;
+  }
+}
+
+.deleteIcon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.doseErrorMessage {
+  position: absolute;
+  bottom: 0;
+  left: 210px;
+  color: red;
+  font-size: small;
+}
+@media screen and (min-width: 768px) {
+  .doseErrorMessage {
+    left: 413px;
+  }
+}
+
+.preparationWrapper {
+  width: 100%;
+  margin-top: 44px;
+}
+@media screen and (min-width: 768px) {
+  .preparationWrapper {
+    margin-top: 100px;
+  }
+}
+
+.preparationHeaderWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.preparationInputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.preparationInput {
+  width: 100%;
+  height: 154px;
+  margin-top: 24px;
+  padding: 16px 23px;
+  border-radius: 6px;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  font-family: "Poppins";
+  font-weight: "400";
+  font-size: "12px";
+  line-height: "12px";
+}
+@media screen and (min-width: 768px) {
+  .preparationInput {
+    margin-top: 32px;
+    width: 505px;
+    height: 224px;
+  }
+}
+
+.prepatationError {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  color: red;
+  font-size: small;
+}/*# sourceMappingURL=AddRecipeForm.module.css.map */
