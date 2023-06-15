@@ -1,149 +1,4 @@
-// import React, { useState } from 'react';
-// import { Box } from '@mui/material';
-// import { Form, Formik } from 'formik';
-// import * as Yup from 'yup';
-// import styles from './AddRecipeForm.module.scss';
-// import Button from './AddRecipeButton';
-// import categories from './data/categories.json';
-// import cookingTime from './data/cookingTime.json';
-// import { RecipeDescriptionFields } from './RecipeDescriptionFields';
-// import { RecipeIngredientsFields } from './RecipeIngredientsFields';
-// import { RecipePreparationFields } from './RecipePreparationFields/RecipePreparationFields';
-
-// const MAX_FILE_SIZE = 700 * 1024;
-
-// const initialValues = {
-//   title: '',
-//   about: '',
-//   category: 'breakfast',
-//   cookingTime: '40 min',
-//   recipe: '',
-//   file: '',
-//   ingredients: [{ name: '', dose: '' }],
-//   preparation: '',
-// };
-
-// const validFileExtensions = {
-//   image: ['jpg', 'png', 'jpeg', 'webp'],
-// };
-
-// function isValidFileType(fileName, fileType) {
-//   return (
-//     fileName &&
-//     validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
-//   );
-// }
-
-// const FORM_VALIDATION = Yup.object().shape({
-//   title: Yup.string().required('Title is required'),
-//   about: Yup.string().required('About is required'),
-//   category: Yup.string().required('Category is required'),
-//   cookingTime: Yup.string().required('Cooking time is required'),
-// file: Yup.mixed()
-//   .test('is-valid-file', 'Invalid file format', function (value) {
-//     if (!value) {
-//       return true;
-//     }
-//     return isValidFileType(value && value.name.toLowerCase(), 'image');
-//   })
-//   .test(
-//     'is-valid-size',
-//     'File size exceeds the maximum limit',
-//     function (value) {
-//       if (!value) {
-//         return true;
-//       }
-//       return value.size <= MAX_FILE_SIZE;
-//     }
-//   )
-//   .required('Image is required'),
-// ingredients: Yup.array()
-//   .of(
-//     Yup.object().shape({
-//       name: Yup.string().required('Ingredient is required'),
-//       dose: Yup.string().required('Dose is required'),
-//     })
-//   )
-//   .required('Ingredients are required'),
-//   preparation: Yup.string(),
-// });
-
-// export const AddRecipeForm = () => {
-//   const [isFormSubmitted, setFormSubmitted] = useState(false);
-//   const [counter, setCounter] = useState(1);
-
-// const handleSubmit = (values, { resetForm }) => {
-//   const file = values.file;
-//   const errorMessage = validateFile(file);
-//   if (!errorMessage) {
-//     console.log(values);
-//     setFormSubmitted(true);
-//     setCounter(1);
-//     resetForm();
-//   }
-// };
-
-// const handleIncrement = () => {
-//   setCounter(prevCounter => prevCounter + 1);
-// };
-
-// const handleDecrement = () => {
-//   if (counter > 1) {
-//     setCounter(prevCounter => prevCounter - 1);
-//   }
-// };
-
-//   const validateFile = file => {
-//     if (!file) {
-//       return 'Please select a file';
-//     }
-
-//     if (file.size > MAX_FILE_SIZE) {
-//       return 'File size exceeds the maximum limit';
-//     }
-
-//     if (!isValidFileType(file.name.toLowerCase(), 'image')) {
-//       return 'Invalid file format';
-//     }
-
-//     return undefined;
-//   };
-
-//   return (
-// <div className={styles.addRecipeForm}>
-//   <Formik
-//     initialValues={initialValues}
-//     validationSchema={FORM_VALIDATION}
-//     onSubmit={handleSubmit}
-//   >
-//     {({ values, errors }) => (
-//       <Form>
-//         <div className={styles.addRecipeForm}>
-//           <RecipeDescriptionFields
-//             isFormSubmitted={isFormSubmitted}
-//             categories={categories}
-//             cookingTime={cookingTime}
-//           />
-//           <RecipeIngredientsFields
-//             counter={counter}
-//             handleIncrement={handleIncrement}
-//             handleDecrement={handleDecrement}
-//           />
-//           <RecipePreparationFields />
-// <Box marginTop="18px" width="100%">
-//   <Button type="submit">Submit</Button>
-// </Box>
-//         </div>
-//         {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
-//         <pre>{JSON.stringify(values, null, 4)}</pre> */}
-//       </Form>
-//     )}
-//   </Formik>
-// </div>
-//   );
-// };
-
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
@@ -155,8 +10,13 @@ import { ReactComponent as DeleteIcon } from '../AddRecipeForm/images/ingredient
 import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.svg';
 import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
 import categories from './data/categories.json';
-import cookingTime from './data/cookingTime.json';
-import ingredients from './data/ingredients.json';
+import time from './data/cookingTime.json';
+// import ingredients from './data/ingredients.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
+import { useEffect } from 'react';
+import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
+import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -172,28 +32,28 @@ function isValidFileType(fileName, fileType) {
 }
 
 const initialValues = {
-  file: '',
+  preview: '',
   title: '',
-  about: '',
+  description: 'test',
   category: '',
-  cookingTime: '',
-  ingredients: [{ name: '', dose: '' }],
-  preparation: '',
+  time: '',
+  ingredients: [{ id: 'ingredient1', measure: '100g' }],
+  instructions: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
   title: Yup.string().required('Title is required'),
-  about: Yup.string().required('About is required'),
+  description: Yup.string().required('Description is required'),
   category: Yup.string().required('Category is required'),
-  cookingTime: Yup.string().required('Cooking time is required'),
-  preparation: Yup.string().required('Recipe preparation is required'),
+  time: Yup.string().required('Cooking time is required'),
+  instructions: Yup.string().required('Recipe preparation is required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
-      name: Yup.string().required('Select ingredient'),
-      dose: Yup.string().required('Type dose'),
+      id: Yup.string().required('Select ingredient'),
+      measure: Yup.string().required('Type dose'),
     })
   ),
-  file: Yup.mixed()
+  preview: Yup.mixed()
     .test('is-valid-file', 'Invalid file format', function (value) {
       if (!value) {
         return true;
@@ -247,56 +107,86 @@ const customStyles = {
   }),
 };
 
-const customInredientStyles = {
-  container: (baseStyles, state) => ({
-    ...baseStyles,
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: '12px',
-    lineHeight: '12px',
-    border: state.isFocused ? 'none' : 'none',
-    outline: state.isFocused ? 'none' : 'none',
-  }),
-  dropdownIndicator: baseStyles => ({
-    ...baseStyles,
-    color: '#8baa36',
-  }),
-  menu: baseStyles => ({
-    ...baseStyles,
-    maxHeight: '170px', // Specify the desired height
-    overflowY: 'auto',
-  }),
-  control: (baseStyles, state) => ({
-    ...baseStyles,
-    height: '53px',
-    width: '100%',
-    border: 'none',
-    outline: 'none',
-    backgroundColor: '#f5f5f5',
-  }),
-  indicatorSeparator: baseStyles => ({
-    ...baseStyles,
-    display: 'none',
-  }),
-};
+// const customInredientStyles = {
+//   container: (baseStyles, state) => ({
+//     ...baseStyles,
+//     fontFamily: 'Poppins',
+//     fontStyle: 'normal',
+//     fontWeight: '400',
+//     fontSize: '12px',
+//     lineHeight: '12px',
+//     border: state.isFocused ? 'none' : 'none',
+//     outline: state.isFocused ? 'none' : 'none',
+//   }),
+//   dropdownIndicator: baseStyles => ({
+//     ...baseStyles,
+//     color: '#8baa36',
+//   }),
+//   menu: baseStyles => ({
+//     ...baseStyles,
+//     maxHeight: '170px', // Specify the desired height
+//     overflowY: 'auto',
+//   }),
+//   control: (baseStyles, state) => ({
+//     ...baseStyles,
+//     height: '53px',
+//     width: '100%',
+//     border: 'none',
+//     outline: 'none',
+//     backgroundColor: '#f5f5f5',
+//   }),
+//   indicatorSeparator: baseStyles => ({
+//     ...baseStyles,
+//     display: 'none',
+//   }),
+// };
 
 export const AddRecipeForm = () => {
+  const reduxIngredients = useSelector(selectIngredIentList);
+  console.log(reduxIngredients);
+  const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
 
+      useEffect(() => {
+        dispatch(fetchAllIngredientList());
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [dispatch]);
+  // const handleSubmit = (values, { resetForm }) => {
+  //   // const preparationArray = values.preparation
+  //   //   .split('\n')
+  //   //   .filter(line => line.trim() !== '');
+  //   // const updatedValues = {
+  //   //   ...values,
+  //   //   preparation: preparationArray,
+  //   // };
+  //   // console.log(values);
+  //   dispatch(addMyOwnRecipe(values));
+  //   setIsSubmitted(true);
+  //   setCounter(1);
+  //   resetForm();
+  // };
+
   const handleSubmit = (values, { resetForm }) => {
-    const preparationArray = values.preparation
-      .split('\n')
-      .filter(line => line.trim() !== '');
-    const updatedValues = {
-      ...values,
-      preparation: preparationArray,
-    };
-    console.log(updatedValues);
-    setIsSubmitted(true);
-    setCounter(1);
-    resetForm();
+    const formData = new FormData();
+    formData.append('preview', values.preview);
+    formData.append('title', values.title);
+    formData.append('description', values.description);
+    formData.append('category', values.category);
+    formData.append('time', values.time);
+    formData.append('ingredients', JSON.stringify(values.ingredients));
+    formData.append('instructions', values.instructions);
+
+    dispatch(addMyOwnRecipe(formData))
+      .then(() => {
+        setIsSubmitted(true);
+        setCounter(1);
+        // resetForm();
+      })
+      .catch(() => {
+        // Handle error if needed
+      });
   };
 
   // ingredients logic:
@@ -322,10 +212,10 @@ export const AddRecipeForm = () => {
           <Form className={styles.addRecipeForm}>
             <div className={styles.descriptionWrapper}>
               <div className={styles.inputWrapperFile}>
-                <FileInputField name="file" reset={isSubmitted} />
+                <FileInputField name="preview" reset={isSubmitted} />
                 <ErrorMessage
                   className={styles.errorMessageFile}
-                  name="file"
+                  name="preview"
                   component="div"
                 />
               </div>
@@ -348,14 +238,16 @@ export const AddRecipeForm = () => {
                 <div className={styles.inputWrapper}>
                   <Field
                     className={`${styles.recipeDescriptionInput} ${
-                      errors.about && touched.about ? styles.error : ''
+                      errors.description && touched.description
+                        ? styles.error
+                        : ''
                     }`}
                     type="text"
-                    name="about"
-                    placeholder="Enter about recipe"
+                    name="description"
+                    placeholder="Enter description"
                   />
                   <ErrorMessage
-                    name="about"
+                    name="description"
                     component="div"
                     className={styles.errorMessage}
                   />
@@ -393,33 +285,27 @@ export const AddRecipeForm = () => {
                 </div>
                 <div
                   className={`${styles.inputWrapperCategory} ${
-                    errors.cookingTime && touched.cookingTime
-                      ? styles.error
-                      : ''
+                    errors.time && touched.time ? styles.error : ''
                   }`}
                 >
-                  <label className={styles.categoryLabel} htmlFor="cookingTime">
+                  <label className={styles.categoryLabel} htmlFor="time">
                     Cooking time
                   </label>
 
                   <ReactSelect
-                    name="cookingTime"
-                    options={cookingTime}
+                    name="time"
+                    options={time}
                     styles={customStyles}
                     isSearchable={false}
                     value={
                       isSubmitted
                         ? ''
-                        : cookingTime.find(
-                            option => option.value === values.cookingTime
-                          )
+                        : time.find(option => option.value === values.time)
                     }
-                    onChange={value =>
-                      setFieldValue('cookingTime', value.value)
-                    }
+                    onChange={value => setFieldValue('time', value.value)}
                   />
                   <ErrorMessage
-                    name="cookingTime"
+                    name="time"
                     component="div"
                     className={styles.errorMessage}
                   />
@@ -443,8 +329,8 @@ export const AddRecipeForm = () => {
                               className={styles.ingredientItemWrapper}
                             >
                               <div className={styles.ingredientInputWtapper}>
-                                <ReactSelect
-                                  name={`ingredients[${index}].name`}
+                                {/* <ReactSelect
+                                  name={`ingredients[${index}].id`}
                                   options={ingredients}
                                   isSearchable={true}
                                   styles={customInredientStyles}
@@ -452,28 +338,28 @@ export const AddRecipeForm = () => {
                                   value={ingredients.find(
                                     option =>
                                       option.value ===
-                                      values.ingredients[index].name
+                                      values.ingredients[index].id
                                   )}
                                   onChange={selectedOption =>
                                     setFieldValue(
-                                      `ingredients[${index}].name`,
+                                      `ingredients[${index}].id`,
                                       selectedOption.value
                                     )
                                   }
-                                />
+                                /> */}
                               </div>
                               <ErrorMessage
-                                name={`ingredients[${index}].name`}
+                                name={`ingredients[${index}].id`}
                                 className={styles.errorMessage}
                                 component="div"
                               />
                               <Field
-                                name={`ingredients[${index}].dose`}
+                                name={`ingredients[${index}].measure`}
                                 placeholder="Dose"
                                 className={styles.ingredientDose}
                               />
                               <ErrorMessage
-                                name={`ingredients[${index}].dose`}
+                                name={`ingredients[${index}].measure`}
                                 className={styles.doseErrorMessage}
                                 component="div"
                               />
@@ -505,8 +391,8 @@ export const AddRecipeForm = () => {
                           <IncrementIcon
                             onClick={() => {
                               push({
-                                name: '',
-                                dose: '',
+                                id: '',
+                                measure: '',
                               });
                               handleIncrement();
                             }}
@@ -526,12 +412,12 @@ export const AddRecipeForm = () => {
               <div className={styles.preparationInputWrapper}>
                 <Field
                   as="textarea"
-                  name="preparation"
+                  name="instructions"
                   className={styles.preparationInput}
                   placeholder="Enter recipe"
                 />
                 <ErrorMessage
-                  name="preparation"
+                  name="instructionss"
                   component="div"
                   className={styles.prepatationError}
                 />
