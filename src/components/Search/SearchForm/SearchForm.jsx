@@ -49,12 +49,14 @@ const SearchForm = ({ page, limit }) => {
     const searchParams = new URLSearchParams(location.search);
     const queryFromURL = searchParams.get('query');
     setWordQuery(queryFromURL || '');
-
-    if (queryFromURL && queryFromURL.trim() !== '') {
-      fetchSearchData();
-    }
   }, [location.search]);
 
+  useEffect(() => {
+    if (wordQuery.trim() !== '') {
+      fetchSearchData();
+    }
+  // eslint-disable-next-line 
+  }, [wordQuery]);
 
   const handleSubmit = e => {
     e.preventDefault();
