@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
@@ -34,10 +34,10 @@ function isValidFileType(fileName, fileType) {
 const initialValues = {
   preview: '',
   title: '',
-  description: 'test',
+  description: '',
   category: '',
   time: '',
-  ingredients: [{ id: 'ingredient1', measure: '100g' }],
+  ingredients: [{ id: '', measure: '' }],
   instructions: '',
 };
 
@@ -107,52 +107,62 @@ const customStyles = {
   }),
 };
 
-// const customInredientStyles = {
-//   container: (baseStyles, state) => ({
-//     ...baseStyles,
-//     fontFamily: 'Poppins',
-//     fontStyle: 'normal',
-//     fontWeight: '400',
-//     fontSize: '12px',
-//     lineHeight: '12px',
-//     border: state.isFocused ? 'none' : 'none',
-//     outline: state.isFocused ? 'none' : 'none',
-//   }),
-//   dropdownIndicator: baseStyles => ({
-//     ...baseStyles,
-//     color: '#8baa36',
-//   }),
-//   menu: baseStyles => ({
-//     ...baseStyles,
-//     maxHeight: '170px', // Specify the desired height
-//     overflowY: 'auto',
-//   }),
-//   control: (baseStyles, state) => ({
-//     ...baseStyles,
-//     height: '53px',
-//     width: '100%',
-//     border: 'none',
-//     outline: 'none',
-//     backgroundColor: '#f5f5f5',
-//   }),
-//   indicatorSeparator: baseStyles => ({
-//     ...baseStyles,
-//     display: 'none',
-//   }),
-// };
+const customInredientStyles = {
+  container: (baseStyles, state) => ({
+    ...baseStyles,
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '12px',
+    border: state.isFocused ? 'none' : 'none',
+    outline: state.isFocused ? 'none' : 'none',
+  }),
+  dropdownIndicator: baseStyles => ({
+    ...baseStyles,
+    color: '#8baa36',
+  }),
+  menu: baseStyles => ({
+    ...baseStyles,
+    maxHeight: '170px', // Specify the desired height
+    overflowY: 'auto',
+  }),
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    height: '53px',
+    width: '100%',
+    border: 'none',
+    outline: 'none',
+    backgroundColor: '#f5f5f5',
+  }),
+  indicatorSeparator: baseStyles => ({
+    ...baseStyles,
+    display: 'none',
+  }),
+};
 
-export const AddRecipeForm = () => {
-  const reduxIngredients = useSelector(selectIngredIentList);
-  console.log(reduxIngredients);
+export const AddRecipeForm = ({ modifiedIngredients }) => {
+  // console.log('reduxIngredients: ', reduxIngredients);
+
   const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
 
-      useEffect(() => {
-        dispatch(fetchAllIngredientList());
+  // useEffect(() => {
+  //   setIngredients(modifiedIngredients);
+  //   console.log('hi there');
+  // }, [modifiedIngredients]);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [dispatch]);
+  // const reduxIngredients = useSelector(selectIngredIentList);
+
+  // console.log('state ingredients', ingredients);
+
+  // const modifiedIngredients = ingredients.map(({ _id, title }) => ({
+  //   value: _id,
+  //   label: title,
+  // }));
+
+  // console.log('modified: ', modifiedIngredients);
   // const handleSubmit = (values, { resetForm }) => {
   //   // const preparationArray = values.preparation
   //   //   .split('\n')
@@ -329,13 +339,13 @@ export const AddRecipeForm = () => {
                               className={styles.ingredientItemWrapper}
                             >
                               <div className={styles.ingredientInputWtapper}>
-                                {/* <ReactSelect
+                                <ReactSelect
                                   name={`ingredients[${index}].id`}
-                                  options={ingredients}
+                                  options={modifiedIngredients}
                                   isSearchable={true}
                                   styles={customInredientStyles}
                                   placeholder="Select ingredient"
-                                  value={ingredients.find(
+                                  value={modifiedIngredients.find(
                                     option =>
                                       option.value ===
                                       values.ingredients[index].id
@@ -346,7 +356,7 @@ export const AddRecipeForm = () => {
                                       selectedOption.value
                                     )
                                   }
-                                /> */}
+                                />
                               </div>
                               <ErrorMessage
                                 name={`ingredients[${index}].id`}
