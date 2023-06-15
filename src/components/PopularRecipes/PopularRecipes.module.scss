@@ -1,21 +1,27 @@
 @import '../../main.scss';
 
-.popularBox {
-  width: 343px;
+.popularContainer{
+  width: 100%;
+  padding: 0px 16px;
+  margin-top: 72px;
+
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  justify-content: center;
 
-  @include tablet {
-    justify-content: space-between;
-    width: 704px;
-    gap: 40px;
-  }
-
-  @include desktop {
-    width: 319px;
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding: 0;
   }
 }
+
+.popularBox {
+  position: relative;
+
+  min-width: 343px;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .popularTitle {
   font-weight: 600;
@@ -27,31 +33,30 @@
 }
 
 .popularList {
+  margin-top: 32px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  @include tablet {
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 40px;
+    margin-bottom: 200px;
     flex-direction: row;
-    gap: 32px;
   }
 
-  @include desktop {
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-top: 40px;
+    margin-bottom: 0px;
     flex-direction: column;
-    gap: 24px;
+    max-width: 319px;
+    max-height: 528px;
   }
+
 }
 
 .popularListEll {
   width: 100%;
-
-  @include tablet {
-    width: calc((100% - 32px) / 2);
-  }
-
-  @include desktop {
-    width: 100%;
-  }
 }
 
 .popularEll {
@@ -64,9 +69,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @include desktop {
-    gap: 11px;
-  }
 }
 
 .populaImg {
@@ -74,14 +76,6 @@
   height: 85px;
 
   border-radius: 8px;
-
-  @include tablet {
-    width: 102px;
-  }
-
-  @include desktop {
-    width: 97px;
-  }
 }
 
 .popularTextBox {

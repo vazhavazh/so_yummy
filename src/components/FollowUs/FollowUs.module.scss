@@ -1,6 +1,7 @@
 @import '../../sass/mixins';
 
 .socialBox {
+
   display: none;
 
   @include desktop {
@@ -12,12 +13,18 @@
 }
 
 .socialTitle {
+  display: none;
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
+  color: red;
 
   letter-spacing: -0.24px;
   color: var(--mainTextColor);
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: block;
+  }
 }
 
 .socialList {
