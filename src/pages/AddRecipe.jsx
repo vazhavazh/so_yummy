@@ -14,11 +14,8 @@ import styles from './styles/AddRecipe.module.scss';
 const AddRecipe = () => {
   const dispatch = useDispatch();
 
-  const [ingredients, setIngredients] = useState([]);
-
   useEffect(() => {
     dispatch(fetchAllIngredientList());
-    setIngredients(reduxIngredients);
   }, [dispatch]);
 
   const reduxIngredients = useSelector(selectIngredIentList);
@@ -32,19 +29,19 @@ const AddRecipe = () => {
     }));
   }
 
-  console.log('modified ingredients', modifiedIngredients);
-
   return (
     <div className={styles.addRecipeMainContainer}>
       <PageTitle className={styles.addRecipeTitle} />
       <div className={styles.addRecipeContainer}>
-        <AddRecipeForm modifiedIngredients={modifiedIngredients} />
+        {modifiedIngredients.length > 0 && (
+          <AddRecipeForm modifiedIngredients={modifiedIngredients} />
+        )}
         <div className={styles.popularAndFollowContainer}>
           <FollowUs />
           <PopularRecipes />
         </div>
       </div>
-      <Leaf/>
+      <Leaf />
     </div>
   );
 };

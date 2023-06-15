@@ -11,12 +11,9 @@ import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.s
 import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
 import categories from './data/categories.json';
 import time from './data/cookingTime.json';
-// import ingredients from './data/ingredients.json';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
-import { useEffect } from 'react';
-import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
-import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
+import { useNavigate } from 'react-router-dom';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -142,41 +139,10 @@ const customInredientStyles = {
 };
 
 export const AddRecipeForm = ({ modifiedIngredients }) => {
-  // console.log('reduxIngredients: ', reduxIngredients);
-
   const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
-
-  // useEffect(() => {
-  //   setIngredients(modifiedIngredients);
-  //   console.log('hi there');
-  // }, [modifiedIngredients]);
-
-  // const reduxIngredients = useSelector(selectIngredIentList);
-
-  // console.log('state ingredients', ingredients);
-
-  // const modifiedIngredients = ingredients.map(({ _id, title }) => ({
-  //   value: _id,
-  //   label: title,
-  // }));
-
-  // console.log('modified: ', modifiedIngredients);
-  // const handleSubmit = (values, { resetForm }) => {
-  //   // const preparationArray = values.preparation
-  //   //   .split('\n')
-  //   //   .filter(line => line.trim() !== '');
-  //   // const updatedValues = {
-  //   //   ...values,
-  //   //   preparation: preparationArray,
-  //   // };
-  //   // console.log(values);
-  //   dispatch(addMyOwnRecipe(values));
-  //   setIsSubmitted(true);
-  //   setCounter(1);
-  //   resetForm();
-  // };
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     const formData = new FormData();
@@ -192,10 +158,11 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
       .then(() => {
         setIsSubmitted(true);
         setCounter(1);
-        // resetForm();
+        resetForm();
+        navigate('/my');
       })
       .catch(() => {
-        // Handle error if needed
+        console.log(error);
       });
   };
 
@@ -277,7 +244,6 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
                     styles={customStyles}
                     isSearchable={false}
                     className={styles.ingredientCategoryInput}
-                    // onChange={value => setFieldValue('category', value.value)}
                     value={
                       isSubmitted
                         ? ''
@@ -329,7 +295,6 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
               <div className={styles.ingredientsInputWrapper}>
                 <FieldArray name="ingredients">
                   {({ push, remove, form }) => {
-                    // console.log(form.values.ingredients);
                     return (
                       <div>
                         {form.values.ingredients.map((ingredient, index) => {
@@ -378,7 +343,6 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
                                 <DeleteIcon
                                   className={styles.deleteIcon}
                                   onClick={() => {
-                                    console.log('This is delete button');
                                     remove(index);
                                     handleDecrement();
                                   }}
@@ -436,9 +400,6 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
             <div className={styles.buttonWrapper}>
               <Button type="submit">Add</Button>
             </div>
-
-            {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
-            <pre>{JSON.stringify(values, null, 4)}</pre> */}
           </Form>
         )}
       </Formik>
