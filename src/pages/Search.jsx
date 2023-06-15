@@ -7,6 +7,7 @@ import scss from '../components/Search/SearchBar/SearchBar.module.scss';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 import { selectTotalPages } from 'redux/search/searchSelector';
 import { Pagination } from '../../src/components/Pagination/Pagination';
+import Leaf from 'components/Leaf/Leaf';
 
 const Search = () => {
   const totalPages = useSelector(selectTotalPages);
@@ -98,6 +99,7 @@ const Search = () => {
           />
         </div>
       )}
+      <Leaf/>
     </div>
   );
 };

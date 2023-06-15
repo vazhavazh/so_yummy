@@ -1,5 +1,6 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { HeroTitle } from 'components/HeroTitle/HeroTitle';
 import { HeroWrapper } from 'components/HeroWrapper/HeroWrapper';
@@ -12,7 +13,6 @@ export const Hero = () => {
   return (
     <div className={style.hero}>
       <ToastContainer />
-
       <HeroTitle />
       <HeroWrapper>
         <СhooseYourBreakfast />

@@ -1,11 +1,12 @@
 import { Categories } from 'components/Categories/Categories';
-import { PageTitle } from 'components/PageTitle/PageTitle';
+import Leaf from 'components/Leaf/Leaf';
 import React from 'react';
 
 const CategoriesPage = () => {
   return (
     <div>
       <Categories />
+      <Leaf />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { toast } from 'react-toastify';
+  import {  toast } from 'react-toastify';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,7 @@ export const Search = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!searchQuery) {
+
       return toast.warn('Enter your query');
     }
     if (searchQuery) {

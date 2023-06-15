@@ -12,6 +12,7 @@ import { RecipePreparation } from 'components/RecipeMain/RecipePreparation';
 import { fetchMyOwnRecipe } from 'redux/pipka/pipkaThunk';
 import selectMyRecipes from 'redux/pipka/pipkaSelector';
 import { RecipePageHeroMy } from 'components/MyownRecipeComponent/RecipePageHeroMy';
+import Leaf from 'components/Leaf/Leaf';
 
 const MyRecipe2 = () => {
   const { recipeId } = useParams();
@@ -33,6 +34,7 @@ const MyRecipe2 = () => {
         <RecipePageHeroMy recipe={recipe} />
         <RecipeIngredientsList ingredients={ingredients} />
         <RecipePreparation instructions={instructions} img={img} />
+        <Leaf/>
       </div>
     </>
   );
