@@ -1,16 +1,28 @@
 @import '../../sass/mixins';
 
+// .socialBox {
+//     position: absolute;
+//     bottom: -475px;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     z-index: 1;
+
+//   @include desktop {
+//     position: static;
+//     transform: none;
+
+//     display: flex;
+//     width: 163px;
+//     flex-direction: column;
+//     gap: 40px;
+//   }
+// }
+
 .socialBox {
-    position: absolute;
-    bottom: -475px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+
+  display: none;
 
   @include desktop {
-    position: static;
-    transform: none;
-
     display: flex;
     width: 163px;
     flex-direction: column;
