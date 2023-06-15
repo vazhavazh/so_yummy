@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedTypes } from 'redux/search/searchSlice';
 import { selectFromFooter } from 'redux/search/searchSelector';
 
-
 const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
 
 const customStyles = {
@@ -49,7 +48,6 @@ const customStyles = {
 const SearchTypeSelector = () => {
   const dispatch = useDispatch();
 
-
   const fromFooter = useSelector(selectFromFooter);
 
   // eslint-disable-next-line
@@ -72,7 +70,6 @@ const SearchTypeSelector = () => {
         getOptionValue={option => option.searchType}
         isSearchable={false}
         onChange={handleTypeChange}
-        // defaultInputValue={fromFooter ? 'ingredients' : 'title'}
         defaultValue={
           fromFooter
             ? typesList.find(option => option.searchType === 'ingredients')
