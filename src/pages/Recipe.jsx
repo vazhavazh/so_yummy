@@ -14,6 +14,7 @@ import {
 // import Loader from 'components/Loader/Loader';
 import { RecipeIngredientsList } from 'components/RecipeMain/RecipeIngredientsList';
 import { RecipePreparation } from 'components/RecipeMain/RecipePreparation';
+import Leaf from 'components/Leaf/Leaf';
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -39,6 +40,7 @@ const Recipe = () => {
         <RecipeIngredientsList ingredients={ingredients} />
         <RecipePreparation instructions={instructions} img={img} />
         {/* <RecipeMain></RecipeMain> */}
+        <Leaf/>
       </div>
     </>
   );
