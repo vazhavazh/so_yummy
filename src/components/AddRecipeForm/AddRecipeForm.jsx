@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
@@ -11,12 +11,10 @@ import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.s
 import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
 import categories from './data/categories.json';
 import time from './data/cookingTime.json';
-// import ingredients from './data/ingredients.json';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
-import { useEffect } from 'react';
-import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
-import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
+import { useNavigate } from 'react-router-dom';
+import { Notify } from 'notiflix';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -34,19 +32,21 @@ function isValidFileType(fileName, fileType) {
 const initialValues = {
   preview: '',
   title: '',
-  description: 'test',
+  description: '',
   category: '',
   time: '',
-  ingredients: [{ id: 'ingredient1', measure: '100g' }],
+  ingredients: [{ id: '', measure: '' }],
   instructions: '',
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-  title: Yup.string().required('Title is required'),
-  description: Yup.string().required('Description is required'),
+  title: Yup.string().max(30).required('Title is required'),
+  description: Yup.string().max(70).required('Description is required'),
   category: Yup.string().required('Category is required'),
   time: Yup.string().required('Cooking time is required'),
-  instructions: Yup.string().required('Recipe preparation is required'),
+  instructions: Yup.string()
+    .max(400)
+    .required('Recipe preparation is required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
       id: Yup.string().required('Select ingredient'),
@@ -107,68 +107,47 @@ const customStyles = {
   }),
 };
 
-// const customInredientStyles = {
-//   container: (baseStyles, state) => ({
-//     ...baseStyles,
-//     fontFamily: 'Poppins',
-//     fontStyle: 'normal',
-//     fontWeight: '400',
-//     fontSize: '12px',
-//     lineHeight: '12px',
-//     border: state.isFocused ? 'none' : 'none',
-//     outline: state.isFocused ? 'none' : 'none',
-//   }),
-//   dropdownIndicator: baseStyles => ({
-//     ...baseStyles,
-//     color: '#8baa36',
-//   }),
-//   menu: baseStyles => ({
-//     ...baseStyles,
-//     maxHeight: '170px', // Specify the desired height
-//     overflowY: 'auto',
-//   }),
-//   control: (baseStyles, state) => ({
-//     ...baseStyles,
-//     height: '53px',
-//     width: '100%',
-//     border: 'none',
-//     outline: 'none',
-//     backgroundColor: '#f5f5f5',
-//   }),
-//   indicatorSeparator: baseStyles => ({
-//     ...baseStyles,
-//     display: 'none',
-//   }),
-// };
+const customInredientStyles = {
+  container: (baseStyles, state) => ({
+    ...baseStyles,
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '12px',
+    border: state.isFocused ? 'none' : 'none',
+    outline: state.isFocused ? 'none' : 'none',
+  }),
+  dropdownIndicator: baseStyles => ({
+    ...baseStyles,
+    color: '#8baa36',
+  }),
+  menu: baseStyles => ({
+    ...baseStyles,
+    maxHeight: '170px', // Specify the desired height
+    overflowY: 'auto',
+  }),
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    height: '53px',
+    width: '100%',
+    border: 'none',
+    outline: 'none',
+    backgroundColor: '#f5f5f5',
+  }),
+  indicatorSeparator: baseStyles => ({
+    ...baseStyles,
+    display: 'none',
+  }),
+};
 
-export const AddRecipeForm = () => {
-  const reduxIngredients = useSelector(selectIngredIentList);
-  console.log(reduxIngredients);
+export const AddRecipeForm = ({ modifiedIngredients }) => {
   const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
+  const navigate = useNavigate();
 
-      useEffect(() => {
-        dispatch(fetchAllIngredientList());
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [dispatch]);
-  // const handleSubmit = (values, { resetForm }) => {
-  //   // const preparationArray = values.preparation
-  //   //   .split('\n')
-  //   //   .filter(line => line.trim() !== '');
-  //   // const updatedValues = {
-  //   //   ...values,
-  //   //   preparation: preparationArray,
-  //   // };
-  //   // console.log(values);
-  //   dispatch(addMyOwnRecipe(values));
-  //   setIsSubmitted(true);
-  //   setCounter(1);
-  //   resetForm();
-  // };
-
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
     formData.append('preview', values.preview);
     formData.append('title', values.title);
@@ -178,14 +157,16 @@ export const AddRecipeForm = () => {
     formData.append('ingredients', JSON.stringify(values.ingredients));
     formData.append('instructions', values.instructions);
 
-    dispatch(addMyOwnRecipe(formData))
+    await dispatch(addMyOwnRecipe(formData))
       .then(() => {
         setIsSubmitted(true);
         setCounter(1);
-        // resetForm();
+        resetForm();
+        navigate('/my');
+        Notify.success('Hooray, you added recipe');
       })
-      .catch(() => {
-        // Handle error if needed
+      .catch(error => {
+        console.log(error);
       });
   };
 
@@ -267,7 +248,6 @@ export const AddRecipeForm = () => {
                     styles={customStyles}
                     isSearchable={false}
                     className={styles.ingredientCategoryInput}
-                    // onChange={value => setFieldValue('category', value.value)}
                     value={
                       isSubmitted
                         ? ''
@@ -319,7 +299,6 @@ export const AddRecipeForm = () => {
               <div className={styles.ingredientsInputWrapper}>
                 <FieldArray name="ingredients">
                   {({ push, remove, form }) => {
-                    // console.log(form.values.ingredients);
                     return (
                       <div>
                         {form.values.ingredients.map((ingredient, index) => {
@@ -329,13 +308,13 @@ export const AddRecipeForm = () => {
                               className={styles.ingredientItemWrapper}
                             >
                               <div className={styles.ingredientInputWtapper}>
-                                {/* <ReactSelect
+                                <ReactSelect
                                   name={`ingredients[${index}].id`}
-                                  options={ingredients}
+                                  options={modifiedIngredients}
                                   isSearchable={true}
                                   styles={customInredientStyles}
                                   placeholder="Select ingredient"
-                                  value={ingredients.find(
+                                  value={modifiedIngredients.find(
                                     option =>
                                       option.value ===
                                       values.ingredients[index].id
@@ -346,7 +325,7 @@ export const AddRecipeForm = () => {
                                       selectedOption.value
                                     )
                                   }
-                                /> */}
+                                />
                               </div>
                               <ErrorMessage
                                 name={`ingredients[${index}].id`}
@@ -368,7 +347,6 @@ export const AddRecipeForm = () => {
                                 <DeleteIcon
                                   className={styles.deleteIcon}
                                   onClick={() => {
-                                    console.log('This is delete button');
                                     remove(index);
                                     handleDecrement();
                                   }}
@@ -426,9 +404,6 @@ export const AddRecipeForm = () => {
             <div className={styles.buttonWrapper}>
               <Button type="submit">Add</Button>
             </div>
-
-            {/* <pre>{JSON.stringify(errors, null, 4)}</pre>
-            <pre>{JSON.stringify(values, null, 4)}</pre> */}
           </Form>
         )}
       </Formik>

@@ -13,6 +13,7 @@ import {
   deleteMyOwnRecipe,
 } from 'redux/myRecipes/myRecipesThunk';
 import Loader from 'components/Loader/Loader';
+import { Notify } from 'notiflix';
 
 import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
@@ -56,7 +57,7 @@ export const MyRecipesList = () => {
       }
       dispatch(fetchAllMyOwnRecipes(query));
     } catch (error) {
-      console.log(error);
+      Notify.failure('ooops, smth went wrong');
     }
   };
 
