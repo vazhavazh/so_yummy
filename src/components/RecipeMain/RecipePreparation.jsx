@@ -7,6 +7,9 @@ export const RecipePreparation = ({ instructions, img }) => {
   }
 
   const newInstructions = instructions.split('.');
+  if (newInstructions[newInstructions.length - 1] === '') {
+    newInstructions.pop();
+  }
 
   return (
     <>
