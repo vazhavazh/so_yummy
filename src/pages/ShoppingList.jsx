@@ -4,7 +4,6 @@ import { PageTitle } from 'components/PageTitle/PageTitle';
 const ShoppingList = () => {
   return (
     <>
-      <PageTitle />
       <IngredientsShoppingList />
     </>
   );

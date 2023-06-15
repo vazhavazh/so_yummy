@@ -14,6 +14,7 @@ import { ReactComponent as SuccessSvg } from '../../assets/svg/authForm/success.
 import { setFromFooterState } from 'redux/search/searchThunks';
 import { subscribe } from 'redux/subscribe/subThunks';
 import styles from '../AuthForm/AuthForm.module.scss';
+import { FollowUs } from 'components/FollowUs/FollowUs';
 
 export const Footer = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export const Footer = () => {
 
   const initialValues = { email: '' };
   return (
-    <footer>
+    <footer className={style.footerContainer}>
       <section className={style.contactsSection}>
         <div className={style.navAdvSubWrapper}>
           <div className={style.navAdvWrapper}>
@@ -168,7 +169,7 @@ export const Footer = () => {
             </form> */}
           </div>
         </div>
-        <ul className={style.contactsList}>
+        {/* <ul className={style.contactsList}>
           <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
               <img
@@ -201,7 +202,8 @@ export const Footer = () => {
               />
             </a>
           </li>
-        </ul>
+        </ul> */}
+        <FollowUs />
       </section>
       <section className={style.copyrightSection}>
         <p className={style.copyrightText}> © 2023 All Rights Reserved.</p>

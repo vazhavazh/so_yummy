@@ -5,9 +5,7 @@ import { PageTitle } from 'components/PageTitle/PageTitle';
 const Favorite = () => {
   return (
     <>
-      <PageTitle />
       <FavoriteReceipts />
-     
     </>
   );
 };

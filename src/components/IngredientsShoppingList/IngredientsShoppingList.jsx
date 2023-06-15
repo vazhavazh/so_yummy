@@ -16,6 +16,7 @@ import './IngredientsShoppingList.scss';
 import Loader from 'components/Loader/Loader';
 import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 export const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,6 @@ export const IngredientsShoppingList = () => {
   const handleDeleteIngredient = async ingredient => {
     try {
       dispatch(fetchDeleteShoppingIngredient(ingredient));
-     
     } catch (error) {
       console.log(error);
     }
@@ -40,60 +40,66 @@ export const IngredientsShoppingList = () => {
 
   if (!ingredients || ingredients.length === 0) {
     return (
-      <div className={scss.searchLookingWrapper}>
-        <img src={img} alt="images" />
-        <p className="emptyName">Your shopping list still empty...</p>
+      <div className="mainContainer">
+        <PageTitle />
+        <div className={scss.searchLookingWrapper}>
+          <img src={img} alt="images" />
+          <p className="emptyName">Your shopping list still empty...</p>
+        </div>
       </div>
     );
   }
 
   return (
     <>
-     <div className='flexWrapper'>
-        <div className="shopping-list-container">
-          <div className="shopping-list-categories">
-            <span className="shopping-list-categories--name">Product</span>
-            <div className="name-wrapper">
-              <span className="shopping-list-categories--name">Number</span>
-              <span className="shopping-list-categories--name">Remove</span>
+      <div className="mainContainer">
+        <PageTitle />
+        <div>
+          <div className="shopping-list-container">
+            <div className="shopping-list-categories">
+              <span className="shopping-list-categories--name">Product</span>
+              <div className="name-wrapper">
+                <span className="shopping-list-categories--name">Number</span>
+                <span className="shopping-list-categories--name">Remove</span>
+              </div>
             </div>
+            <ul className="ingredient-list">
+              {ingredients.map(ingredient => (
+                <li className="ingredient-item" key={ingredient._id}>
+                  <div className="ingredient-wrapper">
+                    <div className="ingredient-img-wrapper">
+                      <img
+                        className="ingredient-img"
+                        src={ingredient.thb}
+                        alt={ingredient.ttl}
+                      />
+                    </div>
+                    <h2 className="ingredient-name">{ingredient.ttl}</h2>
+                  </div>
+
+                  <div className="quantity-remove-wrapper">
+                    <div className="ingredient-quantity-wrapper">
+                      {' '}
+                      <span className="ingredient-quantity">
+                        {ingredient.measure}
+                      </span>
+                    </div>
+                    <button
+                      className="remove-btnX x-btn"
+                      type="button"
+                      onClick={() => {
+                        handleDeleteIngredient(ingredient);
+                      }}
+                    >
+                      <RemoveIcon className="remove-btnX--icon" />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="ingredient-list">
-            {ingredients.map(ingredient => (
-              <li className="ingredient-item" key={ingredient._id}>
-                <div className="ingredient-wrapper">
-                  <div className="ingredient-img-wrapper">
-                    <img
-                      className="ingredient-img"
-                      src={ingredient.thb}
-                      alt={ingredient.ttl}
-                    />
-                  </div>
-                  <h2 className="ingredient-name">{ingredient.ttl}</h2>
-                </div>
-  
-                <div className="quantity-remove-wrapper">
-                  <div className="ingredient-quantity-wrapper">
-                    {' '}
-                    <span className="ingredient-quantity">
-                      {ingredient.measure}
-                    </span>
-                  </div>
-                  <button
-                    className="remove-btnX x-btn"
-                    type="button"
-                    onClick={() => {
-                      handleDeleteIngredient(ingredient);
-                    }}
-                  >
-                    <RemoveIcon className="remove-btnX--icon" />
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
-     </div>
+      </div>
     </>
   );
 };

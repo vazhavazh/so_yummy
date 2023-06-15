@@ -5,7 +5,6 @@ import React from 'react';
 const CategoriesPage = () => {
   return (
     <div>
-      <PageTitle />
       <Categories />
     </div>
   );

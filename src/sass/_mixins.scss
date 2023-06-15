@@ -39,6 +39,11 @@
     @content;
   }
 }
+@mixin desctop {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
 
 @mixin retina {
   @media (min-device-pixel-ratio: 2),

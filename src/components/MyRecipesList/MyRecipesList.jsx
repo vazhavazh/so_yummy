@@ -17,6 +17,8 @@ import Loader from 'components/Loader/Loader';
 import img from 'assets/image/searchPage/asdd.png';
 import scss from 'components/Search/SearchBar/SearchBar.module.scss';
 import { Pagination } from '../Pagination/Pagination';
+import { PageTitle } from 'components/PageTitle/PageTitle';
+import { Container } from 'components/Container/Container';
 
 export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
@@ -70,14 +72,18 @@ export const MyRecipesList = () => {
     myOwnRecipes.length === 0
   ) {
     return (
-      <div className={scss.searchLookingWrapper}>
-        <img src={img} alt="images" />
-        <p className="emptyName">You didn't create your own recipes...</p>
+      <div className="recepiesConainer">
+        <PageTitle />
+        <div className={scss.searchLookingWrapper}>
+          <img src={img} alt="images" />
+          <p className="emptyName">You didn't create your own recipes...</p>
+        </div>
       </div>
     );
   }
   return (
     <div className="flexWrapper">
+      <PageTitle />
       <div className="favorites-container">
         <ul className="favorites-list">
           {myOwnRecipes.map(favorite => (

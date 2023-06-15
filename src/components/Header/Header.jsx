@@ -10,6 +10,7 @@ import ToggleTheme from 'components/theme/ToggleTheme';
 import { useSelector } from 'react-redux';
 import { getUserName } from 'redux/auth/authSelectors';
 import { useLocation } from 'react-router-dom';
+import { Container } from 'components/Container/Container';
 
 export const Header = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -20,53 +21,53 @@ export const Header = () => {
 
   return (
     <header
-      className={`${style.header} ${style.container} ${
-        path === '/' ? '' : style.headerNotMain
-      }`}
+      className={`${style.header}  ${path === '/' ? '' : style.headerNotMain}`}
     >
-      <div className={style.navWrapper}>
-        <NavLink id="ahcnor1" to="/">
-          <img className={style.logo} src={logo} alt="logo" />
-        </NavLink>
-        <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
-      </div>
-      <div className={style.userWrapper}>
-        <div
-          onClick={() => setIsDropdownActive(!isDropdownActive)}
-          className={style.userInfoWrapper}
-        >
-          {avatarURL && (
-            <img className={style.avatar} src={avatarURL} alt="avatar" />
-          )}
-          <p
-            className={`${style.username} ${
-              path === '/' ? '' : style.usernameNotMain
-            }`}
+      <Container>
+        <div className={style.navWrapper}>
+          <NavLink id="ahcnor1" to="/">
+            <img className={style.logo} src={logo} alt="logo" />
+          </NavLink>
+          <Menu setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
+        </div>
+        <div className={style.userWrapper}>
+          <div
+            onClick={() => setIsDropdownActive(!isDropdownActive)}
+            className={style.userInfoWrapper}
           >
-            {name}
-          </p>
-          <div className={style.toggle}>
-            <ToggleTheme />
+            {avatarURL && (
+              <img className={style.avatar} src={avatarURL} alt="avatar" />
+            )}
+            <p
+              className={`${style.username} ${
+                path === '/' ? '' : style.usernameNotMain
+              }`}
+            >
+              {name}
+            </p>
+            <div className={style.toggle}>
+              <ToggleTheme />
+            </div>
+          </div>
+          <Dropdown
+            isDropdownActive={isDropdownActive}
+            setIsDropdownActive={setIsDropdownActive}
+          />
+          <div className={style.burgerWrapper}>
+            <button
+              className={style.burgerBtn}
+              type="button"
+              onClick={() => setIsMenuActive(true)}
+            >
+              <Burger
+                className={`${style.burger} ${
+                  path === '/' ? '' : style.burgerNotMain
+                }`}
+              />
+            </button>
           </div>
         </div>
-        <Dropdown
-          isDropdownActive={isDropdownActive}
-          setIsDropdownActive={setIsDropdownActive}
-        />
-        <div className={style.burgerWrapper}>
-          <button
-            className={style.burgerBtn}
-            type="button"
-            onClick={() => setIsMenuActive(true)}
-          >
-            <Burger
-              className={`${style.burger} ${
-                path === '/' ? '' : style.burgerNotMain
-              }`}
-            />
-          </button>
-        </div>
-      </div>
+      </Container>
     </header>
   );
 };

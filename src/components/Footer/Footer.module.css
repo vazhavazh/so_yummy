@@ -1,0 +1,476 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.footerContainer {
+  background-color: var(--darkToAccent);
+}
+
+.contactsSection {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 28px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 375px;
+}
+@media screen and (min-width: 768px) {
+  .contactsSection {
+    padding: 50px 94px 24px 32px;
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .contactsSection {
+    max-width: 1440px;
+    padding: 64px 100px 50px 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navAdvSubWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .navAdvSubWrapper {
+    flex-wrap: nowrap;
+    margin-bottom: 41px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navAdvWrapper {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 72px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .navAdvWrapper {
+    margin-bottom: 0;
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nav {
+    margin-right: 159px;
+  }
+}
+
+.mainLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .mainLink {
+    justify-content: start;
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .mainLink {
+    margin-bottom: 40px;
+  }
+}
+
+.logo {
+  margin-right: 8px;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .advantagesList {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .advantagesList {
+    padding-left: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .advantagesList {
+    width: 418px;
+  }
+}
+
+.advantagesItem {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  list-style-type: disc;
+}
+.advantagesItem:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1440px) {
+  .advantagesItem {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .navList {
+    align-items: start;
+  }
+}
+
+.navItem {
+  margin-bottom: 14px;
+}
+.navItem:last-child {
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .navItem {
+    margin-bottom: 20px;
+  }
+  .navItem:last-child {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .navItem {
+    margin-bottom: 24px;
+  }
+}
+
+.navLink {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+@media screen and (min-width: 768px) {
+  .subscribeWrapper {
+    width: 100%;
+    display: flex;
+    margin-bottom: 38px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .subscribeWrapper {
+    width: 339px;
+    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: start;
+  }
+}
+
+.subscribeText {
+  margin-bottom: 28px;
+}
+@media screen and (max-width: 1439px) {
+  .subscribeText {
+    display: none;
+  }
+}
+
+.subscribeTitle {
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+
+.subscribeDesc {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .form {
+    display: block;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 768px) {
+  .inputWrapper {
+    margin-right: 12px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .inputWrapper {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.mailIcon {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  height: 12px;
+  width: 16px;
+}
+@media screen and (min-width: 768px) {
+  .mailIcon {
+    top: 17px;
+    left: 15px;
+    width: 20px;
+    height: 16px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .mailIcon {
+    top: 22px;
+    left: 16px;
+  }
+}
+
+.input {
+  width: 204px;
+  height: 38px;
+  padding: 10px 10px 10px 42px;
+  font-family: "Poppins";
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  background-color: transparent;
+  border: 1px solid rgba(250, 250, 250, 0.16);
+  border-radius: 6px;
+}
+.input::placeholder {
+  font-family: "Poppins";
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .input {
+    width: 259px;
+    height: 50px;
+    font-size: 14px;
+  }
+  .input::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .input {
+    width: 338px;
+    height: 59px;
+    font-size: 18px;
+    padding-right: 15px;
+  }
+  .input::placeholder {
+    font-size: 18px;
+  }
+}
+
+.subscribeBtn {
+  width: 204px;
+  height: 38px;
+  padding: 11px;
+  margin-bottom: 44px;
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 1.14;
+  color: #fafafa;
+  border: 0;
+  background-color: var(--greenToGrey);
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.subscribeBtn:hover, .subscribeBtn:focus {
+  background-color: #fafafa;
+  color: #22252a;
+}
+.subscribeBtn:disabled, .subscribeBtn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+@media screen and (min-width: 768px) {
+  .subscribeBtn {
+    width: 187px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 1.12;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .subscribeBtn {
+    width: 339px;
+    height: 60px;
+  }
+}
+
+.contactsList {
+  display: flex;
+  align-items: center;
+}
+
+.facebookItem,
+.youtubeItem,
+.twitterItem {
+  margin-right: 14px;
+}
+@media screen and (min-width: 768px) {
+  .facebookItem,
+  .youtubeItem,
+  .twitterItem {
+    margin-right: 18px;
+  }
+}
+
+.facebookIcon,
+.youtubeIcon,
+.twitterIcon {
+  width: 20px;
+  fill: var(--greenToWhite);
+}
+
+.facebookIcon {
+  height: 20px;
+}
+
+.youtubeIcon {
+  height: 15px;
+}
+
+.twitterIcon {
+  height: 16px;
+}
+
+.instagramIcon {
+  width: 17px;
+  height: 17px;
+  fill: var(--greenToWhite);
+}
+@media screen and (min-width: 768px) {
+  .instagramIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.copyrightSection {
+  display: flex;
+  align-items: center;
+  padding: 28px 0 28px;
+  justify-content: center;
+  background-color: var(--mainBgColorWhite);
+}
+.copyrightSection ::before {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 66px;
+  width: 179px;
+  content: "";
+  background-image: url(../../assets/image/footer/footer-background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+@media screen and (min-width: 768px) {
+  .copyrightSection {
+    padding: 32px 0 32px;
+  }
+  .copyrightSection ::before {
+    height: 78px;
+    width: 341px;
+    background-image: url(../../assets/image/footer/footer-background-m.png);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .copyrightSection {
+    padding: 50px 0 50px;
+  }
+  .copyrightSection ::before {
+    height: 114px;
+    width: 531px;
+    background-image: url(../../assets/image/footer/footer-background-l.png);
+  }
+}
+
+.copyrightText {
+  margin-right: 14px;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--secondaryAccentColor);
+  opacity: 0.5;
+}
+@media screen and (min-width: 768px) {
+  .copyrightText {
+    font-size: 14px;
+    margin-right: 28px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .copyrightText {
+    margin-right: 40px;
+  }
+}
+
+.termsLink {
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--secondaryAccentColor);
+  opacity: 0.5;
+}
+@media screen and (min-width: 768px) {
+  .termsLink {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=Footer.module.css.map */

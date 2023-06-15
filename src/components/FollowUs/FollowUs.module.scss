@@ -1,8 +1,7 @@
 @import '../../sass/mixins';
 
 .socialBox {
-
-  display: none;
+  // display: none;
 
   @include desktop {
     display: flex;

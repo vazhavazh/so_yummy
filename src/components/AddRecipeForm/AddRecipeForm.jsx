@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import { Box } from '@mui/material';
 import * as Yup from 'yup';
@@ -17,6 +17,7 @@ import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
 import { useEffect } from 'react';
 import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
 import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -148,11 +149,11 @@ export const AddRecipeForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
 
-      useEffect(() => {
-        dispatch(fetchAllIngredientList());
+  useEffect(() => {
+    dispatch(fetchAllIngredientList());
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
   // const handleSubmit = (values, { resetForm }) => {
   //   // const preparationArray = values.preparation
   //   //   .split('\n')

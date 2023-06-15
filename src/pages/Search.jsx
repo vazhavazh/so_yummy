@@ -76,7 +76,7 @@ const Search = () => {
   };
 
   return (
-    <div className={scss.search_wrapper}>
+    <div className={scss.mainContainer}>
       <PageTitle />
       <SearchBar
         page={page}

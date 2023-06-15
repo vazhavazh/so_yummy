@@ -1,0 +1,224 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.cross {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  stroke: var(--darkToWhite);
+}
+@media screen and (min-width: 1440px) {
+  .cross {
+    display: none;
+  }
+}
+
+.backdrop {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-top: 18px;
+  background-color: var(--wrapperBgGrey);
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition: transform 200ms linear;
+}
+.backdrop::after {
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 320px;
+  height: 343px;
+  content: "";
+  background-image: url(../../../assets/image/header/menu-background.png);
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .backdrop::after {
+    width: 591px;
+    height: 505px;
+    background-image: url(../../../assets/image/header/menu-background-m.png);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .backdrop {
+    position: static;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    padding: 0;
+    flex-direction: row;
+    transform: translateX(0);
+    margin-left: 187px;
+  }
+  .backdrop::after {
+    display: none;
+  }
+}
+
+.backdrop.active {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 1440px) {
+  .navWrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.logoCrossWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    height: 44px;
+    width: 44px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .logo {
+    display: none;
+  }
+}
+
+.navList {
+  margin-top: 124px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .navList {
+    z-index: 3;
+    margin-top: 0px;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.navItem {
+  margin-bottom: 32px;
+}
+.navItem:last-child {
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (min-width: 1440px) {
+  .navItem {
+    margin-bottom: 0px;
+    margin-right: 30px;
+  }
+  .navItem:last-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.navLink {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--darkToWhite);
+}
+@media screen and (min-width: 768px) {
+  .navLink {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .navLink {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+.searchBtn {
+  border: 0;
+  background-color: transparent;
+  font-family: "Poppins";
+}
+
+.searchIcon {
+  height: 20px;
+  width: 20px;
+  stroke: var(--darkToWhite);
+  margin-right: 8px;
+}
+@media screen and (min-width: 768px) {
+  .searchIcon {
+    height: 24px;
+    width: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .searchIcon {
+    margin-right: 0px;
+  }
+}
+
+.searchLink {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1440px) {
+  .searchLinkText {
+    display: none;
+  }
+}
+
+.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+.toggle {
+  z-index: -2;
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 1440px) {
+  .toggle {
+    display: none;
+  }
+}/*# sourceMappingURL=Menu.module.css.map */

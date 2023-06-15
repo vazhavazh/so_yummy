@@ -1,0 +1,454 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBgColorWhite);
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--darkToWhite);
+  transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: var(--mainAccentColor);
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--darkGreytoGreen);
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8baa36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--wrapperBgGrey);
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8baa36;
+}
+
+.trashBtn--icon {
+  fill: var(--secondaryAccentColor);
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.mainContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 375px;
+  min-width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    max-width: 768px;
+    min-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .mainContainer {
+    max-width: 1440px;
+    min-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.shopping-list-container {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--mainBgColorWhite);
+}
+
+.shopping-list-categories {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 38px;
+  max-height: 38px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #8baa36;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .shopping-list-categories {
+    min-height: 58px;
+    max-height: 58px;
+    padding: 16px 20px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .shopping-list-categories {
+    min-height: 60px;
+    max-height: 60px;
+    padding: 16px 40px;
+  }
+}
+.shopping-list-categories--name {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .shopping-list-categories--name {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+}
+
+.name-wrapper {
+  display: flex;
+  gap: 24px;
+}
+@media screen and (min-width: 768px) {
+  .name-wrapper {
+    gap: 78px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .name-wrapper {
+    gap: 142px;
+  }
+}
+
+.ingredient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-list {
+    padding-right: 0px;
+    padding-left: 0px;
+    gap: 44px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingredient-list {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.ingredient-item {
+  position: relative;
+  padding-bottom: 24px;
+  padding-right: 19px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-item {
+    padding-bottom: 43px;
+    padding-right: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ingredient-item {
+    padding-right: 28px;
+  }
+}
+
+.ingredient-wrapper {
+  display: flex;
+  gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-wrapper {
+    gap: 16px;
+  }
+}
+
+.ingredient-img-wrapper {
+  min-width: 60px;
+  max-width: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  background: var(--greyImageToDarkGrey);
+  border-radius: 6px;
+  padding: 6px;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-img-wrapper {
+    min-width: 93px;
+    max-width: 93px;
+    min-height: 97px;
+    max-height: 97px;
+    padding: 8px 6px;
+  }
+}
+
+.ingredient-img {
+  width: 100%;
+  height: 100%;
+}
+
+.ingredient-name {
+  font-style: normal;
+  color: var(--mainTextColor);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-name {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.quantity-remove-wrapper {
+  display: flex;
+  gap: 46px;
+}
+@media screen and (min-width: 768px) {
+  .quantity-remove-wrapper {
+    gap: 110px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .quantity-remove-wrapper {
+    gap: 174px;
+  }
+}
+
+.ingredient-quantity-wrapper {
+  min-width: 37px;
+  max-width: 37px;
+  min-height: 23px;
+  max-height: 23px;
+  background-color: #8baa36;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-quantity-wrapper {
+    min-width: 68px;
+    max-width: 68px;
+    min-height: 35px;
+    max-height: 35px;
+  }
+}
+
+.ingredient-quantity {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .ingredient-quantity {
+    font-size: 18px;
+  }
+}
+
+.emptyName {
+  color: var(--mainTextColor) !important;
+}/*# sourceMappingURL=IngredientsShoppingList.css.map */

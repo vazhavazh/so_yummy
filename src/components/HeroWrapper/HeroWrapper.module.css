@@ -1,1 +1,30 @@
-/*# sourceMappingURL=HeroWrapper.module.css.map */
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 115px;
+  position: absolute;
+  bottom: 83px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 768px) {
+  .heroWrapper {
+    flex-direction: row-reverse;
+    gap: 0;
+    width: 704px;
+    bottom: 150px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .heroWrapper {
+    width: 1240px;
+    align-items: flex-start;
+    bottom: 224px;
+  }
+}/*# sourceMappingURL=HeroWrapper.module.css.map */
