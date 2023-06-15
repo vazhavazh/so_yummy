@@ -9,7 +9,7 @@ import styles from './styles/AddRecipe.module.scss';
 
 const AddRecipe = () => {
   return (
-    <>
+    <div className={styles.addRecipeMainContainer}>
       <PageTitle className={styles.addRecipeTitle} />
       <div className={styles.addRecipeContainer}>
         <AddRecipeForm />
@@ -18,7 +18,7 @@ const AddRecipe = () => {
           <PopularRecipes />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

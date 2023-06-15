@@ -53,10 +53,19 @@
     max-width: 319px;
     max-height: 528px;
   }
+
 }
 
 .popularListEll {
   width: 100%;
+
+  // @include tablet {
+  //   width: calc((100% - 32px) / 2);
+  // }
+
+  // @include desktop {
+  //   width: 100%;
+  // }
 }
 
 .popularEll {
@@ -68,6 +77,10 @@
   border-bottom: 1px solid #70707036;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  // @include desktop {
+  //   gap: 11px;
+  // }
 }
 
 .populaImg {
@@ -75,6 +88,14 @@
   height: 85px;
 
   border-radius: 8px;
+
+  // @include tablet {
+  //   width: 102px;
+  // }
+
+  // @include desktop {
+  //   width: 97px;
+  // }
 }
 
 .popularTextBox {
