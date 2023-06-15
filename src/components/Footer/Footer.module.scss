@@ -1,7 +1,12 @@
 @import '../../sass/variables';
 @import '../../sass/mixins';
 
+.footerContainer {
+  background-color: var(--darkToAccent);
+}
 .contactsSection {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   padding: 28px 0 18px;
 
@@ -9,13 +14,15 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: var(--darkToAccent);
+  max-width: 375px;
 
   @include tablet {
     padding: 50px 94px 24px 32px;
+    max-width: 768px;
   }
 
   @include desktop {
+    max-width: 1440px;
     padding: 64px 100px 50px 100px;
   }
 }

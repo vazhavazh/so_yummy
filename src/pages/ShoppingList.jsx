@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { IngredientsShoppingList } from 'components/IngredientsShoppingList/IngredientsShoppingList';
-import { PageTitle } from 'components/PageTitle/PageTitle';
 import Leaf from 'components/Leaf/Leaf';
 const ShoppingList = () => {
   useEffect(() => {
@@ -11,7 +10,6 @@ const ShoppingList = () => {
   }, []);
   return (
     <>
-      <PageTitle />
       <IngredientsShoppingList />
       <Leaf />
     </>

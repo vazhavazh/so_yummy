@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { FavoriteReceipts } from 'components/FavoriteReceipts/FavoriteReceipts';
-import { PageTitle } from 'components/PageTitle/PageTitle';
 import Leaf from 'components/Leaf/Leaf';
 
 const Favorite = () => {
@@ -12,7 +11,6 @@ const Favorite = () => {
   }, []);
   return (
     <>
-      <PageTitle />
       <FavoriteReceipts />
       <Leaf />
     </>

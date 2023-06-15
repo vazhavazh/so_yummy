@@ -1,1 +1,387 @@
-/*# sourceMappingURL=PreviewCategories.module.css.map */
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+html {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+  word-wrap: normal;
+}
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBgColorWhite);
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-weight: 400;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: var(--mainBgColorWhite);
+}
+
+.remove-btnX {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.remove-btnX--icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--darkToWhite);
+  transition: stroke 0.2s ease;
+}
+@media screen and (min-width: 768px) {
+  .remove-btnX--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.remove-btnX:hover .remove-btnX--icon {
+  stroke: var(--mainAccentColor);
+}
+
+.base-link-leaf {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px 44px;
+  max-width: 87px;
+  max-height: 27px;
+  min-width: 87px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--darkGreytoGreen);
+  transition: background 0.2s ease;
+}
+.base-link-leaf span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .base-link-leaf {
+    max-width: 138px;
+    max-height: 45px;
+    min-width: 138px;
+    min-height: 45px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .base-link-leaf {
+    max-width: 160px;
+    max-height: 54px;
+    min-width: 160px;
+    min-height: 54px;
+  }
+}
+.base-link-leaf:hover, .base-link-leaf:focus {
+  background: #8baa36;
+}
+
+.trashBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--wrapperBgGrey);
+  transition: background 0.2s ease;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .trashBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .trashBtn--icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trashBtn--icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.trashBtn:hover, .trashBtn:focus {
+  background-color: #8baa36;
+}
+
+.trashBtn--icon {
+  fill: var(--secondaryAccentColor);
+  transition: fill 0.2s ease;
+}
+
+.trashBtn:hover .trashBtn--icon,
+.trashBtn:focus .trashBtn--icon {
+  fill: #fafafa;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li > a.active {
+  color: #8baa36;
+  font-weight: 600;
+}
+
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 1440px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.previewCategoriesBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 64px 15px 100px;
+  background-color: var(--mainBgColorWhite);
+}
+@media screen and (min-width: 768px) {
+  .previewCategoriesBox {
+    gap: 32px;
+    padding: 72px 32px 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .previewCategoriesBox {
+    gap: 14px;
+    padding: 100px 100px 118px;
+  }
+}
+
+.previewCategoriesList {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  color: var(--darkGreytoWhite);
+}
+@media screen and (min-width: 768px) {
+  .previewCategoriesList {
+    max-width: 704px;
+    gap: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .previewCategoriesList {
+    max-width: 1240px;
+    gap: 100px;
+  }
+}
+
+.previewCategoriesListEll {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 343px;
+}
+@media screen and (min-width: 768px) {
+  .previewCategoriesListEll {
+    gap: 40px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .previewCategoriesListEll {
+    gap: 50px;
+  }
+}
+
+.categoriesName {
+  align-self: flex-start;
+  margin-bottom: 32px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+@media screen and (min-width: 768px) {
+  .categoriesName {
+    margin: 0;
+    font-size: 44px;
+    line-height: 1;
+  }
+}
+
+.recipeListSearch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  padding: 0;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .recipeListSearch {
+    width: 704px;
+    margin: 0;
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .recipeListSearch {
+    width: 1240px;
+    gap: 14px;
+  }
+}
+
+.recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .recipeList {
+    width: 704px;
+    margin: 0;
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .recipeList {
+    width: 1240px;
+    gap: 14px;
+  }
+}
+
+.seeAllBtn {
+  padding: 10px 24px;
+  align-self: flex-end;
+  border: none;
+  background: #8aa936;
+  color: #fafafa;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2857142857;
+  transition: background 0.2s ease;
+}
+.seeAllBtn:hover, .seeAllBtn:focus {
+  background: #22252a;
+  color: #fafafa;
+}
+
+.otherCategoriesBtn {
+  padding: 14px 32px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: transparent;
+  color: var(--darkToWhite);
+  border-radius: 24px 44px;
+  border: 2px solid #8baa36;
+  transition: background 0.2s ease;
+}
+.otherCategoriesBtn:hover, .otherCategoriesBtn:focus {
+  background: #8baa36;
+  color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .otherCategoriesBtn {
+    padding: 20px 52px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}/*# sourceMappingURL=PreviewCategories.module.css.map */

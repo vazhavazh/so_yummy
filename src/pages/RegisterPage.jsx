@@ -1,7 +1,6 @@
 import React from 'react';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { SignupSchema } from '../helpers/yup';
-import Leaf from 'components/Leaf/Leaf';
 const RegisterPage = () => {
   return (
     <div>
@@ -11,7 +10,6 @@ const RegisterPage = () => {
         redirect="Sign in"
         page="register"
       />
-      <Leaf/>
     </div>
   );
 };

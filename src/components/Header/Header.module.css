@@ -1,0 +1,134 @@
+/*
+  This mixin can be used to set the font-size and line-height in percents:
+  @include font-size(fontSize, lineHeight);
+*/
+.header {
+  padding-top: 18px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.headerNotMain {
+  position: static;
+}
+
+.navWrapper {
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    height: 44px;
+    width: 44px;
+  }
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  margin-right: 14px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  .avatar {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.userInfoWrapper {
+  display: flex;
+  margin-right: 24px;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .userInfoWrapper {
+    margin-right: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .userInfoWrapper {
+    margin-right: 0px;
+  }
+}
+
+.userWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--darkToWhite);
+}
+@media screen and (min-width: 768px) {
+  .username {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .username {
+    margin-right: 50px;
+    color: #22252a;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .usernameNotMain {
+    color: var(--darkToWhite);
+  }
+}
+
+.burgerWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.burgerBtn {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--darkToWhite);
+}
+@media screen and (min-width: 1440px) {
+  .burgerBtn {
+    display: none;
+  }
+}
+
+.burger {
+  width: 28px;
+  height: 28px;
+  stroke: var(--darkToWhite);
+}
+@media screen and (min-width: 768px) {
+  .burger {
+    stroke: #22252a;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .burgerNotMain {
+    stroke: var(--darkToWhite);
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .toggle {
+    display: none;
+  }
+}/*# sourceMappingURL=Header.module.css.map */

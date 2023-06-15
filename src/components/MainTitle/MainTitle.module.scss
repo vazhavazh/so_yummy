@@ -1,8 +1,18 @@
 .mainTitle {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 28px;
-    color: #001833;
+  //   max-width: 375px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  color: #330000;
+  background-color: aqua;
+
+  //   @include tablet {
+  //     max-width: 768px;
+  //   }
+
+  //   @include desktop {
+  //     max-width: 1440px;
+  //   }
 }

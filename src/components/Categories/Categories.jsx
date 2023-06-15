@@ -17,6 +17,7 @@ import {
 } from 'redux/categories/categoriesThanks';
 
 import Loader from 'components/Loader/Loader';
+import { PageTitle } from 'components/PageTitle/PageTitle';
 
 export const Categories = () => {
   const { categoriesName } = useParams();
@@ -55,6 +56,7 @@ export const Categories = () => {
 
   return (
     <div className="categories">
+      <PageTitle />
       <TabContext value={value}>
         <div className="categories-switcher">
           <TabList

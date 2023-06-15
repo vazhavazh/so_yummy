@@ -1,17 +1,17 @@
 @import '../../main.scss';
 .page-wrapper {
-  padding-left: 16px;
-  padding-right: 16px;
+  // padding-left: 16px;
+  // padding-right: 16px;
 
-  @include tablet {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+  // @include tablet {
+  //   padding-left: 32px;
+  //   padding-right: 32px;
+  // }
 
-  @include desktop {
-    padding-left: 100px;
-    padding-right: 172px;
-  }
+  // @include desktop {
+  //   padding-left: 100px;
+  //   padding-right: 172px;
+  // }
 }
 .mainTitle-container {
   position: relative;
@@ -22,9 +22,8 @@
   max-height: 74px;
 
   padding-bottom: 8px;
-margin-bottom: 43px;
-margin-top: 12px;
-
+  margin-bottom: 43px;
+  margin-top: 12px;
 
   @include tablet {
     min-height: 86px;
@@ -87,7 +86,6 @@ margin-top: 12px;
   }
 }
 .mainTitle-decorator2 {
-    
   position: absolute;
   left: 67.22%;
   right: 31.03%;
@@ -138,18 +136,17 @@ margin-top: 12px;
   }
 }
 
+.recipeName {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: calc(24 / 24);
+  letter-spacing: -0.02em;
 
-.recipeName{
-font-family: 'Poppins';
-font-weight: 600;
-font-size: 24px;
-line-height: calc(24/24);
-letter-spacing: -0.02em;
+  color: #8baa36;
 
-color: #8BAA36;
-
-@include tablet {
+  @include tablet {
     font-size: 44px;
-line-height: calc(44/44)
-}
+    line-height: calc(44 / 44);
+  }
 }

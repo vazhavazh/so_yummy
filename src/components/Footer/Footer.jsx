@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logo from '../../assets/svg/footer/logo.svg';
 import { ReactComponent as MailIcon } from '../../assets/svg/footer/mail.svg';
-import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
-import { ReactComponent as Youtube } from '../../assets/svg/footer/youtube.svg';
-import { ReactComponent as Twitter } from '../../assets/svg/footer/twitter.svg';
-import { ReactComponent as Instagram } from '../../assets/svg/footer/instagram.svg';
 import { SubscribeSchema } from 'helpers/yup';
 import { Formik, Form, Field } from 'formik';
 import { ReactComponent as ErrorSvg } from '../../assets/svg/authForm/error.svg';
@@ -14,6 +10,7 @@ import { ReactComponent as SuccessSvg } from '../../assets/svg/authForm/success.
 import { setFromFooterState } from 'redux/search/searchThunks';
 import { subscribe } from 'redux/subscribe/subThunks';
 import styles from '../AuthForm/AuthForm.module.scss';
+import { FollowUs } from 'components/FollowUs/FollowUs';
 
 export const Footer = () => {
   const dispatch = useDispatch();
@@ -28,7 +25,7 @@ export const Footer = () => {
 
   const initialValues = { email: '' };
   return (
-    <footer>
+    <footer className={style.footerContainer}>
       <section className={style.contactsSection}>
         <div className={style.navAdvSubWrapper}>
           <div className={style.navAdvWrapper}>
@@ -149,7 +146,7 @@ export const Footer = () => {
             </Formik>
           </div>
         </div>
-        <ul className={style.contactsList}>
+        {/* <ul className={style.contactsList}>
           <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
               <Facebook className={style.facebookIcon} />
@@ -174,7 +171,8 @@ export const Footer = () => {
               <Instagram className={style.instagramIcon} />
             </a>
           </li>
-        </ul>
+        </ul> */}
+        <FollowUs />
       </section>
       <section className={style.copyrightSection}>
         <p className={style.copyrightText}> © 2023 All Rights Reserved.</p>
