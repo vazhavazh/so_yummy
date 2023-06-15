@@ -77,30 +77,33 @@ const Search = () => {
   };
 
   return (
-    <div className={scss.mainContainer}>
-      <PageTitle />
-      <SearchBar
-        page={page}
-        limit={limit}
-        value={searchValue}
-        onChange={handleSearchInputChange}
-        onSearch={handleSearch}
-      />
-      <SearchedRecipesList
-        searchValue={submittedSearchValue}
-        key={submittedSearchValue}
-      />
-      {totalPages !== 1 && totalPages && (
-        <div style={inlineStyles}>
-          <Pagination
-            totalPages={totalPages}
-            currentpage={page}
-            onChangePage={onChangePage}
-          />
-        </div>
-      )}
-      <Leaf/>
-    </div>
+    <>
+      {' '}
+      <div className={scss.mainContainer}>
+        <PageTitle />
+        <SearchBar
+          page={page}
+          limit={limit}
+          value={searchValue}
+          onChange={handleSearchInputChange}
+          onSearch={handleSearch}
+        />
+        <SearchedRecipesList
+          searchValue={submittedSearchValue}
+          key={submittedSearchValue}
+        />
+        {totalPages !== 1 && totalPages && (
+          <div style={inlineStyles}>
+            <Pagination
+              totalPages={totalPages}
+              currentpage={page}
+              onChangePage={onChangePage}
+            />
+          </div>
+        )}
+      </div>
+      <Leaf />
+    </>
   );
 };
 
