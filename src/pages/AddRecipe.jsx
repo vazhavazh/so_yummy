@@ -15,6 +15,10 @@ const AddRecipe = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const element = document.getElementById('ahcnor1');
+    if (element) {
+      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
     dispatch(fetchAllIngredientList());
   }, [dispatch]);
 
