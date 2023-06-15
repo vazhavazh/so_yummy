@@ -11,9 +11,12 @@ import { ReactComponent as IncrementIcon } from './images/ingredientsIncrement.s
 import { ReactComponent as DecrementIcon } from './images/ingredientsDecrement.svg';
 import categories from './data/categories.json';
 import time from './data/cookingTime.json';
-import ingredients from './data/ingredients.json';
-import { useDispatch } from 'react-redux';
+// import ingredients from './data/ingredients.json';
+import { useDispatch, useSelector } from 'react-redux';
 import { addMyOwnRecipe } from 'redux/myRecipes/myRecipesThunk';
+import { useEffect } from 'react';
+import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
+import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
 
 const MAX_FILE_SIZE = 700 * 1024;
 
@@ -104,45 +107,52 @@ const customStyles = {
   }),
 };
 
-const customInredientStyles = {
-  container: (baseStyles, state) => ({
-    ...baseStyles,
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: '12px',
-    lineHeight: '12px',
-    border: state.isFocused ? 'none' : 'none',
-    outline: state.isFocused ? 'none' : 'none',
-  }),
-  dropdownIndicator: baseStyles => ({
-    ...baseStyles,
-    color: '#8baa36',
-  }),
-  menu: baseStyles => ({
-    ...baseStyles,
-    maxHeight: '170px', // Specify the desired height
-    overflowY: 'auto',
-  }),
-  control: (baseStyles, state) => ({
-    ...baseStyles,
-    height: '53px',
-    width: '100%',
-    border: 'none',
-    outline: 'none',
-    backgroundColor: '#f5f5f5',
-  }),
-  indicatorSeparator: baseStyles => ({
-    ...baseStyles,
-    display: 'none',
-  }),
-};
+// const customInredientStyles = {
+//   container: (baseStyles, state) => ({
+//     ...baseStyles,
+//     fontFamily: 'Poppins',
+//     fontStyle: 'normal',
+//     fontWeight: '400',
+//     fontSize: '12px',
+//     lineHeight: '12px',
+//     border: state.isFocused ? 'none' : 'none',
+//     outline: state.isFocused ? 'none' : 'none',
+//   }),
+//   dropdownIndicator: baseStyles => ({
+//     ...baseStyles,
+//     color: '#8baa36',
+//   }),
+//   menu: baseStyles => ({
+//     ...baseStyles,
+//     maxHeight: '170px', // Specify the desired height
+//     overflowY: 'auto',
+//   }),
+//   control: (baseStyles, state) => ({
+//     ...baseStyles,
+//     height: '53px',
+//     width: '100%',
+//     border: 'none',
+//     outline: 'none',
+//     backgroundColor: '#f5f5f5',
+//   }),
+//   indicatorSeparator: baseStyles => ({
+//     ...baseStyles,
+//     display: 'none',
+//   }),
+// };
 
 export const AddRecipeForm = () => {
+  const reduxIngredients = useSelector(selectIngredIentList);
+  console.log(reduxIngredients);
   const dispatch = useDispatch();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
 
+      useEffect(() => {
+        dispatch(fetchAllIngredientList());
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [dispatch]);
   // const handleSubmit = (values, { resetForm }) => {
   //   // const preparationArray = values.preparation
   //   //   .split('\n')
@@ -319,7 +329,7 @@ export const AddRecipeForm = () => {
                               className={styles.ingredientItemWrapper}
                             >
                               <div className={styles.ingredientInputWtapper}>
-                                <ReactSelect
+                                {/* <ReactSelect
                                   name={`ingredients[${index}].id`}
                                   options={ingredients}
                                   isSearchable={true}
@@ -336,7 +346,7 @@ export const AddRecipeForm = () => {
                                       selectedOption.value
                                     )
                                   }
-                                />
+                                /> */}
                               </div>
                               <ErrorMessage
                                 name={`ingredients[${index}].id`}
