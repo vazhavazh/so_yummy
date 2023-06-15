@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import { Notify } from 'notiflix';
 
 export const fetchAllMyOwnRecipes = createAsyncThunk(
   'fetchAllMyOwnRecipes',
@@ -28,12 +29,13 @@ export const addMyOwnRecipe = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
+      if (error.response.status === 400) {
+        Notify.failure('Ooops');
+      }
       return rejectWithValue(error.response.data.message);
     }
   }
 );
-
-
 
 export const deleteMyOwnRecipe = createAsyncThunk(
   'ownRecipe/Delete',

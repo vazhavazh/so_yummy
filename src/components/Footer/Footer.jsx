@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logo from '../../assets/svg/footer/logo.svg';
 import { ReactComponent as MailIcon } from '../../assets/svg/footer/mail.svg';
-import facebook from '../../assets/svg/footer/facebook.svg';
-import youtube from '../../assets/svg/footer/youtube.svg';
-import twitter from '../../assets/svg/footer/twitter.svg';
-import instagram from '../../assets/svg/footer/instagram.svg';
+import { ReactComponent as Facebook } from '../../assets/svg/footer/facebook.svg';
+import { ReactComponent as Youtube } from '../../assets/svg/footer/youtube.svg';
+import { ReactComponent as Twitter } from '../../assets/svg/footer/twitter.svg';
+import { ReactComponent as Instagram } from '../../assets/svg/footer/instagram.svg';
 import { SubscribeSchema } from 'helpers/yup';
 import { Formik, Form, Field } from 'formik';
 import { ReactComponent as ErrorSvg } from '../../assets/svg/authForm/error.svg';
@@ -148,45 +148,22 @@ export const Footer = () => {
                 );
               }}
             </Formik>
-
-            {/* <form className={style.form}>
-              <div className={style.inputWrapper}>
-                <img className={style.mailIcon} src={mail} alt="" />
-                <input
-                  className={style.input}
-                  type="email"
-                  placeholder="Enter your email address"
-                  onChange={e => setEmail(e.target.value)}
-                />
-              </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                className={style.subscribeBtn}
-              >
-                Subscribe
-              </button>
-            </form> */}
           </div>
         </div>
         {/* <ul className={style.contactsList}>
           <li className={style.facebookItem}>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-              <img
-                className={style.facebookIcon}
-                src={facebook}
-                alt="facebook"
-              />
+              <Facebook className={style.facebookIcon} />
             </a>
           </li>
           <li className={style.youtubeItem}>
             <a target="_blank" rel="noreferrer" href="https://www.youtube.com">
-              <img className={style.youtubeIcon} src={youtube} alt="youtube" />
+              <Youtube className={style.youtubeIcon} />
             </a>
           </li>
           <li className={style.twitterItem}>
             <a target="_blank" rel="noreferrer" href="https://twitter.com">
-              <img className={style.twitterIcon} src={twitter} alt="twitter" />
+              <Twitter className={style.twitterIcon} />
             </a>
           </li>
           <li className={style.instagramItem}>
@@ -195,11 +172,7 @@ export const Footer = () => {
               rel="noreferrer"
               href="https://www.instagram.com"
             >
-              <img
-                className={style.instagramIcon}
-                src={instagram}
-                alt="instagram"
-              />
+              <Instagram className={style.instagramIcon} />
             </a>
           </li>
         </ul> */}

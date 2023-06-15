@@ -3,6 +3,7 @@
 .leaf_img {
     position: absolute;
     bottom: 230px;
+    z-index: -1;
 
     @include tablet {
         bottom: 50px;

@@ -15,9 +15,9 @@ export const RecipeCard = ({ recipe }) => {
         <div className={style.recipeOverlay}>
           <p className={style.recipeTime}>
             <IconTime className={style.recipeClock} />
-            {`${time} min`}
+            {time ? `${time} min` : "Time is not countable"}
           </p>
-          <p className={style.recipeText}>{description}</p>
+          <p className={style.recipeText}>{description ? description : "No description"}</p>
         </div>
       </NavLink>
       {/* </a> */}
