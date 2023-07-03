@@ -34,10 +34,10 @@ const shoppingIngredientsSlice = createSlice({
 
         .addCase(fetchDeleteShoppingIngredient.fulfilled, (state, action) => {
        
-        const index = state.shoppingIngredients.shoppingList.findIndex(
-          shoppingIngredients => shoppingIngredients._id === action.payload
+        const index = state.shoppingIngredients.findIndex(
+          shoppingIngredient => shoppingIngredient._id === action.payload
         );
-        state.shoppingIngredients.shoppingList.splice(index, 1);
+        state.shoppingIngredients.splice(index, 1);
       })
 
       .addMatcher(

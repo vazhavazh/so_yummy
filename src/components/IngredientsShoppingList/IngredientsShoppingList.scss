@@ -176,7 +176,7 @@
 }
 .ingredient-quantity-wrapper {
   min-width: 37px;
-  max-width: 37px;
+  padding: 4px;
   min-height: 23px;
   max-height: 23px;
   background-color: $mainAccentColor;
@@ -189,7 +189,7 @@
 
   @include tablet {
     min-width: 68px;
-    max-width: 68px;
+   
     min-height: 35px;
     max-height: 35px;
   }
