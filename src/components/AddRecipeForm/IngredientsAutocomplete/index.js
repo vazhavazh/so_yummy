@@ -7,7 +7,7 @@ const IngredientsAutocomplete = styled(Autocomplete)(({ theme, error }) => ({
 }));
 
 const AutocompleteWrapper = ({ name, ...otherProps }) => {
-  const [field, meta] = useField(name);
+  const [field] = useField(name);
 
   const configAutocomplete = {
     ...field,

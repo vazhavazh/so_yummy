@@ -1,1 +1,1 @@
-const selectCategoriesState = state => state.categories;
+export const selectCategoriesState = state => state.categories;

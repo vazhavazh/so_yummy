@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, TextareaAutosize } from '@mui/material';
-import { Field } from 'formik';
 
 export const RecipePreparationFields = () => {
   return (

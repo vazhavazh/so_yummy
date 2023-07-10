@@ -11,7 +11,6 @@ const AddRecipeSelect = styled(Select)(({ theme, error }) => ({
   '& .MuiSelect-icon': { top: 'calc(55% - 0.5em)' },
   '&::before': {
     content: '""',
-    left: '-183px',
     left: '-120%',
     opacity: '0.3',
   },
