@@ -10,7 +10,7 @@ import style from '../FollowUs/FollowUs.module.scss';
 export const FollowUs = () => {
   return (
     <div className={style.socialBox}>
-      <h2 className={style.socialTitle}>Follow us</h2>
+      {/* <h2 className={style.socialTitle}>Follow us</h2> */}
       <ul className={style.socialList}>
         <li className={style.facebookItem}>
           <a target="_blank" rel="noreferrer" href="https://www.facebook.com">

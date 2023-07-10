@@ -150,7 +150,6 @@ export const App = () => {
             }
           />
           <Route path="*" element={<ErrorPage />} />
-          {/* <Route path="*" element={<Navigate to="/error" />} /> */}
         </Route>
       </Routes>
     </>
