@@ -30,7 +30,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(getCurrentUser());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const currentPath = location.pathname;
