@@ -170,8 +170,6 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
       });
   };
 
-  // ingredients logic:
-
   const handleIncrement = () => {
     setCounter(prevCounter => prevCounter + 1);
   };

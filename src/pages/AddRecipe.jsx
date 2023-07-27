@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIngredIentList } from 'redux/ingredientList/ingredientListSelector';
+import {
+  selectIngredIentList,
+  selectIsLoading,
+} from 'redux/ingredientList/ingredientListSelector';
 import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk';
 
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
@@ -10,6 +13,7 @@ import { PageTitle } from 'components/PageTitle/PageTitle';
 
 import Leaf from 'components/Leaf/Leaf';
 import styles from './styles/AddRecipe.module.scss';
+import Loader from 'components/Loader/Loader';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -23,10 +27,15 @@ const AddRecipe = () => {
   }, [dispatch]);
 
   const reduxIngredients = useSelector(selectIngredIentList);
+  const isLoading = useSelector(selectIsLoading);
 
   let modifiedIngredients = [];
 
-  if (reduxIngredients.length !== 0) {
+  if (
+    !isLoading &&
+    Array.isArray(reduxIngredients) &&
+    reduxIngredients.length !== 0
+  ) {
     modifiedIngredients = reduxIngredients.map(({ _id, title }) => ({
       value: _id,
       label: title,
@@ -37,11 +46,14 @@ const AddRecipe = () => {
     <div className={styles.addRecipeMainContainer}>
       <PageTitle />
       <div className={styles.addRecipeContainer}>
-        {modifiedIngredients.length > 0 && (
-          <AddRecipeForm modifiedIngredients={modifiedIngredients} />
+        {isLoading ? (
+         <Loader />
+        ) : (
+          modifiedIngredients.length > 0 && (
+            <AddRecipeForm modifiedIngredients={modifiedIngredients} />
+          )
         )}
         <div className={styles.popularAndFollowContainer}>
-          <FollowUs />
           <PopularRecipes />
         </div>
       </div>
