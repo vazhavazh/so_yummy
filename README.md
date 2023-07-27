@@ -1,4 +1,4 @@
-# SO_YUMMY
+# 🍴 SO_YUMMY 🍴
 So Yummy is a web application built using React, Redux, and Material-UI, designed for searching and viewing various recipes. The app allows users to search for recipes based on different categories and ingredients, as well as add their own recipes.
 
 # Key Features:
