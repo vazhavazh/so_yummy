@@ -363,7 +363,9 @@ export const AddRecipeForm = ({ modifiedIngredients }) => {
                               className={styles.counterIcon}
                             />
                           )}
-                          <span>{counter}</span>
+                          <span className={styles.ingredientsTitle}>
+                            {counter}
+                          </span>
                           <IncrementIcon
                             onClick={() => {
                               push({
