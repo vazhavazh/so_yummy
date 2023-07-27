@@ -23,9 +23,11 @@ export const GlobalStyles = createGlobalStyle`
     --dropdownTextColor: #23262a;
     --inputBorderColor:rgba(35, 38, 42, 0.3);
     --greenToDark: #3cbc81;
+    --lightGreyToGreen: #3e4462
   }
 
 .dark-mode {
+  --lightGreyToGreen: #8baa36;
   --mainBgColorWhite: #1E1F28;
   --secondaryBgColorWhite: #2A2C36;
   --mainTextColor: #fafafa;

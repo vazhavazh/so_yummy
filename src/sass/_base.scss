@@ -15,6 +15,20 @@ html {
   }
 }
 
+html::-webkit-scrollbar {
+  width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #8baa36;
+  border-radius: 4px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #637926;
+}
+html:hover {
+  overflow: auto;
+}
+
 body {
   position: relative;
   background-color: var(--mainBgColorWhite);
