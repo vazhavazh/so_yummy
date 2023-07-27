@@ -8,7 +8,6 @@ import { fetchAllIngredientList } from 'redux/ingredientList/ingredientListThunk
 
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 import { PopularRecipes } from 'components/PopularRecipes/PopularRecipes';
-import { FollowUs } from 'components/FollowUs/FollowUs';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 
 import Leaf from 'components/Leaf/Leaf';
@@ -47,7 +46,7 @@ const AddRecipe = () => {
       <PageTitle />
       <div className={styles.addRecipeContainer}>
         {isLoading ? (
-         <Loader />
+          <Loader />
         ) : (
           modifiedIngredients.length > 0 && (
             <AddRecipeForm modifiedIngredients={modifiedIngredients} />
