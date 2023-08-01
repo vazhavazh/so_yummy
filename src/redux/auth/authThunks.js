@@ -56,7 +56,7 @@ export const getCurrentUser = createAsyncThunk(
       if (error.response.status === 401) {
         clearAuthHeader();
         Notify.warning('Unauthorized');
-        localStorage.clear();
+      
       } else {
         return rejectWithValue(error.message);
       }
