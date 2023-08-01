@@ -8,6 +8,7 @@ export const fetchMainPageRecipe = createAsyncThunk(
       const res = await axios.get(`api/recipes/main-page`);
       return { data: res.data };
     } catch (error) {
+      
       return thunkAPI.rejectWithValue(error.message);
     }
   }
