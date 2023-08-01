@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { setAuthHeader, clearAuthHeader } from '../../api';
-import { removeItemFromLocalStorage } from 'helpers/cleanLocarStorage';
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
 export const registerUser = createAsyncThunk(
@@ -57,7 +56,7 @@ export const getCurrentUser = createAsyncThunk(
       if (error.response.status === 401) {
         clearAuthHeader();
        
-        removeItemFromLocalStorage('persist:auth');
+        localStorage.clear();
       } else {
         return rejectWithValue(error.message);
       }
