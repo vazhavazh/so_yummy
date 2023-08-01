@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { setAuthHeader, clearAuthHeader } from '../../api';
-import { Navigate} from 'react-router-dom';
+import { removeItemFromLocalStorage } from 'helpers/cleanLocarStorage';
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
 export const registerUser = createAsyncThunk(
@@ -54,11 +54,10 @@ export const getCurrentUser = createAsyncThunk(
       const { data } = await axios.get(`/api/auth/current`, token);
       return data;
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+      if (error.response.status === 401) {
         clearAuthHeader();
         Notify.warning('Unauthorized');
-        return <Navigate to="/signin" />;
-        
+        removeItemFromLocalStorage('persist:auth');
       } else {
         return rejectWithValue(error.message);
       }
