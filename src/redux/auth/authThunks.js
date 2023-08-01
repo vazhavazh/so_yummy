@@ -54,9 +54,9 @@ export const getCurrentUser = createAsyncThunk(
       return data;
     } catch (error) {
       if (error.response.status === 401) {
-        clearAuthHeader();
-
-        window.localStorage.clear();
+        // clearAuthHeader();
+        Notify (401)
+        // window.localStorage.clear();
 
       } else {
         return rejectWithValue(error.message);
