@@ -53,9 +53,11 @@ export const getCurrentUser = createAsyncThunk(
       const { data } = await axios.get(`/api/auth/current`, token);
       return data;
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+      if (error.response.status === 401) {
         clearAuthHeader();
+
         window.localStorage.clear();
+
       } else {
         return rejectWithValue(error.message);
       }

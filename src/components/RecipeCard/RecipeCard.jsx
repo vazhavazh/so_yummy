@@ -5,7 +5,9 @@ import { ReactComponent as IconTime } from '../../assets/svg/mainPage/icon-time.
 import { NavLink } from 'react-router-dom';
 
 export const RecipeCard = ({ recipe }) => {
+ 
   const { title, preview, _id, time, description } = recipe;
+   
   return (
     <li className={style.recipeEll}>
       {/* <a href={`so_yummy/recipe/${_id}`}> */}
