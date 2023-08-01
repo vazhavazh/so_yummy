@@ -56,6 +56,9 @@ export const getCurrentUser = createAsyncThunk(
       if (error.response.status === 401) {
         clearAuthHeader();
 
+
+
+        
         // localStorage.clear()
         
 
