@@ -6,7 +6,7 @@ import { registerUser, loginUser } from 'redux/auth/authThunks';
 import styles from './AuthForm.module.scss';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as UserSvg } from '../../assets/svg/authForm/name.svg';
-import { ReactComponent as GoogleSvg } from '../../assets/svg/authForm/google.svg';
+// import { ReactComponent as GoogleSvg } from '../../assets/svg/authForm/google.svg';
 import { ReactComponent as EmailSvg } from '../../assets/svg/authForm/email.svg';
 import { ReactComponent as PassSvg } from '../../assets/svg/authForm/password.svg';
 // import { ReactComponent as SvgOrderWhite } from '../../assets/svg/authForm/Order-food-pana-white.svg';
