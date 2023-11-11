@@ -266,7 +266,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                     >
                       {page === 'signin' ? 'Sing in' : 'Sign up'}
                     </button>
-                    <a
+                    {/* <a
                       className={styles.auth_link}
                       href="https://so-yummy-mg49.onrender.com/api/auth/google"
                     >
@@ -274,7 +274,7 @@ export const AuthForm = ({ title, page, redirect, schema }) => {
                         <p className={styles.google_text}>Continue with</p>
                         <GoogleSvg className={styles.google_svg} />
                       </div>
-                    </a>
+                    </a> */}
                   </Form>
                 );
               }}
